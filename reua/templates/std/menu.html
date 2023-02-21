@@ -1,0 +1,53 @@
+{% load i18n %}
+<header class="position-absolute w-100 topmenu z10">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#general-navbar"
+                    aria-controls="general-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="general-navbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if is_index %}
+                        <li class="nav-item me-2">
+                            {% url "index" as index_url %}
+                            <a class="btn nav-link {% if request.path == index_url %} active {% endif %}"
+                               href="{{ index_url }}">
+                                {% trans "Головна" %}
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for menu_item in top_menu_items %}
+                        <li class="nav-item me-2">
+                            <a class="btn nav-link {% if request.path == menu_item.fp.get_absolute_url %} active {% endif %}"
+                               href="{{ menu_item.fp.get_absolute_url }}">
+                                {{ menu_item.localized_title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <ul class="list-unstyled mx-auto my-0 d-flex">
+                    <li>
+                        <a class="btn btn-outline-warning">
+                            {% trans "Зробити внесок" %}
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-unstyled my-0 d-flex">
+                    {% get_available_languages as languages %}
+                    {% for language in languages %}
+                        {% get_language_info for language|first as lang_info %}
+                        <li class="me-1">
+{#                            <a href="{% language lang_info.code %}{% url request.resolver_match.url_name %}{% endlanguage %}"#}
+                            <a href="{% language lang_info.code %}{% url "index" %}{% endlanguage %}"
+                               class="btn lng lng-{{ lang_info.code }} text-uppercase d-flex align-items-center {% if LANGUAGE_CODE == lang_info.code %}active{% endif %}"
+                               title="{{ lang_info.name_local }}">
+                                {{ lang_info.code }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

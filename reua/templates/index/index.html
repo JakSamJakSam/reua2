@@ -1,0 +1,55 @@
+{% extends "reua_base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {% trans "Головна сторінка" %}
+{% endblock %}
+{% block css %}
+    {{ block.super }}
+    <link href="{% static "reua/css/index.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block menu %}
+    {% include 'std/menu.html' with is_index=True %}
+{% endblock %}
+{% block body %}
+    <section class="landing_block position-relative d-flex overflow-hidden ">
+        <div class="video-container position-absolute w-100 h-100">
+            <video src="{% static "reua/video/mrpl.mp4" %}" onloadedmetadata="this.muted = true" playsinline=""
+                   autoplay="" muted="" loop=""></video>
+            <div></div>
+        </div>
+        <div class="container under_topmenu d-flex flex-column justify-content-center ">
+            <div>
+            <img src="{% static "reua/img/logo_big.png" %}" class="mw-100">
+                </div>
+            <div class="text-white my-5" style="font-size: 1.25rem; line-height: 1.25; max-width: 600px;">
+                <p>{% trans "Благодійний фонд" %} <span class="text-warning">
+                    {% trans "«Відбудуємо нашу Україну»" %}
+                </span><br></p>
+                <p>
+                    {% trans "Платформа працює для збору коштів на вирішення першочергових гуманітарних задач внутрішньо переміщених осіб з Маріуполя та України в цілому." %}
+                </p>
+            </div>
+        </div>
+        <div class="position-absolute text-white" style="right: 100px; bottom: 100px;">
+            <h5 class="fw-bold text-uppercase">
+                {% trans "Зробити внесок карткою" %}
+            </h5>
+            <ul class="d-flex gap-2 list-unstyled justify-content-between">
+                <li>
+                    <a href="#" class="qrpay_button">
+                        <img src="{% static "reua/img/qr/qr_water.png" %}">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="qrpay_button"><img
+                            src="{% static "reua/img/qr/qr_city.png" %}"></a>
+                </li>
+            </ul>
+            <img src="{% static "reua/img/pay_logos.png" %}">
+        </div>
+    </section>
+    {% include "index/partners.html" %}
+{% endblock %}

@@ -1,0 +1,81 @@
+{% load i18n %}
+{% load static %}
+<footer class="bg-light">
+    <div class="container py-5">
+        <div class="row row-cols-3">
+            <div class="col">
+                <img src="{% static "reua/img/footer/logo_small.png" %}" alt="Rebuild our unraine" width="250px"
+                     class="mb-4">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link p-0 pe-1 text-uppercase" aria-current="page"
+                           href="{% url "index" %}">{% trans "Головна" %}</a>
+                    </li>
+                    {% for menu_item in top_menu_items %}
+                        <li class="nav-item">
+                            <a class="nav-link p-0 pe-1 text-uppercase"
+                               href="{{ menu_item.fp.get_absolute_url }}">
+                                {{ menu_item.localized_title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <ul class="nav mt-3 gap-1">
+                    {% for fd in founding_documents %}
+                        <li class="nav-item">
+                            <a class="nav-link p-0 pe-1"
+                               href="{{ fd.url }}">
+                                <i class="{{ fd.awesome_icon }} fa-lg"></i>
+                                {{ fd.localized_title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col">
+                <h5 class="text-uppercase fw-bolder">
+                    {% trans "Напишіть нам, якщо у вас є ідеї або пропозиції" %}
+                </h5>
+                {% include "std/feedback_form.html" %}
+            </div>
+            <div class="col">
+                <ul class="list-unstyled d-flex flex-column gap-2">
+                    <li class="d-flex align-items-center">
+                        <i class="fa-solid fa-phone fa-lg me-2"></i>
+                        <h5><a href="tel:+380670772255" class="text-dark text-decoration-none fw-bolder">+380 67 077 22
+                            55</a></h5>
+
+                    </li>
+                    <li class="d-flex align-items-center">
+                           <i class="fa-solid fa-location-dot fa-lg me-3"></i>
+                        <a href='#' class="text-decoration-none text-muted">
+                            {#                            TODO: Добавить ссылку на страницу с адрсом#}
+                            {% trans "Київ, Повітрофлотський пр-т 3, оф. 21" %}
+                        </a>
+                    </li>
+                    <li class="d-flex align-items-center gap-1">
+                           <i class="fa-solid fa-circle-nodes fa-lg me-2"></i>
+                        <a href='https://www.facebook.com/reua.com.ua' class="btn btn-light bg-white" target="_blank">
+                            <i class="fa-brands fa-facebook-f fa-fw"></i>
+                        </a>
+                        <a href='https://www.youtube.com/channel/UC1Wg8_m7TDH61IFrPuJFekA'
+                           class="btn btn-light bg-white" target="_blank">
+                            <i class="fa-brands fa-youtube fa-fw"></i>
+                        </a>
+                        <a href=https://www.instagram.com/reua.com.ua' class="btn btn-light bg-white" target="_blank">
+                            <i class="fa-brands fa-instagram fa-fw"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small">
+                    <i class="fa-regular fa-copyright fa-sm"></i> REUA 2023
+                </div>
+                <ul class="mt-5 list-unstyled d-flex align-items-center gap-3">
+                    <li><img src="{% static "reua/img/footer/logos/fudl.png" %}"></li>
+                    <li><img src="{% static "reua/img/footer/logos/visa.png" %}"></li>
+                    <li><img src="{% static "reua/img/footer/logos/mastercard.png" %}"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

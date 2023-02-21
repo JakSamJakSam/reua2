@@ -1,0 +1,11 @@
+{% extends "reua_base.html" %}
+{% block title %}
+    {{ flatpage.title }}
+{% endblock %}
+
+{% block body %}
+    {{ block.super }}
+    {{ flatpage.content }}
+{% endblock %}
+
+{# TODO: https://github.com/PragmaticMates/django-flatpages-i18n #}

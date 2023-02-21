@@ -1,0 +1,31 @@
+.video-container{
+    background: url("../img/dram_t.png") no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.video-container>div {
+    background: #0e1f3cd5;
+    position: absolute;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.video-container>video {
+    position: absolute;
+    width: 100%;
+}
+
+.qrpay_button {
+    transition: all .15s ease-in-out;
+}
+
+.qrpay_button:hover {
+    opacity: 0.5;
+}
+
+.partner{
+    min-height: 145px;
+}
