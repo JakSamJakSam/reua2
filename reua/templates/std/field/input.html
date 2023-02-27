@@ -1,0 +1,19 @@
+<div class="{{ cnt_class }}">
+    <div class="input-group">
+        <span class="input-group-text">
+           <i class="{{ icon_class }}"></i>
+        </span>
+        <label for="{{ field.id_for_label }}" class="sr-only">{{ field.label }}</label>
+        <input type="{{ input_type|default:'text' }}l" name="{{ field.name }}"
+               class="form-control {% include "std/field_valid.html" %}"
+{#               {% if field.field.required %} required {% endif %} #}
+               id="{{ field.id_for_label }}"
+               {% if field.field.max_length %} maxlength="{{ field.field.max_length }}" {% endif %}
+               {% if field.field.min_length %} minlength={{ field.field.min_length }}" {% endif %}
+               value="{{ field.value|default:'' }}" placeholder="{{ field.label }}"/>
+        {% include "std/field_errors.html" %}
+    </div>
+    {% if field.help_text %}
+        <div class="form-text">{{ field.help_text }}</div>
+    {% endif %}
+</div>

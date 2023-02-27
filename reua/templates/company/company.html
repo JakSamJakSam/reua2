@@ -1,0 +1,86 @@
+{% extends "default_page.html" %}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load request_heplers %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+        <div class="col-md-9">
+            <div class="d-flex">
+                <div class="bg-white border rounded">
+                    {% thumbnail company.logotype "300" format="PNG" upscale=True crop='center' as im %}
+                        <img src="{{ im.url }}" class="border rounded"
+                             alt="{{ company.name }}" width="{{ im.width }}"
+                             height="{{ im.height }}">
+                    {% endthumbnail %}
+                </div>
+                <div class="flex-fill px-3">
+                    <h3>{{ company.name }}</h3>
+                    {% if company.phone %}
+                        <div class="py-1">
+                        <a href="{{ company.phone.as_rfc3966 }}" class="text-decoration-none text-dark">
+                            <i class="fa-solid fa-phone me-1"></i>
+                            {{ company.phone.as_international }}
+                        </a>
+                        </div>
+                    {% endif %}
+                    {% if company.site %}
+                        <div class="py-1">
+                        <a href="{{ company.site }}" target="_blank" class="text-decoration-none text-dark">
+                            <i class="fa-solid fa-link me-1"></i>
+                            {{ company.site }}
+                        </a>
+                        </div>
+                    {% endif %}
+                    {% if company.email %}
+                        <div class="py-1">
+                        <a href="mailto:{{ company.email }}" class="text-decoration-none text-dark">
+                            <i class="fa-solid fa-envelope me-1"></i>
+                            {{ company.email }}
+                        </a>
+                        </div>
+                    {% endif %}
+                    {% if company.city or company.addr %}
+                        <div class="py-1">
+                        <i class="fa-solid fa-location-dot me-1"></i>
+                        <b>{{ company.city }}</b> {{ company.addr }}
+                        </div>
+                    {% endif %}
+                    {% if company.descr %}
+                        <div class="border-top fst-italic py-1">
+                        {{ company.descr }}
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <h6>{% trans "Профільні компанії" %}</h6>
+            <ul class="list-unstyled">
+                {% for company in category_companies %}
+                    <li>
+                        <a class="card text-decoration-none text-dark d-flex flex-row overflow-hidden" href="{% url "company-item" pk=company.pk %}">
+                            <div class="bg-white border rounded p-1">
+                                {% thumbnail company.logotype "75x75" format="PNG" upscale=True crop='center' as im %}
+                                    <img src="{{ im.url }}" class="border rounded"
+                                         alt="{{ company.name }}" width="{{ im.width }}"
+                                         height="{{ im.height }}">
+                                {% endthumbnail %}
+                            </div>
+                            <div class="flex-fill py-1 px-3 overflow-hidden">
+                                <h6>{{ company.name }}</h6>
+{#                                TODO: Не обрывается текст #}
+                                <small class="text-nowrap ">{{ company.descr }}</small>
+                                <span>{{ company.city }}</span>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

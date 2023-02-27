@@ -1,0 +1,171 @@
+{% extends "default_page.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    {{ block.super }}
+    <h3>{% trans "Забезпечення чистою питною водою населення України" %}</h3>
+    <p>
+        {% blocktrans %}
+            Російські ракети щоденно знищують критичну інфраструктуру країни. Через відсутність питної води потерпають
+            мільйони українців.
+            Це спонукало фонд до створення проєкту ReH2O. Перша в Україні мобільна водоочисна станція була розроблена
+            директором благодійного фонду.
+            Запатентований винахід, за результатами державної санітарно-епідеміологічної експертизи, відповідає всім
+            вимогам діючого санітарного
+            законодавства України. Комісія при державній установі "Інститут громадського здоров'я ім. О. М. Марзєєва
+            НАМНУ" погодила роботу водоочисної
+            станції.
+        {% endblocktrans %}
+    </p>
+    <div class="border p-1">
+        <h2 class="text-uppercase text-muted">{% trans "Благодійна модель вирішення проблеми" %}</h2>
+        <p>
+            {% blocktrans %}
+                Організація збору коштів на закупівлю мобільних систем очищення води з подальшим наданням громадам, що
+                зазнали гуманітарної катастрофи і терміново потребують відновлення забезпечення очищеною питною водою.
+            {% endblocktrans %}
+        </p>
+    </div>
+    <h4>{% trans "Мобільна система очистки води ReH2O" %}</h4>
+    <div class="row mb-5 rounded overflow-hidden">
+        <div class="col col-6 p-0">
+            <div class="w-100 h-100"
+                 style="background: url({% static "reua/img/water/water_station.png" %}) center center no-repeat; background-size: cover ">
+            </div>
+        </div>
+        <div class="col col-6 p-4 d-flex align-items-center" style="background-color: var(--bs-gray-200);">
+            <div>
+                <h1>{% trans "Як це працює?" %}</h1>
+                <ul class="fs-5 d-flex flex-column gap-3">
+                    <li>
+                        {% trans "<b>Вхідна вода</b> береться з будь-якого джерела водопостачання різного ступеню забруднення" %}
+                    </li>
+                    <li>
+                        {% trans "<b>Якість</b> підготовленої води відповідає ДСанПіН 2.2.4-400-10 «Гігієнічні вимоги до води питної, призначеної для споживання людиною»" %}
+                    </li>
+                    <li>
+                        {% trans "<b>Продуктивність</b> системи водопідготовки 5 м³/год" %}
+                    </li>
+                    <li>
+                        {% trans "<b>Внутрішній накопичувач:</b> 3 м³" %}
+                    </li>
+                    <li>
+                        {% trans "<b>Енергоспоживання:</b> 10 кВт/год" %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col col-6 p-4 d-flex align-items-center" style="background-color: var(--bs-gray-200);">
+            <div class="w-100">
+                <table class="table table-bordered fs-4 w-100">
+                    <tr>
+                        <td colspan="2" class="text-center"><b>{% trans "Параметри" %}</b></td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Вага" %}</td>
+                        <td>{% trans "3000 кг" %}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Висота" %}</td>
+                        <td>{% trans "2500 мм" %}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Ширина" %}</td>
+                        <td>{% trans "2500 мм" %}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Довжина" %}</td>
+                        <td>{% trans "6000  мм" %}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center"><b>{% trans "Основні атрибути" %}</b></td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Країна виробник" %}</td>
+                        <td>{% trans "Україна" %}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Макс. продуктивність" %}</td>
+                        <td>{% trans "сто тисяч літрів на добу" %}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center"><b>{% trans "Користувальницькі характеристики" %}</b></td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Виробник" %}</td>
+                        <td>{% trans "Бізнес Сенат" %}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col col-6 p-0">
+            <div class="w-100 h-100"
+                 style="background: url({% static "reua/img/water/water_box.png" %}) center center no-repeat; background-size: cover ">
+            </div>
+        </div>
+    </div>
+    <p>
+        {% blocktrans %}
+            Автономна мобільна установка фільтрації води продуктивністю 5 м3/год розміщується безпосередньо біля джерела
+            водопостачання – озеро, канал, річка, колодязь, відкрите поверхневе джерело, свердловина, а також джерел,
+            навмисно забруднених радіацією та хімічними речовинами. Видаляються забруднення: механічні частинки, важкі
+            метали, біологічні та органічні забруднення, віруси та бактерії, солі жорсткості, нітрити, нітрати, амоній,
+            фосфати, кольоровість, каламутність, радіаційні та хімічні зараження.        {% endblocktrans %}
+    </p>
+    <h2 class="text-muted text-uppercase">
+        {% trans "Виробнича ефективність системи очистки води" %}
+    </h2>
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <td class="align-middle" style="width: 20%">
+                <div class="border-start border-primary border-3 fw-bold px-2">
+                    {% trans "Продуктивність системи очищення, літрів/год" %}
+                </div>
+            </td>
+            <td class="align-middle" style="width: 20%">
+                <div class="border-start border-primary border-3 fw-bold px-2">
+                    {% trans "Продуктивність системи очищення, літрів/добу" %}
+                </div>
+            </td>
+            <td class="align-middle" style="width: 20%">
+                <div class="border-start border-primary border-3 fw-bold px-2">
+                    {% trans "Мін. постачання питної води" %}
+                </div>
+                {% trans "3 літри на добу на людину" %}
+            </td>
+            <td class="align-middle" style="width: 20%">
+                <div class="border-start border-primary border-3 fw-bold px-2">
+                    {% trans "Обмежене водопостачання" %}
+                </div>
+                {% trans "25 літрів на добу на людину" %}
+            </td>
+            <td class="align-middle" style="width: 20%">
+                <div class="border-start border-primary border-3 fw-bold px-2">
+                    {% trans "Повноцінне водопостачання" %}
+                </div>
+                {% trans "150 літрів на добу на людину" %}
+            </td>
+        </tr>
+        <tr>
+            <td class="fs-3 text-muted text-center align-middle fw-bold">5000</td>
+            <td class="fs-3 text-muted text-center align-middle fw-bold">100 000</td>
+            <td class="fs-3 text-muted text-center align-middle fw-bold">30 000 {% trans "осіб" %}</td>
+            <td class="fs-3 text-muted text-center align-middle fw-bold">4 000 {% trans "осіб" %}</td>
+            <td class="fs-3 text-muted text-center align-middle fw-bold">650 {% trans "осіб" %}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col d-flex align-items-center">
+            <h1>{% trans "Презентація" %}</h1>
+        </div>
+        <div class="col" >
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/oO88ghXY5sc" class="rounded"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+{% endblock %}

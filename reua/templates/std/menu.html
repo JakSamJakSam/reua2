@@ -1,3 +1,4 @@
+{% load static %}
 {% load i18n %}
 <header class="position-absolute w-100 topmenu z10">
     <div class="container">
@@ -6,6 +7,11 @@
                     aria-controls="general-navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            {% if not is_index %}
+                <a class="navbar-brand" href="{% url "index" %}">
+                    <img src="{% static "reua/img/logo_small.png" %}"/>
+                </a>
+            {% endif %}
             <div class="collapse navbar-collapse" id="general-navbar">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     {% if is_index %}
@@ -19,8 +25,8 @@
                     {% endif %}
                     {% for menu_item in top_menu_items %}
                         <li class="nav-item me-2">
-                            <a class="btn nav-link {% if request.path == menu_item.fp.get_absolute_url %} active {% endif %}"
-                               href="{{ menu_item.fp.get_absolute_url }}">
+                            <a class="btn nav-link {% if request.path == menu_item.url %} active {% endif %}"
+                               href="{{ menu_item.url }}">
                                 {{ menu_item.localized_title }}
                             </a>
                         </li>
@@ -38,7 +44,7 @@
                     {% for language in languages %}
                         {% get_language_info for language|first as lang_info %}
                         <li class="me-1">
-{#                            <a href="{% language lang_info.code %}{% url request.resolver_match.url_name %}{% endlanguage %}"#}
+                            {#                            <a href="{% language lang_info.code %}{% url request.resolver_match.url_name %}{% endlanguage %}"#}
                             <a href="{% language lang_info.code %}{% url "index" %}{% endlanguage %}"
                                class="btn lng lng-{{ lang_info.code }} text-uppercase d-flex align-items-center {% if LANGUAGE_CODE == lang_info.code %}active{% endif %}"
                                title="{{ lang_info.name_local }}">

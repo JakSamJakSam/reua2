@@ -1,8 +1,13 @@
-from django.views.generic import TemplateView, FormView
 from django.urls import reverse
+from django.views.generic import TemplateView, FormView
+from django.utils.translation import gettext_lazy as _
 
 from reua.forms.feedback import FeedbackForm
 from reua.models import Partner
+
+__all__ = ('IndexView', 'FeedbackFormView', "WaterView")
+
+from reua.views.mixins import BreadCrumbsMixin
 
 
 class IndexView(TemplateView):
@@ -12,7 +17,6 @@ class IndexView(TemplateView):
         ctx = super().get_context_data(**kwargs)
         ctx['partners'] = Partner.objects.all()
         return ctx
-
 
 class FeedbackFormView(FormView):
     form_class = FeedbackForm
@@ -35,4 +39,9 @@ class FeedbackFormView(FormView):
     def get_success_url(self):
         return reverse('index')
 
+
+class WaterView(BreadCrumbsMixin, TemplateView):
+    bc = [{'title': _("Питна вода")}]
+    page_title = _("Питна вода")
+    template_name = "pages/water.html"
 

@@ -1,0 +1,131 @@
+{% extends "default_page.html" %}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load request_heplers %}
+
+{% block content %}
+    {{ block.super }}
+    <h3>Інвестиційна програма</h3>
+    <p class="lead">
+        {% trans "Для залучення іноземних інвестицій і формування інвестиційного меню нами створено платформу, яка дає змогу сформувати потенційні можливості смт Макарів." %}
+    </p>
+    <div class="row">
+        <div class="col p-2">
+            <div class="bg-white rounded" style="height: 300px"></div>
+        </div>
+        <div class="col p-2 d-flex">
+            <div class="rounded p-3 d-flex align-items-center " style="background-color: var(--bs-gray-200)">
+                <div>
+                    <p>
+                        {% trans "Наразі список реальних проектів щоденно збільшується і стає більш різноманітним. Низка перспективних проектів готові до старту, але потребують інвестицій. Це одна з ключових умов успіху відбудови України. Більшість цих проектів ми зібрали і продовжуємо збирати на одній платформі." %}
+                    </p>
+                    <p>
+                        {% trans "Пропонуємо керівникам провідних компаній долучатися." %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <p>
+           <span class="text-uppercase">
+            {% trans "Будь ласка, зареєструйтеся для отримання детальної інформації про індивідуальні проєкти та інвестиційного меню" %}
+               </span><br/>
+            {% trans "Дізнайтеся, чи маєте ви право отримати фінансування." %}
+        </p>
+        <p>
+            {% trans "Будь-ласка, внесіть ваші контактні дані, щоб представник Благодійного Фонду міг звернутися до вас." %}<br/>
+            {% trans "Ми зв’яжемося з Вами протягом наступних 24 годин." %}
+        </p>
+        <div class="mb-4">
+        <a href="{% url "investition-create" %}" class="btn btn-primary">
+            <i class="fa-solid fa-square-plus fa-lg me-2"></i>
+            {% trans "Зареєструвати компанію" %}
+        </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-9">
+            {% if object_list %}
+                <ul class="list-unstyled d-flex flex-column gap-2">
+                    {% for company in object_list %}
+                        <li>
+                            <a href="{% url "investition-item" pk=company.pk %}"
+                               class="card p-1 text-dark text-decoration-none">
+                                <div class="d-flex">
+                                    <div>
+                                        {% thumbnail company.logotype "150x150" format="PNG" upscale=True crop='center' as im %}
+                                            <img src="{{ im.url }}" class="border rounded"
+                                                 alt="{{ company.name }}" width="{{ im.width }}"
+                                                 height="{{ im.height }}">
+                                        {% endthumbnail %}
+                                    </div>
+                                    <div class="flex-fill d-flex flex-column position-relative">
+                                        {#                                        TODO: #}
+                                        <div class="position-absolute" style="top: 10px; right: 10px">
+                                        <span class="company_label">
+                                            {% trans "Експертна нарада" %}
+                                        </span>
+                                            <span class="pro-label company_label">
+                                            PRO
+                                        </span>
+                                        </div>
+                                        <div class="card-body flex-fill">
+                                            <h5 class="card-title">{{ company.name }}</h5>
+                                            <p class="card-text">{{ company.descr }}</p>
+                                        </div>
+                                        <div class="card-footer bg-white d-flex text-muted">
+                                            <div class="border-end px-2">
+                                                <span>{{ company.category }}</span>
+                                            </div>
+                                            <div class="border-end px-2">
+                                                <span class="fw-bolder">{{ company.city }}</span>,
+                                                <span>{{ company.addr }}</span>
+                                            </div>
+                                            {% if company.email or company.phone %}
+                                                <div class="border-end px-2 d-flex gap-2 align-items-center">
+                                                    {% if company.email %}
+                                                        <i class="fa-regular fa-envelope"></i>
+                                                    {% endif %}
+                                                    {% if company.phone %}
+                                                        <i class="fa-solid fa-phone"></i>
+                                                    {% endif %}
+                                                    {% if company.site %}
+                                                        <i class="fa-solid fa-link"></i>
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% include "std/pagination.html" %}
+            {% else %}
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">{% trans "Немає компаній" %}</h4>
+                    <p>
+                        {% blocktrans %}
+                            За результатами пошуку не знайщлося жодної компанії
+                        {% endblocktrans %}
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col">
+            <h5 class="text-uppercase">{% trans "Категорії групи" %}</h5>
+            <ul class="list-group">
+                {% for cat in categories %}
+                    <li class="list-group-item">
+                        <a href="?{% extend_current_url request.GET "category" cat.pk %}"
+                           class="d-flex text-dark text-decoration-none">
+                            <span class="flex-fill">{{ cat.localized_title }}</span>
+                            <span class="badge bg-secondary align-self-center py-2">{{ cat.companies_count }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

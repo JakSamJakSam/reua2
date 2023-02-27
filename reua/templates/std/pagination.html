@@ -1,0 +1,39 @@
+{% load request_heplers %}
+{% if page_obj.paginator.num_pages > 1 %}
+    <nav>
+        <ul class="pagination">
+            {% if page_obj.number > 2 %}
+                <li class="page-item me-2"><a class="page-link "
+                                              href="?{% extend_current_url request.GET "page" 1 %}">1</a></li>
+            {% endif %}
+            {% if page_obj.number > 1 %}
+                <li class="page-item">
+                    <a class="page-link"
+                       href="?{% extend_current_url request.GET "page" page_obj.previous_page_number %}">
+                        {{ page_obj.previous_page_number }}
+                    </a>
+                </li>
+            {% endif %}
+            <li class="page-item active">
+                <a class="page-link" href="?{% extend_current_url request.GET "page" page_obj.number %}">
+                    {{ page_obj.number }}
+                </a>
+            </li>
+            {% if page_obj.number < page_obj.paginator.num_pages %}
+                <li class="page-item">
+                    <a class="page-link" href="?{% extend_current_url request.GET "page" page_obj.next_page_number %}">
+                        {{ page_obj.next_page_number }}
+                    </a>
+                </li>
+            {% endif %}
+            {% if page_obj.number|add:1 < page_obj.paginator.num_pages %}
+                <li class="page-item ms-2">
+                    <a class="page-link"
+                       href="?{% extend_current_url request.GET "page" page_obj.paginator.num_pagesr %}">
+                        {{ page_obj.paginator.num_pages }}
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}

@@ -1,0 +1,50 @@
+{% extends "reua_base.html" %}
+
+{% block body %}
+    {{ block.super }}
+    <div class="header_bg">
+        <div class="bg_mask">
+            <div class="container d-flex h-100 w-100">
+                {% if breadcrumbs %}
+                    <nav aria-label="breadcrumb" class="align-self-end px-3 py-2 rounded-top w-100 align-items-baseline"
+                         style="backdrop-filter: contrast(0.8); --bs-breadcrumb-divider: '|';">
+                        <ol class="breadcrumb mb-0 align-items-baseline">
+                            <li class="breadcrumb-item">
+                                <a href="{% url "index" %}">
+                                <span class="fa-stack ">
+                                    <i class="fa-solid fa-stack fa-circle text-white fa-stack-1x"
+                                       data-fa-transform="grow-5"></i>
+                                    <i class="fa-solid fa-house fa-stack fa-inverse text-dark fa-stack-1x"
+                                       data-fa-transform="shrink-5"></i>
+                                </span>
+                                </a>
+                            </li>
+                            {% for bc in breadcrumbs %}
+                                <li class="breadcrumb-item {% if forloop.counter == breadcrumbs|length %}active{% endif %}"
+                                    aria-current="page">
+                                    {% if bc.url %}
+                                        <a href="{{ bc.url }}">
+                                    {% endif %}
+                                    {{ bc.title }}
+                                    {% if bc.url %}
+                                        </a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </nav>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="bg-light">
+        <div class="container py-5">
+            {% block content %}
+                {% if page_title %}
+                    <h3 class="landing_title">{{ page_title }}</h3>
+                {% endif %}
+            {% endblock %}
+        </div>
+    </div>
+
+{% endblock %}

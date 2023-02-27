@@ -1,0 +1,17 @@
+<div class="{{ cnt_class }}">
+    <div class="input-group">
+        <span class="input-group-text">
+           <i class="{{ icon_class }}"></i>
+        </span>
+        <label for="{{ field.id_for_label }}" class="sr-only">{{ field.label }}</label>
+        <textarea name="{{ field.name }}" rows="{{ rows|default:2 }}"
+               class="form-control {% include "std/field_valid.html" %}"
+{#               {% if field.field.required %} required {% endif %} #}
+                  id="{{ field.id_for_label }}"
+                  placeholder="{{ field.label }}">{{ field.value|default:'' }}</textarea>
+    </div>
+    {% if field.help_text %}
+        <div class="form-text">{{ field.help_text }}</div>
+    {% endif %}
+    {% include "std/field_errors.html" %}
+</div>

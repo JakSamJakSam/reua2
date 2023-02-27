@@ -1,0 +1,20 @@
+{#{{ field }}#}
+<div class="{{ cnt_class }}">
+    <div class="input-group">
+        <span class="input-group-text">
+           <i class="{{ icon_class }}"></i>
+        </span>
+        <label for="{{ field.id_for_label }}" class="sr-only">{{ field.label }}</label>
+        <select name="{{ field.name }}"
+{#                {% if field.field.required %} required {% endif %}#}
+                id="{{ field.id_for_label }}" class="form-select {% include "std/field_valid.html" %}">
+            {% for ch in field.subwidgets %}
+                {{ ch }}
+            {% endfor %}
+        </select>
+        {% include "std/field_errors.html" %}
+    </div>
+    {% if field.help_text %}
+        <div class="form-text">{{ field.help_text }}</div>
+    {% endif %}
+</div>

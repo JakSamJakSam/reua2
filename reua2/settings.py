@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'fontawesomefree',
     'sorl.thumbnail',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
