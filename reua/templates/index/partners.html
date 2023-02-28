@@ -6,14 +6,23 @@
         <h3 class="landing_title">{% trans "Нас підтримують" %}</h3>
         <ul class="list-unstyled row row-cols-4">
             {% for partner in partners %}
-                <li class="col partner mb-4 text-center">
-                    {% if partner.logo %}
-                        {% thumbnail partner.logo "x80" format="PNG" as im %}
-                            <img src="{{ im.url }}"
-                                 alt="{{ partner.localized_title }}" width="{{ im.width }}" height="{{ im.height }}" class="mb-4">
-                        {% endthumbnail %}
+                <li class="col">
+                    {% if partner.url %}
+                        <a href="{{ partner.url }}" target="_blank" class="text-decoration-none text-dark">
                     {% endif %}
-                    <h5>{{ partner.localized_title }}</h5>
+                    <div class="partner mb-4 text-center">
+                        {% if partner.logo %}
+                            {% thumbnail partner.logo "x80" format="PNG" as im %}
+                                <img src="{{ im.url }}"
+                                     alt="{{ partner.localized_title }}" width="{{ im.width }}" height="{{ im.height }}"
+                                     class="mb-4">
+                            {% endthumbnail %}
+                        {% endif %}
+                        <h5>{{ partner.localized_title }}</h5>
+                    </div>
+                    {% if partner.url %}
+                        </a>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>

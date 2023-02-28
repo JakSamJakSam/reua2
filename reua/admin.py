@@ -1,3 +1,4 @@
+from adminsortable.admin import SortableAdmin
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from django_summernote.admin import SummernoteModelAdmin
@@ -8,10 +9,12 @@ from reua.models import TopMenu, Partner, FoundingDocument, CompanyCategory, Com
 
 
 @admin.register(TopMenu)
-class TopMenuAdmin(admin.ModelAdmin):
+class TopMenuAdmin(SortableAdmin):
     form = TopMenuAdminForm
 
-admin.site.register(Partner, admin.ModelAdmin)
+@admin.register(Partner)
+class TopMenuAdmin(SortableAdmin):
+    pass
 
 admin.site.register(FoundingDocument, admin.ModelAdmin)
 

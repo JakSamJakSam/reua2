@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'django_filters',
     'django_summernote',
+    'adminsortable',
 ]
 
 MIDDLEWARE = [

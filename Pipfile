@@ -13,6 +13,7 @@ fontawesomefree = "*"
 django-filter = "*"
 django-summernote = "*"
 bleach = "*"
+django-admin-sortable = "*"
 
 [dev-packages]
 

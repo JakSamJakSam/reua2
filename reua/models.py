@@ -1,3 +1,4 @@
+from adminsortable.models import SortableMixin
 from django.core.exceptions import ValidationError
 from django.core.validators import FileExtensionValidator
 from django.db import models
@@ -6,7 +7,7 @@ from django.utils.translation import gettext_lazy as _, get_language
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-class TopMenu(models.Model):
+class TopMenu(SortableMixin, models.Model):
     KIND_FP = 1
     KIND_BASIC = 2
 
@@ -48,10 +49,12 @@ class TopMenu(models.Model):
         return self.title
 
 
-class Partner(models.Model):
+class Partner(SortableMixin, models.Model):
     title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
     title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'), blank=True)
     logo = models.ImageField(verbose_name=_('Логотип'), upload_to='partners')
+    order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
+    url = models.URLField(verbose_name=_('Сайт'), blank=True)
 
     @property
     def localized_title(self):
@@ -62,7 +65,7 @@ class Partner(models.Model):
     class Meta:
         verbose_name = _("Партнер")
         verbose_name_plural = _("Партнери")
-        ordering = ["id"]
+        ordering = ["order"]
 
     def __str__(self):
         return self.title
