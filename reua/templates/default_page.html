@@ -20,7 +20,7 @@
                                 </a>
                             </li>
                             {% for bc in breadcrumbs %}
-                                <li class="breadcrumb-item {% if forloop.counter == breadcrumbs|length %}active{% endif %}"
+                                <li class="breadcrumb-item text-uppercase {% if forloop.counter == breadcrumbs|length %}active{% endif %}"
                                     aria-current="page">
                                     {% if bc.url %}
                                         <a href="{{ bc.url }}">

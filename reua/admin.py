@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from django_summernote.admin import SummernoteModelAdmin
 
 from reua.forms.admin_forms import TopMenuAdminForm
-from reua.models import TopMenu, Partner, FoundingDocument, CompanyCategory, Company, SiteSettings, InvestitionCompany
+from reua.models import TopMenu, Partner, FoundingDocument, CompanyCategory, Company, SiteSettings, InvestitionCompany, \
+    Staff
 
 
 @admin.register(TopMenu)
@@ -30,3 +32,8 @@ class TopMenuAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(SiteSettings, admin.ModelAdmin)
+
+@admin.register(Staff)
+class StaffAdmin(SummernoteModelAdmin):
+    summernote_fields = ('descriprion', 'descriprion_en')
+

@@ -196,3 +196,42 @@ class SiteSettings(models.Model):
     class Meta:
         verbose_name = _("Налаштування сайту")
         verbose_name_plural = _("Налаштування сайту")
+
+
+class Staff(models.Model):
+    name = models.CharField(max_length=100, verbose_name=_("Ім'я та прізвище (укр)"))
+    name_en = models.CharField(max_length=100, verbose_name=_("Ім'я та прізвище (англ)"), blank=True)
+
+    position = models.CharField(max_length=100, verbose_name=_("Посада (укр)"))
+    position_en = models.CharField(max_length=100, verbose_name=_("Посада (англ)"), blank=True)
+
+    descriprion = models.TextField(verbose_name="Опис (укр)", blank=True)
+    descriprion_en = models.TextField(verbose_name="Опис (англ)", blank=True)
+
+    photo = models.ImageField(verbose_name=_("Фото"), upload_to='staff')
+
+    def __str__(self):
+        return str(self.name)
+
+    class Meta:
+        verbose_name = _("Співробітник")
+        verbose_name_plural = _("Співробітники")
+        ordering = ('id',)
+
+    @property
+    def localized_name(self):
+        lg = get_language()
+        localized_name = getattr(self, f'name_{lg}', self.name)
+        return localized_name if localized_name else self.name
+
+    @property
+    def localized_position(self):
+        lg = get_language()
+        localized_position = getattr(self, f'position_{lg}', self.position)
+        return localized_position if localized_position else self.position
+
+    @property
+    def localized_descriprion(self):
+        lg = get_language()
+        localized_descriprion = getattr(self, f'descriprion_{lg}', self.descriprion)
+        return localized_descriprion if localized_descriprion else self.descriprion

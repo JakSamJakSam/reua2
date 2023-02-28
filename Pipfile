@@ -11,6 +11,8 @@ django = "*"
 pillow = "*"
 fontawesomefree = "*"
 django-filter = "*"
+django-summernote = "*"
+bleach = "*"
 
 [dev-packages]
 

@@ -3,9 +3,9 @@ from django.views.generic import TemplateView, FormView
 from django.utils.translation import gettext_lazy as _
 
 from reua.forms.feedback import FeedbackForm
-from reua.models import Partner
+from reua.models import Partner, Staff
 
-__all__ = ('IndexView', 'FeedbackFormView', "WaterView")
+__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView")
 
 from reua.views.mixins import BreadCrumbsMixin
 
@@ -40,8 +40,20 @@ class FeedbackFormView(FormView):
         return reverse('index')
 
 
+class AboutView(BreadCrumbsMixin, TemplateView):
+    bc = [{'title': _("Про фонд")}]
+    page_title = _("Хто ми?")
+    template_name = "pages/about.html"
+
+    def get_context_data(self, *args, **kwargs):
+        ctx = super().get_context_data(*args, **kwargs)
+        ctx['staffs'] = Staff.objects.all()
+        ctx['partners'] = Partner.objects.all()
+        return ctx
+
 class WaterView(BreadCrumbsMixin, TemplateView):
     bc = [{'title': _("Питна вода")}]
     page_title = _("Питна вода")
     template_name = "pages/water.html"
+
 

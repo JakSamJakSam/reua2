@@ -1,0 +1,107 @@
+{% extends "default_page.html" %}
+{% load thumbnail %}
+{% load static %}
+{% load i18n %}
+{% load request_heplers %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="row gap-4">
+        <div class="col bg-gray200 rounded-3 p-5 fs-4 d-flex align-items-center">
+            <div class="w-100">
+                <p>
+                    {% trans "Український благодійний фонд «Відбудуємо нашу Україну» - створений від початку повномасштабного вторгнення." %}
+                </p>
+                <p>
+                    {% trans "Засновник та директор фонду - Олег Кленін. Маріупольчанин з відомим для Маріуполя ім'ям та власною історією цієї війни." %}
+                </p>
+            </div>
+        </div>
+        <div class="col bg-gray200 rounded-3 p-5 fs-3 text-muted d-flex align-items-center fw-bold">
+            <div class="w-100">
+                <p>
+                    {% trans "Трагедія Маріуполя спонукала Олега Кленіна об'єднати навколо фонду провідних національних і світових партнерів та розпочати відбудову на території України." %}
+                </p>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-muted mb-5 fw-bold">{% trans "Будь-який внесок – це безцінна допомога для постраждалих." %}</h1>
+    <p class="fs-4">
+        {% blocktrans %}
+            <b>Мета фонду</b> - відбудова міст на території України з повним інфраструктурним комплексом та належним
+            рівнем
+            безпеки населеністю в 1000 сімей. Зведення поблизу кожного смарт-міста індустріального хабу, який
+            гарантовано забезпечуватиме мешканців робочими місцями. Завдяки експертності у питанні водопостачання, а
+            саме власній запатентованій технології, фонд гарантує цілодобовий доступ до чистої питної води кожному з
+            міст. Мешканцями яких стануть ті, хто втратив своє житло через дії російської агресії, <b>зокрема
+            маріупольчани</b>.
+        {% endblocktrans %}
+    </p>
+    <p class="fs-4">
+        {% blocktrans %}
+            БФ «Відбудуємо нашу Україну» виступає стратегічним партнером Національної академії наук та найкомпетентніших
+            у своїй галузі українських та європейських компаній, які долучені до відбудови.
+        {% endblocktrans %}
+    </p>
+    <h2 class="text-muted mb-5 fw-bold">{% trans "Першочергова мета – зведення 40 міст, в яких проживатиме близько 200 000 ВПО." %}</h2>
+    <h3 class="fw-bold">{% trans "Напрямки діяльності/проєкти фонду:" %}</h3>
+    <div class="row gap-4">
+        <div class="col bg-gray200 rounded-3 p-5 fs-4 d-flex align-items-center">
+            <div class="w-100">
+                <h4>{% trans "ПРОЄКТ ReH2O" %}</h4>
+                <p class="display-6 fw-bold text-muted">{% trans "Здійснює постачання безкоштовної питної води, завдяки унікальній високотехнологічній водоочисній станції." %}</p>
+            </div>
+        </div>
+        <div class="col bg-gray200 rounded-3 p-5 fs-4 d-flex align-items-center">
+            <div class="w-100">
+                <h4>{% trans "ПРОЄКТ ReCITY" %}</h4>
+                <p class="display-6 fw-bold text-muted">{% trans "Реалізовує відбудову смарт-міст по всій території України для внутрішньо переміщених осіб." %}</p>
+            </div>
+        </div>
+    </div>
+    <h3 class="mt-2 landing_title">{% trans "Команда" %}</h3>
+    <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-4">
+        {% for staff in staffs %}
+            <li style="width: 14rem">
+                <a href="#" class="d-block text-center text-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#staff_{{ staff.pk }}">
+                    {% thumbnail staff.photo "150x150" format="PNG" upscale=True crop='center' as im %}
+                        <img src="{{ im.url }}" class="rounded-circle"
+                             alt="{{ staff.localized_name }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+                    <div class="fs-5 fw-bold">{{ staff.localized_name }}</div>
+                    <div class="fst-italic">{{ staff.localized_position }}</div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% for staff in staffs %}
+        <div class="modal fade" id="staff_{{ staff.pk }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-light">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                {% thumbnail staff.photo "100x100" format="PNG" upscale=True crop='center' as im %}
+                                    <img src="{{ im.url }}" class="rounded-circle"
+                                         alt="{{ staff.localized_name }}" width="{{ im.width }}"
+                                         height="{{ im.height }}">
+                                {% endthumbnail %}
+                            </div>
+                            <div class="ms-3">
+                                <div class="fs-4">{{ staff.localized_name }}</div>
+                                <div>{{ staff.localized_position }}</div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-close align-self-baseline" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body mb-5">
+                        {{ staff.localized_descriprion|bleach_sanitarize|safe }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% include "index/partners.html" %}
+{% endblock %}

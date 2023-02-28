@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'sorl.thumbnail',
     'django_filters',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
