@@ -6,37 +6,50 @@ from django_summernote.admin import SummernoteModelAdmin
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import TopMenu, Partner, FoundingDocument, CompanyCategory, Company, SiteSettings, InvestitionCompany, \
     Staff
+from reua.models.compaies import Label
 
 
 @admin.register(TopMenu)
 class TopMenuAdmin(SortableAdmin):
     form = TopMenuAdminForm
 
+
 @admin.register(Partner)
 class TopMenuAdmin(SortableAdmin):
     pass
+
 
 admin.site.register(FoundingDocument, admin.ModelAdmin)
 
 admin.site.register(CompanyCategory, admin.ModelAdmin)
 
+
 @admin.register(InvestitionCompany)
 class InvestitionCompanyAdmin(SortableAdmin):
     fieldsets = (
+        (_('Адмінистрування'), {
+            'classes': ('collapse',),
+            'fields': ('labels', ),
+        }),
         (_('Реквізити компанії'), {
-            'fields': ('name', 'category', 'logotype', 'descr', 'city', 'addr', 'phone', 'email',  'site')
+            'fields': ('name', 'category', 'logotype', 'descr', 'city', 'addr', 'phone', 'email', 'site')
         }),
         (_('Представник компанії'), {
             # 'classes': ('extrapretty1',),#wide, extrapretty, collapse
             'fields': ('repr_fio', 'repr_status', 'repr_phone', 'repr_email'),
         }),
     )
+
 
 @admin.register(Company)
-class TopMenuAdmin(SortableAdmin):
+class CompanyAdmin(SortableAdmin):
     fieldsets = (
+        (_('Адмінистрування'), {
+            'classes': ('collapse',),
+            'fields': ('labels', ),
+        }),
         (_('Реквізити компанії'), {
-            'fields': ('name', 'category', 'logotype', 'descr', 'city', 'addr', 'phone', 'email',  'site')
+            'fields': ('name', 'category', 'logotype', 'descr', 'city', 'addr', 'phone', 'email', 'site')
         }),
         (_('Представник компанії'), {
             # 'classes': ('extrapretty1',),#wide, extrapretty, collapse
@@ -44,9 +57,15 @@ class TopMenuAdmin(SortableAdmin):
         }),
     )
 
+
 admin.site.register(SiteSettings, admin.ModelAdmin)
+
 
 @admin.register(Staff)
 class StaffAdmin(SummernoteModelAdmin):
     summernote_fields = ('descriprion', 'descriprion_en')
 
+
+@admin.register(Label)
+class LabelAdmin(SortableAdmin):
+    pass
