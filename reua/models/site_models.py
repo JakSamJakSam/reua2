@@ -1,10 +1,11 @@
-from adminsortable.models import SortableMixin
 from django.core.exceptions import ValidationError
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _, get_language
-from phonenumber_field.modelfields import PhoneNumberField
+from adminsortable.models import SortableMixin
+
+__all__ = ('TopMenu', 'FoundingDocument', 'SiteSettings', 'Staff', 'Partner')
 
 
 class TopMenu(SortableMixin, models.Model):
@@ -14,18 +15,20 @@ class TopMenu(SortableMixin, models.Model):
     title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
     title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'))
     disabled = models.BooleanField(default=False, verbose_name=_('Відключено'))
-    fp = models.ForeignKey('flatpages.FlatPage', on_delete=models.RESTRICT, verbose_name=_("flat page"), null=True, blank=True, default=None)
+    fp = models.ForeignKey('flatpages.FlatPage', on_delete=models.RESTRICT, verbose_name=_("flat page"), null=True,
+                           blank=True, default=None)
     order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
     url_name = models.CharField(max_length=100, verbose_name=_("Назва стандартної сторінки"), blank=True)
     kind = models.PositiveSmallIntegerField(verbose_name=_('Тип'), choices=(
         (KIND_FP, _("Сторінка FlatPage")),
         (KIND_BASIC, _("Стандартна сторінка")),
     ))
+
     def clean(self):
         if self.kind == self.KIND_FP and self.fp is None:
             raise ValidationError(({'fp': _('Сторінка має бути вказана')}))
         if self.kind == self.KIND_BASIC and not self.url_name:
-                raise ValidationError(({'url_name': _('Стандартна строрінка має бути вказана')}))
+            raise ValidationError(({'url_name': _('Стандартна строрінка має бути вказана')}))
 
     @property
     def localized_title(self):
@@ -40,31 +43,10 @@ class TopMenu(SortableMixin, models.Model):
         if self.kind == self.KIND_BASIC:
             return reverse(self.url_name)
         return '#'
+
     class Meta:
         verbose_name = _("Пункт основного меню")
         verbose_name_plural = _("Пункти основного меню")
-        ordering = ["order"]
-
-    def __str__(self):
-        return self.title
-
-
-class Partner(SortableMixin, models.Model):
-    title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
-    title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'), blank=True)
-    logo = models.ImageField(verbose_name=_('Логотип'), upload_to='partners')
-    order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
-    url = models.URLField(verbose_name=_('Сайт'), blank=True)
-
-    @property
-    def localized_title(self):
-        lg = get_language()
-        localized_title = getattr(self, f'title_{lg}', self.title)
-        return localized_title if localized_title else self.title
-
-    class Meta:
-        verbose_name = _("Партнер")
-        verbose_name_plural = _("Партнери")
         ordering = ["order"]
 
     def __str__(self):
@@ -79,9 +61,9 @@ class FoundingDocument(models.Model):
     title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
     title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'), blank=True)
     kind = models.CharField(max_length=50, verbose_name=_('Тип'), choices=(
-        (KIND_TEXT,_("Текст")),
-        (KIND_PDF,"PDF"),
-        (KIND_LINK,_("Посилання")),
+        (KIND_TEXT, _("Текст")),
+        (KIND_PDF, "PDF"),
+        (KIND_LINK, _("Посилання")),
     ))
     fp = models.ForeignKey('flatpages.FlatPage', on_delete=models.RESTRICT,
                            verbose_name=_("flat page"), null=True, blank=True, default=None)
@@ -96,13 +78,13 @@ class FoundingDocument(models.Model):
             return "fa-solid fa-file-pdf"
         if self.kind == self.KIND_LINK:
             return "fa-solid fa-link"
-        return  "fa-solid fa-question"
+        return "fa-solid fa-question"
 
     @property
     def url(self):
         if self.kind in (self.KIND_TEXT, self.KIND_LINK):
             return self.fp.get_absolute_url()
-        if self.kind in (self.KIND_PDF, ):
+        if self.kind in (self.KIND_PDF,):
             return self.file.url
         return "#"
 
@@ -115,7 +97,7 @@ class FoundingDocument(models.Model):
     def clean(self):
         if self.kind in (self.KIND_TEXT, self.KIND_LINK) and self.fp is None:
             raise ValidationError(({'fp': _('Сторінка має бути вказана')}))
-        if self.kind in (self.KIND_PDF, ) and not self.file:
+        if self.kind in (self.KIND_PDF,) and not self.file:
             raise ValidationError(({'file': _('Файл має бути вказаний')}))
 
     class Meta:
@@ -126,68 +108,6 @@ class FoundingDocument(models.Model):
     def __str__(self):
         return self.title
 
-class CompanyCategory(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
-    title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'), null=True, blank=True, default=None)
-
-    def __str__(self):
-        return self.title
-
-    @property
-    def localized_title(self):
-        lg = get_language()
-        localized_title = getattr(self, f'title_{lg}', self.title)
-        return localized_title if localized_title else self.title
-
-    class Meta:
-        verbose_name = _("Категорія компаній")
-        verbose_name_plural = _("Категорії компаній")
-        ordering = ["id"]
-
-
-class AbstractCompany(SortableMixin, models.Model):
-    REPR_STATUS_OWNER = 1
-    REPR_STATUS_DIR = 2
-    REPR_STATUS_BOSS = 3
-    REPR_STATUS_MGR = 4
-
-    name = models.CharField(max_length=200, verbose_name=_('Назва компанії'))
-    logotype = models.ImageField(upload_to='company', verbose_name=_('Логотип'), null=True, blank=True, default=None)
-    descr = models.TextField(verbose_name=('Опис'), blank=True, default='')
-    city = models.CharField(max_length=100, verbose_name=_('Місто'), null=True, blank=True, default=None)
-    addr = models.TextField(max_length=100, verbose_name=_('Адреса'), null=True, blank=True, default=None)
-    phone = PhoneNumberField(verbose_name=_('Телефон'), region='UA', null=True, blank=True, default=None)
-    email = models.EmailField(verbose_name='E-Mail', null=True, blank=True, default=None)
-    site = models.URLField(verbose_name=_('Сайт'), null=True, blank=True, default=None)
-    category = models.ForeignKey(CompanyCategory, on_delete=models.PROTECT, verbose_name=_('Категорія'))
-    repr_fio = models.CharField(max_length=200, verbose_name=_('ПІБ'))
-    repr_status= models.PositiveSmallIntegerField(verbose_name=_('Статус представника'), choices=(
-        (REPR_STATUS_OWNER, _('Засновник')),
-        (REPR_STATUS_DIR, _('Директор')),
-        (REPR_STATUS_BOSS, _('Керівник')),
-        (REPR_STATUS_MGR, _('Менеджер')),
-    ))
-    repr_phone = PhoneNumberField(verbose_name=_('Телефон представника'), region='UA', null=True, blank=True, default=None)
-    repr_email = models.EmailField(verbose_name=_('E-Mail представника'), null=True, blank=True, default=None)
-    order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
-
-    def __str__(self):
-        return self.name
-    class Meta:
-        abstract=True
-
-class Company(AbstractCompany):
-    class Meta:
-        verbose_name = _("Компанія")
-        verbose_name_plural = _("Компанії")
-        ordering = ["order"]
-
-
-class InvestitionCompany(AbstractCompany):
-    class Meta:
-        verbose_name = _("Компанія (інвестиція)")
-        verbose_name_plural = _("Компанії (інвестиція)")
-        ordering = ["order"]
 
 class SiteSettings(models.Model):
     site = models.OneToOneField('sites.Site', on_delete=models.RESTRICT, verbose_name=_('Сайт'))
@@ -240,3 +160,25 @@ class Staff(SortableMixin, models.Model):
         lg = get_language()
         localized_descriprion = getattr(self, f'descriprion_{lg}', self.descriprion)
         return localized_descriprion if localized_descriprion else self.descriprion
+
+
+class Partner(SortableMixin, models.Model):
+    title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
+    title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'), blank=True)
+    logo = models.ImageField(verbose_name=_('Логотип'), upload_to='partners')
+    order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
+    url = models.URLField(verbose_name=_('Сайт'), blank=True)
+
+    @property
+    def localized_title(self):
+        lg = get_language()
+        localized_title = getattr(self, f'title_{lg}', self.title)
+        return localized_title if localized_title else self.title
+
+    class Meta:
+        verbose_name = _("Партнер")
+        verbose_name_plural = _("Партнери")
+        ordering = ["order"]
+
+    def __str__(self):
+        return self.title
