@@ -1,4 +1,5 @@
 from django.core.exceptions import ValidationError
+from django.db.models import Max
 from django.forms import ModelForm, CharField, BooleanField, ChoiceField, ModelChoiceField
 
 from django.utils.translation import gettext_lazy as _
@@ -23,7 +24,12 @@ class AddCompanyForm(ModelForm):
         help_text=_(
             "Група компаній REUA Building Group є публічною компанією з відкритими даними про учасників групи. Ваша компанія відображатиметься у розділі \"Група компаній\" з відображенням статусу.")
     )
-
+    
+    def save(self, commit=True):
+        max_order = self._meta.model.objects.aggregate(max_order=Max('order'))['max_order']
+        max_order = max_order if max_order is not None else 0
+        self.instance.order = max_order + 1
+        return super().save(commit=commit)
 
     def clean_i_agree(self):
         if not self.cleaned_data['i_agree']:
@@ -41,7 +47,7 @@ class AddCompanyG(AddCompanyForm):
 
     class Meta:
         model = Company
-        fields = '__all__'
+        exclude = ('order',)
         empty_labels = {'category': _('Select Category'), }
 
 
@@ -56,5 +62,5 @@ class AddCompanyI(AddCompanyForm):
 
     class Meta:
         model = InvestitionCompany
-        fields = '__all__'
+        exclude = ('order',)
         empty_labels = {'category': _('Select Category'), }

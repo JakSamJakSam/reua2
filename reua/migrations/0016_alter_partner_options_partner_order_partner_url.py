@@ -25,5 +25,5 @@ class Migration(migrations.Migration):
             name='url',
             field=models.URLField(blank=True, verbose_name='Сайт'),
         ),
-        migrations.RunSQL('update reua_partner set "order"=id')
+        migrations.RunSQL('update reua_partner set "order"=id', reverse_sql=migrations.RunSQL.noop)
     ]

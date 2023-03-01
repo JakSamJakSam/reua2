@@ -145,7 +145,7 @@ class CompanyCategory(models.Model):
         ordering = ["id"]
 
 
-class AbstractCompany(models.Model):
+class AbstractCompany(SortableMixin, models.Model):
     REPR_STATUS_OWNER = 1
     REPR_STATUS_DIR = 2
     REPR_STATUS_BOSS = 3
@@ -169,6 +169,7 @@ class AbstractCompany(models.Model):
     ))
     repr_phone = PhoneNumberField(verbose_name=_('Телефон представника'), region='UA', null=True, blank=True, default=None)
     repr_email = models.EmailField(verbose_name=_('E-Mail представника'), null=True, blank=True, default=None)
+    order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
 
     def __str__(self):
         return self.name
@@ -179,14 +180,14 @@ class Company(AbstractCompany):
     class Meta:
         verbose_name = _("Компанія")
         verbose_name_plural = _("Компанії")
-        ordering = ["id"]
+        ordering = ["order"]
 
 
 class InvestitionCompany(AbstractCompany):
     class Meta:
         verbose_name = _("Компанія (інвестиція)")
         verbose_name_plural = _("Компанії (інвестиція)")
-        ordering = ["id"]
+        ordering = ["order"]
 
 class SiteSettings(models.Model):
     site = models.OneToOneField('sites.Site', on_delete=models.RESTRICT, verbose_name=_('Сайт'))
@@ -201,7 +202,7 @@ class SiteSettings(models.Model):
         verbose_name_plural = _("Налаштування сайту")
 
 
-class Staff(models.Model):
+class Staff(SortableMixin, models.Model):
     name = models.CharField(max_length=100, verbose_name=_("Ім'я та прізвище (укр)"))
     name_en = models.CharField(max_length=100, verbose_name=_("Ім'я та прізвище (англ)"), blank=True)
 
@@ -210,6 +211,7 @@ class Staff(models.Model):
 
     descriprion = models.TextField(verbose_name="Опис (укр)", blank=True)
     descriprion_en = models.TextField(verbose_name="Опис (англ)", blank=True)
+    order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
 
     photo = models.ImageField(verbose_name=_("Фото"), upload_to='staff')
 
@@ -219,7 +221,7 @@ class Staff(models.Model):
     class Meta:
         verbose_name = _("Співробітник")
         verbose_name_plural = _("Співробітники")
-        ordering = ('id',)
+        ordering = ('order',)
 
     @property
     def localized_name(self):

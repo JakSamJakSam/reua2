@@ -20,10 +20,20 @@ admin.site.register(FoundingDocument, admin.ModelAdmin)
 
 admin.site.register(CompanyCategory, admin.ModelAdmin)
 
-admin.site.register(InvestitionCompany, admin.ModelAdmin)
+@admin.register(InvestitionCompany)
+class InvestitionCompanyAdmin(SortableAdmin):
+    fieldsets = (
+        (_('Реквізити компанії'), {
+            'fields': ('name', 'category', 'logotype', 'descr', 'city', 'addr', 'phone', 'email',  'site')
+        }),
+        (_('Представник компанії'), {
+            # 'classes': ('extrapretty1',),#wide, extrapretty, collapse
+            'fields': ('repr_fio', 'repr_status', 'repr_phone', 'repr_email'),
+        }),
+    )
 
 @admin.register(Company)
-class TopMenuAdmin(admin.ModelAdmin):
+class TopMenuAdmin(SortableAdmin):
     fieldsets = (
         (_('Реквізити компанії'), {
             'fields': ('name', 'category', 'logotype', 'descr', 'city', 'addr', 'phone', 'email',  'site')

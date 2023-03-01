@@ -45,9 +45,9 @@ class Addinvestition(BreadCrumbsMixin, FormView):
     page_title = _("Подати заявку")
 
     def form_valid(self, form):
-        instance = form.instance
-        instance.save()
+        form.save()
         return super().form_valid(form)
+
     def get_form_kwargs(self):
         return {
             **super().get_form_kwargs(),

@@ -3,7 +3,7 @@
 
 {% block content %}
     {{ block.super }}
-    <form method="post" action="{% url "company-create" %}">
+    <form method="post" action="{% url "investition-create" %}">
         {% csrf_token %}
         <fieldset class="border rounded reua-formset">
             <legend class="h5"> {{ form.fields.form_code.label }} </legend>
