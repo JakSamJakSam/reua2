@@ -1,0 +1,89 @@
+{% extends "default_page.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="row row-cols-2">
+        <div class="col p-0 d-flex">
+            <div class="p-5 d-flex flex-column justify-content-center"
+                 style="background-image: url({% static "reua/img/rebuild/bg_slide1.png" %}); background-size: cover">
+                <h3 class="text-warning fw-bold">
+                    {% blocktrans %}
+                        У наслідок повномасштабного вторгнення на початок 2023 року кількість зруйнованих будівель в
+                        Україні
+                        перевищила 140 тисяч - про це повідовим омбудсмен України. Через що близько 10 мільйонів
+                        українців
+                        вимушено виїхали за кордон.
+                    {% endblocktrans %}
+                </h3>
+            </div>
+        </div>
+        <div class="col p-0  d-flex">
+            <div class="p-5 bg-white d-flex flex-column justify-content-center">
+                <h1 class="text-primary fw-bold">
+                    {% trans "Житло для 1000 сімей за 8 місяців" %}
+                </h1>
+                <p class="fs-3">
+                    {% trans "Для вирішення проблеми - фонд створив проєкт ReCITY, у рамках якого здійснить відбудову постійного житла для ВПО." %}
+                </p>
+                <h3 class="text-primary  fw-bold">
+                    {% trans "Мета - 40 міст на території України, кожне з яких розраховане на 1000 сімей." %}
+                </h3>
+            </div>
+        </div>
+        <div class="col p-0  d-flex">
+            <div class="p-5 d-flex flex-column justify-content-center">
+                <h1 class="text-primary fw-bold">
+                    {% trans "КРОК 1 - ЗВЕДЕННЯ СМАРТ-МІСТА" %}
+                </h1>
+                <h3 class="text-primary fw-bold fst-italic">
+                    {% trans "Близько 200 000 осіб безкоштовно отримають постійне житло в одному з міст." %}
+                </h3>
+                <p class="fs-4">
+                    {% trans "З метою забезпечення житлом та робочими місцями постраждалих від дій агресора, зокрема маріупольчан, було створено концепцію будівництва житлової та промислової локацій." %}
+                </p>
+                <p class="fs-4">
+                    {% trans "Для успішної реалізації проектів, благодійний фонд зібрав кращі екологічні та інноваційно-технологічні рішення з усього світу. Над втіленням яких працюють провідні світові партнери." %}
+                </p>
+                <p class="fs-4 fst-italic">
+                    {% trans "Відбудову міст здійснить група компаній підрозділу фонду BUILDING GROUP." %}
+                </p>
+
+            </div>
+        </div>
+        <div class="col p-0 d-flex">
+            <div class="p-5 w-100"
+                 style="background: url({% static "reua/img/rebuild/bg_slide2.png" %}) center center no-repeat; background-size: cover">
+            </div>
+        </div>
+        <div class="col p-0  d-flex">
+            <div class="p-5 d-flex flex-column justify-content-center"
+                 style="background: url({% static "reua/img/rebuild/bg_slide3.png" %}) center center no-repeat; background-size: cover">
+                <h1 class="text-white fw-bold">
+                    {% trans "КРОК 2 - ЗВЕДЕННЯ ІНДУСТРІАЛЬНОГО ХАБУ ПРИ КОЖНОМУ СМАРТ-МІСТУ" %}
+                </h1>
+                <p class="fs-4 text-white">
+                    {% trans "Повноцінне повернення до повсякденного життя внутрішньо переміщених осіб можливе лише при їх впевненості у завтрашньому дні. Це потребує розширення екосистеми містечка до створення супроводжуючого індустріального парку, який зможе забезпечити жителів постійними робочими місцями, а містечко – власним виробництвом." %}
+                </p>
+
+            </div>
+        </div>
+        <div class="col p-0 d-flex">
+            <div class="p-5 w-100 bg-warning">
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-3 mt-3">
+        {% for n in "123456789"|make_list %}
+            {% with forloop.counter|stringformat:"d" as s %}
+                {% static "reua/img/rebuild/photo/img"|add:s|add:".png" as img_url %}
+                <div class="col p-2">
+                    <div class="rounded" style="height: 450px; background: url({{ img_url }}) center center no-repeat; background-size: cover;">
+{#                        {{ s }}#}
+                    </div>
+                </div>
+            {% endwith %}
+        {% endfor %}
+    </div>
+{% endblock %}

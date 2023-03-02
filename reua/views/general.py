@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from reua.forms.feedback import FeedbackForm
 from reua.models import Partner, Staff
 
-__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView")
+__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView")
 
 from reua.views.mixins import BreadCrumbsMixin
 
@@ -56,4 +56,9 @@ class WaterView(BreadCrumbsMixin, TemplateView):
     page_title = _("Питна вода")
     template_name = "pages/water.html"
 
+
+class RebuildView(BreadCrumbsMixin, TemplateView):
+    bc = [{'title': _("Відбудова")}]
+    page_title = _("Відбудова житла")
+    template_name = "pages/rebuild.html"
 

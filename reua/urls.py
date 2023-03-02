@@ -14,6 +14,7 @@ urlpatterns = [
     path('investition/new/', Addinvestition.as_view(), name='investition-create'),
     path('about/', WaterView.as_view(), name='water'),
     path('water/', AboutView.as_view(), name='about'),
+    path('rebuild/', RebuildView.as_view(), name='rebuild'),
 
     path('/fp/', include('django.contrib.flatpages.urls')),
 
