@@ -207,3 +207,9 @@ CSRF_TRUSTED_ORIGINS = ['https://reua.com.ua']
 PHONENUMBER_DEFAULT_REGION = 'UA'
 
 SITE_ID = 1
+
+
+try:
+    from .override_settings import GMAP_API_KEY
+except ImportError:
+    GMAP_API_KEY = None

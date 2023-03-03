@@ -1,6 +1,7 @@
 {% extends "default_page.html" %}
 {% load static %}
 {% load i18n %}
+{% load request_heplers %}
 
 {% block content %}
     {{ block.super }}
@@ -168,4 +169,32 @@
                     allowfullscreen></iframe>
         </div>
     </div>
+    <div class="row" style="height: min(450px, 100vh)">
+        <div class="col col-3 h-100 overflow-auto">
+            <ul class="list-group" id="water-stations-list">
+                {% for station in water_stations %}
+                <li class="list-group-item list-group-item-action" id="water-station-{{ station.id }}">
+                    {{ station.title }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col col-9 h-100 overflow-hidden">
+            <div id="map" class="h-100" >
+
+            </div>
+        </div>
+
+    </div>
+    {{ water_stations|json_script:'water_stations' }}
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script async
+      src="https://maps.googleapis.com/maps/api/js?key={% gmaps_api_key %}&callback=initMap"
+      defer
+    ></script>
+    <script
+      src="{% static "reua/js/water_map.js" %}"></script>
 {% endblock %}

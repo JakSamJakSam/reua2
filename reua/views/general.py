@@ -1,9 +1,11 @@
+from django.forms import model_to_dict
+from django.templatetags.static import static
 from django.urls import reverse
 from django.views.generic import TemplateView, FormView
 from django.utils.translation import gettext_lazy as _
 
 from reua.forms.feedback import FeedbackForm
-from reua.models import Partner, Staff
+from reua.models import Partner, Staff, WaterStation
 
 __all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView")
 
@@ -55,6 +57,24 @@ class WaterView(BreadCrumbsMixin, TemplateView):
     bc = [{'title': _("Питна вода")}]
     page_title = _("Питна вода")
     template_name = "pages/water.html"
+
+    def get_water_stations(self):
+        qs = WaterStation.objects.all()
+        return [{
+            'id': m.id,
+            'lat': m.lat,
+            'lng': m.lng,
+            'title': m.localized_title,
+            'desc': m.localized_desc,
+            'marker': static("reua/img/water/marker.png"),
+
+        } for m in qs
+        ]
+
+    def get_context_data(self, *args, **kwargs):
+        ctx=super().get_context_data(*args, **kwargs)
+        ctx['water_stations'] = self.get_water_stations()
+        return ctx
 
 
 class RebuildView(BreadCrumbsMixin, TemplateView):

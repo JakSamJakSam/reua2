@@ -5,7 +5,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import TopMenu, Partner, FoundingDocument, CompanyCategory, Company, SiteSettings, InvestitionCompany, \
-    Staff
+    Staff, WaterStation
 from reua.models.compaies import Label
 
 
@@ -67,5 +67,9 @@ class StaffAdmin(SummernoteModelAdmin):
 
 
 @admin.register(Label)
+class LabelAdmin(SortableAdmin):
+    pass
+
+@admin.register(WaterStation)
 class LabelAdmin(SortableAdmin):
     pass
