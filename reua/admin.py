@@ -1,12 +1,13 @@
 from adminsortable.admin import SortableAdmin
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
-from django_summernote.admin import SummernoteModelAdmin
+from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMixin
 
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import TopMenu, Partner, FoundingDocument, CompanyCategory, Company, SiteSettings, InvestitionCompany, \
     Staff, WaterStation
 from reua.models.compaies import Label
+from reua.models.projects import Project
 
 
 @admin.register(TopMenu)
@@ -73,3 +74,10 @@ class LabelAdmin(SortableAdmin):
 @admin.register(WaterStation)
 class LabelAdmin(SortableAdmin):
     pass
+
+
+@admin.register(Project)
+class ProjectAdmin(SummernoteModelAdminMixin, SortableAdmin):
+    list_display = ('title', 'target', 'current', 'closed')
+    summernote_fields = ('desc', 'desc_en')
+

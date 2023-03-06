@@ -208,6 +208,7 @@ PHONENUMBER_DEFAULT_REGION = 'UA'
 
 SITE_ID = 1
 
+USE_THOUSAND_SEPARATOR =True
 
 try:
     from .override_settings import GMAP_API_KEY

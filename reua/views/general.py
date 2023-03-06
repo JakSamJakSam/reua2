@@ -5,9 +5,11 @@ from django.views.generic import TemplateView, FormView
 from django.utils.translation import gettext_lazy as _
 
 from reua.forms.feedback import FeedbackForm
-from reua.models import Partner, Staff, WaterStation
+from reua.models import Partner, Staff, WaterStation, Project
 
 __all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView")
+
+from reua.models.projects import KindProject
 
 from reua.views.mixins import BreadCrumbsMixin
 
@@ -74,6 +76,7 @@ class WaterView(BreadCrumbsMixin, TemplateView):
     def get_context_data(self, *args, **kwargs):
         ctx=super().get_context_data(*args, **kwargs)
         ctx['water_stations'] = self.get_water_stations()
+        ctx['projects'] = Project.objects.filter(kind=KindProject.water.value)
         return ctx
 
 

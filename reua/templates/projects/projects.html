@@ -1,0 +1,6 @@
+{% extends "default_page.html" %}
+
+{% block content %}
+    {{ block.super }}
+    {% include "projects/common-list.html" with projects=projects img_height=400 %}
+{% endblock %}

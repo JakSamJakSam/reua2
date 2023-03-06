@@ -1,0 +1,57 @@
+{% load i18n %}
+{% load l10n %}
+{% load thumbnail %}
+<div class="row row-cols-3 mb-3">
+    {% for project in projects %}
+        <div class="col mb-3">
+            <div class="card h-100">
+                <a href="{% url "project-item" pk=project.pk %}" class="text-decoration-none text-dark flex-fill d-flex flex-column">
+                    {% with img_height|stringformat:"d" as s %}
+                        {% with 'x'|add:s as geometry %}
+                            {% thumbnail project.image geometry format="PNG" upscale=True crop='center' as im %}
+                                <div style="background: url({{ im.url }}) center center no-repeat; background-size: cover; height: {{ im.height }}px;" class="position-relative overflow-hidden">
+                                    {% if project.closed %}
+                                        <div class="project-closed">
+                                            {% trans "Збір завершено" %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endthumbnail %}
+                        {% endwith %}
+                    {% endwith %}
+                    <div class="card-body flex-fill">
+                        <h5 class="card-title">{{ project.localized_title }}</h5>
+                        {% if project.localized_short_desc %}
+                            <p class="card-text">
+                                {{ project.localized_short_desc }}
+                            </p>
+                        {% endif %}
+                    </div>
+                    <div class="card-body border-top d-flex justify-content-between align-items-center flex-grow-0  ">
+                        <span class="fs-2 fw-bolder">{{ project.target|localize }}{{ project.currency_symbol }}</span>
+                        {% if project.current %}
+                            <div>
+                                {% trans "Зібрано: " %}
+                                <span class="fs-5 fw-bolder">{{ project.current|localize }}{{ project.currency_symbol }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </a>
+                <div class="card-footer bg-white border-top-0 pb-3 d-flex justify-content-between">
+                    <a href="{% url "project-item" pk=project.pk %}" class="btn btn-outline-secondary">
+                        {% trans "Докладніше" %}
+                    </a>
+                    {% if project.closed %}
+                        <a href="#" class="btn btn-secondary disabled" disabled>
+                            {% trans "Збір завершено" %}
+                        </a>
+                    {% else %}
+                        <a href="#" class="btn btn-warning">
+                            {% trans "Зробити внесок" %}
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

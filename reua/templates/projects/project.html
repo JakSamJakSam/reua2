@@ -1,0 +1,22 @@
+{% extends "default_page.html" %}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load request_heplers %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+        <div class="col-md-6">
+            {% thumbnail project.image "x625" format="PNG" upscale=True crop='center' as im %}
+
+                <div class="rounded" style="background: url({{ im.url }}) center center no-repeat; background-size: cover; height: {{ im.height }}px;">
+                </div>
+            {% endthumbnail %}
+        </div>
+        <div class="col-md-6">
+            <h1 class="fw-bold">{{ project.localized_title }}</h1>
+            {{ project.localized_desc|bleach_sanitarize|safe }}
+        </div>
+    </div>
+{% endblock %}

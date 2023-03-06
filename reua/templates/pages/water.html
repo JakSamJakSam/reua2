@@ -1,4 +1,6 @@
 {% extends "default_page.html" %}
+{% load l10n %}
+{% load thumbnail %}
 {% load static %}
 {% load i18n %}
 {% load request_heplers %}
@@ -162,25 +164,36 @@
         <div class="col d-flex align-items-center">
             <h1>{% trans "Презентація" %}</h1>
         </div>
-        <div class="col" >
+        <div class="col">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/oO88ghXY5sc" class="rounded"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
         </div>
     </div>
+
+    {% if projects %}
+        <h3 class="landing_title">{% trans "Актуальні проєкти" %}</h3>
+        {% include "projects/common-list.html" with projects=projects|slice:":3" img_height=225 %}
+        <div class="mb-5">
+            <a href="{% url "project-list" %}" class="btn btn-dark">
+                {% trans "Дивитись усі" %}
+            </a>
+        </div>
+    {% endif %}
+
     <div class="row" style="height: min(450px, 100vh)">
         <div class="col col-3 h-100 overflow-auto">
             <ul class="list-group" id="water-stations-list">
                 {% for station in water_stations %}
-                <li class="list-group-item list-group-item-action" id="water-station-{{ station.id }}">
-                    {{ station.title }}
-                </li>
+                    <li class="list-group-item list-group-item-action" id="water-station-{{ station.id }}">
+                        {{ station.title }}
+                    </li>
                 {% endfor %}
             </ul>
         </div>
         <div class="col col-9 h-100 overflow-hidden">
-            <div id="map" class="h-100" >
+            <div id="map" class="h-100">
 
             </div>
         </div>
@@ -192,9 +205,9 @@
 {% block scripts %}
     {{ block.super }}
     <script async
-      src="https://maps.googleapis.com/maps/api/js?key={% gmaps_api_key %}&callback=initMap"
-      defer
+            src="https://maps.googleapis.com/maps/api/js?key={% gmaps_api_key %}&callback=initMap"
+            defer
     ></script>
     <script
-      src="{% static "reua/js/water_map.js" %}"></script>
+            src="{% static "reua/js/water_map.js" %}"></script>
 {% endblock %}
