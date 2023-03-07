@@ -17,6 +17,7 @@ urlpatterns = [
     path('water/', WaterView.as_view(), name='water'),
     path('about/', AboutView.as_view(), name='about'),
     path('rebuild/', RebuildView.as_view(), name='rebuild'),
+    path('contacts/', ContactsView.as_view(), name='contacts'),
 
     path('/fp/', include('django.contrib.flatpages.urls')),
 

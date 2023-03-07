@@ -1,4 +1,3 @@
-from django.forms import model_to_dict
 from django.templatetags.static import static
 from django.urls import reverse
 from django.views.generic import TemplateView, FormView
@@ -7,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from reua.forms.feedback import FeedbackForm
 from reua.models import Partner, Staff, WaterStation, Project
 
-__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView")
+__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView", "ContactsView")
 
 from reua.models.projects import KindProject
 
@@ -85,3 +84,8 @@ class RebuildView(BreadCrumbsMixin, TemplateView):
     page_title = _("Відбудова житла")
     template_name = "pages/rebuild.html"
 
+
+class ContactsView(BreadCrumbsMixin, TemplateView):
+    bc = [{'title': _("Контакти")}]
+    page_title = _("Контакти")
+    template_name = "pages/contacts.html"

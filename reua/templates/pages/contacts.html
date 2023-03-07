@@ -1,0 +1,55 @@
+{% extends "default_page.html" %}
+{% load request_heplers %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="row row-cols-2">
+        <div class="col"  style="min-height: 400px">
+            <div id="map" class="w-100 h-100 rounded border">
+
+            </div>
+        </div>
+        <div class="col d-flex align-items-center">
+            <ul class="list-unstyled d-flex flex-column gap-2">
+                {% if site_settings.phone %}
+                <li class="d-flex align-items-center">
+                    <i class="fa-solid fa-phone fa-lg me-2"></i>
+                    <h5>
+                        <a href="{{ site_settings.phone.as_rfc3966 }}" class="text-dark text-decoration-none fw-bolder">
+                            {{ site_settings.phone.as_international }}
+                        </a>
+                    </h5>
+                </li>
+                {% endif %}
+                {% if site_settings.localized_addr %}
+                <li class="d-flex align-items-center fs-5">
+                    <i class="fa-solid fa-location-dot fa-lg me-3"></i>
+                        {{ site_settings.localized_addr }}
+                </li>
+                {% endif %}
+                {% if site_settings.email %}
+                <li class="d-flex align-items-center  fs-5">
+                    <i class="fa-solid fa-envelope fa-lg me-3"></i>
+                        <a href="mailto:{{ site_settings.email }}" class="text-dark text-decoration-none">
+                        {{ site_settings.email }}
+                        </a>
+                </li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+    {{ site_settings.coords|json_script:'company_coords' }}
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key={% gmaps_api_key %}&callback=initAddrMap"
+            defer
+    ></script>
+    <script
+            src="{% static "reua/js/water_map.js" %}"></script>
+{% endblock %}

@@ -36,4 +36,24 @@ function initMap() {
   );
 }
 
+function initAddrMap() {
+  const companyCoords = JSON.parse(document.getElementById('company_coords').textContent);
+  if (!companyCoords) {
+    return;
+  }
+  map_center = {lat: companyCoords.lat, lng: companyCoords.lng,};
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+    center: map_center,
+  });
+  const marker = new google.maps.Marker({
+    position: {lat: companyCoords.lat, lng: companyCoords.lng,},
+    map,
+    title: companyCoords.title,
+    optimized: false,
+    icon: companyCoords.marker,
+  })
+}
+
 window.initMap = initMap;
+window.initAddrMap = initAddrMap;

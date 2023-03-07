@@ -1,11 +1,14 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import FileExtensionValidator
 from django.db import models
+from django.templatetags.static import static
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _, get_language
 from adminsortable.models import SortableMixin
 
 __all__ = ('TopMenu', 'FoundingDocument', 'SiteSettings', 'Staff', 'Partner')
+
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class TopMenu(SortableMixin, models.Model):
@@ -113,6 +116,12 @@ class SiteSettings(models.Model):
     site = models.OneToOneField('sites.Site', on_delete=models.RESTRICT, verbose_name=_('Сайт'))
     company_add_code = models.CharField(max_length=20, verbose_name=_('Код додавання компанії в групу компаній'))
     invest_add_code = models.CharField(max_length=20, verbose_name=_('Код додавання компанії в інвестиції'))
+    addr=models.TextField(verbose_name=_('Адреса'), blank=True)
+    addr_en=models.TextField(verbose_name=_('Адреса англійською'), blank=True)
+    phone = PhoneNumberField(verbose_name=_('Телефон'), region='UA', null=True, blank=True, default=None)
+    email = models.EmailField(verbose_name='E-Mail', null=True, blank=True, default=None )
+    lat=models.FloatField(verbose_name=_('Широта'), null=True, blank=True, default=None )
+    lng=models.FloatField(verbose_name=_('Долгота'), null=True, blank=True, default=None )
 
     def __str__(self):
         return str(self.site)
@@ -121,6 +130,21 @@ class SiteSettings(models.Model):
         verbose_name = _("Налаштування сайту")
         verbose_name_plural = _("Налаштування сайту")
 
+    @property
+    def localized_addr(self):
+        lg = get_language()
+        localized_addr = getattr(self, f'addr_{lg}', self.addr)
+        return localized_addr if localized_addr else self.addr
+
+
+    @property
+    def coords(self):
+        return {
+            'lat': self.lat,
+            'lng': self.lng,
+            'title': 'reUA',
+            'marker': static("reua/img/reua_marker.png"),
+        }
 
 class Staff(SortableMixin, models.Model):
     name = models.CharField(max_length=100, verbose_name=_("Ім'я та прізвище (укр)"))

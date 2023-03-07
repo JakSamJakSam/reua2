@@ -59,8 +59,18 @@ class CompanyAdmin(SortableAdmin):
     )
 
 
-admin.site.register(SiteSettings, admin.ModelAdmin)
-
+@admin.register(SiteSettings)
+class SiteSettingsAdmin(admin.ModelAdmin):
+    fieldsets = (
+        (_('Адреса'), {
+            # 'classes': ('collapse',),
+            'fields': ('addr', 'addr_en', 'phone', 'email', 'lat', 'lng'),
+        }),
+        (_('Коди'), {
+            'classes': ('collapse',),
+            'fields': ('company_add_code', 'invest_add_code'),
+        }),
+    )
 
 @admin.register(Staff)
 class StaffAdmin(SummernoteModelAdmin):
