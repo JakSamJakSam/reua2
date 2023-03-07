@@ -190,6 +190,11 @@ LOGGING = {
         },
     },
     'loggers': {
+        'django': {
+            'handlers': ['application'],
+            'propagate': True,
+            'level': 'ERROR',
+        },
         'django.request': {
             'handlers': ['application'],
             'level': 'DEBUG',
