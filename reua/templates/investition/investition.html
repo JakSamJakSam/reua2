@@ -73,8 +73,9 @@
                             </div>
                             <div class="flex-fill py-1 px-3 overflow-hidden">
                                 <h6>{{ company.name }}</h6>
-{#                                TODO: Не обрывается текст #}
-                                <small class="text-nowrap ">{{ company.descr }}</small>
+                                <small class="d-block w-100 text-truncate" title="{{ company.descr }}">
+                                    {{ company.descr }}
+                                </small>
                                 <span>{{ company.city }}</span>
                             </div>
                         </a>

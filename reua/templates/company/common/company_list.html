@@ -32,7 +32,7 @@
                                             <span>{{ company.category }}</span>
                                         </div>
                                         <div class="border-end px-2">
-                                            <span class="fw-bolder">{{ company.city }}</span>,
+                                            <span class="fw-bolder">{{ company.city|default:'' }}</span>,
                                             <span>{{ company.addr }}</span>
                                         </div>
                                         {% if company.email or company.phone %}

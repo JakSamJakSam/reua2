@@ -75,7 +75,7 @@ class AbstractCompany(SortableMixin, models.Model):
                                   default=None)
     repr_email = models.EmailField(verbose_name=_('E-Mail представника'), null=True, blank=True, default=None)
     order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
-    labels = models.ManyToManyField(Label, verbose_name=_('Мітки'))
+    labels = models.ManyToManyField(Label, verbose_name=_('Мітки'), blank=True)
 
     def __str__(self):
         return self.name

@@ -7,4 +7,10 @@
 {% block content %}
     {{ block.super }}
     {% include "company/common/company_list.html" with item_url_name="company-item" %}
+    <div class="mb-4">
+        <a href="{% url "company-create" %}" class="btn btn-primary">
+            <i class="fa-solid fa-square-plus fa-lg me-2"></i>
+            {% trans "Зареєструвати компанію" %}
+        </a>
+    </div>
 {% endblock %}
