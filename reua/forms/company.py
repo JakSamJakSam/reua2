@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db.models import Max
-from django.forms import ModelForm, CharField, BooleanField, ChoiceField, ModelChoiceField
+from django.forms import ModelForm, CharField, BooleanField, ModelChoiceField, ImageField
 
 from django.utils.translation import gettext_lazy as _
 from phonenumber_field.formfields import PhoneNumberField
@@ -18,6 +18,7 @@ class AddCompanyForm(ModelForm):
     repr_phone = PhoneNumberField(label=Company.repr_phone.field.verbose_name, required=False)
     category = ModelChoiceField(CompanyCategory.objects.all(), label=Company.category.field.verbose_name,
                                 required=True, empty_label=_('Оберіть категорію'))
+    logotype = ImageField(allow_empty_file=True, label=Company.logotype.field.verbose_name, required=False)
     i_agree = BooleanField(
         required=False,
         label=_('Даю згоду на обробку персональних даних'),

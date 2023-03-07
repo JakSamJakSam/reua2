@@ -1,9 +1,10 @@
 {% extends "default_page.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block content %}
     {{ block.super }}
-    <form method="post" action="{% url "investition-create" %}">
+    <form method="post" action="{% url "investition-create" %}" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="border rounded reua-formset">
             <legend class="h5"> {{ form.fields.form_code.label }} </legend>
@@ -27,9 +28,16 @@
             {% include "std/field/input.html" with field=form.phone cnt_class="mb-3" icon_class="fa-solid fa-phone" %}
             {% include "std/field/input.html" with field=form.email cnt_class="mb-3" icon_class="fa-solid fa-envelope" %}
             {% include "std/field/input.html" with field=form.site cnt_class="mb-3" icon_class="fa-solid fa-globe" %}
+            {% include "std/field/image.html" with field=form.logotype cnt_class="mb-3" %}
         </fieldset>
         <button type="submit" class="btn btn-lg btn-primary">
             {% trans "Надіслати заявку" %}
         </button>
     </form>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script
+            src="{% static "reua/js/image_input.js" %}"></script>
 {% endblock %}

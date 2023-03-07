@@ -1,0 +1,16 @@
+<div class="d-flex align-items-start">
+    <div class="input-group {{ cnt_class }}">
+        <label for="{{ field.id_for_label }}" class="input-group-text">{{ field.label }}</label>
+        <input type="file" name="{{ field.name }}" data-preview="true"
+               class="form-control {% include "std/field_valid.html" %}"
+               id="{{ field.id_for_label }}"
+               value="{{ field.value|default:'' }}"/>
+        {% include "std/field_errors.html" %}
+        {% if field.help_text %}
+            <div class="form-text">{{ field.help_text }}</div>
+        {% endif %}
+    </div>
+    <div id="image_for_{{ field.id_for_label }}" style="width: 10rem; height: 10rem" class="border rounded ms-3 overflow-hidden">
+
+    </div>
+</div>
