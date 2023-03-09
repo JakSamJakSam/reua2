@@ -1,3 +1,5 @@
+import datetime
+
 from django.core.exceptions import ValidationError
 from django.db.models import Max
 from django.forms import ModelForm, CharField, BooleanField, ModelChoiceField, ImageField
@@ -56,6 +58,14 @@ class AddCompanyG(AddCompanyForm):
 class AddCompanyI(AddCompanyForm):
     category = ModelChoiceField(InvestitionCategory.objects.all(), label=InvestitionCompany.category.field.verbose_name,
                                 required=True, empty_label=_('Оберіть категорію'))
+
+    def __init__(self,*args, **kwargs):
+        super().__init__(*args, **kwargs)
+        current_year = datetime.date.today().year
+        self.fields['turnover_1'].label = _(f'Оборот за {current_year-1} р.')
+        self.fields['turnover_2'].label = _(f'Оборот за {current_year-2} р.')
+        self.fields['turnover_3'].label = _(f'Оборот за {current_year-3} р.')
+
     def clean_form_code(self):
         try:
             setts = SiteSettings.objects.get(site_id=self.site_id)

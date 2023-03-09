@@ -103,6 +103,16 @@ class Company(AbstractCompany):
 
 class InvestitionCompany(AbstractCompany):
     category = models.ForeignKey(InvestitionCategory, on_delete=models.PROTECT, verbose_name=_('Категорія'))
+    descr = models.TextField(verbose_name=_('Короткий опис проєкту'), blank=True, default='')
+    is_active = models.BooleanField(verbose_name=_('Діючий бізнес'), blank=True, default=False)
+    business_plan = models.FileField(verbose_name=_('Бізнес план'), blank=True, help_text=_('Якщо є'), upload_to='documents/plan')
+    feasibility_study = models.FileField(verbose_name=_('Техніко-економічне обґрунтування'), blank=True, help_text=_('Якщо є'), upload_to='documents/teo')
+    target_amount = models.DecimalField(max_digits=13, decimal_places=0, verbose_name=_('Сума необхідних інвестицій, USD'))
+    turnover_1 = models.DecimalField(max_digits=13, decimal_places=0, verbose_name=_('Оборот за попередній рік, грн'), blank=True, default=0)
+    turnover_2 = models.DecimalField(max_digits=13, decimal_places=0, verbose_name=_('Оборот за рік - 2, грн'), blank=True, default=0)
+    turnover_3 = models.DecimalField(max_digits=13, decimal_places=0, verbose_name=_('Оборот за рік - 3, грн'), blank=True, default=0)
+    registration_date = models.DateTimeField(editable=False, auto_now_add=True)
+
     class Meta:
         verbose_name = _("Компанія (інвестиція)")
         verbose_name_plural = _("Компанії (інвестиція)")

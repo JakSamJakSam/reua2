@@ -1,5 +1,3 @@
-function onFileChamge(e){
-}
 function imageInputInit(){
   const imageInputs = document.querySelectorAll('input[data-preview]');
   imageInputs.forEach((iInput) => {

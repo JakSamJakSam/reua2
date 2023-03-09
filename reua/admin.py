@@ -39,7 +39,13 @@ class InvestitionCompanyAdmin(SortableAdmin):
             'fields': ('labels', ),
         }),
         (_('Реквізити компанії'), {
-            'fields': ('name', 'category', 'logotype', 'descr', 'city', 'addr', 'phone', 'email', 'site')
+            'fields': ('name', 'category', 'logotype', 'city', 'addr', 'phone', 'email', 'site')
+        }),
+        (_('Реквізити інвестиції'), {
+            'fields': ('descr', 'is_active', 'target_amount', 'turnover_1', 'turnover_2', 'turnover_3')
+        }),
+        (_('Файли'), {
+            'fields': ('business_plan', 'feasibility_study', )
         }),
         (_('Представник компанії'), {
             # 'classes': ('extrapretty1',),#wide, extrapretty, collapse

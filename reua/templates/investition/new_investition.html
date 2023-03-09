@@ -23,12 +23,30 @@
             {% include "std/field/select.html" with field=form.category cnt_class="mb-3" icon_class="fa-solid fa-list-ul" %}
             {% include "std/field/input.html" with field=form.name cnt_class="mb-3" icon_class="fa-solid fa-building" %}
             {% include "std/field/input.html" with field=form.city cnt_class="mb-3" icon_class="fa-solid fa-city" %}
-            {% include "std/field/textarea.html" with field=form.descr cnt_class="mb-3" icon_class="fa-regular fa-file-lines" rows=3 %}
             {% include "std/field/textarea.html" with field=form.addr cnt_class="mb-3" icon_class="fa-solid fa-location-dot" %}
             {% include "std/field/input.html" with field=form.phone cnt_class="mb-3" icon_class="fa-solid fa-phone" %}
             {% include "std/field/input.html" with field=form.email cnt_class="mb-3" icon_class="fa-solid fa-envelope" %}
             {% include "std/field/input.html" with field=form.site cnt_class="mb-3" icon_class="fa-solid fa-globe" %}
             {% include "std/field/image.html" with field=form.logotype cnt_class="mb-3" %}
+        </fieldset>
+        <fieldset class="border rounded reua-formset">
+            {% include "std/field/textarea.html" with field=form.descr cnt_class="mb-3" icon_class="fa-regular fa-file-lines" rows=3 %}
+            {% include "std/field/input.html" with field=form.target_amount cnt_class="mb-3" icon_class="fa-solid fa-sack-dollar" %}
+            <div class="row row-cols-2">
+                <div class="col">
+                    {% include "std/field/checkbox.html" with field=form.is_active cnt_class="my-3" %}
+                </div>
+                <div class="col">
+                    <div id="investition_turnovers" class="collapse hide">
+                        {% include "std/field/input.html" with field=form.turnover_1 cnt_class="mb-3" icon_class="fa-solid fa-receipt" %}
+                        {% include "std/field/input.html" with field=form.turnover_2 cnt_class="mb-3" icon_class="fa-solid fa-receipt" %}
+                        {% include "std/field/input.html" with field=form.turnover_3 cnt_class="mb-3" icon_class="fa-solid fa-receipt" %}
+                    </div>
+                </div>
+            </div>
+            {% include "std/field/file.html" with field=form.business_plan cnt_class="mb-3" %}
+            {% include "std/field/file.html" with field=form.feasibility_study cnt_class="mb-3" %}
+
         </fieldset>
         <button type="submit" class="btn btn-lg btn-primary">
             {% trans "Надіслати заявку" %}
@@ -38,6 +56,6 @@
 
 {% block scripts %}
     {{ block.super }}
-    <script
-            src="{% static "reua/js/image_input.js" %}"></script>
+    <script src="{% static "reua/js/image_input.js" %}"></script>
+    <script src="{% static "reua/js/investitionForm.js" %}"></script>
 {% endblock %}
