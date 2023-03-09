@@ -6,7 +6,7 @@ from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMi
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import TopMenu, Partner, FoundingDocument, CompanyCategory, Company, SiteSettings, InvestitionCompany, \
     Staff, WaterStation
-from reua.models.compaies import Label
+from reua.models.compaies import Label, InvestitionCategory
 from reua.models.projects import Project
 
 
@@ -22,7 +22,13 @@ class TopMenuAdmin(SortableAdmin):
 
 admin.site.register(FoundingDocument, admin.ModelAdmin)
 
-admin.site.register(CompanyCategory, admin.ModelAdmin)
+@admin.register(CompanyCategory)
+class CompanyCategoryAdmin(SortableAdmin):
+    pass
+
+@admin.register(InvestitionCategory)
+class InvestitionCategoryAdmin(SortableAdmin):
+    pass
 
 
 @admin.register(InvestitionCompany)

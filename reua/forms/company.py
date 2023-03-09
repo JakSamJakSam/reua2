@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from phonenumber_field.formfields import PhoneNumberField
 
 from reua.models import Company, SiteSettings, CompanyCategory, InvestitionCompany
+from reua.models.compaies import InvestitionCategory
 
 
 class AddCompanyForm(ModelForm):
@@ -16,8 +17,6 @@ class AddCompanyForm(ModelForm):
     form_code = CharField(required=True, label=_("Код запрошення до групи компаній"))
     phone = PhoneNumberField(label=Company.phone.field.verbose_name, required=False)
     repr_phone = PhoneNumberField(label=Company.repr_phone.field.verbose_name, required=False)
-    category = ModelChoiceField(CompanyCategory.objects.all(), label=Company.category.field.verbose_name,
-                                required=True, empty_label=_('Оберіть категорію'))
     logotype = ImageField(allow_empty_file=True, label=Company.logotype.field.verbose_name, required=False)
     i_agree = BooleanField(
         required=False,
@@ -38,6 +37,8 @@ class AddCompanyForm(ModelForm):
 
 
 class AddCompanyG(AddCompanyForm):
+    category = ModelChoiceField(CompanyCategory.objects.all(), label=Company.category.field.verbose_name,
+                                required=True, empty_label=_('Оберіть категорію'))
     def clean_form_code(self):
         try:
             setts = SiteSettings.objects.get(site_id=self.site_id)
@@ -53,6 +54,8 @@ class AddCompanyG(AddCompanyForm):
 
 
 class AddCompanyI(AddCompanyForm):
+    category = ModelChoiceField(InvestitionCategory.objects.all(), label=InvestitionCompany.category.field.verbose_name,
+                                required=True, empty_label=_('Оберіть категорію'))
     def clean_form_code(self):
         try:
             setts = SiteSettings.objects.get(site_id=self.site_id)

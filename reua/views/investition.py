@@ -1,14 +1,16 @@
 from django.contrib.sites.shortcuts import get_current_site
 from django.db.models import Count
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, FormView
 from django.utils.translation import gettext_lazy as _
+from django.views.generic import ListView, DetailView, FormView
 
-from reua.fillters import CompanyFilter, InvestitionCompanyFilter
-from reua.forms.company import AddCompanyG, AddCompanyI
-from reua.models import Company, CompanyCategory, InvestitionCompany
+from reua.fillters import InvestitionCompanyFilter
+from reua.forms.company import AddCompanyI
+from reua.models import CompanyCategory, InvestitionCompany
 
 __all__ = ('ListInvestitionView', 'DetailinvestitionView', 'Addinvestition')
+
+from reua.models.compaies import InvestitionCategory
 
 from reua.views.mixins import BreadCrumbsMixin
 
@@ -31,16 +33,16 @@ class ListInvestitionView(BreadCrumbsMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         ctx = super().get_context_data(object_list=object_list, **kwargs)
-        ctx['categories'] = CompanyCategory.objects.all().annotate(companies_count=Count('investitioncompany'))
+        ctx['categories'] = InvestitionCategory.objects.all().annotate(companies_count=Count('investitioncompany'))
         ctx['current_category'] = self._filter.form.cleaned_data.get('category', None)
         return ctx
 
 class Addinvestition(BreadCrumbsMixin, FormView):
     form_class = AddCompanyI
     template_name = 'investition/new_investition.html'
-    bc = [        {'title': _("Інвестиційна програма"), 'url': reverse_lazy('investition-list')},
+    bc = [
+        {'title': _("Інвестиційна програма"), 'url': reverse_lazy('investition-list')},
         {'title': _("Подати заявку")},
-
     ]
     page_title = _("Подати заявку")
 

@@ -29,11 +29,12 @@ class Label(SortableMixin, models.Model):
         ordering = ["order"]
 
 
-class CompanyCategory(models.Model):
+class AbstractCategory(SortableMixin, models.Model):
     title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
     title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'), null=True, blank=True,
                                 default=None)
-
+    order = models.PositiveSmallIntegerField(blank=True,
+                                default=999999)
     def __str__(self):
         return self.title
 
@@ -44,9 +45,18 @@ class CompanyCategory(models.Model):
         return localized_title if localized_title else self.title
 
     class Meta:
+        abstract = True
+class CompanyCategory(AbstractCategory):
+    class Meta:
         verbose_name = _("Категорія компаній")
         verbose_name_plural = _("Категорії компаній")
-        ordering = ["id"]
+        ordering = ["order"]
+
+class InvestitionCategory(AbstractCategory):
+    class Meta:
+        verbose_name = _("Категорія інвестицый")
+        verbose_name_plural = _("Категорії інвестицый")
+        ordering = ["order"]
 
 
 class AbstractCompany(SortableMixin, models.Model):
@@ -63,7 +73,6 @@ class AbstractCompany(SortableMixin, models.Model):
     phone = PhoneNumberField(verbose_name=_('Телефон'), region='UA', null=True, blank=True, default=None)
     email = models.EmailField(verbose_name='E-Mail', null=True, blank=True, default=None)
     site = models.URLField(verbose_name=_('Сайт'), null=True, blank=True, default=None)
-    category = models.ForeignKey(CompanyCategory, on_delete=models.PROTECT, verbose_name=_('Категорія'))
     repr_fio = models.CharField(max_length=200, verbose_name=_('ПІБ'))
     repr_status = models.PositiveSmallIntegerField(verbose_name=_('Статус представника'), choices=(
         (REPR_STATUS_OWNER, _('Засновник')),
@@ -85,6 +94,7 @@ class AbstractCompany(SortableMixin, models.Model):
 
 
 class Company(AbstractCompany):
+    category = models.ForeignKey(CompanyCategory, on_delete=models.PROTECT, verbose_name=_('Категорія'))
     class Meta:
         verbose_name = _("Компанія")
         verbose_name_plural = _("Компанії")
@@ -92,6 +102,7 @@ class Company(AbstractCompany):
 
 
 class InvestitionCompany(AbstractCompany):
+    category = models.ForeignKey(InvestitionCategory, on_delete=models.PROTECT, verbose_name=_('Категорія'))
     class Meta:
         verbose_name = _("Компанія (інвестиція)")
         verbose_name_plural = _("Компанії (інвестиція)")
