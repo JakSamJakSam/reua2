@@ -64,7 +64,7 @@ class News(models.Model):
 
 
 class NewsImages(models.Model):
-    title = models.CharField(max_length=500, verbose_name=_('Заголовок (українською)'))
+    title = models.CharField(max_length=500, verbose_name=_('Заголовок (українською)'), blank=True)
     title_en = models.CharField(max_length=500, verbose_name=_('Заголовок (англійською)'), blank=True)
     news = models.ForeignKey(News, on_delete=models.CASCADE, verbose_name=_('Новина'), )
     image = models.ImageField(upload_to='news/%Y', verbose_name=_('Зображення'),

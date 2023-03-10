@@ -2,7 +2,10 @@ from django import forms
 from reua.models import TopMenu
 
 class TopMenuAdminForm(forms.ModelForm):
-    ALLOWED_URL_NAMES = ('company-list', 'investition-list', 'water', 'about', 'rebuild', 'contacts')
+    ALLOWED_URL_NAMES = (
+        'company-list', 'investition-list', 'water',
+        'about', 'rebuild', 'contacts', 'news-list'
+    )
 
     url_name = forms.ChoiceField(
         choices=(

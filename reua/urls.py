@@ -18,6 +18,8 @@ urlpatterns = [
     path('about/', AboutView.as_view(), name='about'),
     path('rebuild/', RebuildView.as_view(), name='rebuild'),
     path('contacts/', ContactsView.as_view(), name='contacts'),
+    path('news/', ListNewsView.as_view(), name='news-list'),
+    path('news/<int:pk>/', DetailNewsView.as_view(), name='news-item'),
 
     path('/fp/', include('django.contrib.flatpages.urls')),
 

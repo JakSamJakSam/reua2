@@ -1,3 +1,11 @@
+
 .bg-gray200{
     background-color: var(--bs-gray-200);
+}
+.bg-deep-purple{
+    background-color: var(--deep_purple);
+}
+
+:root{
+    --deep_purple: #0f1e3c;
 }

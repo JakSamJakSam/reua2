@@ -56,7 +56,7 @@ footer{
 }
 
 footer .nav-link {
-    color: #0f1e3c;
+    color: var(--deep_purple);
     font-weight: 500;
 }
 
