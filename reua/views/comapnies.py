@@ -33,7 +33,7 @@ class ListCompanyView(BreadCrumbsMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         ctx = super().get_context_data(object_list=object_list, **kwargs)
-        ctx['categories'] = CompanyCategory.objects.all().annotate(companies_count=Count('company'))
+        ctx['categories'] = CompanyCategory.objects.all().annotate(companies_count=Count('company')).order_by('order')
         ctx['current_category'] = self._filter.form.cleaned_data.get('category', None)
         return ctx
 
