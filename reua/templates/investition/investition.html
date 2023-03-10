@@ -64,6 +64,7 @@
                 {% for company in category_companies %}
                     <li>
                         <a class="card text-decoration-none text-dark d-flex flex-row overflow-hidden" href="{% url "company-item" pk=company.pk %}">
+                            {% if company.logotype %}
                             <div class="bg-white border rounded p-1">
                                 {% thumbnail company.logotype "75x75" format="PNG" upscale=True crop='center' as im %}
                                     <img src="{{ im.url }}" class="border rounded"
@@ -71,6 +72,7 @@
                                          height="{{ im.height }}">
                                 {% endthumbnail %}
                             </div>
+                            {% endif %}
                             <div class="flex-fill py-1 px-3 overflow-hidden">
                                 <h6>{{ company.name }}</h6>
                                 <small class="d-block w-100 text-truncate" title="{{ company.descr }}">
