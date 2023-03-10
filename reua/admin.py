@@ -4,11 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMixin
 
 from reua.forms.admin_forms import TopMenuAdminForm
-from reua.models import TopMenu, Partner, FoundingDocument, CompanyCategory, Company, SiteSettings, InvestitionCompany, \
-    Staff, WaterStation
-from reua.models.compaies import Label, InvestitionCategory
-from reua.models.projects import Project
-
+from reua.models import *
 
 @admin.register(TopMenu)
 class TopMenuAdmin(SortableAdmin):
@@ -103,3 +99,17 @@ class ProjectAdmin(SummernoteModelAdminMixin, SortableAdmin):
     list_display = ('title', 'target', 'current', 'closed')
     summernote_fields = ('desc', 'desc_en')
 
+
+admin.site.register(NewsCategory, admin.ModelAdmin)
+
+
+class NewsImagesInline(admin.TabularInline):
+    model = NewsImages
+
+@admin.register(News)
+class NewsAdmin(SummernoteModelAdmin):
+    list_display = ('title', 'date', 'category')
+    summernote_fields = ('body', 'body_en')
+    date_hierarchy = 'date'
+    list_filter = ('category', )
+    inlines = [NewsImagesInline,]

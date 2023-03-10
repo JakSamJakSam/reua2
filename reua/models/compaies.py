@@ -2,7 +2,7 @@ from adminsortable.models import SortableMixin
 from django.utils.translation import gettext_lazy as _, get_language
 from django.db import models
 
-__all__ = ('CompanyCategory', 'Company', 'InvestitionCompany')
+__all__ = ('CompanyCategory', 'Company', 'InvestitionCompany', 'InvestitionCategory', 'Label')
 
 from phonenumber_field.modelfields import PhoneNumberField
 
