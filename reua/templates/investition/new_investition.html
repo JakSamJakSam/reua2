@@ -32,6 +32,7 @@
         <fieldset class="border rounded reua-formset">
             {% include "std/field/textarea.html" with field=form.descr cnt_class="mb-3" icon_class="fa-regular fa-file-lines" rows=3 %}
             {% include "std/field/input.html" with field=form.target_amount cnt_class="mb-3" icon_class="fa-solid fa-sack-dollar" %}
+            {% include "std/field/input.html" with field=form.quant_of_persons cnt_class="mb-3" icon_class="fa-solid fa-people-carry-box" %}
             <div class="row row-cols-2">
                 <div class="col">
                     {% include "std/field/checkbox.html" with field=form.is_active cnt_class="my-3" %}

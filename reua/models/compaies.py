@@ -108,10 +108,23 @@ class InvestitionCompany(AbstractCompany):
     business_plan = models.FileField(verbose_name=_('Бізнес план'), blank=True, help_text=_('Якщо є'), upload_to='documents/plan')
     feasibility_study = models.FileField(verbose_name=_('Техніко-економічне обґрунтування'), blank=True, help_text=_('Якщо є'), upload_to='documents/teo')
     target_amount = models.DecimalField(max_digits=13, decimal_places=0, verbose_name=_('Сума необхідних інвестицій, USD'))
-    turnover_1 = models.DecimalField(max_digits=13, decimal_places=0, verbose_name=_('Оборот за попередній рік, грн'), blank=True, default=0)
-    turnover_2 = models.DecimalField(max_digits=13, decimal_places=0, verbose_name=_('Оборот за рік - 2, грн'), blank=True, default=0)
-    turnover_3 = models.DecimalField(max_digits=13, decimal_places=0, verbose_name=_('Оборот за рік - 3, грн'), blank=True, default=0)
+    turnover_1 = models.DecimalField(
+        max_digits=13, decimal_places=0, verbose_name=_('Оборот за попередній рік, грн'),
+        blank=True, null=True, default=None
+    )
+    turnover_2 = models.DecimalField(
+        max_digits=13, decimal_places=0, verbose_name=_('Оборот за рік - 2, грн'),
+        blank=True, null=True, default=None
+    )
+    turnover_3 = models.DecimalField(
+        max_digits=13, decimal_places=0, verbose_name=_('Оборот за рік - 3, грн'),
+        blank=True, null=True, default=None
+    )
     registration_date = models.DateTimeField(editable=False, auto_now_add=True)
+    quant_of_persons = models.PositiveSmallIntegerField(
+        verbose_name=_('Кількість співробітників'),
+        help_text=_('Кількість співробітників що залучені, або планується залучити')
+    )
 
     class Meta:
         verbose_name = _("Компанія (інвестиція)")
