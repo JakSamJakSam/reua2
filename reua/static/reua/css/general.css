@@ -1,15 +1,15 @@
-.landing_block{
+.landing_block {
     min-height: 100vh;
 }
 
-.landing_title{
+.landing_title {
     font-weight: 700;
     font-size: 4rem;
     color: var(--bs-gray-200);
     margin-top: -3rem;
 }
 
-.cover{
+.cover {
 
 }
 
@@ -24,7 +24,7 @@
     color: var(--bs-white);
     border: 1px solid #ffffff22;
     border-radius: var(--bs-btn-border-radius);
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .topmenu .nav-link:hover, .topmenu .nav-link.active {
@@ -32,12 +32,13 @@
     border-color: var(--bs-white);
 }
 
-.btn.lng{
+.btn.lng {
     color: var(--bs-white);
     border-color: var(--bs-blue);
     font-weight: bolder;
     padding: var(--bs-btn-padding-y) var(--bs-btn-padding-y);
 }
+
 .btn.lng.active {
     color: var(--bs-black);
     border-color: var(--bs-warning);
@@ -48,10 +49,11 @@
     margin-top: 130px;
 }
 
-.z10{
+.z10 {
     z-index: 10;
 }
-footer{
+
+footer {
     background-color: var(--bs-gray-200);
 }
 
@@ -60,26 +62,26 @@ footer .nav-link {
     font-weight: 500;
 }
 
-.header_bg{
+.header_bg {
     background: url("../img/dram_t.png") no-repeat center center;
     background-size: cover;
     height: 190px;
     overflow: hidden;
 }
 
-.bg_mask{
+.bg_mask {
     width: 100%;
     height: 100%;
     backdrop-filter: blur(10px);
     background: #0e1f3ccb;
 }
 
-.breadcrumb-item, .breadcrumb-item>a{
+.breadcrumb-item, .breadcrumb-item > a {
     color: var(--bs-white) !important;
     text-decoration: none;
 }
 
-.breadcrumb-item > a:hover{
+.breadcrumb-item > a:hover {
     color: var(--bs-yellow) !important;
     text-decoration: none;
 }
@@ -88,7 +90,7 @@ footer .nav-link {
     color: var(--bs-yellow) !important;
 }
 
-.pro-label{
+.pro-label {
     background: url("../img/hexagon.svg") no-repeat center center;
     background-size: contain;
     color: var(--bs-white);
@@ -96,7 +98,7 @@ footer .nav-link {
     font-weight: bolder;
 }
 
-.reua-formset{
+.reua-formset {
     padding: 1rem;
 }
 
@@ -119,4 +121,15 @@ footer .nav-link {
     left: -8rem;
     top: 3rem;
     padding: .5rem 0;
+}
+
+.gallery-item {
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175)
 }

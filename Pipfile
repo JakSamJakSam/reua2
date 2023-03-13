@@ -12,7 +12,7 @@ pillow = "*"
 fontawesomefree = "*"
 django-filter = "*"
 django-summernote = "*"
-bleach = "*"
+bleach = {extras = ["css"], version = "*"}
 django-admin-sortable = "*"
 
 [dev-packages]

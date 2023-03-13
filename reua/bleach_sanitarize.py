@@ -1,7 +1,9 @@
 import bleach
+from bleach.css_sanitizer import CSSSanitizer
 
 
 def bleach_clean(value: str) -> str:
+    css_sanitizer = CSSSanitizer(allowed_css_properties=["color", "font-weight", "text-align", "font-family"])
     return bleach.clean(
         value,
         tags={
@@ -12,5 +14,6 @@ def bleach_clean(value: str) -> str:
             'img',
             'li', 'ul', 'ol', },
         attributes = ['src', 'frameborder', 'width', 'height', 'class', 'href', 'target', 'style'],
-        protocols=['http','https','data']
+        protocols=['http','https','data'],
+        css_sanitizer=css_sanitizer
     )

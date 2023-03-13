@@ -37,14 +37,18 @@ class DetailNewsView(BreadCrumbsMixin, DetailView):
     model = News
     context_object_name = 'news'
     template_name = 'news/news-item.html'
+    page_title = ''
 
     bc = [
-        {'title': _("Прес-центр"), 'url': reverse_lazy('news')},
+        {'title': _("Прес-центр"), 'url': reverse_lazy('news-list')},
     ]
 
     def get_bc(self):
         return [*super().get_bc(), {'title': self.get_page_title()}]
 
-    def get_page_title(self):
-        return self.object.localized_title
-
+    def get_context_data(self, *args, **kwargs):
+        ctx = super().get_context_data(*args, **kwargs)
+        ctx['categories'] = NewsCategory.objects.all().annotate(news_count=Count('news')).order_by('id')
+        ctx['current_category'] = self.object.category
+        ctx['latest_news'] = News.objects.all().order_by('-date')[:5]
+        return ctx

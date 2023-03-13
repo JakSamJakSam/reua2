@@ -1,0 +1,66 @@
+{% extends "default_page.html" %}
+{% load request_heplers %}
+{% load i18n %}
+{% block content %}
+    {{ block.super }}
+    <div class="row">
+        <div class="col col-md-9 border-end">
+            {% block left_side %}
+            {% endblock %}
+        </div>
+        <div class="col col-md-3">
+            <h3 class="fw-bold">{% trans "Категорії новин" %}</h3>
+            <ul class="list-group list-group-flush mb-4">
+                {% for cat in categories %}
+                    <li class="list-group-item bg-transparent">
+                        <a href="?{% extend_current_url request.GET "category" cat.pk %}"
+                           class="text-dark text-decoration-none w-100 d-flex align-items-center">
+                        <span class="flex-fill fs-5">
+                            {{ cat.localized_title }}
+                        </span>
+                            <span class="small text-muted">
+                            {{ cat.news_count }}
+                        </span>
+
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if latest_news %}
+                <h3 class="fw-bold">{% trans "Останні новини" %}</h3>
+                <ul class="list-unstyled">
+                    {% for ln in latest_news %}
+                        <li class="mb-2">
+                            <a href="{% url "news-item" pk=ln.pk %}" class="d-flex flex-column text-decoration-none text-dark">
+                                <div class="bg-gray200 text-muted rounded-top small me-auto px-2">
+                                    {{ ln.date|date:"j b y" }}
+                                </div>
+                                <h6 class="border-top">{{ ln.localized_title }}</h6>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+            {% endif %}
+            <div class="bg-deep-purple text-white rounded p-3">
+                <h3>{% trans "Ми у соцмережах" %}</h3>
+                <p class="lead fw-normal">
+                    {% trans "Слідкуйте за нашими новинами у соціальних мережах" %}
+                </p>
+                <div class="d-flex gap-2">
+                    <a href='https://www.facebook.com/reua.com.ua' class="btn btn-light bg-white" target="_blank">
+                        <i class="fa-brands fa-facebook-f fa-fw"></i>
+                    </a>
+                    <a href='https://www.youtube.com/channel/UC1Wg8_m7TDH61IFrPuJFekA'
+                       class="btn btn-light bg-white" target="_blank">
+                        <i class="fa-brands fa-youtube fa-fw"></i>
+                    </a>
+                    <a href=https://www.instagram.com/reua.com.ua' class="btn btn-light bg-white" target="_blank">
+                        <i class="fa-brands fa-instagram fa-fw"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,86 +1,42 @@
-{% extends "default_page.html" %}
-{% load static %}
-{% load i18n %}
+{% extends "news/news-base.html" %}
 {% load thumbnail %}
-{% load request_heplers %}
 
-{% block content %}
+{% block left_side %}
     {{ block.super }}
-    <div class="row">
-        <div class="col col-md-9">
-            <ul class="list-unstyled row">
-                {% for n in news %}
-                    <li class="col col-md-6  mb-4">
-                        <div class="card h-100">
-                            {% thumbnail n.image "300x300" format="PNG" upscale=True crop='center' as im %}
-                                <a href="{% url "news-item" pk=n.pk %}">
-                                    <img src="{{ im.url }}" class="card-img-top"
-                                         alt="{{ n.localized_title }}">
-                                </a>
-                            {% endthumbnail %}
-                            <div class="card-body">
-                                <a href="{% url "news-item" pk=n.pk %}" class="text-dark text-decoration-none">
-                                    <h4 class="card-title fw-bolder">{{ n.localized_title }}</h4>
-                                </a>
-                                {% if n.localized_sub_title %}
-                                    <p class="card-text lead fw-normal">{{ n.localized_sub_title }}</p>
-                                {% endif %}
+    <ul class="list-unstyled row">
+        {% for n in news %}
+            <li class="col col-md-6  mb-4">
+                <div class="card h-100">
+                    {% thumbnail n.image "300x300" format="PNG" upscale=True crop='center' as im %}
+                        <a href="{% url "news-item" pk=n.pk %}">
+                            <img src="{{ im.url }}" class="card-img-top"
+                                 alt="{{ n.localized_title }}">
+                        </a>
+                    {% endthumbnail %}
+                    <div class="card-body">
+                        <a href="{% url "news-item" pk=n.pk %}" class="text-dark text-decoration-none">
+                            <h4 class="card-title fw-bolder">{{ n.localized_title }}</h4>
+                        </a>
+                        {% if n.localized_sub_title %}
+                            <p class="card-text lead fw-normal">{{ n.localized_sub_title }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex text-muted small">
+                            <div class="me-3">
+                                <i class="fa-solid fa-calendar-days me-1"></i>
+                                {{ n.date|date:"j b y" }}
                             </div>
-                            <div class="card-footer">
-                                <div class="d-flex text-muted small">
-                                    <div class="me-3">
-                                        <i class="fa-solid fa-calendar-days me-1"></i>
-                                        {{ n.date|date:"j b y" }}
-                                    </div>
-                                    <div class="ms-auto ">
-                                        <i class="fa-solid fa-folder me-1"></i>
-                                        {{ n.category.localized_title }}
-                                    </div>
-                                </div>
-
+                            <div class="ms-auto ">
+                                <i class="fa-solid fa-folder me-1"></i>
+                                {{ n.category.localized_title }}
                             </div>
                         </div>
-                    </li>
-                {% endfor %}
-            </ul>
-            {% include "std/pagination.html" %}
-        </div>
-        <div class="col col-md-3">
-            <h3 class="fw-bold">{% trans "Категорії новин" %}</h3>
-            <ul class="list-group list-group-flush mb-4">
-                {% for cat in categories %}
-                    <li class="list-group-item bg-transparent">
-                        <a href="?{% extend_current_url request.GET "category" cat.pk %}" class="text-dark text-decoration-none w-100 d-flex align-items-center">
-                        <span class="flex-fill fs-5">
-                            {{ cat.localized_title }}
-                        </span>
-                            <span class="small text-muted">
-                            {{ cat.news_count }}
-                        </span>
 
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-            <div class="bg-deep-purple text-white rounded p-3">
-                <h3>{% trans "Ми у соцмережах" %}</h3>
-                <p class="lead fw-normal">
-                    {% trans "Слідкуйте за нашими новинами у соціальних мережах" %}
-                </p>
-                <div class="d-flex gap-2">
-                    <a href='https://www.facebook.com/reua.com.ua' class="btn btn-light bg-white" target="_blank">
-                        <i class="fa-brands fa-facebook-f fa-fw"></i>
-                    </a>
-                    <a href='https://www.youtube.com/channel/UC1Wg8_m7TDH61IFrPuJFekA'
-                       class="btn btn-light bg-white" target="_blank">
-                        <i class="fa-brands fa-youtube fa-fw"></i>
-                    </a>
-                    <a href=https://www.instagram.com/reua.com.ua' class="btn btn-light bg-white" target="_blank">
-                        <i class="fa-brands fa-instagram fa-fw"></i>
-                    </a>
-
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </li>
+        {% endfor %}
+    </ul>
+    {% include "std/pagination.html" %}
 {% endblock %}
