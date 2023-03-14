@@ -3,3 +3,5 @@ db.sqlite3
 /reua2/override_settings.py
 /log
 /media
+/static
+/.gitignore
