@@ -88,7 +88,7 @@ class FoundingDocument(models.Model):
         if self.kind in (self.KIND_TEXT, self.KIND_LINK):
             return self.fp.get_absolute_url()
         if self.kind in (self.KIND_PDF,):
-            return self.file.url
+            return reverse("pdf-item", kwargs={'pk': self.pk})
         return "#"
 
     @property

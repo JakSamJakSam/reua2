@@ -1,12 +1,12 @@
 from django.templatetags.static import static
 from django.urls import reverse
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, DetailView
 from django.utils.translation import gettext_lazy as _
 
 from reua.forms.feedback import FeedbackForm
-from reua.models import Partner, Staff, WaterStation, Project
+from reua.models import Partner, Staff, WaterStation, Project, FoundingDocument
 
-__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView", "ContactsView")
+__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView", "ContactsView", "FileView")
 
 from reua.models.projects import KindProject
 
@@ -89,3 +89,18 @@ class ContactsView(BreadCrumbsMixin, TemplateView):
     bc = [{'title': _("Контакти")}]
     page_title = _("Контакти")
     template_name = "pages/contacts.html"
+
+
+class FileView(BreadCrumbsMixin, DetailView):
+    queryset = FoundingDocument.objects.filter(kind=FoundingDocument.KIND_PDF)
+    context_object_name = 'document'
+    template_name = "pages/pdf_file.html"
+
+    def get_page_title(self):
+        return self.object.localized_title
+
+    def render_to_response(self, context, **response_kwargs):
+        headers= {
+            "X-Frame-Options": "SAMEORIGIN"
+        }
+        return super().render_to_response(context, headers=headers, **response_kwargs)

@@ -1,0 +1,32 @@
+{% extends "default_page.html" %}
+{% load l10n %}
+{% load thumbnail %}
+{% load static %}
+{% load i18n %}
+{% load request_heplers %}
+
+{% block content %}
+    {{ block.super }}
+    <div class="d-flex">
+        <a href="{{ document.file.url }}" download="{{ document.file.name }}" class="btn btn-link ms-auto">
+            {% trans "Завантажити" %}
+        </a>
+    </div>
+    <div id="pdf-view" class="w-100 overflow-hidden">
+
+    </div>
+
+    {#    <object><embed src="{{ document.file.url }}" class="w-100" /></object>#}
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static "reua/assets/pdfjs/pdf.js" %}"></script>
+    <script src="{% static "reua/js/pdf_file.js" %}"></script>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "{% static "reua/assets/pdfjs/pdf.worker.js" %} ";
+      pdf_file("{{ document.file.url }}", '#pdf-view');
+    </script>
+
+{% endblock %}
+

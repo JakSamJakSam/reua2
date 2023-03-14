@@ -1,5 +1,7 @@
 from adminsortable.admin import SortableAdmin
 from django.contrib import admin
+from django.contrib.flatpages.admin import FlatPageAdmin
+from django.contrib.flatpages.models import FlatPage
 from django.utils.translation import gettext_lazy as _
 from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMixin
 
@@ -114,3 +116,10 @@ class NewsAdmin(SummernoteModelAdmin):
     list_filter = ('category', )
     inlines = [NewsImagesInline,]
 
+
+class NewFlatPageAdmin(SummernoteModelAdminMixin, FlatPageAdmin):
+    summernote_fields = ('content', )
+
+# Re-register FlatPageAdmin
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, NewFlatPageAdmin)
