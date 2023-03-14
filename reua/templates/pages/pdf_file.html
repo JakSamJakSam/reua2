@@ -13,9 +13,11 @@
         </a>
     </div>
     <div id="pdf-view" class="w-100 overflow-hidden">
-        <h1 class="text-muted">
-            {% trans "Зачекайте будь-ласка..." %}
-        </h1>
+        <div class="text-muted text-center">
+            <div class="spinner-border m-5" role="status">
+              <span class="visually-hidden">{% trans "Зачекайте будь-ласка..." %}</span>
+            </div>
+        </div>
     </div>
 
     {#    <object><embed src="{{ document.file.url }}" class="w-100" /></object>#}
