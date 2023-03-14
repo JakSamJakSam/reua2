@@ -5,7 +5,14 @@
 .bg-deep-purple{
     background-color: var(--deep_purple);
 }
+.blockquote {
+    border-left: 2px solid var(--main_blue);
+    padding-left: .5rem;
+}
+
 
 :root{
     --deep_purple: #0f1e3c;
+    --main_blue: #3056b8;
+    --main_yellow: #f5d731;
 }

@@ -113,3 +113,4 @@ class NewsAdmin(SummernoteModelAdmin):
     date_hierarchy = 'date'
     list_filter = ('category', )
     inlines = [NewsImagesInline,]
+

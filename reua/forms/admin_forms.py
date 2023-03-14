@@ -1,5 +1,8 @@
 from django import forms
-from reua.models import TopMenu
+from django_summernote.widgets import SummernoteWidget
+
+from reua.models import TopMenu, News
+
 
 class TopMenuAdminForm(forms.ModelForm):
     ALLOWED_URL_NAMES = (
@@ -18,3 +21,11 @@ class TopMenuAdminForm(forms.ModelForm):
     class Meta:
         model = TopMenu
         fields = '__all__'
+
+
+# smnt = {}
+# class NewsAdminForm(forms.ModelForm):
+#     body = forms.CharField(widget=SummernoteWidget(attrs=smnt))
+#     class Meta:
+#         model = News
+#         fields = '__all__'

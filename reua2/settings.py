@@ -12,9 +12,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+from django.templatetags.static import static
+from django.utils.functional import SimpleLazyObject
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -32,7 +34,6 @@ try:
     from .override_settings import ALLOWED_HOSTS
 except ImportError:
     ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -87,7 +88,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'reua2.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -97,7 +97,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -117,7 +116,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -136,7 +134,6 @@ TIME_ZONE = 'Europe/Kiev'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -163,7 +160,6 @@ SITE_ID = 1
 LOG_ROOT = os.path.join(BASE_DIR, 'log')
 if not os.path.exists(LOG_ROOT):
     os.makedirs(LOG_ROOT, mode=0o755, exist_ok=True)
-
 
 LOGGING = {
     'version': 1,
@@ -213,9 +209,11 @@ PHONENUMBER_DEFAULT_REGION = 'UA'
 
 SITE_ID = 1
 
-USE_THOUSAND_SEPARATOR =True
+USE_THOUSAND_SEPARATOR = True
 
 try:
     from .override_settings import GMAP_API_KEY
 except ImportError:
     GMAP_API_KEY = None
+
+from .summernote_config import *
