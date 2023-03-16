@@ -77,7 +77,7 @@
     <div class="row row-cols-3 mt-3">
         {% for n in "123456789"|make_list %}
             {% with forloop.counter|stringformat:"d" as s %}
-                {% static "reua/img/rebuild/photo/img"|add:s|add:".webp as img_url %}
+                {% static "reua/img/rebuild/photo/img"|add:s|add:".webp" as img_url %}
                 <div class="col p-2">
                     <div class="rounded" style="height: 450px; background: url({{ img_url }}) center center no-repeat; background-size: cover;">
 {#                        {{ s }}#}
