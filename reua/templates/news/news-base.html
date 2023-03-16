@@ -18,7 +18,7 @@
                         {% trans "Всі новини" %}
                     </span>
                             <span class="small text-muted">
-                            {{ news_count }}
+                            {{ news_count|default:"-" }}
                         </span>
 
                     </a>
@@ -31,7 +31,7 @@
                             {{ cat.localized_title }}
                         </span>
                             <span class="small text-muted">
-                            {{ cat.news_count }}
+                            {{ cat.news_count|default:"-" }}
                         </span>
 
                         </a>
