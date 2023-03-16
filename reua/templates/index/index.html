@@ -16,7 +16,7 @@
 {% block body %}
     <section class="landing_block position-relative d-flex overflow-hidden ">
         <div class="video-container position-absolute w-100 h-100">
-            <video src="/media/video/mrpl.mp4" %}" onloadedmetadata="this.muted = true" playsinline=""
+            <video src="/media/video/mrpl.mp4" onloadedmetadata="this.muted = true" playsinline=""
                    autoplay="" muted="" loop=""></video>
             <div></div>
         </div>
@@ -51,5 +51,6 @@
             <img src="{% static "reua/img/pay_logos.png" %}">
         </div>
     </section>
+    <div id="header_marker"></div>
     {% include "index/partners.html" %}
 {% endblock %}

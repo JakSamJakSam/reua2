@@ -30,6 +30,7 @@ class ListNewsView(BreadCrumbsMixin, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         ctx = super().get_context_data(object_list=object_list, **kwargs)
         ctx['categories'] = NewsCategory.objects.all().annotate(news_count=Count('news')).order_by('id')
+        ctx['news_count'] = sum(r.news_count for r in ctx['categories'])
         ctx['current_category'] = self._filter.form.cleaned_data.get('category', None)
         return ctx
 
@@ -44,11 +45,12 @@ class DetailNewsView(BreadCrumbsMixin, DetailView):
     ]
 
     def get_bc(self):
-        return [*super().get_bc(), {'title': self.get_page_title()}]
+        return [*super().get_bc(), {'title': self.object.localized_title}]
 
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
         ctx['categories'] = NewsCategory.objects.all().annotate(news_count=Count('news')).order_by('id')
         ctx['current_category'] = self.object.category
+        ctx['news_count'] = News.objects.all().count()
         ctx['latest_news'] = News.objects.all().order_by('-date')[:5]
         return ctx

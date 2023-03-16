@@ -1,0 +1,13 @@
+{% load i18n %}
+<div class="toast-container position-fixed start-50 translate-middle-x " style="bottom: 2rem">
+  <div id="cookiesToast" class="toast border-primary border border-2 bg-white" role="alert" aria-live="assertive" aria-atomic="true" style="--bs-toast-max-width: 600px">
+    <div class="toast-body d-flex gap-2">
+        <span>
+      {% trans "Цей сайт використовує cookies, як власні, так і від третіх осіб. Використовуючи цей сайт, ви даєте згоду на використання cookies" %}
+        </span>
+      <button type="button" class="btn btn-secondary text-nowrap" data-bs-dismiss="toast">
+          {% trans "Я згоден" %}
+      </button>
+    </div>
+  </div>
+</div>

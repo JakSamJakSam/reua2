@@ -11,6 +11,18 @@
         <div class="col col-md-3">
             <h3 class="fw-bold">{% trans "Категорії новин" %}</h3>
             <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item bg-transparent">
+                    <a href="{% url "news-list" %}"
+                       class="text-dark text-decoration-none w-100 d-flex align-items-center">
+                    <span class="flex-fill fs-5">
+                        {% trans "Всі новини" %}
+                    </span>
+                            <span class="small text-muted">
+                            {{ news_count }}
+                        </span>
+
+                    </a>
+                </li>
                 {% for cat in categories %}
                     <li class="list-group-item bg-transparent">
                         <a href="?{% extend_current_url request.GET "category" cat.pk %}"

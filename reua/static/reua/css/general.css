@@ -12,9 +12,11 @@
 .cover {
 
 }
+.topmenu{
+    transition: .3s ease-in-out;
+}
 
-.topmenu {
-    /*z-index: 1;*/
+.topmenu:not(.fixed-top) {
     top: 1.5rem;
 }
 
