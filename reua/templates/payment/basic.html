@@ -9,7 +9,7 @@
         </div>
     <div class="d-flex gap-2">
         {% for cc in credit_cards %}
-            <a href="{{ cc.url }}" class="btn btn-primary btn-lg">
+            <a href="{{ cc.url }}" class="btn btn-primary btn-lg" target="_blank">
                 {{ cc.currency_sign }}
                 {{ cc.currency }}
             </a>
