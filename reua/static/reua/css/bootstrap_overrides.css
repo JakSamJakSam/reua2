@@ -5,6 +5,23 @@
 .bg-deep-purple{
     background-color: var(--deep_purple);
 }
+
+.bg-main-blue{
+    background-color: var(--main_blue);
+}
+
+.bg-main-yellow{
+    background-color: var(--main_yellow);
+}
+
+.text-main-blue{
+    color: var(--main_blue);
+}
+
+.text-main-yellow{
+    color: var(--main_yellow);
+}
+
 .blockquote {
     border-left: 2px solid var(--main_blue);
     padding-left: .5rem;

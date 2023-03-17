@@ -123,3 +123,9 @@ class NewFlatPageAdmin(SummernoteModelAdminMixin, FlatPageAdmin):
 # Re-register FlatPageAdmin
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, NewFlatPageAdmin)
+
+@admin.register(BankTransferAttributes)
+class BankTransferAttributesAdmin(SummernoteModelAdmin):
+    list_display = ('kind', 'currency',)
+    summernote_fields = ('attr', 'attr_en')
+    list_filter = ('kind', 'currency' )

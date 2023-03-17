@@ -1,0 +1,79 @@
+{% load i18n %}
+{% load static %}
+<div class="modal fade" id="choose_payment_method" tabindex="-1" aria-labelledby="choose_payment_method_label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content p-3 bg-main-yellow"  style="height: 80vh">
+            <div class="modal-header d-flex align-items-start border-0">
+                <img src="{% static "reua/img/logo-mono.png" %}" alt="reUA" style="max-width: 375px;"/>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="border rounded rounded-3 border-2 border-dark p-3">
+                    <div style="margin-top: -2.5rem">
+                        <span class="fs-4 fw-bold ms-4 bg-main-yellow px-2 ">
+                            {% trans "Оберіть категорію внеску" %}
+                        </span>
+                    </div>
+                    {% for payment in payments.values %}
+                        <h6 class="rounded bg-white fw-bold py-3 text-center fs-5 mt-3">
+                            {{ payment.title }}
+                        </h6>
+                        <div class="rounded border border-1 border-dark px-3 py-2 d-flex align-items-baseline">
+                            <div class="me-auto">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <span>{% trans "На рахунок" %}</span>
+                            </div>
+                            <div class="d-flex gap-1">
+                                {% for b in payment.bank %}
+                                    <a href="#" class="btn btn-dark" data-bank_attributes="{{ b.localized_attr }}"
+                                       data-currency="{{ b.currency }}">
+                                        {{ b.currency }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="d-flex py-2 gap-2">
+                            <a href="{{ payment.credit_card }}" class="btn btn-dark flex-fill">
+                                <i class="fa-regular fa-credit-card"></i>
+                                {% trans "Карткою" %}
+                            </a>
+                            <a href="{{ payment.crypto }}" class="btn btn-dark flex-fill" target="_blank">
+                                <i class="fa-solid fa-bitcoin-sign"></i>
+                                {% trans "Крипто-валютою" %}
+                            </a>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="bank_attributes" tabindex="-1" aria-labelledby="bank_attributes_label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable">
+        <div class="modal-content p-3 bg-white" style="height: 80vh">
+            <div class="modal-header d-flex align-items-start border-0">
+                <img src="{% static "reua/img/logo-mono.png" %}" alt="reUA" style="max-width: 375px;"/>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="border rounded rounded-3 border-2 border-dark p-3">
+                    <div style="margin-top: -2.5rem" class="mb-3">
+                        <div class="fs-4 fw-bold ms-4 bg-white px-2 d-inline-block">
+                            {% trans "Оплата в" %}
+                            <span id="bank_attributes_currency">
+
+                            </span>
+                        </div>
+                    </div>
+                    <div id="bank_attributes_text">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

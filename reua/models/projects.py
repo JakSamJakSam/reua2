@@ -10,20 +10,21 @@ class KindProject(Enum):
     water = 1
     city = 2
 
-kind_project_values = (
-    (KindProject.water.value, 'ReH2O'),
-    (KindProject.city.value, 'ReCity'),
-)
+kind_project_values = {
+    KindProject.water.value: 'ReH2O',
+    KindProject.city.value: 'ReCity',
+}
 
 currencies = {
-    'EUR': "€",
-    "USD": "$",
     "UAH": "₴",
+    "USD": "$",
+    'EUR': "€",
+    "GPB": "£",
 }
 
 
 class Project(SortableMixin, models.Model):
-    kind = models.PositiveSmallIntegerField(verbose_name=_('Тип'), choices=kind_project_values)
+    kind = models.PositiveSmallIntegerField(verbose_name=_('Тип'), choices=[(k,v) for k, v in kind_project_values.items()])
     title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
     title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'), blank=True)
 

@@ -31,5 +31,20 @@ function initCoockies(){
   }
 }
 
+function  initPaymentModal(){
+  const pbs = document.querySelectorAll('[data-bank_attributes][data-currency]');
+  const m = document.getElementById('bank_attributes')
+  const modal = new bootstrap.Modal(m);
+  modal_currency_header = m.querySelector('#bank_attributes_currency');
+  modal_text = m.querySelector('#bank_attributes_text');
+  pbs.forEach(pb => {
+    pb.addEventListener('click', () => {
+      modal_currency_header.innerHTML = pb.dataset['currency'];
+      modal_text.innerHTML = pb.dataset['bank_attributes'];
+      modal.show(pb);
+    })
+  })
+}
 initScroll();
 initCoockies();
+initPaymentModal();

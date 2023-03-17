@@ -217,3 +217,18 @@ except ImportError:
     GMAP_API_KEY = None
 
 from .summernote_config import *
+
+PAYMENT_CRYPTO_RE_H2O = 'https://reua.pay.whitepay.com/'
+PAYMENT_CRYPTO_RE_CITY = 'https://rebuildua.pay.whitepay.com/'
+
+PAYMENT_CARD_RE_H2O = {
+    "UAH": 'https://patronizerbot.com/@reua_city_voda_uah',
+    "USD": 'https://patronizerbot.com/@reua_city_voda_usd',
+    "EUR": 'https://patronizerbot.com/@reua_city_voda_eur',
+}
+
+PAYMENT_CARD_RE_CITY = {
+    "UAH": 'https://patronizerbot.com/@reua_city_bud_uah',
+    "USD": 'https://patronizerbot.com/@reua_city_bud_usd',
+    "EUR": 'https://patronizerbot.com/@reua_city_bud_eur',
+}

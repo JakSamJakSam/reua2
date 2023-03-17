@@ -6,9 +6,11 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _, get_language
 from adminsortable.models import SortableMixin
 
-__all__ = ('TopMenu', 'FoundingDocument', 'SiteSettings', 'Staff', 'Partner')
+__all__ = ('TopMenu', 'FoundingDocument', 'SiteSettings', 'Staff', 'Partner', 'BankTransferAttributes')
 
 from phonenumber_field.modelfields import PhoneNumberField
+
+from reua.models.projects import kind_project_values, currencies
 
 
 class TopMenu(SortableMixin, models.Model):
@@ -116,12 +118,12 @@ class SiteSettings(models.Model):
     site = models.OneToOneField('sites.Site', on_delete=models.RESTRICT, verbose_name=_('Сайт'))
     company_add_code = models.CharField(max_length=20, verbose_name=_('Код додавання компанії в групу компаній'))
     invest_add_code = models.CharField(max_length=20, verbose_name=_('Код додавання компанії в інвестиції'))
-    addr=models.TextField(verbose_name=_('Адреса'), blank=True)
-    addr_en=models.TextField(verbose_name=_('Адреса англійською'), blank=True)
+    addr = models.TextField(verbose_name=_('Адреса'), blank=True)
+    addr_en = models.TextField(verbose_name=_('Адреса англійською'), blank=True)
     phone = PhoneNumberField(verbose_name=_('Телефон'), region='UA', null=True, blank=True, default=None)
-    email = models.EmailField(verbose_name='E-Mail', null=True, blank=True, default=None )
-    lat=models.FloatField(verbose_name=_('Широта'), null=True, blank=True, default=None )
-    lng=models.FloatField(verbose_name=_('Долгота'), null=True, blank=True, default=None )
+    email = models.EmailField(verbose_name='E-Mail', null=True, blank=True, default=None)
+    lat = models.FloatField(verbose_name=_('Широта'), null=True, blank=True, default=None)
+    lng = models.FloatField(verbose_name=_('Долгота'), null=True, blank=True, default=None)
 
     def __str__(self):
         return str(self.site)
@@ -136,7 +138,6 @@ class SiteSettings(models.Model):
         localized_addr = getattr(self, f'addr_{lg}', self.addr)
         return localized_addr if localized_addr else self.addr
 
-
     @property
     def coords(self):
         return {
@@ -145,6 +146,7 @@ class SiteSettings(models.Model):
             'title': 'reUA',
             'marker': static("reua/img/reua_marker.png"),
         }
+
 
 class Staff(SortableMixin, models.Model):
     name = models.CharField(max_length=100, verbose_name=_("Ім'я та прізвище (укр)"))
@@ -206,3 +208,27 @@ class Partner(SortableMixin, models.Model):
 
     def __str__(self):
         return self.title
+
+
+class BankTransferAttributes(models.Model):
+    kind = models.PositiveSmallIntegerField(verbose_name=_('Тип'),
+                                            choices=[(k, v) for k, v in kind_project_values.items()])
+    currency = models.CharField(max_length=3, verbose_name=_('Валюта'), choices=[(e, v) for e, v in currencies.items()])
+    attr = models.TextField(verbose_name=_('Банківські реквізити (укр)'))
+    attr_en = models.TextField(verbose_name=_('Банківські реквізити (англ)'), blank=True)
+
+    @property
+    def localized_attr(self):
+        lg = get_language()
+        localized_attr = getattr(self, f'attr_{lg}', self.attr)
+        return localized_attr if localized_attr else self.attr
+
+    def __str__(self):
+        return f'{kind_project_values[self.kind]} {self.currency}'
+
+    class Meta:
+        verbose_name = _("Банківські реквізити")
+        verbose_name_plural = _("Банківські реквізити")
+        unique_together = (('kind', 'currency'),)
+
+

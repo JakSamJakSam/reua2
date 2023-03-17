@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.templatetags.static import static
 from django.urls import reverse
 from django.views.generic import TemplateView, FormView, DetailView
@@ -6,9 +7,9 @@ from django.utils.translation import gettext_lazy as _
 from reua.forms.feedback import FeedbackForm
 from reua.models import Partner, Staff, WaterStation, Project, FoundingDocument
 
-__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView", "ContactsView", "FileView")
+__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView", "ContactsView", "FileView", 'ReH2OPaymentView', 'ReCityPaymentView')
 
-from reua.models.projects import KindProject
+from reua.models.projects import KindProject, currencies
 
 from reua.views.mixins import BreadCrumbsMixin
 
@@ -104,3 +105,33 @@ class FileView(BreadCrumbsMixin, DetailView):
             "X-Frame-Options": "SAMEORIGIN"
         }
         return super().render_to_response(context, headers=headers, **response_kwargs)
+
+class ReH2OPaymentView(BreadCrumbsMixin, TemplateView):
+    bc = [{'title': _("Зробити внесок")}]
+    page_title = "ReH2O"
+    template_name = "payment/basic.html"
+
+    def get_context_data(self, *args, **kwargs):
+        ctx = super().get_context_data(*args, **kwargs)
+        ctx['title'] = _('Дякуємо, що ви готові підтримати наш проект з чистої води для мешканців України!')
+        ctx['credit_cards'] = [{
+            'url': url,
+            'currency': cur,
+            'currency_sign': currencies[cur] if cur in currencies else ''
+        } for cur, url in settings.PAYMENT_CARD_RE_H2O.items()]
+        return ctx
+
+class ReCityPaymentView(BreadCrumbsMixin, TemplateView):
+    bc = [{'title': _("Зробити внесок")}]
+    page_title = "ReCity"
+    template_name = "payment/basic.html"
+
+    def get_context_data(self, *args, **kwargs):
+        ctx = super().get_context_data(*args, **kwargs)
+        ctx['title'] = _('Дякуємо, що ви готові підтримати наш проект з відбудови житла для мешканців України!')
+        ctx['credit_cards'] = [{
+            'url': url,
+            'currency': cur,
+            'currency_sign': currencies[cur] if cur in currencies else ''
+        } for cur, url in settings.PAYMENT_CARD_RE_CITY.items()]
+        return ctx
