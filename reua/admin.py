@@ -83,7 +83,7 @@ class SiteSettingsAdmin(admin.ModelAdmin):
     )
 
 @admin.register(Staff)
-class StaffAdmin(SummernoteModelAdmin):
+class StaffAdmin(SummernoteModelAdminMixin, SortableAdmin):
     summernote_fields = ('descriprion', 'descriprion_en')
 
 
