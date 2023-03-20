@@ -135,3 +135,34 @@ footer .nav-link {
     transform: scale(1.1);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175)
 }
+
+.project-word {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    margin-bottom: 0;
+}
+
+.project-name {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: -.5rem;
+    margin: -1.5rem 0 0 -.25rem;
+    position: relative;
+}
+
+.project-name:after {
+    content: '___';
+    position: absolute;
+    left: .25rem;
+    color: var(--main_yellow);
+}
+
+.project-digit {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--main_yellow);
+    letter-spacing: -.25rem;
+    margin-bottom: -.75rem;
+}

@@ -7,20 +7,34 @@ from django.utils.translation import gettext_lazy as _
 from reua.forms.feedback import FeedbackForm
 from reua.models import Partner, Staff, WaterStation, Project, FoundingDocument
 
-__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView", "ContactsView", "FileView", 'ReH2OPaymentView', 'ReCityPaymentView')
+__all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView", "ContactsView", "FileView",
+           'ReH2OPaymentView', 'ReCityPaymentView')
 
-from reua.models.projects import KindProject, currencies
+from reua.models.projects import KindProject, currencies, kind_project_values
+from reua.models.site_models import GeneralProjectImages
 
 from reua.views.mixins import BreadCrumbsMixin
 
 
 class IndexView(TemplateView):
     template_name = 'index/index.html'
+    positions = {
+        'top': GeneralProjectImages.POSITION_TOP,
+        'bottom': GeneralProjectImages.POSITION_BOTTOM
+    }
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['partners'] = Partner.objects.all()
+        ctx['general_project_images'] = {
+            project_name: {
+                position_name: GeneralProjectImages.objects.filter(kind=project_key, position=position_key)[:3]
+                for position_name, position_key in self.positions.items()
+            }
+            for project_key, project_name in reversed(kind_project_values.items())
+        }
         return ctx
+
 
 class FeedbackFormView(FormView):
     form_class = FeedbackForm
@@ -35,8 +49,8 @@ class FeedbackFormView(FormView):
         return self.render_to_response(self.get_context_data(form=form))
 
     def get_context_data(self, **kwargs):
-        result=super().get_context_data(**kwargs)
-        result['feedback_form']=result['form']
+        result = super().get_context_data(**kwargs)
+        result['feedback_form'] = result['form']
         del result['form']
         return result
 
@@ -54,6 +68,7 @@ class AboutView(BreadCrumbsMixin, TemplateView):
         ctx['staffs'] = Staff.objects.all()
         ctx['partners'] = Partner.objects.all()
         return ctx
+
 
 class WaterView(BreadCrumbsMixin, TemplateView):
     bc = [{'title': _("Питна вода")}]
@@ -74,7 +89,7 @@ class WaterView(BreadCrumbsMixin, TemplateView):
         ]
 
     def get_context_data(self, *args, **kwargs):
-        ctx=super().get_context_data(*args, **kwargs)
+        ctx = super().get_context_data(*args, **kwargs)
         ctx['water_stations'] = self.get_water_stations()
         ctx['projects'] = Project.objects.filter(kind=KindProject.water.value)
         return ctx
@@ -101,10 +116,11 @@ class FileView(BreadCrumbsMixin, DetailView):
         return self.object.localized_title
 
     def render_to_response(self, context, **response_kwargs):
-        headers= {
+        headers = {
             "X-Frame-Options": "SAMEORIGIN"
         }
         return super().render_to_response(context, headers=headers, **response_kwargs)
+
 
 class ReH2OPaymentView(BreadCrumbsMixin, TemplateView):
     bc = [{'title': _("Зробити внесок")}]
@@ -120,6 +136,7 @@ class ReH2OPaymentView(BreadCrumbsMixin, TemplateView):
             'currency_sign': currencies[cur] if cur in currencies else ''
         } for cur, url in settings.PAYMENT_CARD_RE_H2O.items()]
         return ctx
+
 
 class ReCityPaymentView(BreadCrumbsMixin, TemplateView):
     bc = [{'title': _("Зробити внесок")}]

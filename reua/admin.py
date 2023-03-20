@@ -7,6 +7,8 @@ from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMi
 
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import *
+from reua.models.site_models import GeneralProjectImages
+
 
 @admin.register(TopMenu)
 class TopMenuAdmin(SortableAdmin):
@@ -129,3 +131,8 @@ class BankTransferAttributesAdmin(SummernoteModelAdmin):
     list_display = ('kind', 'currency',)
     summernote_fields = ('attr', 'attr_en')
     list_filter = ('kind', 'currency' )
+
+
+@admin.register(GeneralProjectImages)
+class ProjectAdmin(SortableAdmin):
+    pass

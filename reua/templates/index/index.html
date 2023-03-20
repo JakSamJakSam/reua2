@@ -1,4 +1,5 @@
 {% extends "reua_base.html" %}
+{% load thumbnail %}
 {% load i18n %}
 {% load static %}
 
@@ -22,8 +23,8 @@
         </div>
         <div class="container under_topmenu d-flex flex-column justify-content-center ">
             <div>
-            <img src="{% static "reua/img/logo_big.png" %}" class="mw-100">
-                </div>
+                <img src="{% static "reua/img/logo_big.png" %}" class="mw-100">
+            </div>
             <div class="text-white my-5" style="font-size: 1.25rem; line-height: 1.25; max-width: 600px;">
                 <p>{% trans "Благодійний фонд" %} <span class="text-warning">
                     {% trans "«Відбудуємо нашу Україну»" %}
@@ -52,6 +53,53 @@
         </div>
     </section>
     <div id="header_marker"></div>
+    <div class="container my-5">
+        <div class="row">
+            {% for project, positions in general_project_images.items %}
+                <a href="{% if project == 'ReCity' %}{% url "rebuild" %}{% elif project == 'ReH2O' %}{% url "water" %}{% else %}#{% endif %}"
+                   class="col col-md-6 text-dark text-decoration-none">
+                    {% for images in positions.values %}
+                        <div class="d-flex overflow-hidden">
+                            {% for image in images %}
+                                {% thumbnail image.image "150x150" format="PNG" upscale=True crop='center' as im %}
+                                    <img src="{{ im.url }}" alt="{{ project }}" class="flex-fill w-auto">
+                                {% endthumbnail %}
+                            {% endfor %}
+                        </div>
+                        {% if forloop.counter0 == 0 %}
+                            <div class="d-flex my-3">
+                            {% if project == 'ReCity' %}
+                                <div class="d-flex flex-column justify-content-center me-auto">
+                                    <h3 class="project-word">project</h3>
+                                    <h1 class="project-name">ReCITY</h1>
+                                    <div class="border-warning border-5"></div>
+                                </div>
+                                <div class="d-flex flex-column justify-content-center ms-auto align-items-end">
+                                    <h2 class="project-digit">3,9</h2>
+                                    <span class="fs-5 fw-bolder">{% trans "млрд $" %}</span>
+                                    <h2 class="project-digit">40</h2>
+                                    <span class="fs-5 fw-bolder">{% trans "міст" %}</span>
+                                </div>
+                            {% elif project == 'ReH2O' %}
+                                <div class="d-flex flex-column justify-content-center me-auto">
+                                    <h3 class="project-word">Technology</h3>
+                                    <h1 class="project-name">ReH2O</h1>
+                                    <div class="border-warning border-5"></div>
+                                </div>
+                                <div class="d-flex flex-column justify-content-center ms-auto align-items-end">
+                                    <h2 class="project-digit">7,5</h2>
+                                    <span class="fs-5 fw-bolder">{% trans "млн $" %}</span>
+                                    <h2 class="project-digit">100</h2>
+                                    <span class="fs-5 fw-bolder">{% trans "систем очистки води" %}</span>
+                                </div>
+                            {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
     {% include "index/partners.html" %}
     {{ block.super }}
 {% endblock %}

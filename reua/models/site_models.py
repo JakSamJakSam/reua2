@@ -232,3 +232,28 @@ class BankTransferAttributes(models.Model):
         unique_together = (('kind', 'currency'),)
 
 
+class GeneralProjectImages(SortableMixin, models.Model):
+    POSITION_TOP = 1
+    # POSITION_MIDDLE = 2
+    POSITION_BOTTOM = 3
+
+    kind = models.PositiveSmallIntegerField(verbose_name=_('Тип'),
+                                            choices=[(k, v) for k, v in kind_project_values.items()])
+    position = models.PositiveSmallIntegerField(
+        verbose_name=_('Положення'),
+        choices=[
+            (POSITION_TOP, "Зверху"),
+            # (POSITION_MIDDLE, "Середина"),
+            (POSITION_BOTTOM, "Знизу"),
+        ]
+    )
+    image = models.ImageField(upload_to='')
+    order = models.PositiveSmallIntegerField(default=99, verbose_name=_('Номер за порядком'))
+
+    def __str__(self):
+        return kind_project_values[self.kind]
+
+    class Meta:
+        verbose_name = _("Зображення ReH2O та ReCity")
+        verbose_name_plural = _("Зображення ReH2O та ReCity")
+        ordering = ('order',)
