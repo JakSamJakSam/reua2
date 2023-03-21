@@ -1,6 +1,8 @@
 import qrcode
 import qrcode.image.svg
 from django.conf import settings
+from django.template import Context
+from django.template.loader import get_template
 from django.templatetags.static import static
 from django.urls import reverse
 from django.views.generic import TemplateView, FormView, DetailView
@@ -17,6 +19,7 @@ from reua.models.projects import KindProject, currencies, kind_project_values
 from reua.models.site_models import GeneralProjectImages
 
 from reua.views.mixins import BreadCrumbsMixin
+from reua2.email import send_email_to_staffs
 
 
 class IndexView(TemplateView):
@@ -68,7 +71,9 @@ class FeedbackFormView(FormView):
     template_name = 'feedback.html'
 
     def form_valid(self, form):
-        # TODO: send message to admins
+        template = get_template('email/feedback.html')
+        html = template.render(form.cleaned_data)
+        send_email_to_staffs(_('Отримано повідомлення'), html_message=html)
         return super().form_valid(form)
 
     def form_invalid(self, form):

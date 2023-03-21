@@ -1,0 +1,29 @@
+{% extends "email/base.html" %}
+{% load i18n %}
+{% trans "Вам повідомлення" %}
+
+{% block main %}
+    <h1>
+        {% trans "Вам надіслали повідомлення" %}
+    </h1>
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <td>{% trans "Ім'я" %}</td>
+            <td class="fw-bold">{{ fio }}</td>
+        </tr>
+        <tr>
+            <td>{% trans "Номер телефону" %}</td>
+            <td class="fw-bold">{{ phone }}</td>
+        </tr>
+        <tr>
+            <td>{% trans "E-Mail" %}</td>
+            <td class="fw-bold"><a href="mailto:{{ email }}">{{ email }}</a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                {{ message }}
+            </td>
+        </tbody>
+    </table>
+{% endblock %}

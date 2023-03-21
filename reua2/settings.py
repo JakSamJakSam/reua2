@@ -232,3 +232,18 @@ PAYMENT_CARD_RE_CITY = {
     "USD": 'https://patronizerbot.com/@reua_city_bud_usd',
     "EUR": 'https://patronizerbot.com/@reua_city_bud_eur',
 }
+
+TMP_ROOT = os.path.join(BASE_DIR, 'tmp')  #
+
+if not os.path.exists(TMP_ROOT):
+    os.makedirs(TMP_ROOT, mode=0o755, exist_ok=True)
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = TMP_ROOT
+
+try:
+    from .email_settings import *
+except:
+    pass
+
+

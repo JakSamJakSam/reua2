@@ -1,7 +1,9 @@
 .idea
 db.sqlite3
 /reua2/override_settings.py
+/reua2/email_settings.py
 /log
 /media
 /static
 /.gitignore
+tmp/
