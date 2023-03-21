@@ -39,15 +39,25 @@
                 {% trans "Зробити внесок карткою" %}
             </h5>
             <ul class="d-flex gap-2 list-unstyled justify-content-between">
-                <li>
-                    <a href="#" class="qrpay_button">
-                        <img src="{% static "reua/img/qr/qr_water.png" %}">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="qrpay_button"><img
-                            src="{% static "reua/img/qr/qr_city.png" %}"></a>
-                </li>
+                {% for project_name, qr in qrcodes.items %}
+                    <li class="qr-code {{ project_name }}">
+                        <a href="{{ qr.url }}" class="qrpay_button text-decoration-none">
+                            {{ qr.img|safe }}
+                            <span class="qr-title text-capitalize">
+                                {{ project_name }}
+                            </span>
+                        </a>
+                    </li>
+                {% endfor %}
+{#                <li>#}
+{#                    <a href="#" class="qrpay_button">#}
+{#                        <img src="{% static "reua/img/qr/qr_water.png" %}">#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="#" class="qrpay_button"><img#}
+{#                            src="{% static "reua/img/qr/qr_city.png" %}"></a>#}
+{#                </li>#}
             </ul>
             <img src="{% static "reua/img/pay_logos.png" %}">
         </div>

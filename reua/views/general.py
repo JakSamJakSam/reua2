@@ -1,8 +1,11 @@
+import qrcode
+import qrcode.image.svg
 from django.conf import settings
 from django.templatetags.static import static
 from django.urls import reverse
 from django.views.generic import TemplateView, FormView, DetailView
 from django.utils.translation import gettext_lazy as _
+from qrcode.image.styles.moduledrawers.svg import *
 
 from reua.forms.feedback import FeedbackForm
 from reua.models import Partner, Staff, WaterStation, Project, FoundingDocument
@@ -23,7 +26,20 @@ class IndexView(TemplateView):
         'bottom': GeneralProjectImages.POSITION_BOTTOM
     }
 
+
     def get_context_data(self, **kwargs):
+        def get_qrcode(url, color):
+            qr = qrcode.QRCode()
+            qr.add_data(url)
+            image_factory = qrcode.image.svg.SvgPathImage
+            image_factory.QR_PATH_STYLE.update({
+                'fill': 'white'
+            })
+            return qr.make_image(
+                image_factory=image_factory,
+                module_drawer=SvgPathCircleDrawer(),
+            ).to_string(encoding='unicode')
+
         ctx = super().get_context_data(**kwargs)
         ctx['partners'] = Partner.objects.all()
         ctx['general_project_images'] = {
@@ -33,6 +49,17 @@ class IndexView(TemplateView):
             }
             for project_key, project_name in reversed(kind_project_values.items())
         }
+        qrcodes = {
+            'reH2O': {'url': reverse('water'), 'color': '#0055bc'},
+            'reCity': {'url': reverse('rebuild'), 'color': 'var(--main-yellow'},
+        }
+        for k in qrcodes.keys():
+            qrcodes[k]['img'] = get_qrcode(
+                self.request.build_absolute_uri(qrcodes[k]['url']),
+                qrcodes[k]['color']
+            )
+        ctx['qrcodes']=qrcodes
+
         return ctx
 
 

@@ -12,7 +12,8 @@
 .cover {
 
 }
-.topmenu{
+
+.topmenu {
     transition: .3s ease-in-out;
 }
 
@@ -166,3 +167,4 @@ footer .nav-link {
     letter-spacing: -.25rem;
     margin-bottom: -.75rem;
 }
+

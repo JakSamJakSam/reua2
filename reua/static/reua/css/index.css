@@ -26,6 +26,42 @@
     opacity: 0.5;
 }
 
+.qr-code {
+    border-radius: var(--bs-border-radius-lg);
+    border: 2px solid white;
+    padding-bottom: .5rem;
+    position: relative;
+}
+
+.qr-code .qr-title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    font-weight: 900;
+    transform: translate(-50%,0);
+    padding: 0 1rem ;
+    border-radius: var(--bs-border-radius);
+    opacity: 1!important;
+ }
+
+
+.qr-code.reH2O {
+    border-color: var(--main_blue);
+}
+
+.qr-code.reCity {
+    border-color: var(--main_yellow);
+}
+
+
+.qr-code.reH2O .qr-title {
+    color: var(--main_blue);
+}
+
+.qr-code.reCity .qr-title {
+    color: var(--main_yellow);
+}
+
 .partner{
     min-height: 145px;
 }
