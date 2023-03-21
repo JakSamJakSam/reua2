@@ -258,4 +258,3 @@ class GeneralProjectImages(SortableMixin, models.Model):
         verbose_name_plural = _("Зображення ReH2O та ReCity")
         ordering = ('order',)
 
-# TODO: https://github.com/lincolnloop/python-qrcode
