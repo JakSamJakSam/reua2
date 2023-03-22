@@ -53,8 +53,8 @@ class IndexView(TemplateView):
             for project_key, project_name in reversed(kind_project_values.items())
         }
         qrcodes = {
-            'reH2O': {'url': reverse('water'), 'color': '#0055bc'},
-            'reCity': {'url': reverse('rebuild'), 'color': 'var(--main-yellow'},
+            'reH2O': {'url': reverse('Pay_ReH2O'), 'color': 'var(--main-blue'},
+            'reCity': {'url': reverse('Pay_ReCity'), 'color': 'var(--main-yellow'},
         }
         for k in qrcodes.keys():
             qrcodes[k]['img'] = get_qrcode(
