@@ -31,13 +31,14 @@
         </p>
     </div>
     <h4>{% trans "Мобільна система очистки води ReH2O" %}</h4>
-    <div class="row mb-5 rounded overflow-hidden">
-        <div class="col col-6 p-0">
+    <div class="row row-cols-1 row-cols-lg-2 mb-5 rounded overflow-hidden">
+        <div class="col p-0" >
             <div class="w-100 h-100"
-                 style="background: url({% static "reua/img/water/water_station.webp" %}) center center no-repeat; background-size: cover ">
+                 style="background: url({% static "reua/img/water/water_station.webp" %}) center center no-repeat;
+                         background-size: cover; min-height: min(25rem, 50vw); ">
             </div>
         </div>
-        <div class="col col-6 p-4 d-flex align-items-center bg-gray200">
+        <div class="col p-4 d-flex align-items-center bg-gray200">
             <div>
                 <h1>{% trans "Як це працює?" %}</h1>
                 <ul class="fs-5 d-flex flex-column gap-3">
@@ -59,7 +60,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col col-6 p-4 d-flex align-items-center bg-gray200">
+        <div class="col p-4 d-flex align-items-center bg-gray200">
             <div class="w-100">
                 <table class="table table-bordered fs-4 w-100">
                     <tr>
@@ -102,9 +103,10 @@
                 </table>
             </div>
         </div>
-        <div class="col col-6 p-0">
+        <div class="col p-0" >
             <div class="w-100 h-100"
-                 style="background: url({% static "reua/img/water/water_box.webp" %}) center center no-repeat; background-size: cover ">
+                 style="background: url({% static "reua/img/water/water_box.webp" %}) center center no-repeat;
+                         background-size: cover; min-height: min(25rem, 50vw); ">
             </div>
         </div>
     </div>
@@ -119,53 +121,55 @@
     <h2 class="text-muted text-uppercase">
         {% trans "Виробнича ефективність системи очистки води" %}
     </h2>
-    <table class="table table-bordered">
-        <tbody>
-        <tr>
-            <td class="align-middle" style="width: 20%">
-                <div class="border-start border-primary border-3 fw-bold px-2">
-                    {% trans "Продуктивність системи очищення, літрів/год" %}
-                </div>
-            </td>
-            <td class="align-middle" style="width: 20%">
-                <div class="border-start border-primary border-3 fw-bold px-2">
-                    {% trans "Продуктивність системи очищення, літрів/добу" %}
-                </div>
-            </td>
-            <td class="align-middle" style="width: 20%">
-                <div class="border-start border-primary border-3 fw-bold px-2">
-                    {% trans "Мін. постачання питної води" %}
-                </div>
-                {% trans "3 літри на добу на людину" %}
-            </td>
-            <td class="align-middle" style="width: 20%">
-                <div class="border-start border-primary border-3 fw-bold px-2">
-                    {% trans "Обмежене водопостачання" %}
-                </div>
-                {% trans "25 літрів на добу на людину" %}
-            </td>
-            <td class="align-middle" style="width: 20%">
-                <div class="border-start border-primary border-3 fw-bold px-2">
-                    {% trans "Повноцінне водопостачання" %}
-                </div>
-                {% trans "150 літрів на добу на людину" %}
-            </td>
-        </tr>
-        <tr>
-            <td class="fs-3 text-muted text-center align-middle fw-bold">5000</td>
-            <td class="fs-3 text-muted text-center align-middle fw-bold">100 000</td>
-            <td class="fs-3 text-muted text-center align-middle fw-bold">30 000 {% trans "осіб" %}</td>
-            <td class="fs-3 text-muted text-center align-middle fw-bold">4 000 {% trans "осіб" %}</td>
-            <td class="fs-3 text-muted text-center align-middle fw-bold">650 {% trans "осіб" %}</td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="row">
+    <div class="overflow-auto">
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td class="align-middle" style="width: 20%">
+                    <div class="border-start border-primary border-3 fw-bold px-2">
+                        {% trans "Продуктивність системи очищення, літрів/год" %}
+                    </div>
+                </td>
+                <td class="align-middle" style="width: 20%">
+                    <div class="border-start border-primary border-3 fw-bold px-2">
+                        {% trans "Продуктивність системи очищення, літрів/добу" %}
+                    </div>
+                </td>
+                <td class="align-middle" style="width: 20%">
+                    <div class="border-start border-primary border-3 fw-bold px-2">
+                        {% trans "Мін. постачання питної води" %}
+                    </div>
+                    {% trans "3 літри на добу на людину" %}
+                </td>
+                <td class="align-middle" style="width: 20%">
+                    <div class="border-start border-primary border-3 fw-bold px-2">
+                        {% trans "Обмежене водопостачання" %}
+                    </div>
+                    {% trans "25 літрів на добу на людину" %}
+                </td>
+                <td class="align-middle" style="width: 20%">
+                    <div class="border-start border-primary border-3 fw-bold px-2">
+                        {% trans "Повноцінне водопостачання" %}
+                    </div>
+                    {% trans "150 літрів на добу на людину" %}
+                </td>
+            </tr>
+            <tr>
+                <td class="fs-3 text-muted text-center align-middle fw-bold">5000</td>
+                <td class="fs-3 text-muted text-center align-middle fw-bold">100 000</td>
+                <td class="fs-3 text-muted text-center align-middle fw-bold">30 000 {% trans "осіб" %}</td>
+                <td class="fs-3 text-muted text-center align-middle fw-bold">4 000 {% trans "осіб" %}</td>
+                <td class="fs-3 text-muted text-center align-middle fw-bold">650 {% trans "осіб" %}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row row-cols-1 row-cols-lg-2 mb-5">
         <div class="col d-flex align-items-center">
             <h1>{% trans "Презентація" %}</h1>
         </div>
         <div class="col">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/oO88ghXY5sc" class="rounded"
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/oO88ghXY5sc" class="rounded"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
@@ -182,9 +186,9 @@
         </div>
     {% endif %}
 
-    <div class="row" style="height: min(450px, 100vh)">
-        <div class="col col-3 h-100 overflow-auto">
-            <ul class="list-group" id="water-stations-list">
+    <div class="row water-map" >
+        <div class="col col-12 col-lg-3 overflow-auto">
+            <ul class="list-group flex-row flex-lg-column d-md-flex d-none" id="water-stations-list">
                 {% for station in water_stations %}
                     <li class="list-group-item list-group-item-action" id="water-station-{{ station.id }}">
                         {{ station.title }}
@@ -192,7 +196,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="col col-9 h-100 overflow-hidden">
+        <div class="col col-12 col-lg-9 overflow-hidden" >
             <div id="map" class="h-100">
 
             </div>
