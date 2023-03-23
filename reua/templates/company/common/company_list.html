@@ -17,21 +17,24 @@
                                              height="{{ im.height }}">
                                     {% endthumbnail %}
                                 </div>
-                                <div class="flex-fill d-flex flex-column position-relative">
-                                    <div class="position-absolute d-flex align-items-center" style="top: 10px; right: 10px">
-                                        {% for label in company.labels.all %}
-                                            {{ label.localized_html_code|safe }}
-                                        {% endfor %}
-                                    </div>
-                                    <div class="card-body flex-fill">
-                                        <h5 class="card-title">{{ company.name }}</h5>
+                                <div class="flex-fill d-flex flex-column position-relative overflow-hidden">
+                                    <div class="card-body flex-fill mt-0  pt-0 pt-md-3">
+                                        <div class="d-flex flex-column-reverse flex-md-row align-items-baseline border-bottom">
+                                            <h5 class="card-title flex-fill">{{ company.name }}</h5>
+                                            <div class="ms-auto d-flex align-items-center bg-white px-2"
+                                                 style="top: 10px; right: 10px">
+                                                {% for label in company.labels.all %}
+                                                    {{ label.localized_html_code|safe }}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
                                         <p class="card-text">{{ company.descr }}</p>
                                     </div>
-                                    <div class="card-footer bg-white d-flex text-muted">
-                                        <div class="border-end px-2">
+                                    <div class="card-footer bg-white d-flex text-muted overflow-hidden">
+                                        <div class="border-end px-2 text-nowrap">
                                             <span>{{ company.category }}</span>
                                         </div>
-                                        <div class="border-end px-2">
+                                        <div class="border-end px-2 text-nowrap">
                                             <span class="fw-bolder">{{ company.city|default:'' }}</span>,
                                             <span>{{ company.addr }}</span>
                                         </div>
@@ -67,7 +70,7 @@
             </div>
         {% endif %}
     </div>
-    <div class="col">
+    <div class="col d-none d-lg-block">
         <h5 class="text-uppercase">{% trans "Категорії групи" %}</h5>
         <ul class="list-group">
             {% for cat in categories %}
@@ -81,4 +84,21 @@
             {% endfor %}
         </ul>
     </div>
+</div>
+<button class="btn btn-outline-secondary d-inline-block d-lg-none text-uppercase fs-6 fw-bolder"
+        type="button" data-bs-toggle="collapse" data-bs-target="#company-group">
+    {% trans "Категорії групи" %}
+</button>
+<div class="collapse" id="company-group">
+    <ul class="list-group">
+        {% for cat in categories %}
+            <li class="list-group-item">
+                <a href="?{% extend_current_url request.GET "category" cat.pk %}"
+                   class="d-flex text-dark text-decoration-none">
+                    <span class="flex-fill">{{ cat.localized_title }}</span>
+                    <span class="badge bg-secondary align-self-center py-2">{{ cat.companies_count }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
