@@ -15,7 +15,8 @@
 
 .video-container>video {
     position: absolute;
-    width: 100%;
+    width: auto;
+    height: 100%;
 }
 
 .qrpay_button {

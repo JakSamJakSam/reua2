@@ -1,0 +1,36 @@
+@media (min-width: 576px) {
+    .landing_title {
+        font-size: 4rem;
+        margin-top: -3rem;
+    }
+    .project-digit {
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+    .payment-box {
+        position: absolute;
+        right: 50px;
+        bottom: 100px;
+        margin-bottom: 0;
+    }
+
+    .video-container > video {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .payment-box {
+        right: 100px;
+        bottom: 100px;
+    }
+}
+
+@media (min-width: 1400px) {
+}

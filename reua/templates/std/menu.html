@@ -2,19 +2,13 @@
 {% load i18n %}
 <header class="position-absolute w-100 topmenu z10" id="header">
     <div class="container">
-        <nav class="navbar navbar-expand-lg" >
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#general-navbar"
-                    aria-controls="general-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            {% if not is_index %}
-                <a class="navbar-brand" href="{% url "index" %}">
-                    <img src="{% static "reua/img/logo_small.png" %}"/>
-                </a>
-            {% endif %}
-            <div class="collapse navbar-collapse" id="general-navbar">
+        <nav class="navbar navbar-expand-lg flex-nowrap">
+            <a class="navbar-brand d-block {% if is_index %} d-lg-none {% endif %}" href="{% url "index" %}">
+                <img src="{% static "reua/img/logo_small.png" %}" alt="ReUA"/>
+            </a>
+            <div class="collapse navbar-collapse w-auto" id="general-navbar">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    {% if is_index %}
+                    {% if is_index and a %}
                         <li class="nav-item me-2">
                             {% url "index" as index_url %}
                             <a class="btn nav-link {% if request.path == index_url %} active {% endif %}"
@@ -25,21 +19,24 @@
                     {% endif %}
                     {% for menu_item in top_menu_items %}
                         <li class="nav-item me-2">
-                            <a class="btn nav-link {% if request.path == menu_item.url %} active {% endif %}"
+                            <a class="btn nav-link d-flex align-items-center h-100 {% if request.path == menu_item.url %} active {% endif %}"
                                href="{{ menu_item.url }}">
                                 {{ menu_item.localized_title }}
                             </a>
                         </li>
                     {% endfor %}
                 </ul>
-                <ul class="list-unstyled mx-auto my-0 d-flex">
+            </div>
+            <div class="flex-fill d-flex flex-row-reverse flex-lg-row justify-content-between align-items-center ">
+                <ul class="list-unstyled mx-2 my-0 d-flex">
                     <li>
-                        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#choose_payment_method">
+                        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
+                                data-bs-target="#choose_payment_method">
                             {% trans "Зробити внесок" %}
                         </button>
                     </li>
                 </ul>
-                <ul class="list-unstyled my-0 d-flex">
+                <ul class="list-unstyled my-0 d-sm-flex d-none">
                     {% get_available_languages as languages %}
                     {% for language in languages %}
                         {% get_language_info for language|first as lang_info %}
@@ -54,6 +51,46 @@
                     {% endfor %}
                 </ul>
             </div>
+                <button class="d-block d-lg-none btn btn-outline-warning" type="button"
+                        data-bs-toggle="offcanvas" href="#general-navbar-canvas" role="button"
+                        aria-controls="general-navbar-canvas"
+                >
+                    <i class="fa-solid fa-bars fa-lg"></i>
+                </button>
         </nav>
     </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="general-navbar-canvas">
+        <div class="offcanvas-header  bg-deep-purple text-white">
+            <button href="#" data-bs-dismiss="offcanvas" aria-label="Close"
+                    class="text-white bg-transparent border-0 ms-auto">
+                <i class="fa-solid fa-times fa-lg"></i>
+            </button>
+        </div>
+        <div class="offcanvas-body bg-deep-purple">
+            <ul class="navbar-nav">
+                {% for menu_item in top_menu_items %}
+                    <li class="nav-item me-2">
+                        <a class="btn nav-link w-100{% if request.path == menu_item.url %} active {% endif %} text-center"
+                           href="{{ menu_item.url }}">
+                            {{ menu_item.localized_title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+                <ul class="list-unstyled my-0 d-flex d-sm-none justify-content-center mt-3">
+                    {% get_available_languages as languages %}
+                    {% for language in languages %}
+                        {% get_language_info for language|first as lang_info %}
+                        <li class="me-1">
+                            {#                            <a href="{% language lang_info.code %}{% url request.resolver_match.url_name %}{% endlanguage %}"#}
+                            <a href="{% language lang_info.code %}{% url "index" %}{% endlanguage %}"
+                               class="btn lng lng-{{ lang_info.code }} text-uppercase d-flex align-items-center {% if LANGUAGE_CODE == lang_info.code %}active{% endif %}"
+                               title="{{ lang_info.name_local }}">
+                                {{ lang_info.code }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+        </div>
 </header>

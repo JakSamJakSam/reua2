@@ -4,7 +4,7 @@
 
 .landing_title {
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 2.5rem;
     color: var(--bs-gray-200);
     margin-top: -3rem;
 }
@@ -166,5 +166,12 @@ footer .nav-link {
     color: var(--main_yellow);
     letter-spacing: -.25rem;
     margin-bottom: -.75rem;
+    margin-right: .5rem;
 }
 
+.payment-box {
+    position: relative;
+    color: var(--bs-white);
+    margin-right: auto;
+    margin-bottom: 2rem;
+}
