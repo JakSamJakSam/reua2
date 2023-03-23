@@ -4,7 +4,7 @@
 
 {% block content %}
     {{ block.super }}
-    <div class="row row-cols-2">
+    <div class="row row-cols-1 row-cols-lg-2">
         <div class="col p-0 d-flex">
             <div class="p-5 d-flex flex-column justify-content-center"
                  style="background-image: url({% static "reua/img/rebuild/bg_slide1.webp" %}); background-size: cover">
@@ -21,9 +21,9 @@
         </div>
         <div class="col p-0  d-flex">
             <div class="p-5 bg-white d-flex flex-column justify-content-center">
-                <h1 class="text-primary fw-bold">
+                <h2 class="text-primary fw-bold">
                     {% trans "Житло для 1000 сімей за 8 місяців" %}
-                </h1>
+                </h2>
                 <p class="fs-3">
                     {% trans "Для вирішення проблеми - фонд створив проєкт ReCITY, у рамках якого здійснить відбудову постійного житла для ВПО." %}
                 </p>
@@ -34,9 +34,9 @@
         </div>
         <div class="col p-0  d-flex">
             <div class="p-5 d-flex flex-column justify-content-center">
-                <h1 class="text-primary fw-bold">
+                <h2 class="text-primary fw-bold">
                     {% trans "КРОК 1 - ЗВЕДЕННЯ СМАРТ-МІСТА" %}
-                </h1>
+                </h2>
                 <h3 class="text-primary fw-bold fst-italic">
                     {% trans "Близько 200 000 осіб безкоштовно отримають постійне житло в одному з міст." %}
                 </h3>
@@ -54,27 +54,28 @@
         </div>
         <div class="col p-0 d-flex">
             <div class="p-5 w-100"
-                 style="background: url({% static "reua/img/rebuild/bg_slide2.webp" %}) center center no-repeat; background-size: cover">
+                 style="background: url({% static "reua/img/rebuild/bg_slide2.webp" %}) center center no-repeat;
+                         background-size: cover; min-height: 20rem;">
             </div>
         </div>
         <div class="col p-0  d-flex">
             <div class="p-5 d-flex flex-column justify-content-center"
                  style="background: url({% static "reua/img/rebuild/bg_slide3.webp" %}) center center no-repeat; background-size: cover">
-                <h1 class="text-white fw-bold">
+                <h2 class="text-white fw-bold">
                     {% trans "КРОК 2 - ЗВЕДЕННЯ ІНДУСТРІАЛЬНОГО ХАБУ ПРИ КОЖНОМУ СМАРТ-МІСТУ" %}
-                </h1>
+                </h2>
                 <p class="fs-4 text-white">
                     {% trans "Повноцінне повернення до повсякденного життя внутрішньо переміщених осіб можливе лише при їх впевненості у завтрашньому дні. Це потребує розширення екосистеми містечка до створення супроводжуючого індустріального парку, який зможе забезпечити жителів постійними робочими місцями, а містечко – власним виробництвом." %}
                 </p>
 
             </div>
         </div>
-        <div class="col p-0 d-flex">
+        <div class="col p-0 d-lg-flex d-none">
             <div class="p-5 w-100 bg-warning">
             </div>
         </div>
     </div>
-    <div class="row row-cols-3 mt-3">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-3">
         {% for n in "123456789"|make_list %}
             {% with forloop.counter|stringformat:"d" as s %}
                 {% static "reua/img/rebuild/photo/img"|add:s|add:".webp" as img_url %}
