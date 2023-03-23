@@ -19,8 +19,8 @@ class ListCompanyView(BreadCrumbsMixin, ListView):
     model = Company
     paginate_by = 10
     template_name = 'company/companies.html'
-    bc = [{'title': _("Група компаній")}]
-    page_title = _("Група компаній")
+    bc = [{'title': "Building group"}]
+    page_title = "Building group"
 
     def __init__(self, *args, **kwargs):
         self._filter = None
@@ -42,7 +42,7 @@ class ListCompanyView(BreadCrumbsMixin, ListView):
 class AddCompany(BreadCrumbsMixin, FormView):
     form_class = AddCompanyG
     template_name = 'company/new_company.html'
-    bc = [        {'title': _("Група компаній"), 'url': reverse_lazy('company-list')},
+    bc = [        {'title': "Building group", 'url': reverse_lazy('company-list')},
         {'title': _("Подати заявку")},
 
     ]
@@ -74,7 +74,7 @@ class DetailCompanyView(BreadCrumbsMixin, DetailView):
     template_name = 'company/company.html'
 
     bc = [
-        {'title': _("Група компаній"), 'url': reverse_lazy('company-list')},
+        {'title': "Building group", 'url': reverse_lazy('company-list')},
     ]
 
     def get_bc(self):
