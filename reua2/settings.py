@@ -216,6 +216,11 @@ try:
 except ImportError:
     GMAP_API_KEY = None
 
+try:
+    from .override_settings import TELEGRAM_TOKEN, TELEGRAM_CHAT_ID
+except ImportError:
+    TELEGRAM_TOKEN = TELEGRAM_CHAT_ID = None
+
 from .summernote_config import *
 
 PAYMENT_CRYPTO_RE_H2O = 'https://reua.pay.whitepay.com/'

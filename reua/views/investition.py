@@ -1,5 +1,6 @@
 from django.contrib.sites.shortcuts import get_current_site
 from django.db.models import Count
+from django.template.loader import get_template
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView, DetailView, FormView
@@ -13,6 +14,7 @@ __all__ = ('ListInvestitionView', 'DetailinvestitionView', 'Addinvestition')
 from reua.models.compaies import InvestitionCategory
 
 from reua.views.mixins import BreadCrumbsMixin
+from reua2.send_message import send_email_to_staffs, send_to_telegram
 
 
 class ListInvestitionView(BreadCrumbsMixin, ListView):
@@ -48,6 +50,14 @@ class Addinvestition(BreadCrumbsMixin, FormView):
 
     def form_valid(self, form):
         form.save()
+
+        template = get_template('email/investition_add.html')
+        html = template.render(form.cleaned_data)
+        send_email_to_staffs(_('Додакно компанію до групи компаній'), html_message=html)
+        tg_template = get_template('email/investition_add.txt')
+        tg_message = tg_template.render(form.cleaned_data)
+        send_to_telegram(tg_message)
+
         return super().form_valid(form)
 
     def get_form_kwargs(self):

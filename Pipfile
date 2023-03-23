@@ -15,6 +15,7 @@ django-summernote = "*"
 bleach = {extras = ["css"], version = "*"}
 django-admin-sortable = "*"
 qrcode = {extras = ["pil"], version = "*"}
+requests = "*"
 
 [dev-packages]
 
