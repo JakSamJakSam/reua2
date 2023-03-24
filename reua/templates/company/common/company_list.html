@@ -9,15 +9,15 @@
                 {% for company in object_list %}
                     <li>
                         <a href="{% url item_url_name pk=company.pk %}"
-                           class="card p-1 text-dark text-decoration-none">1
-{#                            <div class="d-flex">#}
-{#                                <div>#}
-{#                                    {% thumbnail company.logotype "150x150" format="PNG" upscale=True crop='center' as im %}#}
-{#                                        <img src="{{ im.url }}" class="border rounded"#}
-{#                                             alt="{{ company.name }}" width="{{ im.width }}"#}
-{#                                             height="{{ im.height }}">#}
-{#                                    {% endthumbnail %}#}
-{#                                </div>#}
+                           class="card p-1 text-dark text-decoration-none">
+                            <div class="d-flex">
+                                <div>
+                                    {% thumbnail company.logotype "150x150" format="PNG" upscale=True crop='center' as im %}
+                                        <img src="{{ im.url }}" class="border rounded"
+                                             alt="{{ company.name }}" width="{{ im.width }}"
+                                             height="{{ im.height }}">
+                                    {% endthumbnail %}
+                                </div>
 {#                                <div class="flex-fill d-flex flex-column position-relative overflow-hidden">#}
 {#                                    <div class="card-body flex-fill mt-0  pt-0 pt-md-3">#}
 {#                                        <div class="d-flex flex-column-reverse flex-md-row align-items-baseline border-bottom">#}
@@ -54,7 +54,7 @@
 {#                                        {% endif %}#}
 {#                                    </div>#}
 {#                                </div>#}
-{#                            </div>#}
+                            </div>
                         </a>
                     </li>
                 {% endfor %}
