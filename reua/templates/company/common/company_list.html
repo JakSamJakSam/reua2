@@ -15,8 +15,8 @@
                                     {% thumbnail company.logotype "150x150" format="PNG" upscale=True crop='center' as im %}
                                         <img src="{{ im.url }}" class="border rounded"
                                              alt="{{ company.name }}"
-{#                                             width="{{ im.width }}"#}
-{#                                             height="{{ im.height }}"#}
+                                             width="{{ im.width }}"
+                                             height="{{ im.height }}"
                                         />
                                     {% endthumbnail %}
                                 </div>
