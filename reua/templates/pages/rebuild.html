@@ -71,7 +71,10 @@
             </div>
         </div>
         <div class="col p-0 d-lg-flex d-none">
-            <div class="p-5 w-100 bg-warning">
+            <div class="p-5 w-100 bg-main-yellow" \
+                 style="background: url({% static "reua/img/invest/invest.webp" %}) center center no-repeat;
+                         background-size: cover; min-height: 20rem;">
+                >
             </div>
         </div>
     </div>
@@ -80,8 +83,9 @@
             {% with forloop.counter|stringformat:"d" as s %}
                 {% static "reua/img/rebuild/photo/img"|add:s|add:".webp" as img_url %}
                 <div class="col p-2">
-                    <div class="rounded" style="height: 450px; background: url({{ img_url }}) center center no-repeat; background-size: cover;">
-{#                        {{ s }}#}
+                    <div class="rounded"
+                         style="height: 450px; background: url({{ img_url }}) center center no-repeat; background-size: cover;">
+                        {#                        {{ s }}#}
                     </div>
                 </div>
             {% endwith %}
