@@ -7,6 +7,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
+    <base href="{{ request.scheme }}://{{ request.get_host }}">
+    <meta name="title" content="{% trans "Благодійний Фонд «Відбудуємо нашу Україну»" %}">
+    <meta name="description"
+          content="{% trans "Платформа працює на збір коштів для вирішення першочергових гуманітарних задач внутрішньо переміщених осіб з Маріуполя та України в цілому." %}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="REUA"/>
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/"/>
+    <meta property="og:title" content="{% trans "Благодійний Фонд «Відбудуємо нашу Україну»" %}"/>
+    <meta property="og:description"
+          content="{% trans "Платформа працює на збір коштів для вирішення першочергових гуманітарних задач внутрішньо переміщених осіб з Маріуполя та України в цілому." %}"/>
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/"/>
+    <meta name="H1" content="{% trans "Благодійний Фонд «Відбудуємо нашу Україну»" %}"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}"/>
+    <link rel="apple-touch-icon" href="{% static "/reua/img/reua-short.png" %}"/>
+    <link rel="shortcut icon" href="{% static "/reua/img/reua-short.png" %}"/>
+    {% get_available_languages as lngs %}
+    {# TODO: #}
+{#    {% for lng in lngs %}#}
+{#        {% with l|first as ll %}#}
+{#            {% language ll %}#}
+{#                <link rel="alternate" hreflang="{{ language|first }}" href="https://reua.city/en/"/>#}
+{#            {% endlanguage %}#}
+{#        {% endwith %}#}
+{#    {% endfor %}#}
+
     {% block css %}
         <link href="{% static "reua/assets/bootstrap-5.2.3-dist/css/bootstrap.min.css" %}" rel="stylesheet">
         <link href="{% static "reua/css/bootstrap_overrides.css" %}" rel="stylesheet">
@@ -16,16 +44,16 @@
         <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
         <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
     {% endblock %}
-{#    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>#}
+    {#    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>#}
     {% block favicons %}
         <!-- Favicons -->
-{#        TODO: icons #}
-{#        <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-touch-icon.png" %}">#}
-{#        <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">#}
-{#        <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">#}
-{#        <link rel="manifest" href="{% static "favicon/site.webmanifest" %}">#}
-{#        <link rel="mask-icon" href="{% static "favicon/safari-pinned-tab.svg" %}" color="#5bbad5">#}
-{#        <meta name="msapplication-TileColor" content="#2b5797">#}
+        {#        TODO: icons #}
+        {#        <link rel="apple-touch-icon" sizes="180x180" href="{% static "favicon/apple-touch-icon.png" %}">#}
+        {#        <link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon/favicon-32x32.png" %}">#}
+        {#        <link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon/favicon-16x16.png" %}">#}
+        {#        <link rel="manifest" href="{% static "favicon/site.webmanifest" %}">#}
+        {#        <link rel="mask-icon" href="{% static "favicon/safari-pinned-tab.svg" %}" color="#5bbad5">#}
+        {#        <meta name="msapplication-TileColor" content="#2b5797">#}
 
     {% endblock %}
     <meta name="theme-color" content="#272727">
