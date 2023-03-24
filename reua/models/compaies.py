@@ -67,7 +67,7 @@ class AbstractCompany(SortableMixin, models.Model):
 
     name = models.CharField(max_length=200, verbose_name=_('Назва компанії'))
     logotype = models.ImageField(upload_to='company', verbose_name=_('Логотип'), null=True, blank=True, default=None)
-    descr = models.TextField(verbose_name=('Опис'), blank=True, default='')
+    descr = models.TextField(verbose_name=_('Опис'), blank=True, default='')
     city = models.CharField(max_length=100, verbose_name=_('Місто'), null=True, blank=True, default=None)
     addr = models.TextField(max_length=100, verbose_name=_('Адреса'), null=True, blank=True, default=None)
     phone = PhoneNumberField(verbose_name=_('Телефон'), region='UA', null=True, blank=True, default=None)

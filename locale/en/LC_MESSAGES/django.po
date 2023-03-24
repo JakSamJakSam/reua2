@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 10:01+0200\n"
+"POT-Creation-Date: 2023-03-24 10:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,17 +93,15 @@ msgstr "Wrong code"
 msgid "Select Category"
 msgstr "Select Category"
 
-#: .\reua\forms\company.py:65
-msgid "Оборот за {current_year-1} р."
-msgstr "Turnover for {current_year-1}"
-
-#: .\reua\forms\company.py:66
-msgid "Оборот за {current_year-2} р."
-msgstr "Turnover for {current_year-2}"
-
+#: .\reua\forms\company.py:65 .\reua\forms\company.py:66
 #: .\reua\forms\company.py:67
-msgid "Оборот за {current_year-3} р."
-msgstr "Turnover for {current_year-3}"
+msgid "Оборот за"
+msgstr "Turnover per"
+
+#: .\reua\forms\company.py:65 .\reua\forms\company.py:66
+#: .\reua\forms\company.py:67
+msgid "рік"
+msgstr "year"
 
 #: .\reua\forms\feedback.py:6 .\reua\templates\std\feedback_form.html:6
 #: .\reua\templates\std\feedback_form.html:10
@@ -184,6 +182,10 @@ msgstr "The company name"
 #: .\reua\models\compaies.py:69 .\reua\models\site_models.py:194
 msgid "Логотип"
 msgstr "Logotype"
+
+#: .\reua\models\compaies.py:70
+msgid "Опис"
+msgstr "Description"
 
 #: .\reua\models\compaies.py:71
 msgid "Місто"
@@ -502,6 +504,16 @@ msgstr "Position (ukr)"
 msgid "Посада (англ)"
 msgstr "Position (en)"
 
+#: .\reua\models\site_models.py:158
+msgid "Опис (укр)"
+msgstr "Description (ukr)"
+
+#: .\reua\models\site_models.py:159
+#, fuzzy
+#| msgid "Опис (англійською)"
+msgid "Опис (англ)"
+msgstr "Description (en)"
+
 #: .\reua\models\site_models.py:162
 msgid "Фото"
 msgstr "Photo"
@@ -676,19 +688,19 @@ msgstr ""
 msgid "Зробити внесок карткою"
 msgstr "Support our project"
 
-#: .\reua\templates\index\index.html:96
+#: .\reua\templates\index\index.html:87
 msgid "млрд $"
 msgstr "billions $"
 
-#: .\reua\templates\index\index.html:99
+#: .\reua\templates\index\index.html:90
 msgid "млн $"
 msgstr "millions $"
 
-#: .\reua\templates\index\index.html:105
+#: .\reua\templates\index\index.html:96
 msgid "міст"
 msgstr "cities"
 
-#: .\reua\templates\index\index.html:108
+#: .\reua\templates\index\index.html:99
 msgid "систем очистки води"
 msgstr "water purification systems"
 
@@ -910,8 +922,7 @@ msgstr ""
 "Because of the armed aggression of the Russian Federation against Ukraine, a "
 "significant number of residents of the city of Mariupol were left without "
 "housing and were forced to move to other regions of "
-"Ukraine.                    "
-"                    "
+"Ukraine.                                        "
 
 #: .\reua\templates\pages\rebuild.html:25
 msgid "Житло для 1000 сімей за 8 місяців"
@@ -1237,7 +1248,7 @@ msgstr "Read more"
 #: .\reua\templates\std\menu.html:35 .\reua\views\general.py:160
 #: .\reua\views\general.py:176
 msgid "Зробити внесок"
-msgstr ""
+msgstr "Donate"
 
 #: .\reua\templates\std\cokies_toast.html:6
 msgid ""
@@ -1320,14 +1331,16 @@ msgid ""
 "Дякуємо, що ви готові підтримати наш проект з чистої води для мешканців "
 "України!"
 msgstr ""
-"Thank you for being ready to support our clean water project for the residents of Ukraine!"
+"Thank you for being ready to support our clean water project for the "
+"residents of Ukraine!"
 
 #: .\reua\views\general.py:182
 msgid ""
 "Дякуємо, що ви готові підтримати наш проект з відбудови житла для мешканців "
 "України!"
 msgstr ""
-"Thank you for being ready to support our project to rebuild housing for residents of Ukraine!"
+"Thank you for being ready to support our project to rebuild housing for "
+"residents of Ukraine!"
 
 #: .\reua\views\investition.py:24 .\reua\views\investition.py:25
 #: .\reua\views\investition.py:46 .\reua\views\investition.py:78
@@ -1343,3 +1356,12 @@ msgstr "Added the company to the investment group"
 #: .\reua\views\news.py:14 .\reua\views\news.py:15 .\reua\views\news.py:44
 msgid "Прес-центр"
 msgstr "Press"
+
+#~ msgid "Оборот за {current_year-1} р."
+#~ msgstr "Turnover for {current_year-1}"
+
+#~ msgid "Оборот за {current_year-2} р."
+#~ msgstr "Turnover for {current_year-2}"
+
+#~ msgid "Оборот за {current_year-3} р."
+#~ msgstr "Turnover for {current_year-3}"

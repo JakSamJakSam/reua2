@@ -62,9 +62,9 @@ class AddCompanyI(AddCompanyForm):
     def __init__(self,*args, **kwargs):
         super().__init__(*args, **kwargs)
         current_year = datetime.date.today().year
-        self.fields['turnover_1'].label = _(f'Оборот за {current_year-1} р.')
-        self.fields['turnover_2'].label = _(f'Оборот за {current_year-2} р.')
-        self.fields['turnover_3'].label = _(f'Оборот за {current_year-3} р.')
+        self.fields['turnover_1'].label = _('Оборот за')+f' {current_year-1} '+_('рік')
+        self.fields['turnover_2'].label = _('Оборот за')+f' {current_year-2} '+_('рік')
+        self.fields['turnover_3'].label = _('Оборот за')+f' {current_year-3} '+_('рік')
 
     def clean_form_code(self):
         try:

@@ -155,8 +155,8 @@ class Staff(SortableMixin, models.Model):
     position = models.CharField(max_length=100, verbose_name=_("Посада (укр)"))
     position_en = models.CharField(max_length=100, verbose_name=_("Посада (англ)"), blank=True)
 
-    descriprion = models.TextField(verbose_name="Опис (укр)", blank=True)
-    descriprion_en = models.TextField(verbose_name="Опис (англ)", blank=True)
+    descriprion = models.TextField(verbose_name=_("Опис (укр)"), blank=True)
+    descriprion_en = models.TextField(verbose_name=_("Опис (англ)"), blank=True)
     order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
 
     photo = models.ImageField(verbose_name=_("Фото"), upload_to='staff')

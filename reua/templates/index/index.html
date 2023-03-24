@@ -48,17 +48,8 @@
                             </a>
                         </li>
                     {% endfor %}
-                    {#                <li>#}
-                    {#                    <a href="#" class="qrpay_button">#}
-                    {#                        <img src="{% static "reua/img/qr/qr_water.png" %}">#}
-                    {#                    </a>#}
-                    {#                </li>#}
-                    {#                <li>#}
-                    {#                    <a href="#" class="qrpay_button"><img#}
-                    {#                            src="{% static "reua/img/qr/qr_city.png" %}"></a>#}
-                    {#                </li>#}
                 </ul>
-                <img src="{% static "reua/img/pay_logos.png" %}">
+                <img src="{% static "reua/img/pay_logos.png" %}" alt="visa and mastercard">
             </div>
         </div>
     </section>
@@ -90,7 +81,7 @@
                                 </div>
                                 <div class="d-flex flex-row flex-sm-column justify-content-around
                                 justify-content-sm-center ms-auto align-items-center align-items-sm-end w-100">
-                                    <div class="d-flex flex-row flex-sm-column align-items-center h-100">
+                                    <div class="d-flex flex-row flex-sm-column align-items-center  align-items-sm-end h-100">
                                         {% if project == 'ReCity' %}
                                             <h2 class="project-digit me-2 me-sm-0">3,9</h2>
                                             <span class="fs-5 fw-bolder">{% trans "млрд $" %}</span>
@@ -99,7 +90,7 @@
                                             <span class="fs-5 fw-bolder">{% trans "млн $" %}</span>
                                         {% endif %}
                                     </div>
-                                    <div class="d-flex flex-row flex-sm-column align-items-center  h-100">
+                                    <div class="d-flex flex-row flex-sm-column align-items-center align-items-sm-end  h-100">
                                         {% if project == 'ReCity' %}
                                             <h2 class="project-digit">40</h2>
                                             <span class="fs-5 fw-bolder">{% trans "міст" %}</span>
