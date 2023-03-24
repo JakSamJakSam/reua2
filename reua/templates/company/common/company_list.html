@@ -11,10 +11,15 @@
                         <a href="{% url item_url_name pk=company.pk %}"
                            class="card p-1 text-dark text-decoration-none">
                             <div class="d-flex">
-                                <div>
-                                    {% thumbnail company.logotype "150x150" format="PNG" upscale=True crop='center' as im %}
-                                        <img src="{{ im.url }}" class="border rounded"
+                                <div style="width: 150px" class="d-flex justify-content-center align-items-center" class="border rounded">
+                                    {% thumbnail company.logotype "150" format="PNG" upscale=True crop='center' as im %}
+                                        <img src="{{ im.url }}"
                                              alt="{{ company.name }}"
+                                                {% if im.height > im.wdith %}
+                                             height="150px" width="auto"
+                                                {% else %}
+                                             height="auto" width="150px"
+                                                {% endif %}
                                         />
                                     {% endthumbnail %}
                                 </div>
