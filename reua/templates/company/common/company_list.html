@@ -14,9 +14,11 @@
                                 <div>
                                     {% thumbnail company.logotype "150x150" format="PNG" upscale=True crop='center' as im %}
                                         {{ im.url }}
-{#                                        <img src="{{ im.url }}" class="border rounded"#}
-{#                                             alt="{{ company.name }}" width="{{ im.width }}"#}
-{#                                             height="{{ im.height }}"/>#}
+                                        <img src="{{ im.url }}" class="border rounded"
+{#                                             alt="{{ company.name }}" #}
+{#                                             width="{{ im.width }}"#}
+{#                                             height="{{ im.height }}"#}
+                                        />
                                     {% endthumbnail %}
                                 </div>
 {#                                <div class="flex-fill d-flex flex-column position-relative overflow-hidden">#}
