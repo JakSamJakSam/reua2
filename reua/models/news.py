@@ -31,7 +31,7 @@ class News(models.Model):
     image = models.ImageField(upload_to='news/%Y', verbose_name=_('Основне зображення'),
                               null=True, blank=True, default=None)
 
-    body = models.TextField(verbose_name=_('Зміст (українською'), blank=True)
+    body = models.TextField(verbose_name=_('Зміст (українською)'), blank=True)
     body_en = models.TextField(verbose_name=_('Зміст (англійською)'), blank=True)
     date = models.DateTimeField(verbose_name=_('Дата'))
     category = models.ForeignKey(NewsCategory, on_delete=models.PROTECT, verbose_name=_('Категорія новин'))

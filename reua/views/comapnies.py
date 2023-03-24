@@ -53,7 +53,7 @@ class AddCompany(BreadCrumbsMixin, FormView):
 
         template = get_template('email/company_add.html')
         html = template.render(form.cleaned_data)
-        send_email_to_staffs(_('Додакно компанію до групи компаній'), html_message=html)
+        send_email_to_staffs(_('Додано компанію до групи компаній'), html_message=html)
         tg_template = get_template('email/company_add.txt')
         tg_message = tg_template.render(form.cleaned_data)
         send_to_telegram(tg_message)
