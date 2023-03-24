@@ -7,9 +7,9 @@
 {% block content %}
     {{ block.super }}
     <div class="row">
-        <div class="col-md-9">
-            <div class="d-flex">
-                <div class="bg-white border rounded">
+        <div class="col-lg-9">
+            <div class="d-flex flex-column flex-md-row">
+                <div class="bg-white border rounded w-fit h-fit">
                     {% thumbnail company.logotype "300" format="PNG" upscale=True crop='center' as im %}
                         <img src="{{ im.url }}" class="border rounded"
                              alt="{{ company.name }}" width="{{ im.width }}"
@@ -58,7 +58,7 @@
             </div>
 
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3">
             <h6>{% trans "Профільні компанії" %}</h6>
             <ul class="list-unstyled">
                 {% for company in category_companies %}

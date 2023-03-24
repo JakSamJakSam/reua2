@@ -5,14 +5,14 @@
 {% block content %}
     {{ block.super }}
     <h3>{% trans "Що таке Building Group?" %}</h3>
-    <div class="row row-cols-2 mb-3">
+    <div class="row row-cols-1 row-cols-md-2 mb-3">
         <div class="col px-3" >
             <div class="w-100 h-100 rounded-3 " style="background: url({% static "reua/img/companies/building-group.webp" %}) no-repeat center center; background-size: cover;">
 
             </div>
         </div>
         <div class="col">
-            <p class="lead">
+            <p class="lead text-justify">
                 {% blocktrans %}
                     Building Group – підрозділ фонду REUA БФ «Відбудуємо нашу Україну», метою якого є залучення
                     профільних
@@ -20,13 +20,13 @@
                     соціальної та комерційної нерухомості в рамках проекту ReCITY.
                 {% endblocktrans %}
             </p>
-            <p class="lead">
+            <p class="lead text-justify">
                 {% blocktrans %}
 
                     ReCITY один із ключових проєктів БФ «Відбудуємо нашу Україну».
                 {% endblocktrans %}
             </p>
-            <p class="lead">
+            <p class="lead text-justify">
                 {% blocktrans %}
 
                 Реалізація проєкту забезпечить потребу громадян, які втратили житло, у збереженні гідного способу життя

@@ -5,7 +5,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content p-3 bg-main-yellow"  style="height: 80vh">
             <div class="modal-header d-flex align-items-start border-0">
-                <img src="{% static "reua/img/logo-mono.png" %}" alt="reUA" style="max-width: 375px;"/>
+                <img src="{% static "reua/img/logo-mono.png" %}" alt="reUA" style="max-width: min(375px, 100%);"/>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -24,7 +24,7 @@
                                 <i class="fa-solid fa-building-columns"></i>
                                 <span>{% trans "На рахунок" %}</span>
                             </div>
-                            <div class="d-flex gap-1">
+                            <div class="d-flex flex-wrap gap-1 justify-content-end">
                                 {% for b in payment.bank %}
                                     <a href="#" class="btn btn-dark" data-bank_attributes="{{ b.localized_attr }}"
                                        data-currency="{{ b.currency }}">
@@ -56,7 +56,7 @@
     <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable">
         <div class="modal-content p-3 bg-white" style="height: 80vh">
             <div class="modal-header d-flex align-items-start border-0">
-                <img src="{% static "reua/img/logo-mono.png" %}" alt="reUA" style="max-width: 375px;"/>
+                <img src="{% static "reua/img/logo-mono.png" %}" alt="reUA" style="max-width: min(375px, 100%);"/>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

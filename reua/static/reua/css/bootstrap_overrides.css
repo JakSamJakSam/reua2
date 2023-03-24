@@ -41,3 +41,14 @@
     --main_blue: #3056b8;
     --main_yellow: #f5d731;
 }
+
+.text-justify {
+    text-align: justify;
+}
+.w-fit {
+    width: fit-content;
+}
+
+.h-fit {
+    height: fit-content;
+}
