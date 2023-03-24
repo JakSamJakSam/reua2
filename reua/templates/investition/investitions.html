@@ -25,24 +25,24 @@
                     <p>
                         {% trans "Пропонуємо керівникам провідних компаній долучатися." %}
                     </p>
-                </div>
-            </div>
-        </div>
-        <p>
+                    <p>
            <span class="text-uppercase">
             {% trans "Будь ласка, зареєструйтеся для отримання детальної інформації про індивідуальні проєкти та інвестиційного меню" %}
                </span><br/>
-            {% trans "Дізнайтеся, чи маєте ви право отримати фінансування." %}
-        </p>
-        <p>
-            {% trans "Будь-ласка, внесіть ваші контактні дані, щоб представник Благодійного Фонду міг звернутися до вас." %}<br/>
-            {% trans "Ми зв’яжемося з Вами протягом наступних 24 годин." %}
-        </p>
-        <div class="mb-4">
-            <a href="{% url "investition-create" %}" class="btn btn-primary">
-                <i class="fa-solid fa-square-plus fa-lg me-2"></i>
-                {% trans "Зареєструвати компанію" %}
-            </a>
+                        {% trans "Дізнайтеся, чи маєте ви право отримати фінансування." %}
+                    </p>
+                    <p>
+                        {% trans "Будь-ласка, внесіть ваші контактні дані, щоб представник Благодійного Фонду міг звернутися до вас." %}<br/>
+                        {% trans "Ми зв’яжемося з Вами протягом наступних 24 годин." %}
+                    </p>
+                    <div class="mb-4">
+                        <a href="{% url "investition-create" %}" class="btn btn-primary">
+                            <i class="fa-solid fa-square-plus fa-lg me-2"></i>
+                            {% trans "Зареєструвати компанію" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     {% include "company/common/company_list.html" with item_url_name="investition-item" %}
