@@ -20,6 +20,7 @@ def top_menus(request):
         'top_menu_items': TopMenu.objects.filter(disabled=False).order_by('order'),
         'founding_documents': FoundingDocument.objects.all(),
         'site_settings': SiteSettings.objects.get(site=site),
+        'google_data_stream_id': settings.GOOGLE_DATA_STREAM_ID,
         'payments': {
             'reH2O': {
                 'title': _("Питна вода"),

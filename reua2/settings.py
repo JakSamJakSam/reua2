@@ -221,6 +221,11 @@ try:
 except ImportError:
     TELEGRAM_TOKEN = TELEGRAM_CHAT_ID = None
 
+try:
+    from .override_settings import GOOGLE_DATA_STREAM_ID
+except ImportError:
+    GOOGLE_DATA_STREAM_ID = None
+
 from .summernote_config import *
 
 PAYMENT_CRYPTO_RE_H2O = 'https://reua.pay.whitepay.com/'
@@ -250,5 +255,4 @@ try:
     from .email_settings import *
 except:
     pass
-
 

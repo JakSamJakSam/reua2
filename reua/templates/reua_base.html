@@ -14,4 +14,19 @@
 {% block scripts %}
     {{ block.super }}
     <script src="{% static "reua/js/site_helper.js" %}"></script>
+    {% if google_data_stream_id %}
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_data_stream_id }}"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+
+          gtag('js', new Date());
+
+          gtag('config', '{{ google_data_stream_id }}');
+        </script>
+    {% endif %}
 {% endblock %}
