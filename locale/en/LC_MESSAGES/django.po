@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-24 10:17+0200\n"
+"POT-Creation-Date: 2023-03-24 11:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -570,11 +570,11 @@ msgstr ""
 msgid "Установки очищення води"
 msgstr "Water purification installation"
 
-#: .\reua\templates\company\common\company_list.html:64
+#: .\reua\templates\company\common\company_list.html:65
 msgid "Немає компаній"
 msgstr "Water purification installations"
 
-#: .\reua\templates\company\common\company_list.html:66
+#: .\reua\templates\company\common\company_list.html:67
 msgid ""
 "\n"
 "                        За результатами пошуку не знайщлося жодної компанії\n"
@@ -584,8 +584,8 @@ msgstr ""
 "                        No company was found in the search results\n"
 "                    "
 
-#: .\reua\templates\company\common\company_list.html:74
-#: .\reua\templates\company\common\company_list.html:90
+#: .\reua\templates\company\common\company_list.html:75
+#: .\reua\templates\company\common\company_list.html:91
 msgid "Категорії групи"
 msgstr "Group categories"
 
@@ -1072,7 +1072,8 @@ msgstr ""
 msgid ""
 "<b>Якість</b> підготовленої води відповідає ДСанПіН 2.2.4-400-10 «Гігієнічні "
 "вимоги до води питної, призначеної для споживання людиною»"
-msgstr ""
+msgstr "<b>The quality</b> of the prepared water corresponds to Ukrainian Government "
+"requirements 2.2.4-400-10 \"Hygienic requirements for drinking water intended for human consumption\""
 
 #: .\reua\templates\pages\water.html:52
 msgid "<b>Продуктивність</b> системи водопідготовки 5 м³/год"
@@ -1297,12 +1298,12 @@ msgstr "Cryptocurrency"
 msgid "Оплата в"
 msgstr "Payment in"
 
-#: .\reua\views\comapnies.py:46 .\reua\views\comapnies.py:49
+#: .\reua\views\comapnies.py:44 .\reua\views\comapnies.py:47
 #: .\reua\views\investition.py:47 .\reua\views\investition.py:49
 msgid "Подати заявку"
 msgstr "Apply"
 
-#: .\reua\views\comapnies.py:56
+#: .\reua\views\comapnies.py:54
 msgid "Додано компанію до групи компаній"
 msgstr "Added the company to the company group"
 
