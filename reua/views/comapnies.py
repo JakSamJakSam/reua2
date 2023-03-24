@@ -28,8 +28,6 @@ class ListCompanyView(BreadCrumbsMixin, ListView):
 
     def get_queryset(self):
         q = super().get_queryset()
-        # for i in range(0,10):
-        #     q = q.union(q, all=True)
         self._filter = CompanyFilter(self.request.GET, queryset=q)
         return self._filter.qs
 
