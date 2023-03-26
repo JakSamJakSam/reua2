@@ -33,6 +33,8 @@ class InvestitionCategoryAdmin(SortableAdmin):
 
 @admin.register(InvestitionCompany)
 class InvestitionCompanyAdmin(SortableAdmin):
+    search_fields = ('name', 'name_en')
+    list_filter = ('category',)
     fieldsets = (
         (_('Адмінистрування'), {
             'classes': ('collapse',),
@@ -40,6 +42,9 @@ class InvestitionCompanyAdmin(SortableAdmin):
         }),
         (_('Реквізити компанії'), {
             'fields': ('name', 'category', 'logotype', 'city', 'addr', 'phone', 'email', 'site')
+        }),
+        (_('Реквізити компанії англ.'), {
+            'fields': ('name_en', 'city_en', 'addr_en', 'descr_en')
         }),
         (_('Реквізити інвестиції'), {
             'fields': ('descr', 'is_active', 'target_amount', 'turnover_1', 'turnover_2', 'turnover_3', 'quant_of_persons')
@@ -56,6 +61,8 @@ class InvestitionCompanyAdmin(SortableAdmin):
 
 @admin.register(Company)
 class CompanyAdmin(SortableAdmin):
+    search_fields = ('name', 'name_en')
+    list_filter = ('category',)
     fieldsets = (
         (_('Адмінистрування'), {
             'classes': ('collapse',),
@@ -63,6 +70,9 @@ class CompanyAdmin(SortableAdmin):
         }),
         (_('Реквізити компанії'), {
             'fields': ('name', 'category', 'logotype', 'descr', 'city', 'addr', 'phone', 'email', 'site')
+        }),
+        (_('Реквізити компанії англ.'), {
+            'fields': ('name_en', 'city_en', 'addr_en', 'descr_en')
         }),
         (_('Представник компанії'), {
             # 'classes': ('extrapretty1',),#wide, extrapretty, collapse

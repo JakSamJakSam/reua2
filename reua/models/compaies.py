@@ -66,10 +66,14 @@ class AbstractCompany(SortableMixin, models.Model):
     REPR_STATUS_MGR = 4
 
     name = models.CharField(max_length=200, verbose_name=_('Назва компанії'))
+    name_en = models.CharField(max_length=200, verbose_name=_('Назва компанії (англ.)'), blank=True, default='')
     logotype = models.ImageField(upload_to='company', verbose_name=_('Логотип'), null=True, blank=True, default=None)
     descr = models.TextField(verbose_name=_('Опис'), blank=True, default='')
+    descr_en = models.TextField(verbose_name=_('Опис (англ.)'), blank=True, default='')
     city = models.CharField(max_length=100, verbose_name=_('Місто'), null=True, blank=True, default=None)
+    city_en = models.CharField(max_length=100, verbose_name=_('Місто (англ.)'), null=True, blank=True, default=None)
     addr = models.TextField(max_length=100, verbose_name=_('Адреса'), null=True, blank=True, default=None)
+    addr_en = models.TextField(max_length=100, verbose_name=_('Адреса (англ.)'), null=True, blank=True, default=None)
     phone = PhoneNumberField(verbose_name=_('Телефон'), region='UA', null=True, blank=True, default=None)
     email = models.EmailField(verbose_name='E-Mail', null=True, blank=True, default=None)
     site = models.URLField(verbose_name=_('Сайт'), null=True, blank=True, default=None)
@@ -85,6 +89,30 @@ class AbstractCompany(SortableMixin, models.Model):
     repr_email = models.EmailField(verbose_name=_('E-Mail представника'), null=True, blank=True, default=None)
     order = models.PositiveSmallIntegerField(verbose_name=_('Номер за порядком'))
     labels = models.ManyToManyField(Label, verbose_name=_('Мітки'), blank=True)
+
+    @property
+    def localized_name(self):
+        lg = get_language()
+        localized_name = getattr(self, f'name_{lg}', self.name)
+        return localized_name if localized_name else self.name
+
+    @property
+    def localized_descr(self):
+        lg = get_language()
+        localized_descr = getattr(self, f'descr_{lg}', self.descr)
+        return localized_descr if localized_descr else self.descr
+
+    @property
+    def localized_city(self):
+        lg = get_language()
+        localized_city = getattr(self, f'city_{lg}', self.city)
+        return localized_city if localized_city else self.city
+
+    @property
+    def localized_addr(self):
+        lg = get_language()
+        localized_addr = getattr(self, f'addr_{lg}', self.addr)
+        return localized_addr if localized_addr else self.addr
 
     def __str__(self):
         return self.name

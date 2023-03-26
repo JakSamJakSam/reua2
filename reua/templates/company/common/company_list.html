@@ -14,7 +14,7 @@
                                 <div style="width: 150px" class="d-flex justify-content-center align-items-center" class="border rounded">
                                     {% thumbnail company.logotype "150" format="PNG" upscale=True crop='center' as im %}
                                         <img src="{{ im.url }}"
-                                             alt="{{ company.name }}"
+                                             alt="{{ company.localized_name }}"
                                                 {% if im.height > im.wdith %}
                                              height="150px" width="auto"
                                                 {% else %}
@@ -26,7 +26,7 @@
                                 <div class="flex-fill d-flex flex-column position-relative overflow-hidden">
                                     <div class="card-body flex-fill mt-0  pt-0 pt-md-3">
                                         <div class="d-flex flex-column-reverse flex-md-row align-items-baseline border-bottom">
-                                            <h5 class="card-title flex-fill">{{ company.name }}</h5>
+                                            <h5 class="card-title flex-fill">{{ company.localized_name }}</h5>
                                             <div class="ms-auto d-flex align-items-center bg-white px-2"
                                                  style="top: 10px; right: 10px">
                                                 {% for label in company.labels.all %}
@@ -34,15 +34,15 @@
                                                 {% endfor %}
                                             </div>
                                         </div>
-                                        <p class="card-text">{{ company.descr }}</p>
+                                        <p class="card-text">{{ company.localized_descr }}</p>
                                     </div>
                                     <div class="card-footer bg-white d-flex text-muted overflow-hidden">
                                         <div class="border-end px-2 text-nowrap">
-                                            <span>{{ company.category }}</span>
+                                            <span>{{ company.category.localized_title }}</span>
                                         </div>
                                         <div class="border-end px-2 text-nowrap">
-                                            <span class="fw-bolder">{{ company.city|default:'' }}</span>,
-                                            <span>{{ company.addr }}</span>
+                                            <span class="fw-bolder">{{ company.localized_city|default:'' }}</span>,
+                                            <span>{{ company.localized_addr }}</span>
                                         </div>
                                         {% if company.email or company.phone %}
                                             <div class="border-end px-2 d-flex gap-2 align-items-center">

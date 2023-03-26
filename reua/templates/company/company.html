@@ -12,12 +12,12 @@
                 <div class="bg-white border rounded w-fit h-fit">
                     {% thumbnail company.logotype "300" format="PNG" upscale=True crop='center' as im %}
                         <img src="{{ im.url }}" class="border rounded"
-                             alt="{{ company.name }}" width="{{ im.width }}"
+                             alt="{{ company.localized_name }}" width="{{ im.width }}"
                              height="{{ im.height }}">
                     {% endthumbnail %}
                 </div>
                 <div class="flex-fill px-3">
-                    <h3>{{ company.name }}</h3>
+                    <h3>{{ company.localized_name }}</h3>
                     {% if company.phone %}
                         <div class="py-1">
                         <a href="{{ company.phone.as_rfc3966 }}" class="text-decoration-none text-dark">
@@ -42,15 +42,15 @@
                         </a>
                         </div>
                     {% endif %}
-                    {% if company.city or company.addr %}
+                    {% if company.localized_city or company.localized_addr %}
                         <div class="py-1">
                         <i class="fa-solid fa-location-dot me-1"></i>
-                        <b>{{ company.city }}</b> {{ company.addr }}
+                        <b>{{ company.localized_city }}</b> {{ company.localized_addr }}
                         </div>
                     {% endif %}
                     {% if company.descr %}
                         <div class="border-top fst-italic py-1">
-                        {{ company.descr }}
+                        {{ company.localized_descr }}
                         </div>
                     {% endif %}
 
@@ -67,16 +67,16 @@
                             <div class="bg-white border rounded p-1">
                                 {% thumbnail company.logotype "75x75" format="PNG" upscale=True crop='center' as im %}
                                     <img src="{{ im.url }}" class="border rounded"
-                                         alt="{{ company.name }}" width="{{ im.width }}"
+                                         alt="{{ company.localized_name }}" width="{{ im.width }}"
                                          height="{{ im.height }}">
                                 {% endthumbnail %}
                             </div>
                             <div class="flex-fill py-1 px-3 overflow-hidden">
-                                <h6>{{ company.name }}</h6>
+                                <h6>{{ company.localized_name }}</h6>
                                 <small class="d-block w-100 text-truncate" title="{{ company.descr }}">
-                                    {{ company.descr }}
+                                    {{ company.localized_descr }}
                                 </small>
-                                <span>{{ company.city }}</span>
+                                <span>{{ company.localized_city }}</span>
                             </div>
                         </a>
                     </li>
