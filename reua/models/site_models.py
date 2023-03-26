@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _, get_language
 from adminsortable.models import SortableMixin
 
-__all__ = ('TopMenu', 'FoundingDocument', 'SiteSettings', 'Staff', 'Partner', 'BankTransferAttributes')
+__all__ = ('TopMenu', 'FoundingDocument', 'SiteSettings', 'Staff', 'Partner', 'BankTransferAttributes', 'FeedbackMessage')
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -258,3 +258,17 @@ class GeneralProjectImages(SortableMixin, models.Model):
         verbose_name_plural = _("Зображення ReH2O та ReCity")
         ordering = ('order',)
 
+class FeedbackMessage(models.Model):
+    fio = models.CharField(max_length=100, verbose_name=_("Ім'я"))
+    phone = PhoneNumberField(verbose_name=_("Номер телефону"))
+    email = models.EmailField(verbose_name="E-Mail")
+    message = models.TextField(verbose_name=_("Повідомлення"))
+    date = models.DateTimeField(verbose_name=_("Дата та час"), auto_now_add=True)
+
+    def __str__(self):
+        return self.message
+
+    class Meta:
+        verbose_name = _("Повідомлення")
+        verbose_name_plural = _("Повідомлення")
+        ordering = ('date',)

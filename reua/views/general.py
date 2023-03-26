@@ -76,6 +76,7 @@ class FeedbackFormView(FormView):
         tg_template = get_template('email/feedback.txt')
         tg_message = tg_template.render(form.cleaned_data)
         send_to_telegram(tg_message)
+        form.save()
         return super().form_valid(form)
 
     def form_invalid(self, form):

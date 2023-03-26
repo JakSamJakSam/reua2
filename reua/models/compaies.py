@@ -36,7 +36,7 @@ class AbstractCategory(SortableMixin, models.Model):
     order = models.PositiveSmallIntegerField(blank=True,
                                 default=999999)
     def __str__(self):
-        return self.title
+        return self.localized_title
 
     @property
     def localized_title(self):

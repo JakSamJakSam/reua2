@@ -7,7 +7,7 @@ from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMi
 
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import *
-from reua.models.site_models import GeneralProjectImages
+from reua.models.site_models import GeneralProjectImages, FeedbackMessage
 
 
 @admin.register(TopMenu)
@@ -146,3 +146,10 @@ class BankTransferAttributesAdmin(SummernoteModelAdmin):
 @admin.register(GeneralProjectImages)
 class ProjectAdmin(SortableAdmin):
     pass
+
+
+@admin.register(FeedbackMessage)
+class FeedbackMessageAdmin(admin.ModelAdmin):
+    search_fields = ('message', 'fio', 'phone', 'email')
+    date_hierarchy = ('date')
+    list_display = ('fio', 'phone', 'email', 'message')
