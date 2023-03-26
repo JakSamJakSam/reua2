@@ -10,11 +10,22 @@
         left: -12rem;
         font-size: 1rem;
     }
+    #cookiesToast{
+        font-size: .75rem;
+        --bs-toast-max-width: 400px
+    }
 }
 
 @media (min-width: 768px) {
     .project-closed {
         left: -6rem;
+        font-size: 1rem;
+    }
+    #cookiesToast{
+        font-size: .875rem;
+        --bs-toast-max-width: 600px
+    }
+    #cookiesToast .btn {
         font-size: 1rem;
     }
 }

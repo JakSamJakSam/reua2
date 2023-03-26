@@ -179,3 +179,12 @@ footer .nav-link {
 .water-map>.col:last-child{
     height: min(450px, 100vh);
 }
+
+#cookiesToast{
+    font-size: .625rem;
+    --bs-toast-max-width: 250px
+}
+
+#cookiesToast .btn {
+    font-size: .75rem;
+}
