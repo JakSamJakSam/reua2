@@ -34,7 +34,7 @@
                                                 {% endfor %}
                                             </div>
                                         </div>
-                                        <p class="card-text">{{ company.localized_descr }}</p>
+                                        <p class="card-text">{{ company.localized_descr|truncatewords:30 }}</p>
                                     </div>
                                     <div class="card-footer bg-white d-flex text-muted overflow-hidden">
                                         <div class="border-end px-2 text-nowrap">
