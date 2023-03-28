@@ -24,7 +24,7 @@ function initCoockies(){
     const clsoeBtn = cookiesToast.querySelector('[data-bs-dismiss=toast]');
     if (clsoeBtn) {
       clsoeBtn.addEventListener('click', () => {
-        Cookies.set('i_agree_on_cookies', true);
+        Cookies.set('i_agree_on_cookies', true, { expires: 365 });
         toast.hide()
       });
     }
