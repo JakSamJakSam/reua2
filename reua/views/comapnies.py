@@ -17,7 +17,7 @@ from reua2.send_message import send_email_to_staffs, send_to_telegram
 
 class ListCompanyView(BreadCrumbsMixin, ListView):
     model = Company
-    paginate_by = 10
+    paginate_by = 15
     template_name = 'company/companies.html'
     bc = [{'title': "Building group"}]
     page_title = "Building group"

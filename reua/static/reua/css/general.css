@@ -1,3 +1,6 @@
+html{
+    font-size: 14px;
+}
 .landing_block {
     min-height: 100vh;
 }
@@ -187,4 +190,15 @@ footer .nav-link {
 
 #cookiesToast .btn {
     font-size: .75rem;
+}
+
+.company-list-item{
+    overflow: hidden;
+
+}
+.company-list-logo {
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+    flex: 0 0 auto;
 }

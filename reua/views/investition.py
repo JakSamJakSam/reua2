@@ -19,7 +19,7 @@ from reua2.send_message import send_email_to_staffs, send_to_telegram
 
 class ListInvestitionView(BreadCrumbsMixin, ListView):
     model = InvestitionCompany
-    paginate_by = 10
+    paginate_by = 15
     template_name = 'investition/investitions.html'
     bc = [{'title': _("Інвестиційна програма")}]
     page_title = _("Інвестиційна програма")
