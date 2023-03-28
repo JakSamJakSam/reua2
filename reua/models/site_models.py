@@ -144,7 +144,7 @@ class SiteSettings(models.Model):
             'lat': self.lat,
             'lng': self.lng,
             'title': 'reUA',
-            'marker': static("reua/img/reua_marker.png"),
+            'marker': static("reua/img/reua_marker2.png"),
         }
 
 
