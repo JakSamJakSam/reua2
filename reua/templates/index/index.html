@@ -60,10 +60,10 @@
                 <a href="{% if project == 'ReCity' %}{% url "rebuild" %}{% elif project == 'ReH2O' %}{% url "water" %}{% else %}#{% endif %}"
                    class="col col-lg-6 text-dark text-decoration-none mb-4 mb-lg-0">
                     {% for images in positions.values %}
-                        <div class="d-flex overflow-hidden">
+                        <div class="d-flex overflow-hidden row row-cols-3">
                             {% for image in images %}
                                 {% thumbnail image.image "150x150" format="PNG" upscale=True crop='center' as im %}
-                                    <img src="{{ im.url }}" alt="{{ project }}" class="flex-fill w-auto">
+                                    <img src="{{ im.url }}" alt="{{ project }}" class="p-0">
                                 {% endthumbnail %}
                             {% endfor %}
                         </div>
