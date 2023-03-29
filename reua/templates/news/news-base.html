@@ -17,7 +17,7 @@
                     <span class="flex-fill fs-5">
                         {% trans "Всі новини" %}
                     </span>
-                            <span class="small text-muted">
+                        <span class="small text-muted">
                             {{ news_count|default:"-" }}
                         </span>
 
@@ -25,7 +25,7 @@
                 </li>
                 {% for cat in categories %}
                     <li class="list-group-item bg-transparent">
-                        <a href="?{% extend_current_url request.GET "category" cat.pk %}"
+                        <a href="{{ request.path }}?{% extend_current_url request.GET "category" cat.pk %}"
                            class="text-dark text-decoration-none w-100 d-flex align-items-center">
                         <span class="flex-fill fs-5">
                             {{ cat.localized_title }}
@@ -43,7 +43,8 @@
                 <ul class="list-unstyled">
                     {% for ln in latest_news %}
                         <li class="mb-2">
-                            <a href="{% url "news-item" pk=ln.pk %}" class="d-flex flex-column text-decoration-none text-dark">
+                            <a href="{% url "news-item" pk=ln.pk %}"
+                               class="d-flex flex-column text-decoration-none text-dark">
                                 <div class="bg-gray200 text-muted rounded-top small me-auto px-2">
                                     {{ ln.date|date:"j b y" }}
                                 </div>
