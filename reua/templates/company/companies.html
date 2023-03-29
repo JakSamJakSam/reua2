@@ -42,5 +42,6 @@
             </div>
         </div>
     </div>
-    {% include "company/common/company_list.html" with item_url_name="company-item" %}
+    {% url "company-list" as list_url %}
+    {% include "company/common/company_list.html" with item_url_name="company-item" list_url=list_url %}
 {% endblock %}

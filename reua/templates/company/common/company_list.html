@@ -9,7 +9,7 @@
                 {% for company in object_list %}
                     <li>
                         <a href="{% url item_url_name pk=company.pk %}"
-                           class="card p-1 text-dark text-decoration-none">
+                           class="card p-1 text-dark text-decoration-none d-flex flex-column">
                             <div class="d-flex company-list-item">
                                 <div class="d-flex justify-content-center align-items-center company-list-logo rounded align-self-center">
                                     {% thumbnail company.logotype "150" format="PNG" upscale=True crop='center' as im %}
@@ -37,29 +37,13 @@
                                         </div>
                                         <p class="card-text">{{ company.localized_descr|truncatewords:30 }}</p>
                                     </div>
-                                    <div class="card-footer bg-white d-flex text-muted overflow-hidden">
-                                        <div class="border-end px-2 text-nowrap">
-                                            <span>{{ company.category.localized_title }}</span>
-                                        </div>
-                                        <div class="border-end px-2 text-nowrap">
-                                            <span class="fw-bolder">{{ company.localized_city|default:'' }}</span>,
-                                            <span>{{ company.localized_addr }}</span>
-                                        </div>
-                                        {% if company.email or company.phone %}
-                                            <div class="border-end px-2 d-flex gap-2 align-items-center">
-                                                {% if company.email %}
-                                                    <i class="fa-regular fa-envelope"></i>
-                                                {% endif %}
-                                                {% if company.phone %}
-                                                    <i class="fa-solid fa-phone"></i>
-                                                {% endif %}
-                                                {% if company.site %}
-                                                    <i class="fa-solid fa-link"></i>
-                                                {% endif %}
-                                            </div>
-                                        {% endif %}
+                                    <div class="card-footer bg-white text-muted overflow-hidden d-none d-lg-flex">
+                                        {% include "company/common/footer_iinfo.html" %}
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-footer bg-white text-muted overflow-hidden d-flex d-lg-none flex-column">
+                                {% include "company/common/footer_iinfo.html" with noborder=1%}
                             </div>
                         </a>
                     </li>
@@ -82,7 +66,7 @@
         <ul class="list-group">
             {% for cat in categories %}
                 <li class="list-group-item">
-                    <a href="?{% extend_current_url request.GET "category" cat.pk %}"
+                    <a href="{{ list_url }}?category={{ cat.pk }}"
                        class="d-flex text-dark text-decoration-none">
                         <span class="flex-fill">{{ cat.localized_title }}</span>
                         <span class="badge bg-secondary align-self-center py-2">{{ cat.companies_count }}</span>

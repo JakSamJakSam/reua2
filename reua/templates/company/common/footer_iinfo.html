@@ -1,0 +1,20 @@
+<div class="{% if not noborder %}border-end{% endif %} px-2 text-nowrap">
+    <span>{{ company.category.localized_title }}</span>
+</div>
+<div class="{% if not noborder %}border-end{% endif %} px-2 text-nowrap">
+    <span class="fw-bolder">{{ company.localized_city|default:'' }}</span>,
+    <span>{{ company.localized_addr }}</span>
+</div>
+{% if company.email or company.phone %}
+    <div class="{% if not noborder %}border-end{% endif %} px-2 d-flex gap-2 align-items-center">
+        {% if company.email %}
+            <i class="fa-regular fa-envelope"></i>
+        {% endif %}
+        {% if company.phone %}
+            <i class="fa-solid fa-phone"></i>
+        {% endif %}
+        {% if company.site %}
+            <i class="fa-solid fa-link"></i>
+        {% endif %}
+    </div>
+{% endif %}
