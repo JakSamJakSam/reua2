@@ -20,4 +20,4 @@ def send_to_telegram(message):
         }
         r = requests.post(f'https://api.telegram.org/bot{token}/sendMessage', data=data)
         if r.status_code != 200:
-            raise Exception("post_text error")
+            raise Exception(f"Telegram send message error: \"{r.text}\"")
