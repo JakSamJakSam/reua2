@@ -25,7 +25,7 @@
                 </li>
                 {% for cat in categories %}
                     <li class="list-group-item bg-transparent">
-                        <a href="{{ request.path }}?{% extend_current_url request.GET "category" cat.pk %}"
+                        <a href="{{ request.path }}?category={{ cat.pk }}"
                            class="text-dark text-decoration-none w-100 d-flex align-items-center">
                         <span class="flex-fill fs-5">
                             {{ cat.localized_title }}
