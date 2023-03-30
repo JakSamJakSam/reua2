@@ -134,7 +134,9 @@ footer .nav-link {
     transition: all .3s ease-in-out;
     cursor: pointer;
 }
-
+.gallery-item.w100>img {
+    width: 90%;
+}
 .gallery-item:hover>img {
     transform: scale(1.1);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175)

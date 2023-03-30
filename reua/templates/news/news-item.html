@@ -16,8 +16,8 @@
     {% with news.newsimages_set.all as images %}
         <ul id="lightgallery" class="d-flex gap-2 list-unstyled flex-wrap">
             {% thumbnail news.image "800" format="PNG" crop='center' as im %}
-                <li class="gallery-item w-100" data-src="{{ news.image.url }}">
-                    <img alt="{{ news.localized_title }}" src="{{ im.url }}" class="w-100"/>
+                <li class="gallery-item w-100 " data-src="{{ news.image.url }}">
+                    <img alt="{{ news.localized_title }}" src="{{ im.url }}"/>
                 </li>
             {% endthumbnail %}
             {% for image in images %}
