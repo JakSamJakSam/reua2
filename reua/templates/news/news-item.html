@@ -14,53 +14,20 @@
     <h3>{{ news.localized_title }}</h3>
     {{ news.localized_body|safe }}
     {% with news.newsimages_set.all as images %}
-        {% if images %}
-            {% if aa %}
-                <div id="carousel_news_images" class="carousel slide" data-bs-ride="true">
-                    <div class="carousel-indicators">
-                        {% for image in images %}
-                            <button type="button" data-bs-target="#carousel_news_images"
-                                    data-bs-slide-to="{{ forloop.counter0 }}"
-                                    {% if forloop.counter0 == 0 %} class="active" aria-current="true" {% endif %}
-                                    aria-label="{{ image.localized_title }}"></button>
-                        {% endfor %}
-                    </div>
-                    <div class="carousel-inner">
-                        {% for image in images %}
-                            <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-                                <img src="{{ image.image.url }}" class="d-block w-100"
-                                     alt="{{ image.localized_title }}">
-                                {% if image.localized_title %}
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>{{ localized_title }}</h5>
-                                    </div>
-                                {% endif %}
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel_news_images"
-                            data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">{% trans "Попередня" %}</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carousel_news_images"
-                            data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">{% trans "Наступна" %}</span>
-                    </button>
-                </div>
-            {% else %}
-                <ul id="lightgallery" class="d-flex gap-2 list-unstyled flex-wrap">
-                    {% for image in images %}
-                        {% thumbnail image.image "x100" format="PNG" upscale=True crop='center' as im %}
-                            <li class="gallery-item" data-src="{{ image.image.url }}">
-                                <img alt="{{ image.localized_title }}" src="{{ im.url }}"/>
-                            </li>
-                        {% endthumbnail %}
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endif %}
+        <ul id="lightgallery" class="d-flex gap-2 list-unstyled flex-wrap">
+            {% thumbnail news.image "800" format="PNG" crop='center' as im %}
+                <li class="gallery-item w-100" data-src="{{ news.image.url }}">
+                    <img alt="{{ news.localized_title }}" src="{{ im.url }}" class="w-100"/>
+                </li>
+            {% endthumbnail %}
+            {% for image in images %}
+                {% thumbnail image.image "x100" format="PNG" upscale=True crop='center' as im %}
+                    <li class="gallery-item" data-src="{{ image.image.url }}">
+                        <img alt="{{ image.localized_title }}" src="{{ im.url }}"/>
+                    </li>
+                {% endthumbnail %}
+            {% endfor %}
+        </ul>
     {% endwith %}
 {% endblock %}
 

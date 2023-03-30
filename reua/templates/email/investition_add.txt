@@ -1,5 +1,5 @@
 ✉️ <b>Реєстрація компанії в каталозі інвестицій</b>:
 🙍 <b>Ім'я</b>: {{ repr_fio }} - {{ name }}
-{% if repr_phone or phone %}⭐️ <b>Тел</b>:  {{ repr_phone.as_international }}{{ phone.as_international }}{% endif %}
-{% if repr_email or email %}⭐️ <b>Email</b>: {{ repr_email }} {{ email }}{% endif %}
-⭐️ <b>Адреса</b>: {{ city }}, {{ addr }}
+{% if repr_phone or phone %}⭐️ <b>Тел</b>:  {{ repr_phone.as_international }}, {{ phone.as_international }}{% endif %}
+{% if repr_email or email %}⭐️ <b>Email</b>: {{ repr_email|default:'' }} {{ email|default:'' }}{% endif %}
+⭐️ <b>Адреса</b>: {{ city|default:'' }}, {{ addr|default:'' }}
