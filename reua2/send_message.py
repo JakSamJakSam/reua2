@@ -17,6 +17,7 @@ def send_to_telegram(message):
         data = {
             "chat_id": chat_id,
             "text": message,
+            "parse_mode": "HTML"
         }
         r = requests.post(f'https://api.telegram.org/bot{token}/sendMessage', data=data)
         if r.status_code != 200:
