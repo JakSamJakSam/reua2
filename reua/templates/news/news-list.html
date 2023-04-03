@@ -3,9 +3,9 @@
 
 {% block left_side %}
     {{ block.super }}
-    <ul class="list-unstyled row">
+    <ul class="list-unstyled row row-cols-md-2 row-cols-1">
         {% for n in news %}
-            <li class="col col-md-6  mb-4">
+            <li class="col mb-4">
                 <div class="card h-100 bg-transparent border-0 ">
                     {% thumbnail n.image "300x300" format="PNG" upscale=True crop='center' as im %}
                         <a href="{% url "news-item" pk=n.pk %}">
