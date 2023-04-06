@@ -29,14 +29,16 @@
             {% endfor %}
         </ul>
     {% endwith %}
+    {% include "std/share_sn.html" with title=news.localized_title %}
 {% endblock %}
 
 {% block scripts %}
     {{ block.super }}
-    <script src="{% static "reua/assets/lightGallery-2.7.1/lightgallery.umd.js" %}"></script>
+    <script src="{% static "reua/assets/lightGallery-2.7.1/lightgallery.min.js" %}"></script>
+    <script src="{% static "reua/assets/lightGallery-2.7.1/plugins/share/lg-share.min.js" %}"></script>
     <script type="text/javascript">
       lightGallery(document.getElementById('lightgallery'), {
-        {#plugins: [lgZoom, lgThumbnail],#}
+        plugins: [lgShare, ],
         speed: 500,
         {#licenseKey:''#}
       });

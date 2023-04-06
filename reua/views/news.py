@@ -15,6 +15,7 @@ class ListNewsView(BreadCrumbsMixin, ListView):
     page_title = _("Прес-центр")
     context_object_name = 'news'
     paginate_by = 10
+    queryset = News.objects.filter(enabled=True)
 
     def __init__(self, *args, **kwargs):
         self._filter = None
@@ -22,8 +23,6 @@ class ListNewsView(BreadCrumbsMixin, ListView):
 
     def get_queryset(self):
         q = super().get_queryset()
-        # for i in range(0,10):
-        #     q = q.union(q, all=True)
         self._filter = NewsFilter(self.request.GET, queryset=q)
         return self._filter.qs
 
@@ -39,6 +38,7 @@ class DetailNewsView(BreadCrumbsMixin, DetailView):
     context_object_name = 'news'
     template_name = 'news/news-item.html'
     page_title = ''
+    queryset = News.objects.filter(enabled=True)
 
     bc = [
         {'title': _("Прес-центр"), 'url': reverse_lazy('news-list')},

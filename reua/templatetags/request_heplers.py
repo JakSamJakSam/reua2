@@ -18,3 +18,7 @@ def bleach_sanitarize(value: str) -> str:
 @register.simple_tag
 def gmaps_api_key():
     return settings.GMAP_API_KEY
+
+@register.simple_tag(takes_context=True)
+def full_url(context, url):
+    return context.request.build_absolute_uri(url)

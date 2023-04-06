@@ -203,3 +203,7 @@ footer .nav-link {
     height: 75px;
     flex: 0 0 auto;
 }
+
+.share-item img {
+    height: 1.25rem;
+}

@@ -122,11 +122,21 @@ class NewsImagesInline(admin.TabularInline):
 
 @admin.register(News)
 class NewsAdmin(SummernoteModelAdmin):
-    list_display = ('title', 'date', 'category')
+    list_display = ('title', 'date', 'category', 'enabled')
     summernote_fields = ('body', 'body_en')
     date_hierarchy = 'date'
     list_filter = ('category', )
     inlines = [NewsImagesInline,]
+
+    actions = ["make_enabled", "make_disabled"]
+
+    @admin.action(description=_("Опублікувати обрані новини"))
+    def make_enabled(self, request, queryset):
+        queryset.update(enabled=True)
+
+    @admin.action(description=_("Приховати обрані новини"))
+    def make_disabled(self, request, queryset):
+        queryset.update(enabled=False)
 
 
 class NewFlatPageAdmin(SummernoteModelAdminMixin, FlatPageAdmin):

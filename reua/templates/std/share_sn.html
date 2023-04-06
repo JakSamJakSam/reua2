@@ -1,0 +1,48 @@
+{% load static %}
+{% load request_heplers %}
+{% full_url url=request.path as full_path %}
+<ul class="list-unstyled d-flex gap-1">
+    <li class="share-item">
+        <a href="https://www.facebook.com/sharer.php?u={{ full_path|urlencode }}&t={{ title }}"
+           class="share-link share-link--facebook" rel="nofollow" target="_blank">
+            <img src="{% static "reua/img/social/fb.png" %}" alt="facebook" />
+        </a>
+    </li>
+
+    <li class="share-item">
+        <a href="https://twitter.com/share?url={{ full_path|urlencode }}&text={{ title }}"
+           class="social-tw" rel="nofollow" target="_blank">
+            <img src="{% static "reua/img/social/twitter.svg" %}" alt="twitter" />
+        </a>
+    </li>
+
+    <li class="share-item">
+        <script type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+        <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"
+           class="share-link share-link--pintrest" rel="nofollow" target="_blank">
+            <img src="{% static "reua/img/social/Pinterest.svg" %}" alt="Pinterest" />
+        </a>
+    </li>
+
+    <li class="share-item">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ full_path|urlencode }}&title={{ title }}"
+           rel="nofollow" target="_blank">
+            <img src="{% static "reua/img/social/Linkedin.svg" %}" alt="Linkedin" />
+        </a>
+    </li>
+
+    <li class="share-item">
+        <a href="https://t.me/share/url?url={{ full_path|urlencode }}&text={{ title }}"
+           class="share-link share-link--telegram" rel="nofollow" target="_blank">
+            <img src="{% static "reua/img/social/Telegram.svg" %}" alt="Telegram" />
+        </a>
+    </li>
+
+    <li class="share-item">
+        <a href="viber://forward?text={{ full_path|urlencode }}" class="share-link share-link--telegram" rel="nofollow"
+           target="_blank">
+            <img src="{% static "reua/img/social/viber.png" %}" alt="Viber" />
+        </a>
+    </li>
+
+</ul>

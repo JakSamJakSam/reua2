@@ -35,6 +35,7 @@ class News(models.Model):
     body_en = models.TextField(verbose_name=_('Зміст (англійською)'), blank=True)
     date = models.DateTimeField(verbose_name=_('Дата'))
     category = models.ForeignKey(NewsCategory, on_delete=models.PROTECT, verbose_name=_('Категорія новин'))
+    enabled = models.BooleanField(verbose_name=_('Опубліковано'), blank=True, default=True)
 
     def __str__(self):
         return self.title
