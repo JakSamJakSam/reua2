@@ -19,7 +19,7 @@ class AddCompanyForm(ModelForm):
     form_code = CharField(required=True, label=_("Код запрошення до групи компаній"))
     phone = PhoneNumberField(label=Company.phone.field.verbose_name, required=False)
     repr_phone = PhoneNumberField(label=Company.repr_phone.field.verbose_name, required=False)
-    logotype = ImageField(allow_empty_file=True, label=Company.logotype.field.verbose_name, required=False)
+    logotype = ImageField(allow_empty_file=True, label=Company.logotype.field.verbose_name, required=True)
     i_agree = BooleanField(
         required=False,
         label=_('Даю згоду на обробку персональних даних'),
