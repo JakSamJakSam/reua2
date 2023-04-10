@@ -39,7 +39,7 @@ class News(models.Model):
     date = models.DateTimeField(verbose_name=_('Дата'))
     category = models.ForeignKey(NewsCategory, on_delete=models.PROTECT, verbose_name=_('Категорія новин'))
     enabled = models.BooleanField(verbose_name=_('Опубліковано'), blank=True, default=True)
-    slug = models.SlugField(editable=False, max_length=300, null=True)
+    slug = models.SlugField(editable=False, max_length=300, unique=True)
 
     def __str__(self):
         return self.title

@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='news',
             name='slug',
-            field=models.SlugField(editable=False, max_length=300, unique=True),
+            field=models.SlugField(editable=False, max_length=300, null=True),
         ),
         migrations.RunPython(fill_slug, reverse_code=migrations.RunPython.noop)
     ]
