@@ -8,6 +8,8 @@ from reua.models import News, NewsCategory
 from reua.views.mixins import BreadCrumbsMixin
 
 __all__ = ('ListNewsView', 'DetailNewsView')
+
+
 class ListNewsView(BreadCrumbsMixin, ListView):
     model = News
     template_name = 'news/news-list.html'
@@ -33,6 +35,7 @@ class ListNewsView(BreadCrumbsMixin, ListView):
         ctx['current_category'] = self._filter.form.cleaned_data.get('category', None)
         return ctx
 
+
 class DetailNewsView(BreadCrumbsMixin, DetailView):
     model = News
     context_object_name = 'news'
@@ -47,10 +50,15 @@ class DetailNewsView(BreadCrumbsMixin, DetailView):
     def get_bc(self):
         return [*super().get_bc(), {'title': self.object.localized_title}]
 
+    def get_page_title(self):
+        return self.object.localized_title
+
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
         ctx['categories'] = NewsCategory.objects.all().annotate(news_count=Count('news')).order_by('id')
         ctx['current_category'] = self.object.category
         ctx['news_count'] = News.objects.all().count()
         ctx['latest_news'] = News.objects.all().order_by('-date')[:5]
+        if (self.object.image):
+            ctx['page_image_url'] = self.object.image.url
         return ctx

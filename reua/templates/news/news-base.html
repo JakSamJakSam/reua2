@@ -43,7 +43,7 @@
                 <ul class="list-unstyled">
                     {% for ln in latest_news %}
                         <li class="mb-2">
-                            <a href="{% url "news-item" pk=ln.pk %}"
+                            <a href="{% url "news-item" slug=ln.slug %}"
                                class="d-flex flex-column text-decoration-none text-dark">
                                 <div class="bg-gray200 text-muted rounded-top small me-auto px-2">
                                     {{ ln.date|date:"j b y" }}
