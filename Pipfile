@@ -16,6 +16,7 @@ bleach = {extras = ["css"], version = "*"}
 django-admin-sortable = "*"
 qrcode = {extras = ["pil"], version = "*"}
 requests = "*"
+pytils = "*"
 
 [dev-packages]
 

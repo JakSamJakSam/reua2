@@ -8,7 +8,7 @@
             <li class="col mb-4">
                 <div class="card h-100 bg-transparent border-0 ">
                     {% thumbnail n.image "300x300" format="PNG" upscale=True crop='center' as im %}
-                        <a href="{% url "news-item" pk=n.pk %}">
+                        <a href="{% url "news-item" slug=n.slug %}">
                             <img src="{{ im.url }}" class="card-_img-top rounded"
                                  alt="{{ n.localized_title }}" width="60%">
                         </a>
@@ -27,7 +27,7 @@
 
                     </div>
                     <div class="card-body ps-0">
-                        <a href="{% url "news-item" pk=n.pk %}" class="text-dark text-decoration-none">
+                        <a href="{% url "news-item" slug=n.slug %}" class="text-dark text-decoration-none">
                             <h4 class="card-title fw-bolder">{{ n.localized_title }}</h4>
                         </a>
                         {% if n.localized_sub_title %}

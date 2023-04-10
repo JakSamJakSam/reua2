@@ -3,6 +3,9 @@ from django.utils.translation import gettext_lazy as _, get_language
 
 __all__ = ('NewsCategory', 'News', 'NewsImages')
 
+from pytils.translit import slugify
+
+
 class NewsCategory(models.Model):
     title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
     title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'), null=True, blank=True,
@@ -36,6 +39,7 @@ class News(models.Model):
     date = models.DateTimeField(verbose_name=_('Дата'))
     category = models.ForeignKey(NewsCategory, on_delete=models.PROTECT, verbose_name=_('Категорія новин'))
     enabled = models.BooleanField(verbose_name=_('Опубліковано'), blank=True, default=True)
+    slug = models.SlugField(editable=False, max_length=300, null=True)
 
     def __str__(self):
         return self.title
@@ -62,6 +66,10 @@ class News(models.Model):
         verbose_name = _("Новина")
         verbose_name_plural = _("Новини")
         ordering = ["-date"]
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class NewsImages(models.Model):
