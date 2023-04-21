@@ -51,7 +51,8 @@ class DetailNewsView(BreadCrumbsMixin, DetailView):
         return [*super().get_bc(), {'title': self.object.localized_title}]
 
     def get_page_title(self):
-        return self.object.localized_title
+        return None
+        # return self.object.localized_title
 
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
