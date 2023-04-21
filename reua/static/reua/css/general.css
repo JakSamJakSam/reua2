@@ -212,3 +212,7 @@ footer .nav-link {
 .share-item a:hover img {
     scale: 125%;
 }
+
+.news-content a {
+    text-decoration: none;
+}
