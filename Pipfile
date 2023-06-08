@@ -17,7 +17,6 @@ django-admin-sortable = "*"
 qrcode = {extras = ["pil"], version = "*"}
 requests = "*"
 pytils = "*"
-gunicorn = "*"
 
 [dev-packages]
 
