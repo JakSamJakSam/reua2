@@ -25,6 +25,16 @@
                     </h5>
                 </li>
                 {% endif %}
+                {% if site_settings.phone2 %}
+                <li class="d-flex align-items-center">
+                    <i class="fa-solid fa-phone fa-lg me-2"></i>
+                    <h5>
+                        <a href="{{ site_settings.phone2.as_rfc3966 }}" class="text-dark text-decoration-none fw-bolder">
+                            {{ site_settings.phone2.as_international }}
+                        </a>
+                    </h5>
+                </li>
+                {% endif %}
                 {% if site_settings.localized_addr %}
                 <li class="d-flex align-items-center fs-5">
                     <i class="fa-solid fa-location-dot fa-lg me-3"></i>

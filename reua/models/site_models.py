@@ -121,6 +121,7 @@ class SiteSettings(models.Model):
     addr = models.TextField(verbose_name=_('Адреса'), blank=True)
     addr_en = models.TextField(verbose_name=_('Адреса англійською'), blank=True)
     phone = PhoneNumberField(verbose_name=_('Телефон'), region='UA', null=True, blank=True, default=None)
+    phone2 = PhoneNumberField(verbose_name=_('Телефон'), region='UA', null=True, blank=True, default=None)
     email = models.EmailField(verbose_name='E-Mail', null=True, blank=True, default=None)
     lat = models.FloatField(verbose_name=_('Широта'), null=True, blank=True, default=None)
     lng = models.FloatField(verbose_name=_('Долгота'), null=True, blank=True, default=None)

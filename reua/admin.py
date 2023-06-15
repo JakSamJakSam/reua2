@@ -86,7 +86,7 @@ class SiteSettingsAdmin(admin.ModelAdmin):
     fieldsets = (
         (_('Адреса'), {
             # 'classes': ('collapse',),
-            'fields': ('addr', 'addr_en', 'phone', 'email', 'lat', 'lng'),
+            'fields': ('addr', 'addr_en', 'phone', 'phone2', 'email', 'lat', 'lng'),
         }),
         (_('Коди'), {
             'classes': ('collapse',),
