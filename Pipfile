@@ -17,6 +17,7 @@ django-admin-sortable = "*"
 qrcode = {extras = ["pil"], version = "*"}
 requests = "*"
 pytils = "*"
+django-simple-captcha = "*"
 
 [dev-packages]
 

@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django_summernote',
     'adminsortable',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -258,3 +259,9 @@ try:
 except:
     pass
 
+
+
+CAPTCHA_IMAGE_SIZE = 160, 60
+CAPTCHA_FONT_SIZE = 44
+CAPTCHA_2X_IMAGE = False
+CAPTCHA_TEXT_FIELD_TEMPLATE = "captcha/widgets/my_text_field.html"
