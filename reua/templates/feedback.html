@@ -1,5 +1,6 @@
-{% extends "reua_base.html" %}
-{% block body %}
+{% extends "default_page.html" %}
+{% block content %}
+    {{ block.super }}
     <section class="landing_block py-5 container">
         {% include "std/feedback_form.html" %}
     </section>
