@@ -48,7 +48,6 @@ function  initPaymentModal(){
 
 function initLanguages(){
   const items = document.querySelectorAll('.lng');
-  console.log(items);
   items.forEach(item => item.addEventListener('click', (e) => {
     const s = [...item.classList].filter(s => s.startsWith('lng-'));
     const lngName = s.reduce((R, r) => r.replace('lng-', ''), null);

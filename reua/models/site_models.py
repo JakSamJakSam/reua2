@@ -273,3 +273,37 @@ class FeedbackMessage(models.Model):
         verbose_name = _("Повідомлення")
         verbose_name_plural = _("Повідомлення")
         ordering = ('date',)
+
+
+class ReH2OSettings(models.Model):
+    site = models.OneToOneField('sites.Site', on_delete=models.RESTRICT, verbose_name=_('Сайт'))
+    video = models.ForeignKey('ReH2OVideos', on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return str(self.site)
+
+    class Meta:
+        verbose_name = _("Налаштування сторінки ReH2O")
+        verbose_name_plural = _("Налаштування сторінки ReH2O")
+
+
+class ReH2OVideos(SortableMixin, models.Model):
+    site = models.ForeignKey('sites.Site', on_delete=models.RESTRICT, verbose_name=_('Сайт'))
+    title = models.CharField(max_length=100, verbose_name=_('Назва'))
+    video = models.FileField(verbose_name=_('Головне відео'), upload_to="video")
+    video_en = models.FileField(verbose_name=_('Головне відео'), upload_to="video_en", null=True)
+    order = models.PositiveSmallIntegerField(default=99, verbose_name=_('Номер за порядком'))
+
+    def __str__(self):
+        return str(self.title)
+
+    @property
+    def localized_video(self):
+        lg = get_language()
+        localized_video = getattr(self, f'video_{lg}', self.video)
+        return localized_video if localized_video else self.video
+
+    class Meta:
+        verbose_name = _("Відео")
+        verbose_name_plural = _("Відео")
+        ordering = ('order',)

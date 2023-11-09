@@ -40,6 +40,7 @@
     </div>
     <div id="header_marker"></div>
     <div class="bg-light">
+        {% block content_without_container %}
         <div class="container py-5">
             {% block content %}
                 {% if page_title %}
@@ -47,6 +48,7 @@
                 {% endif %}
             {% endblock %}
         </div>
+        {% endblock %}
     </div>
     {{ block.super }}
 {% endblock %}

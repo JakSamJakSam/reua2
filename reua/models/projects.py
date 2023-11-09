@@ -22,6 +22,11 @@ currencies = {
     "GPB": "£",
 }
 
+for_values = {
+    "for_city": _("Для міста"),
+    "for": _("Для"),
+}
+
 
 class Project(SortableMixin, models.Model):
     kind = models.PositiveSmallIntegerField(verbose_name=_('Тип'), choices=[(k,v) for k, v in kind_project_values.items()])
@@ -44,6 +49,12 @@ class Project(SortableMixin, models.Model):
 
     image = models.ImageField(upload_to="porjects", blank=True)
 
+    for1 = models.CharField(max_length=8, verbose_name=_('Для кого'), choices=((k,v) for k,v in for_values.items()))
+    for_city = models.CharField(max_length=100, verbose_name=_('Назва населеного пунку'), blank=True)
+    for_region = models.CharField(max_length=100, verbose_name=_('Назва області'), blank=True)
+    for_city_en = models.CharField(max_length=100, verbose_name=_('Назва населеного пунку (англ.)'), blank=True)
+    for_region_en = models.CharField(max_length=100, verbose_name=_('Назва області (англ.)'), blank=True)
+
     @property
     def localized_title(self):
         lg = get_language()
@@ -61,6 +72,23 @@ class Project(SortableMixin, models.Model):
         lg = get_language()
         localized_desc = getattr(self, f'desc_{lg}', self.desc)
         return localized_desc if localized_desc else self.desc
+
+    @property
+    def localized_for1(self):
+        return for_values[self.for1]
+
+    @property
+    def localized_for_city(self):
+        lg = get_language()
+        localized_for_city = getattr(self, f'for_city_{lg}', self.for_city)
+        return localized_for_city if localized_for_city else self.for_city
+
+    @property
+    def localized_for_region(self):
+        lg = get_language()
+        localized_for_region = getattr(self, f'for_region_{lg}', self.for_region)
+        return localized_for_region if localized_for_region else self.for_region
+
 
     @property
     def currency_symbol(self):

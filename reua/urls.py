@@ -1,6 +1,8 @@
 from .views import *
 from django.urls import path, include
 
+from .views.general import WaterNewView
+
 # app_name = 'reua'
 
 urlpatterns = [
@@ -15,6 +17,7 @@ urlpatterns = [
     path('projects/', ListProjectView.as_view(), name='project-list'),
     path('projects/<int:pk>/', DetailProjectView.as_view(), name='project-item'),
     path('water/', WaterView.as_view(), name='water'),
+    path('water-new/', WaterNewView.as_view(), name='water-new'),
     path('about/', AboutView.as_view(), name='about'),
     path('rebuild/', RebuildView.as_view(), name='rebuild'),
     path('contacts/', ContactsView.as_view(), name='contacts'),

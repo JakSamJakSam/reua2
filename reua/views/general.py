@@ -1,6 +1,8 @@
 import qrcode
 import qrcode.image.svg
 from django.conf import settings
+from django.contrib.sites.models import Site
+from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import get_template
 from django.templatetags.static import static
 from django.urls import reverse
@@ -15,7 +17,8 @@ __all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildVi
            'ReH2OPaymentView', 'ReCityPaymentView')
 
 from reua.models.projects import KindProject, currencies, kind_project_values
-from reua.models.site_models import GeneralProjectImages
+from reua.models.site_models import GeneralProjectImages, ReH2OSettings, ReH2OVideos
+from reua.models.waters import ActivePoints
 
 from reua.views.mixins import BreadCrumbsMixin
 from reua2.send_message import send_email_to_staffs, send_to_telegram
@@ -127,6 +130,24 @@ class WaterView(BreadCrumbsMixin, TemplateView):
         ctx = super().get_context_data(*args, **kwargs)
         ctx['water_stations'] = self.get_water_stations()
         ctx['projects'] = Project.objects.filter(kind=KindProject.water.value)
+        return ctx
+
+
+class WaterNewView(BreadCrumbsMixin, TemplateView):
+    bc = [{'title': _("Питна вода")}]
+    page_title = _("Питна вода")
+    template_name = "pages/water_new.html"
+
+    def get_context_data(self, *args, **kwargs):
+        ctx = super().get_context_data(*args, **kwargs)
+        site = get_current_site(self.request)
+        settings = ReH2OSettings.objects.filter(site=site).first()
+        videos = ReH2OVideos.objects.filter(site=site)
+        projects = Project.objects.filter(kind=KindProject.water.value)
+        ctx['page_settings'] = settings
+        ctx['videos'] = videos
+        ctx['projects'] = projects
+        ctx['map_points'] = [mp.point for mp in ActivePoints.objects.filter(active=True)]
         return ctx
 
 
