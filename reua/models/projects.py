@@ -50,10 +50,12 @@ class Project(SortableMixin, models.Model):
     image = models.ImageField(upload_to="porjects", blank=True)
 
     for1 = models.CharField(max_length=8, verbose_name=_('Для кого'), choices=((k,v) for k,v in for_values.items()))
-    for_city = models.CharField(max_length=100, verbose_name=_('Назва населеного пунку'), blank=True)
+    for_city = models.CharField(max_length=100, verbose_name=_('Назва населеного пункту'), blank=True)
     for_region = models.CharField(max_length=100, verbose_name=_('Назва області'), blank=True)
-    for_city_en = models.CharField(max_length=100, verbose_name=_('Назва населеного пунку (англ.)'), blank=True)
+    for_city_en = models.CharField(max_length=100, verbose_name=_('Назва населеного пункту (англ.)'), blank=True)
     for_region_en = models.CharField(max_length=100, verbose_name=_('Назва області (англ.)'), blank=True)
+    status = models.TextField(verbose_name=_('Статус'), blank=True)
+    status_en = models.TextField(verbose_name=_('Статус (англ.)'), blank=True)
 
     @property
     def localized_title(self):
@@ -89,6 +91,11 @@ class Project(SortableMixin, models.Model):
         localized_for_region = getattr(self, f'for_region_{lg}', self.for_region)
         return localized_for_region if localized_for_region else self.for_region
 
+    @property
+    def localized_status(self):
+        lg = get_language()
+        localized_status = getattr(self, f'status_{lg}', self.status)
+        return localized_status if localized_status else self.status
 
     @property
     def currency_symbol(self):
@@ -101,4 +108,16 @@ class Project(SortableMixin, models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ProjectPhoto(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, verbose_name=_('Проєкт'), related_name='photos')
+    photo = models.ImageField(upload_to='prj_photo', verbose_name=_('Фото'))
+
+    class Meta:
+        verbose_name = _("Фото проєкту")
+        verbose_name_plural = _("Фото проєктів")
+
+    def __str__(self):
+        return f"Фото №{self.id}"
 

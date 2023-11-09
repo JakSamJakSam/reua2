@@ -7,6 +7,7 @@ from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMi
 
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import *
+from reua.models.projects import ProjectPhoto
 from reua.models.site_models import GeneralProjectImages, FeedbackMessage, ReH2OSettings, ReH2OVideos
 from reua.models.waters import ActivePoints
 
@@ -108,9 +109,14 @@ class LabelAdmin(SortableAdmin):
 class LabelAdmin(SortableAdmin):
     pass
 
+class ProjectPhotoInline(admin.StackedInline):
+    model = ProjectPhoto
 
 @admin.register(Project)
 class ProjectAdmin(SummernoteModelAdminMixin, SortableAdmin):
+    inlines = [
+        ProjectPhotoInline,
+    ]
     list_display = ('title', 'target', 'current', 'closed')
     summernote_fields = ('desc', 'desc_en')
     fieldsets = [
@@ -137,6 +143,11 @@ class ProjectAdmin(SummernoteModelAdminMixin, SortableAdmin):
         ('Для кого (агнл)', {
             'fields': [
                 'for_city_en', 'for_region_en'
+            ],
+        }),
+        ('Статсу', {
+            'fields': [
+                'status', 'status_en'
             ],
         }),
     ]

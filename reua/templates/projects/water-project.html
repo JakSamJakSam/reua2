@@ -1,0 +1,62 @@
+{% extends "bogdan_page.html" %}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load request_heplers %}
+
+{% block content %}
+    {% with project.photos.all as photos %}
+        <div class="single__wrapper">
+        {% if photos|length %}
+            <div class="slider__wrapper" id="single_slider">
+                <div class="slider__inner">
+                    <div class="main-image">
+                        {% with photos|first as main_photo %}
+                            {% thumbnail main_photo.photo "800" format="PNG" upscale=True crop='center' as im %}
+                                <img src="{{ im.url }}" alt="{{ project.localized_title }}">
+                            {% endthumbnail %}
+                        {% endwith %}
+                    </div>
+                    <div class="thumbnail__images">
+                        <div class="thumbnails-list">
+                            {% for photo in photos %}
+                                {% thumbnail photo.photo "250" format="PNG" upscale=True crop='center' as im %}
+                                    <img class="slider__item
+                                        {% if forloop.counter == 1 and videos|length == 1 %}active
+                                        {% elif forloop.counter == 1 %}right
+                                        {% elif forloop.counter == 2 %}active
+                                        {% elif forloop.counter == 3 %}left
+                                        {% endif %}"
+                                        src="{{ im.url }}" alt="{{ project.localized_title }}"
+                                         onclick="changeImage('img/projects/Буча.JPG')">
+                                {% endthumbnail %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        		<div class="info__wrapper">
+			<div class="title__wrapper">
+				<p>{{ project.localized_title }}</p>
+				<h1>{{ project.localized_for1 }} {{ project.localized_for_city }}</h1>
+				{% if project.localized_for_region %}
+                <div class="flex">
+					<object data="{% static "reua/img/_b/geo.svg" %}" type=""></object>
+					<h2>{{ project.localized_for_region }}</h2>
+				</div>
+                {% endif %}
+			</div>
+			<div class="main__text">
+                {{ project.localized_desc|bleach_sanitarize|safe }}
+			</div>
+			<div class="result">
+				<p><span>{% trans "Статус:" %}</span>
+                    {{ project.localized_status }}
+                </p>
+			</div>
+		</div>
+
+    {% endwith %}
+
+{% endblock %}

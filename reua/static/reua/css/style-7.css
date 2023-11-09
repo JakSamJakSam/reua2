@@ -586,7 +586,7 @@ footer .btn:hover {
 	right: 2vw;
 	top: 13vh;
 	width: 55vw;
-	z-index: 10;
+	z-index: 9;
 	pointer-events: none;
 }
 
@@ -722,7 +722,7 @@ footer .btn:hover {
 /* #intro .wrapper__button .btn:nth-child(1) {
 	box-shadow: 0px 0px 28px 0px var(--yellow);
 	padding: 10px 100px;
-	z-index: 10;
+	z-index: 9;
 	font-weight: bold;
 }
 
@@ -944,7 +944,7 @@ footer .btn:hover {
 	width: 50vw;
 	display: block;
 	opacity: 1;
-	z-index: 10;
+	z-index: 9;
 }
 
 #slider .slider__item.left {
@@ -1102,7 +1102,7 @@ footer .btn:hover {
 	background-color: var(--white);
 	box-shadow: 0px 0px 84px 0px #FFF;
 	height: 50vh;
-	z-index: 10;
+	z-index: 9;
 	position: relative;
 }
 
@@ -1359,7 +1359,7 @@ footer .btn:hover {
 	width: 100vw;
 	background: linear-gradient(180deg, #0F1E3C 0%, rgba(15, 30, 60, 0.00) 100%);
 	position: absolute;
-	z-index: 10;
+	z-index: 9;
 	top: 0;
 	left: 0;
 }
@@ -1396,40 +1396,40 @@ footer .btn:hover {
 
 
 
-.single__wrapper {
+#water_new .single__wrapper {
 	height: 93vh;
 	position: relative;
 }
 
-.info__wrapper {}
+#water_new .info__wrapper {}
 
-.single__wrapper .title__wrapper {
+#water_new .single__wrapper .title__wrapper {
 	background-color: var(--dark_blue);
 	padding: 10vh 0 5vh 52vw;
 }
 
-.single__wrapper .title__wrapper object {
+#water_new .single__wrapper .title__wrapper object {
 	height: 32px;
 }
 
-.main__text {
+#water_new .main__text {
 	padding: 5vh 0 5vh 52vw;
 }
 
-.main__text p {
+#water_new .main__text p {
 	margin: 20px 0;
 	max-width: 700px;
 }
 
-.main__text span {
+#water_new .main__text span {
 	font-weight: 600;
 }
 
-.flex {
+#water_new .flex {
 	display: flex;
 }
 
-.result {
+#water_new .result {
 	position: absolute;
 	bottom: 0;
 	width: 50%;
@@ -1437,46 +1437,46 @@ footer .btn:hover {
 	background-color: var(--dark_blue);
 }
 
-.result p {
+#water_new .result p {
 	color: var(--white);
 	padding: 20px 0 5vh 2vw;
 	font-weight: 300;
 	max-width: 800px;
 }
 
-.result span {
+#water_new .result span {
 	font-weight: 600;
 	color: var(--yellow);
 }
 
-.single__wrapper .title__wrapper p {
+#water_new .single__wrapper .title__wrapper p {
 	color: var(--white);
 	font-size: 18px;
 	line-height: 1;
 }
 
-.single__wrapper .title__wrapper h1,
-.single__wrapper .title__wrapper h2 {
+#water_new .single__wrapper .title__wrapper h1,
+#water_new .single__wrapper .title__wrapper h2 {
 	line-height: 1;
 	color: var(--yellow);
 }
 
-.single__wrapper .title__wrapper h1 {
+#water_new .single__wrapper .title__wrapper h1 {
 	font-size: 64px;
 	margin-bottom: 5px;
 }
 
-.single__wrapper .title__wrapper h2 {
+#water_new .single__wrapper .title__wrapper h2 {
 	font-weight: 400;
 	margin-left: 10px;
 }
 
-.slider__wrapper {
+#water_new .slider__wrapper {
 	position: absolute;
 	width: 52vw;
 }
 
-.slider__inner {
+#water_new .slider__inner {
 	width: 40vw;
 	position: absolute;
 	top: 50%;
@@ -1504,7 +1504,7 @@ footer .btn:hover {
 } */
 
 
-.thumbnail__images .slider__item {
+#water_new .thumbnail__images .slider__item {
 	position: absolute;
 	width: 33%;
 	bottom: -30%;
@@ -1513,35 +1513,35 @@ footer .btn:hover {
 	opacity: 0;
 }
 
-.thumbnail__images .slider__item.active {
+#water_new .thumbnail__images .slider__item.active {
 	left: 50%;
 	transform: translate(-50%, 0);
 	display: block;
-	z-index: 10;
+	z-index: 9;
 	opacity: 1;
 }
 
-.thumbnail__images .slider__item.left {
+#water_new .thumbnail__images .slider__item.left {
 	left: 0;
 	opacity: 1;
-	z-index: 10;
+	z-index: 9;
 }
 
-.thumbnail__images .slider__item.right {
+#water_new .thumbnail__images .slider__item.right {
 	right: 0;
 	opacity: 1;
-	z-index: 10;
+	z-index: 9;
 }
 
-.slider-container {
+#water_new .slider-container {
 	text-align: center;
 }
 
-.main-image {
+#water_new .main-image {
 	margin-bottom: 20px;
 }
 
-.thumbnail-images .thumbnails-list {
+#water_new .thumbnail-images .thumbnails-list {
 	display: flex;
 	overflow: hidden;
 	max-width: 500px;
@@ -1549,7 +1549,7 @@ footer .btn:hover {
 	margin: 0 auto;
 }
 
-.thumbnail-images img {
+#water_new .thumbnail-images img {
 	width: 100px;
 	height: 100px;
 	margin: 5px;
@@ -1567,7 +1567,7 @@ footer .btn:hover {
 		scale: 1.15;
 	}
 
-	.thumbnail__images {
+	#water_new .thumbnail__images {
 		grid-template-columns: repeat(4, 1fr);
 	}
 
@@ -1575,7 +1575,7 @@ footer .btn:hover {
 		margin-left: 10vw;
 	}
 
-	.wrapper__description .item {
+	#water_new .wrapper__description .item {
 		max-width: 800px;
 	}
 
@@ -1589,28 +1589,28 @@ footer .btn:hover {
 		width: 100%;
 	}
 
-	.bg_white video {
+	#water_new .bg_white video {
 		scale: 1.2;
 	}
 
-	.technical__item p:nth-child(1) {
+	#water_new .technical__item p:nth-child(1) {
 		color: var(--grey);
 		border-bottom: solid 3px var(--grey_blue);
 		display: table-caption;
 		font-size: 32px;
 	}
 
-	.bottom__item p {
+	#water_new .bottom__item p {
 		font-size: 28px;
 	}
 
-	.technical__item p:nth-child(2) {
+	#water_new .technical__item p:nth-child(2) {
 		color: var(--white);
 		font-family: var(--title-font);
 		font-size: 48px;
 	}
 
-	.marquee {
+	#water_new .marquee {
 		position: absolute;
 		right: 10vw;
 		bottom: -10vh;
@@ -1623,7 +1623,7 @@ footer .btn:hover {
 		border-right: solid 2px var(--dark_blue);
 	}
 
-	.marquee p {
+	#water_new .marquee p {
 		display: inline-block;
 		color: var(--dark_blue);
 		font-family: var(--title-font);
@@ -1638,20 +1638,20 @@ footer .btn:hover {
 }
 
 @media screen and (max-width: 1800px) {
-	.title h2 {
+	#water_new .title h2 {
 		font-size: 13vh;
 		line-height: 1.3;
 	}
 
-	.technical__item p:nth-child(1) {
+	#water_new .technical__item p:nth-child(1) {
 		font-size: 24px;
 	}
 
-	.technical__item p:nth-child(2) {
+	#water_new .technical__item p:nth-child(2) {
 		font-size: 36px;
 	}
 
-	.bg_white video {
+	#water_new .bg_white video {
 		width: 60vw;
 	}
 
@@ -1660,11 +1660,11 @@ footer .btn:hover {
 		margin: 0 1vw;
 	}
 
-	.made_for .city {
+	#water_new .made_for .city {
 		line-height: 1;
 	}
 
-	.made_for p:nth-child(1) {
+	#water_new .made_for p:nth-child(1) {
 		margin-bottom: -2px;
 	}
 }
@@ -2199,7 +2199,7 @@ footer .btn:hover {
 		left: 0;
 		right: inherit;
 		top: -118px;
-		z-index: 10;
+		z-index: 9;
 	}
 
 	#intro .wrapper {
@@ -2208,7 +2208,7 @@ footer .btn:hover {
 
 	#intro img.mob {
 		margin-bottom: -40px;
-		z-index: 10;
+		z-index: 9;
 		position: relative;
 	}
 

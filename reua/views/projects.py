@@ -30,3 +30,17 @@ class DetailProjectView(BreadCrumbsMixin, DetailView):
     def get_page_title(self):
         return str(self.object)
 
+
+class DetailWaterProjectView(BreadCrumbsMixin, DetailView):
+    model = Project
+    context_object_name = 'project'
+    template_name = 'projects/water-project.html'
+
+    bc = [
+        {'title': _("Актуальні проєкти"), 'url': reverse_lazy('project-list')},
+    ]
+
+    def get_bc(self):
+        return [*super().get_bc(), {'title': self.get_page_title()}]
+    def get_page_title(self):
+        return str(self.object)
