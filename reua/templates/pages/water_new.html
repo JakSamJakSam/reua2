@@ -103,7 +103,7 @@
                         <div class="wrapper__img">
                             <a href="{% url "water-project-item" pk=project.pk %}">
                                 {% if project.image %}
-                                    {% thumbnail project.image "650" format="PNG" upscale=True crop='center' as im %}
+                                    {% thumbnail project.image "650x440" format="PNG" upscale=True crop='center' as im %}
                                         <img src="{{ im.url }}" alt="{{ project.localized_title }}">
                                     {% endthumbnail %}
                                 {% endif %}
