@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-06 15:50+0300\n"
+"POT-Creation-Date: 2023-11-10 16:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,58 +18,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\reua\admin.py:39 .\reua\admin.py:67
+#: .\reua\admin.py:41 .\reua\admin.py:69
 msgid "Адмінистрування"
 msgstr "Administration"
 
-#: .\reua\admin.py:43 .\reua\admin.py:71
+#: .\reua\admin.py:45 .\reua\admin.py:73
 msgid "Реквізити компанії"
 msgstr "Company details"
 
-#: .\reua\admin.py:46 .\reua\admin.py:74
-#| msgid "Реквізити компанії"
+#: .\reua\admin.py:48 .\reua\admin.py:76
 msgid "Реквізити компанії англ."
 msgstr "Company details"
 
-#: .\reua\admin.py:49
+#: .\reua\admin.py:51
 msgid "Реквізити інвестиції"
 msgstr "Details of the investment"
 
-#: .\reua\admin.py:52
+#: .\reua\admin.py:54
 msgid "Файли"
 msgstr "Files"
 
-#: .\reua\admin.py:55 .\reua\admin.py:77
+#: .\reua\admin.py:57 .\reua\admin.py:79
 #: .\reua\templates\company\new_company.html:14
 #: .\reua\templates\investition\new_investition.html:14
 msgid "Представник компанії"
 msgstr "Company representative"
 
-#: .\reua\admin.py:87 .\reua\models\compaies.py:75
+#: .\reua\admin.py:89 .\reua\models\compaies.py:75
 #: .\reua\models\site_models.py:121
 msgid "Адреса"
 msgstr "Address"
 
-#: .\reua\admin.py:91
+#: .\reua\admin.py:93
 msgid "Коди"
 msgstr "Codes"
 
-#: .\reua\admin.py:133
-#| msgid "Останні новини"
+#: .\reua\admin.py:172
 msgid "Опублікувати обрані новини"
 msgstr "Publish selected news"
 
-#: .\reua\admin.py:137
-#| msgid "Останні новини"
+#: .\reua\admin.py:176
 msgid "Приховати обрані новини"
 msgstr "Hide selected news"
 
-#: .\reua\context_processors.py:27 .\reua\views\general.py:109
-#: .\reua\views\general.py:110
+#: .\reua\context_processors.py:27 .\reua\views\general.py:112
+#: .\reua\views\general.py:113 .\reua\views\general.py:137
+#: .\reua\views\general.py:138
 msgid "Питна вода"
 msgstr "Water"
 
-#: .\reua\context_processors.py:33 .\reua\views\general.py:135
+#: .\reua\context_processors.py:33 .\reua\views\general.py:156
 msgid "Відбудова житла"
 msgstr "Housing reconstruction"
 
@@ -122,7 +120,7 @@ msgstr "year"
 msgid "Введіть код з картинки"
 msgstr "Type text on the picture"
 
-#: .\reua\models\compaies.py:11
+#: .\reua\models\compaies.py:11 .\reua\models\site_models.py:292
 msgid "Назва"
 msgstr "Company name"
 
@@ -137,7 +135,7 @@ msgstr "Html (en)"
 #: .\reua\models\compaies.py:16 .\reua\models\compaies.py:90
 #: .\reua\models\site_models.py:25 .\reua\models\site_models.py:161
 #: .\reua\models\site_models.py:196 .\reua\models\site_models.py:252
-#: .\reua\models\waters.py:17
+#: .\reua\models\site_models.py:295 .\reua\models\waters.py:18
 msgid "Номер за порядком"
 msgstr "Order"
 
@@ -150,16 +148,16 @@ msgid "Мітки компаній"
 msgstr "Labels of company"
 
 #: .\reua\models\compaies.py:33 .\reua\models\news.py:10
-#: .\reua\models\projects.py:28 .\reua\models\site_models.py:20
+#: .\reua\models\projects.py:33 .\reua\models\site_models.py:20
 #: .\reua\models\site_models.py:66 .\reua\models\site_models.py:193
-#: .\reua\models\waters.py:8
+#: .\reua\models\waters.py:9
 msgid "Назва (українською)"
 msgstr "Title (ukr)"
 
 #: .\reua\models\compaies.py:34 .\reua\models\news.py:11
-#: .\reua\models\projects.py:29 .\reua\models\site_models.py:21
+#: .\reua\models\projects.py:34 .\reua\models\site_models.py:21
 #: .\reua\models\site_models.py:67 .\reua\models\site_models.py:194
-#: .\reua\models\waters.py:9
+#: .\reua\models\waters.py:10
 msgid "Назва (англійською)"
 msgstr "Title (en)"
 
@@ -184,7 +182,6 @@ msgid "Назва компанії"
 msgstr "The company name"
 
 #: .\reua\models\compaies.py:69
-#| msgid "Назва компанії"
 msgid "Назва компанії (англ.)"
 msgstr "The company name (en)"
 
@@ -192,12 +189,11 @@ msgstr "The company name (en)"
 msgid "Логотип"
 msgstr "Logotype"
 
-#: .\reua\models\compaies.py:71
+#: .\reua\models\compaies.py:71 .\reua\models\waters.py:59
 msgid "Опис"
 msgstr "Description"
 
 #: .\reua\models\compaies.py:72
-#| msgid "Опис (англійською)"
 msgid "Опис (англ.)"
 msgstr "Description (en)"
 
@@ -210,7 +206,6 @@ msgid "Місто (англ.)"
 msgstr "City (en)"
 
 #: .\reua\models\compaies.py:76
-#| msgid "Опис (англійською)"
 msgid "Адреса (англ.)"
 msgstr "Address (en)"
 
@@ -220,7 +215,8 @@ msgid "Телефон"
 msgstr "Phone number"
 
 #: .\reua\models\compaies.py:79 .\reua\models\site_models.py:118
-#: .\reua\models\site_models.py:197
+#: .\reua\models\site_models.py:197 .\reua\models\site_models.py:279
+#: .\reua\models\site_models.py:291
 msgid "Сайт"
 msgstr "Site"
 
@@ -353,7 +349,6 @@ msgid "Основне зображення"
 msgstr "General image"
 
 #: .\reua\models\news.py:37
-#| msgid "Назва (українською)"
 msgid "Зміст (українською)"
 msgstr "Content (ukr)"
 
@@ -385,51 +380,99 @@ msgstr "Images"
 msgid "Зображення новин"
 msgstr "Images of news"
 
-#: .\reua\models\projects.py:27 .\reua\models\site_models.py:27
+#: .\reua\models\projects.py:26
+msgid "Для міста"
+msgstr "For city"
+
+#: .\reua\models\projects.py:27
+msgid "Для"
+msgstr "For"
+
+#: .\reua\models\projects.py:32 .\reua\models\site_models.py:27
 #: .\reua\models\site_models.py:68 .\reua\models\site_models.py:215
 #: .\reua\models\site_models.py:241
 msgid "Тип"
 msgstr "Type"
 
-#: .\reua\models\projects.py:31
+#: .\reua\models\projects.py:36
 msgid "Короткий опис (українською)"
 msgstr "Brief description (ukr)"
 
-#: .\reua\models\projects.py:32
+#: .\reua\models\projects.py:37
 msgid "Короткий опис (англійською)"
 msgstr "Brief description (en)"
 
-#: .\reua\models\projects.py:34
+#: .\reua\models\projects.py:39
 msgid "Детальний опис (українською)"
 msgstr "Detail description (ukr)"
 
-#: .\reua\models\projects.py:35
+#: .\reua\models\projects.py:40
 msgid "Детальний опис (англійською)"
 msgstr "Detail description (en)"
 
-#: .\reua\models\projects.py:37
+#: .\reua\models\projects.py:42
 msgid "Потрібно"
 msgstr "Target"
 
-#: .\reua\models\projects.py:38
+#: .\reua\models\projects.py:43
 msgid "Зібрано"
 msgstr "Current"
 
-#: .\reua\models\projects.py:39
+#: .\reua\models\projects.py:44
 msgid "Завершено"
 msgstr "Done"
 
-#: .\reua\models\projects.py:41 .\reua\models\site_models.py:217
+#: .\reua\models\projects.py:46 .\reua\models\site_models.py:217
 msgid "Валюта"
 msgstr "Currency"
 
-#: .\reua\models\projects.py:70
+#: .\reua\models\projects.py:52
+msgid "Для кого"
+msgstr ""
+
+#: .\reua\models\projects.py:53
+msgid "Назва населеного пункту"
+msgstr ""
+
+#: .\reua\models\projects.py:54
+msgid "Назва області"
+msgstr "Region"
+
+#: .\reua\models\projects.py:55
+msgid "Назва населеного пункту (англ.)"
+msgstr "Locality (en)"
+
+#: .\reua\models\projects.py:56
+msgid "Назва області (англ.)"
+msgstr "Region (en)"
+
+#: .\reua\models\projects.py:57
+msgid "Статус"
+msgstr "Status"
+
+#: .\reua\models\projects.py:58
+msgid "Статус (англ.)"
+msgstr "Status (en)"
+
+#: .\reua\models\projects.py:105 .\reua\models\projects.py:114
 msgid "Проєкт"
 msgstr "Project"
 
-#: .\reua\models\projects.py:71
+#: .\reua\models\projects.py:106
 msgid "Проєкти"
 msgstr "Projects"
+
+#: .\reua\models\projects.py:115 .\reua\models\site_models.py:163
+msgid "Фото"
+msgstr "Photo"
+
+#: .\reua\models\projects.py:118
+msgid "Фото проєкту"
+msgstr "Project photo"
+
+#: .\reua\models\projects.py:119
+msgid "Фото проєктів"
+msgstr "Project fotos"
 
 #: .\reua\models\site_models.py:22
 msgid "Відключено"
@@ -503,11 +546,11 @@ msgstr "The code for adding the company to the investment"
 msgid "Адреса англійською"
 msgstr "Address (en)"
 
-#: .\reua\models\site_models.py:126 .\reua\models\waters.py:11
+#: .\reua\models\site_models.py:126 .\reua\models\waters.py:12
 msgid "Широта"
 msgstr "Latitude"
 
-#: .\reua\models\site_models.py:127 .\reua\models\waters.py:12
+#: .\reua\models\site_models.py:127 .\reua\models\waters.py:13
 msgid "Долгота"
 msgstr "Longitude"
 
@@ -536,13 +579,8 @@ msgid "Опис (укр)"
 msgstr "Description (ukr)"
 
 #: .\reua\models\site_models.py:160
-#| msgid "Опис (англійською)"
 msgid "Опис (англ)"
 msgstr "Description (en)"
-
-#: .\reua\models\site_models.py:163
-msgid "Фото"
-msgstr "Photo"
 
 #: .\reua\models\site_models.py:169
 msgid "Співробітник"
@@ -597,21 +635,50 @@ msgstr "Message"
 msgid "Дата та час"
 msgstr ""
 
-#: .\reua\models\waters.py:14
+#: .\reua\models\site_models.py:286 .\reua\models\site_models.py:287
+msgid "Налаштування сторінки ReH2O"
+msgstr "H2O page settings"
+
+#: .\reua\models\site_models.py:293 .\reua\models\site_models.py:307
+#: .\reua\models\site_models.py:308
+msgid "Відео"
+msgstr ""
+
+#: .\reua\models\site_models.py:294
+msgid "Відео (англ.)"
+msgstr "Video (en)"
+
+#: .\reua\models\waters.py:15
 msgid "Опис (українською)"
 msgstr "Description (ukr)"
 
-#: .\reua\models\waters.py:15
+#: .\reua\models\waters.py:16
 msgid "Опис (англійською)"
 msgstr "Description (en)"
 
-#: .\reua\models\waters.py:34
+#: .\reua\models\waters.py:36
 msgid "Установка очищення води"
 msgstr ""
 
-#: .\reua\models\waters.py:35
+#: .\reua\models\waters.py:37
 msgid "Установки очищення води"
 msgstr "Water purification installation"
+
+#: .\reua\models\waters.py:57
+msgid "Точка"
+msgstr ""
+
+#: .\reua\models\waters.py:58
+msgid "Активно"
+msgstr ""
+
+#: .\reua\models\waters.py:65
+msgid "Точка на мапі"
+msgstr ""
+
+#: .\reua\models\waters.py:66
+msgid "Точки на мапі"
+msgstr ""
 
 #: .\reua\templates\company\common\company_list.html:55
 msgid "Немає компаній"
@@ -1258,6 +1325,7 @@ msgstr "Presentation"
 
 #: .\reua\templates\pages\water.html:180 .\reua\views\projects.py:14
 #: .\reua\views\projects.py:15 .\reua\views\projects.py:25
+#: .\reua\views\projects.py:40
 msgid "Актуальні проєкти"
 msgstr "Actual projects"
 
@@ -1265,28 +1333,197 @@ msgstr "Actual projects"
 msgid "Дивитись усі"
 msgstr "Watch all"
 
-#: .\reua\templates\payment\basic.html:8
-msgid "Оберіть зручну для вас валюту внеску."
-msgstr "Choose the payment currency convenient for you."
+#: .\reua\templates\pages\water_new.html:38
+msgid "Мобільна водоочисна станція"
+msgstr "Mobile Water Treatment Plant"
 
+#: .\reua\templates\pages\water_new.html:45
+msgid ""
+"\n"
+"                                Через російську агресію <span>10 мільйонів "
+"українців</span> залишились без доступу\n"
+"                                до\n"
+"                                питної води\n"
+"                            "
+msgstr ""
+"\n"
+"Due to Russian aggression, <span>10 million Ukrainians</span> have been left "
+"with no access to drinking water                            "
+
+#: .\reua\templates\pages\water_new.html:55
+msgid ""
+"\n"
+"                                <span>150 станцій \"ReH<sub>2</sub>O\"</"
+"span> вирішать <br> проблему України в цілому\n"
+"                            "
+msgstr ""
+"\n"
+"                                <span>150 \"ReH<sub>2</sub>O\" </span>  "
+"plants will be a  <br>  solution to Ukraine as a "
+"whole                            "
+
+#: .\reua\templates\pages\water_new.html:63
+msgid "Відеозвернення"
+msgstr "VIDEO ADDRESS"
+
+#: .\reua\templates\pages\water_new.html:71
+msgid "Вартість проєкту:"
+msgstr "Project cost:"
+
+#: .\reua\templates\pages\water_new.html:72
+msgid "10 млн€"
+msgstr "€10 million"
+
+#: .\reua\templates\pages\water_new.html:75
+#: .\reua\templates\pages\water_new.html:76
+msgid "Розроблено та виготовлено в Україні"
+msgstr "Developed and manufactured in Ukraine"
+
+#: .\reua\templates\pages\water_new.html:86
+msgid "Реалізовані проєкти"
+msgstr "Projects implemented"
+
+#: .\reua\templates\pages\water_new.html:88
+msgid ""
+"Водоочисні станції \"ReH₂O\" вже вирішили проблему 200 000 українців, які "
+"щодобово отримують безкоштовну питну воду очищену нашою розробкою."
+msgstr ""
+"\"ReH₂O\" water treatment plants have already solved the problem of 200,000 "
+"Ukrainians daily receiving drinking water purified with our development."
+
+#: .\reua\templates\pages\water_new.html:92
+msgid "Детальніше на YOUTUBE"
+msgstr "More details on YOUTUBE"
+
+#: .\reua\templates\pages\water_new.html:125
 #: .\reua\templates\projects\common-list.html:15
 #: .\reua\templates\projects\common-list.html:46
 msgid "Збір завершено"
-msgstr "Done"
+msgstr "Fundraising is complete"
+
+#: .\reua\templates\pages\water_new.html:130
+#: .\reua\templates\projects\common-list.html:42
+msgid "Докладніше"
+msgstr "More details"
+
+#: .\reua\templates\pages\water_new.html:227
+msgid "Технічні характеристики"
+msgstr "Technical specification"
+
+#: .\reua\templates\pages\water_new.html:228
+msgid "Станції очищення води \"ReH₂O\""
+msgstr "\"ReH₂O\" water treatment plants"
+
+#: .\reua\templates\pages\water_new.html:233
+msgid "Габаритні розміри станції:"
+msgstr "Overall dimensions of the plant:"
+
+#: .\reua\templates\pages\water_new.html:235
+msgid "Довжина:"
+msgstr "Length"
+
+#: .\reua\templates\pages\water_new.html:236
+#: .\reua\templates\pages\water_new.html:240
+#: .\reua\templates\pages\water_new.html:244
+msgid "м."
+msgstr "m."
+
+#: .\reua\templates\pages\water_new.html:239
+msgid "Ширина:"
+msgstr "Width"
+
+#: .\reua\templates\pages\water_new.html:243
+msgid "Висота:"
+msgstr "Height"
+
+#: .\reua\templates\pages\water_new.html:247
+msgid "Вага:"
+msgstr "Weight"
+
+#: .\reua\templates\pages\water_new.html:248
+msgid "тон"
+msgstr "tons"
+
+#: .\reua\templates\pages\water_new.html:257
+msgid "Продуктивність:"
+msgstr "Productivity"
+
+#: .\reua\templates\pages\water_new.html:258
+msgid "до 100 м³/доба"
+msgstr "up to 100m³/day"
+
+#: .\reua\templates\pages\water_new.html:261
+msgid "Споживана електроенергія:"
+msgstr "Consumed electricity"
+
+#: .\reua\templates\pages\water_new.html:262
+msgid "10 квт/год"
+msgstr "10 kW/h"
+
+#: .\reua\templates\pages\water_new.html:265
+msgid "Вартість:"
+msgstr "Cost:"
+
+#: .\reua\templates\pages\water_new.html:270
+msgid ""
+"Потужність однієї станції дозволяє щодобово забезпечувати питною водою до "
+"30 000 осіб"
+msgstr ""
+"The capacity of one plant allows daily provision of drinking water to 30,000 "
+"people"
+
+#: .\reua\templates\pages\water_new.html:283
+msgid "одиниць"
+msgstr "units"
+
+#: .\reua\templates\pages\water_new.html:302
+msgid "РІШЕННЯ"
+msgstr "SOLUTION"
+
+#: .\reua\templates\pages\water_new.html:304
+msgid ""
+"\n"
+"                                Четверта частина населення України не має та/"
+"або позбавлена доступу до питної води.\n"
+"                                Система\n"
+"                                «ReH₂O»\n"
+"                                очищає воду будь-якого рівня забрудненості "
+"до стану питної та є універсальною\n"
+"                                завдяки своїй\n"
+"                                автономності та мобільності.\n"
+"                            "
+msgstr ""
+"\n"
+"Quarter of Ukrainian population does not have and/or is deprived of access "
+"to drinking water. «ReH₂O» O» system purifies water of any level of "
+"pollution making it drinking water. It is a universal system due to its "
+"autonomy and mobility                             "
+
+#: .\reua\templates\pages\water_new.html:315
+msgid "Забезпечили"
+msgstr "Provided"
+
+#: .\reua\templates\pages\water_new.html:318
+msgid "Очікують"
+msgstr "Expected"
+
+#: .\reua\templates\payment\basic.html:8
+msgid "Оберіть зручну для вас валюту внеску."
+msgstr "Choose the payment currency convenient for you."
 
 #: .\reua\templates\projects\common-list.html:34
 msgid "Зібрано: "
 msgstr "Collected"
 
-#: .\reua\templates\projects\common-list.html:42
-msgid "Докладніше"
-msgstr "Read more"
-
 #: .\reua\templates\projects\common-list.html:50
-#: .\reua\templates\std\menu.html:35 .\reua\views\general.py:161
-#: .\reua\views\general.py:177
+#: .\reua\templates\std\menu.html:35 .\reua\views\general.py:182
+#: .\reua\views\general.py:198
 msgid "Зробити внесок"
 msgstr "Donate"
+
+#: .\reua\templates\projects\water-project.html:54
+msgid "Статус:"
+msgstr ""
 
 #: .\reua\templates\std\cokies_toast.html:7
 msgid ""
@@ -1343,27 +1580,27 @@ msgstr "Apply"
 msgid "Додано компанію до групи компаній"
 msgstr "Added the company to the company group"
 
-#: .\reua\views\general.py:75
+#: .\reua\views\general.py:78
 msgid "Отримано повідомлення"
 msgstr "Message received"
 
-#: .\reua\views\general.py:97
+#: .\reua\views\general.py:100
 msgid "Про фонд"
 msgstr "About fund"
 
-#: .\reua\views\general.py:98
+#: .\reua\views\general.py:101
 msgid "Хто ми?"
 msgstr "Who are we?"
 
-#: .\reua\views\general.py:134
+#: .\reua\views\general.py:155
 msgid "Відбудова"
 msgstr "Rebuilding"
 
-#: .\reua\views\general.py:140 .\reua\views\general.py:141
+#: .\reua\views\general.py:161 .\reua\views\general.py:162
 msgid "Контакти"
 msgstr "Contacts"
 
-#: .\reua\views\general.py:167
+#: .\reua\views\general.py:188
 msgid ""
 "Дякуємо, що ви готові підтримати наш проект з чистої води для мешканців "
 "України!"
@@ -1371,7 +1608,7 @@ msgstr ""
 "Thank you for being ready to support our clean water project for the "
 "residents of Ukraine!"
 
-#: .\reua\views\general.py:183
+#: .\reua\views\general.py:204
 msgid ""
 "Дякуємо, що ви готові підтримати наш проект з відбудови житла для мешканців "
 "України!"
@@ -1385,7 +1622,6 @@ msgid "Інвестиційна програма"
 msgstr "Investment program"
 
 #: .\reua\views\investition.py:56
-#| msgid "Додано компанію до групи компаній"
 msgid "Додано компанію до групи інвестицій"
 msgstr "Added the company to the investment group"
 
@@ -1394,14 +1630,10 @@ msgid "Прес-центр"
 msgstr "Press"
 
 #: .\templates\base.html:6
-#| msgid "«Відбудуємо нашу Україну»"
 msgid "Благодійний Фонд «Відбудуємо нашу Україну»"
 msgstr "«Rebuilding our Ukraine» Foundation"
 
 #: .\templates\base.html:7
-#| msgid ""
-#| "Платформа працює для збору коштів на вирішення першочергових гуманітарних "
-#| "задач внутрішньо переміщених осіб з Маріуполя та України в цілому."
 msgid ""
 "Платформа працює на збір коштів для вирішення першочергових гуманітарних "
 "задач внутрішньо переміщених осіб з Маріуполя та України в цілому."

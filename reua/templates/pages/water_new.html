@@ -35,7 +35,7 @@
         <div class="wrapper_intro _pt-2">
             <div class="wrapper">
                 <div class="title">
-                    {#                        <h1>{% trans "Мобільна водоочисна станція" %}</h1>#}
+                    <h1>{% trans "Мобільна водоочисна станція" %}</h1>
                     <h2 class="fw-bold">"ReH<sub>2</sub>O"</h2>
                 </div>
                 <div class="wrapper__description">
@@ -126,7 +126,9 @@
                                 {% endif %}
                             </div>
                             <div>
-                                <a href="{% url "water-project-item" pk=project.pk %}" class="btn">Докладніше</a>
+                                <a href="{% url "water-project-item" pk=project.pk %}" class="btn">
+                                    {% trans "Докладніше" %}
+                                </a>
                             </div>
                         </div>
                     </div>
