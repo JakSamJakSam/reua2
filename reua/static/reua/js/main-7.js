@@ -6,7 +6,7 @@ var videos = document.querySelectorAll("video");
 var startTime = Date.now(); // Время начала отсчета
 var timerElement = document.getElementById("percents");
 
-const LOADER_TIME = 50;
+const LOADER_TIME = 5000;
 
 function updatePercent() {
 	var currentTime = Date.now();
