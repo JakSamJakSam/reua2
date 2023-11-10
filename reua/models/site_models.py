@@ -290,8 +290,8 @@ class ReH2OSettings(models.Model):
 class ReH2OVideos(SortableMixin, models.Model):
     site = models.ForeignKey('sites.Site', on_delete=models.RESTRICT, verbose_name=_('Сайт'))
     title = models.CharField(max_length=100, verbose_name=_('Назва'))
-    video = models.FileField(verbose_name=_('Головне відео'), upload_to="video")
-    video_en = models.FileField(verbose_name=_('Головне відео (англ.)'), upload_to="video_en", null=True, blank=True, default=None)
+    video = models.FileField(verbose_name=_('Відео'), upload_to="video")
+    video_en = models.FileField(verbose_name=_('Відео (англ.)'), upload_to="video_en", null=True, blank=True, default=None)
     order = models.PositiveSmallIntegerField(default=99, verbose_name=_('Номер за порядком'))
 
     def __str__(self):
