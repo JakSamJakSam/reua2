@@ -10,8 +10,8 @@
 {% block content %}
     {{ block.super }}
     {% if page_settings and page_settings.video %}
-        <div id="video__modal" class="modal_b">
-            <div class="modal-content_b">
+        <div id="video__modal" class="modal">
+            <div class="modal-content">
                 <span class="close" id="close__modal"><img src="{% static "reua/img/_b/close.svg" %}"
                                                            alt="Close"></span>
                 <div class="video__wrapper">
@@ -36,7 +36,7 @@
             <div class="wrapper">
                 <div class="title">
                     <h1>{% trans "Мобільна водоочисна станція" %}</h1>
-                    <h2 class="fw-bold">"ReH<sub>2</sub>O"</h2>
+                    <h2>"ReH<sub>2</sub>O"</h2>
                 </div>
                 <div class="wrapper__description">
                     <div class="item">

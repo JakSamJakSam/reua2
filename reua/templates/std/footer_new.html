@@ -1,0 +1,97 @@
+{% load i18n %}
+{% load static %}
+<footer>
+    <div class="footer__wrapper">
+        <div class="footer__inner">
+            <div class="footer__item">
+                <img src="{% static "reua/img/footer/logo_small.png" %}" alt="Rebuild our unraine"
+                     class="footer__logo"/>
+                <ul class="footer__nav">
+                    <li class="nav-item">
+                        <a class="nav-link uppercase" aria-current="page"
+                           href="{% url "index" %}">{% trans "Головна" %}</a>
+                    </li>
+                    {% for menu_item in top_menu_items %}
+                        <li class="nav-item">
+                            <a class="nav-link uppercase"
+                               href="{{ menu_item.fp.get_absolute_url }}">
+                                {{ menu_item.localized_title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <ul class="footer__nav">
+                    {% for fd in founding_documents %}
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{{ fd.url }}">
+                                <i class="{{ fd.awesome_icon }} fa-lg"></i>
+                                {{ fd.localized_title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer__item">
+                <h5 class="form__title">
+                    {% trans "Напишіть нам, <br><span>якщо у вас є ідеї або пропозиції</span>" %}
+                </h5>
+                {% include "std/feedback_form_new.html" %}
+            </div>
+            <div class="footer__item">
+                <ul class="contacts__info">
+                    {% if site_settings.phone %}
+                        <li>
+                            <i class="fa-solid fa-phone fa-lg me-2"></i>
+                            <h5>
+                                <a href="{{ site_settings.phone.as_rfc3966 }}" class="tel">
+                                    {{ site_settings.phone.as_international }}
+                                </a>
+                            </h5>
+                        </li>
+                    {% endif %}
+                    {% if site_settings.phone2 %}
+                        <li>
+                            <i class="fa-solid fa-phone fa-lg me-2"></i>
+                            <h5>
+                                <a href="{{ site_settings.phone2.as_rfc3966 }}" class="tel">
+                                    {{ site_settings.phone2.as_international }}
+                                </a>
+                            </h5>
+                        </li>
+                    {% endif %}
+                    {% if site_settings.localized_addr %}
+                        <li>
+                            <i class="fa-solid fa-location-dot fa-lg me-3"></i>
+                            <a href='{% url "contacts" %}' class="geo">
+                                {{ site_settings.localized_addr }}
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li class="smm">
+                        <i class="fa-solid fa-circle-nodes fa-lg me-2"></i>
+                        <a href='https://www.facebook.com/reua.com.ua' target="_blank">
+                            <i class="fa-brands fa-facebook-f fa-fw"></i>
+                        </a>
+                        <a href='https://www.youtube.com/channel/UC1Wg8_m7TDH61IFrPuJFekA' target="_blank">
+                            <i class="fa-brands fa-youtube fa-fw"></i>
+                        </a>
+                        <a href='https://www.instagram.com/reua.com.ua/' target="_blank">
+                            <i class="fa-brands fa-instagram fa-fw"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small">
+                    <i class="fa-regular fa-copyright fa-sm"></i> REUA 2023
+                </div>
+                <ul class="logo__payments">
+                    <li><img src="{% static "reua/img/footer/logos/fudl.png" %}"
+                             alt="Verifield Ukraine Donation List"></li>
+                    <li><img src="{% static "reua/img/footer/logos/visa.png" %}" alt="Verifield by Visa"></li>
+                    <li><img src="{% static "reua/img/footer/logos/mastercard.png" %}"
+                             alt="Verifield by MasterCard"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block menu %}
-    {% include 'std/menu.html' with is_index=False %}
+    {% include 'std/new_menu.html' with is_index=False %}
 {% endblock %}
 {% block body %}
     {% include 'std/payment_modal.html' %}
 {% endblock %}
 {% block footer %}
-    {% include 'std/footer.html' %}
+    {% include 'std/footer_new.html' %}
+{% endblock %}
+{% block cokies_toast %}
     {% include 'std/cokies_toast.html' %}
 {% endblock %}
 {% block scripts %}

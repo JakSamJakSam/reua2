@@ -1,6 +1,7 @@
 {% extends "reua_base.html" %}
 
 {% block body %}
+    {{  block.super }}
     <div class="header_bg">
         <div class="bg_mask">
             <div class="container d-flex h-100 w-100">
@@ -40,7 +41,6 @@
     </div>
     <div id="header_marker"></div>
     <div class="bg-light">
-        {% block content_without_container %}
         <div class="container py-5">
             {% block content %}
                 {% if page_title %}
@@ -48,7 +48,6 @@
                 {% endif %}
             {% endblock %}
         </div>
-        {% endblock %}
     </div>
     {{ block.super }}
 {% endblock %}

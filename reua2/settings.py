@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.flatpages',
+    'captcha',
     'reua.apps.ReuaConfig',
     'phonenumber_field',
     'fontawesomefree',
@@ -54,7 +55,6 @@ INSTALLED_APPS = [
     'django_filters',
     'django_summernote',
     'adminsortable',
-    'captcha',
 ]
 
 MIDDLEWARE = [

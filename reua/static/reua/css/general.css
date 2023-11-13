@@ -63,10 +63,10 @@ footer {
     background-color: var(--bs-gray-200);
 }
 
-footer .nav-link {
-    color: #0f1e3c;
-    font-weight: 500;
-}
+/*footer .nav-link {*/
+/*    color: #0f1e3c;*/
+/*    font-weight: 500;*/
+/*}*/
 
 .header_bg {
     background: url("../img/dram_t.png") no-repeat center center;
