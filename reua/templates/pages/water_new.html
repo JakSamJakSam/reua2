@@ -195,7 +195,7 @@
                         {% elif forloop.counter == 3 %}left
                         {% endif %}">
                     <video src="{{ video.localized_video.url }}"
-                           {% if forloop.counter0 == 0 %}controls{% endif %}></video>
+                           {% if forloop.counter == 1 and videos|length == 1 %}controls{% elif forloop.counter == 2 %}controls{% endif %}></video>
                 </div>
             {% endfor %}
         </div>
