@@ -110,10 +110,8 @@
                             </a>
                             <div class="made_for">
                                 <p>{{ project.localized_for1 }}</p>
-                                <p class="city">{{ project.localized_for_city }}
-                                    {% if project.localized_for_region %}
-                                        <span>, {{ project.localized_for_region }}</span>
-                                    {% endif %}
+                                <p class="city">
+                                    {{ project.localized_for_city }}{% if project.localized_for_region %}<span>, {{ project.localized_for_region }}</span>{% endif %}
                                 </p>
                             </div>
                         </div>
