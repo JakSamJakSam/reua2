@@ -293,6 +293,7 @@ class ReH2OVideos(SortableMixin, models.Model):
     video = models.FileField(verbose_name=_('Відео'), upload_to="video")
     video_en = models.FileField(verbose_name=_('Відео (англ.)'), upload_to="video_en", null=True, blank=True, default=None)
     order = models.PositiveSmallIntegerField(default=99, verbose_name=_('Номер за порядком'))
+    poster = models.ImageField(verbose_name=_('Постер'), upload_to="posters", null=True, blank=True, default=None)
 
     def __str__(self):
         return str(self.title)

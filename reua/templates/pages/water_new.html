@@ -28,8 +28,8 @@
 
     <!-- intro -->
     <section id="intro">
-        <img class="mob" src="{% static "reua/img/_b/intro2.gif" %}" alt="">
-        <video class="desktop" src="{% static "reua/video/intro.webm" %}" autoplay loop muted>
+        <img class="mob onSafari" src="{% static "reua/img/_b/wrapper.png" %}" alt="">
+        <video class="desktop noSafari" src="{% static "reua/video/intro.webm" %}" autoplay loop muted>
             <source src="{% static "reua/video/intro.webm" %}" type="video/mp4">
         </video>
         <div class="wrapper_intro _pt-2">
@@ -111,7 +111,8 @@
                             <div class="made_for">
                                 <p>{{ project.localized_for1 }}</p>
                                 <p class="city">
-                                    {{ project.localized_for_city }}{% if project.localized_for_region %}<span>, {{ project.localized_for_region }}</span>{% endif %}
+                                    {{ project.localized_for_city }}{% if project.localized_for_region %}
+                                        <span>, {{ project.localized_for_region }}</span>{% endif %}
                                 </p>
                             </div>
                         </div>
@@ -195,7 +196,9 @@
                         {% elif forloop.counter == 3 %}left
                         {% endif %}">
                     <video src="{{ video.localized_video.url }}"
-                           {% if forloop.counter == 1 and videos|length == 1 %}controls{% elif forloop.counter == 2 %}controls{% endif %}></video>
+                           {% if forloop.counter == 1 and videos|length == 1 %}controls{% elif forloop.counter == 2 %}controls{% endif %} {% if video.poster %}poster="{{ video.poster.url }}{% endif %}">
+
+                    </video>
                 </div>
             {% endfor %}
         </div>
@@ -225,7 +228,6 @@
                 <h3>{% trans "Технічні характеристики" %}</h3>
                 <p>{% trans 'Станції очищення води "ReH₂O"' %}</p>
             </div>
-            <img class="mob" src="{% static "reua/img/_b/inner.png" %}" alt="">
             <div class="grid">
                 <div class="left__item">
                     <h4>{% trans "Габаритні розміри станції:" %}</h4>
@@ -246,6 +248,14 @@
                         <p>3.7 {% trans "тон" %}</p>
                     </div>
                 </div>
+                <div class="bg_white">
+                    <img class="mob onSafari" src="{% static "reua/img/_b/inner.png" %}" alt="">
+                    <video class="noSafari" src="{% static "reua/video/technical_characteristics.webm" %}"
+                           autoplay loop muted poster="{% static "reua/img/_b/inner.png" %}">
+
+                    </video>
+                </div>
+
                 <div class="bg_white desktop">
                     <video src="{% static "reua/video/technical_characteristics.webm" %}" autoplay loop
                            muted></video>
