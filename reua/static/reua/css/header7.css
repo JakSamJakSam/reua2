@@ -175,6 +175,8 @@ header .inner {
 
 header ul {
 	display: flex;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
 }
 
 header li {
