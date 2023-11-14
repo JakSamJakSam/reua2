@@ -1495,7 +1495,7 @@ msgid ""
 msgstr ""
 "\n"
 "Quarter of Ukrainian population does not have and/or is deprived of access "
-"to drinking water. «ReH₂O» O» system purifies water of any level of "
+"to drinking water. «ReH₂O» system purifies water of any level of "
 "pollution making it drinking water. It is a universal system due to its "
 "autonomy and mobility                             "
 
