@@ -26,7 +26,6 @@
     {% include "std/field_valid.html" with form=feedback_form field=feedback_form.message %}"
               placeholder="{{ feedback_form.message.field.label }}">{{ feedback_form.message.value|default:"" }}</textarea>
     {% include "std/field_errors.html" with field=feedback_form.message %}
-    <hr/>
     <div class="captcha_input">
         <label for="{{ feedback_form.captcha.id_for_label }}"
            class="form-label text-secondary">{{ feedback_form.captcha.label }}:</label>
