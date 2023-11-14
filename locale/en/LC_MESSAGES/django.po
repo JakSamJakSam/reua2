@@ -382,11 +382,11 @@ msgstr "Images of news"
 
 #: .\reua\models\projects.py:26
 msgid "Для міста"
-msgstr "For city"
+msgstr "For the city of"
 
 #: .\reua\models\projects.py:27
 msgid "Для"
-msgstr "For"
+msgstr "For the"
 
 #: .\reua\models\projects.py:32 .\reua\models\site_models.py:27
 #: .\reua\models\site_models.py:68 .\reua\models\site_models.py:215
