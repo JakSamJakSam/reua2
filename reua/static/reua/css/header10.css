@@ -192,6 +192,12 @@ header a {
 	transition: all .3s ease;
 }
 
+header a.donate {
+	background-color: var(--grey_blue);
+	color: var(--dark_blue);
+}
+
+
 header nav a:hover {
 	background-color: var(--yellow);
 	color: var(--dark_blue);

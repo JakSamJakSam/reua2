@@ -1,3 +1,64 @@
+// window.addEventListener('load', function() {
+//     if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
+//         document.body.classList.add('safari');
+//     }
+// });
+
+// if (typeof window.chrome !== "undefined" && window.navigator.vendor === "Google Inc.") {
+//     // Браузер Chrome
+//     console.log("Это Chrome.");
+// } else if (/constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))) {
+//     // Браузер Safari
+//     console.log("Это Safari.");
+//     document.body.classList.add('safari');
+// } else {
+//     // Другой браузер
+//     console.log("Это другой браузер.");
+// }
+
+
+// window.addEventListener('load', function() {
+//     if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1) {
+//     alert('Opera');
+//   } else if (navigator.userAgent.indexOf("Edg") != -1) {
+//     alert('Edge');
+//   } else if (navigator.userAgent.indexOf("Chrome") != -1) {
+//     console.log("Это Chrome.");
+//   } else if (navigator.userAgent.indexOf("Safari") != -1) {
+//     console.log("Это Safari.");
+//      document.body.classList.add('safari');
+//   } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+//     alert('Firefox');
+//   } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
+//   {
+//     alert('IE');
+//   } else {
+//     alert('unknown');
+//   }
+// });
+
+// window.addEventListener('load', function() {
+//     // Получаем все элементы с классом onSafari и noSafari
+//     var onSafariElements = document.querySelectorAll('.onSafari');
+//     var noSafariElements = document.querySelectorAll('.noSafari');
+
+//     // Проверяем, если браузер определен как Safari
+//     if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
+//         // Показываем элементы с классом noSafari, скрываем элементы с классом onSafari
+//         document.body.classList.add('Chrome');
+//         noSafariElements.forEach(function(element) {
+//             element.style.display = 'block';
+//         });
+//     } else {
+//         // Показываем элементы с классом onSafari, скрываем элементы с классом noSafari
+//         document.body.classList.add('safari');
+//         onSafariElements.forEach(function(element) {
+//             element.style.display = 'block';
+//         });
+//     }
+// });
+
+
 // =============
 // Preloader
 // =============
@@ -114,17 +175,47 @@ document.addEventListener('DOMContentLoaded', function () {
 		const sliderContainer = document.querySelector("#projects .item__wrapper");
 		const prevButton = document.querySelector(".prev-button");
 		const nextButton = document.querySelector(".next-button");
+		const slidesCount = sliderContainer.querySelectorAll(".item").length;
+		const slidesCountForPC = slidesCount - 2;
+		const slidesPerView = 3; // Количество отображаемых слайдов на одной странице
 
-		const slideWidth = sliderContainer.clientWidth / 3; // Изменено на / 3
+		const slideWidth = sliderContainer.clientWidth / slidesPerView;
 		let currentIndex = 0;
 
 		nextButton.addEventListener("click", () => {
-			currentIndex = (currentIndex + 1) % 5;
+			currentIndex = (currentIndex + 1) % slidesCountForPC;
 			updateSlider();
 		});
 
 		prevButton.addEventListener("click", () => {
-			currentIndex = (currentIndex - 1 + 5) % 5;
+			currentIndex = (currentIndex - 1 + slidesCountForPC) % slidesCountForPC;
+			updateSlider();
+		});
+
+		function updateSlider() {
+			const offsetX = -currentIndex * slideWidth;
+			sliderContainer.style.transform = `translateX(${offsetX}px)`;
+		}
+
+		updateSlider();
+	} else if (document.documentElement.clientWidth > 540) {
+		const sliderContainer = document.querySelector("#projects .item__wrapper");
+		const prevButton = document.querySelector(".prev-button");
+		const nextButton = document.querySelector(".next-button");
+		const slidesCount = sliderContainer.querySelectorAll(".item").length;
+		const slidesCountForPC = slidesCount - 1;
+		const slidesPerView = 2; // Количество отображаемых слайдов на одной странице
+
+		const slideWidth = sliderContainer.clientWidth / slidesPerView;
+		let currentIndex = 0;
+
+		nextButton.addEventListener("click", () => {
+			currentIndex = (currentIndex + 1) % slidesCountForPC;
+			updateSlider();
+		});
+
+		prevButton.addEventListener("click", () => {
+			currentIndex = (currentIndex - 1 + slidesCountForPC) % slidesCountForPC;
 			updateSlider();
 		});
 
@@ -138,17 +229,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		const sliderContainer = document.querySelector("#projects .item__wrapper");
 		const prevButton = document.querySelector(".prev-button");
 		const nextButton = document.querySelector(".next-button");
+		const slidesCount = sliderContainer.querySelectorAll(".item").length;
 
 		const slideWidth = sliderContainer.clientWidth;
 		let currentIndex = 0;
 
 		nextButton.addEventListener("click", () => {
-			currentIndex = (currentIndex + 1) % 7;
+			currentIndex = (currentIndex + 1) % slidesCount;
 			updateSlider();
 		});
 
 		prevButton.addEventListener("click", () => {
-			currentIndex = (currentIndex - 1 + 7) % 7;
+			currentIndex = (currentIndex - 1 + slidesCount) % slidesCount;
 			updateSlider();
 		});
 
@@ -158,8 +250,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		updateSlider();
-
 	}
+
 
 
 	// =============

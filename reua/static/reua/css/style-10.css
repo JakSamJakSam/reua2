@@ -820,6 +820,10 @@ path.triangle_arrow_prew {
 	position: relative;
 }
 
+.bg_white img {
+	display: none;
+}
+
 .bg_white video {
 	position: absolute;
 	top: 50%;
@@ -1111,7 +1115,7 @@ path.triangle_arrow_prew {
 
 
 .single__wrapper {
-	height: 93vh;
+	min-height: 93vh;
 	position: relative;
 }
 
@@ -1144,7 +1148,7 @@ path.triangle_arrow_prew {
 }
 
 .result {
-	position: absolute;
+	/*position: absolute;*/
 	bottom: 0;
 	width: 50%;
 	margin-left: 50vw;
@@ -1269,6 +1273,11 @@ path.triangle_arrow_prew {
 	margin: 5px;
 	cursor: pointer;
 }
+
+.safari #intro img.mob {
+	display: block;
+}
+
 
 
 

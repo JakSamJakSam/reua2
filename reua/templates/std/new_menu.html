@@ -33,9 +33,9 @@
                 {% for menu_item in top_menu_items %}
                     <li><a href="{{ menu_item.url }}">{{ menu_item.localized_title }}</a></li>
                 {% endfor %}
-                <li><button data-bs-toggle="modal" data-bs-target="#choose_payment_method" class="donate">
+                <li><a href="#" data-bs-toggle="modal" data-bs-target="#choose_payment_method" class="donate">
                     {% trans "Зробити внесок" %}
-                </button></li>
+                </a></li>
             </ul>
         </nav>
         <ul class="language">
