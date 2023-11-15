@@ -42,9 +42,9 @@
             {% get_available_languages as languages %}
             {% for language in languages %}
                 {% get_language_info for language|first as lang_info %}
-                <a href="{% language lang_info.code %}{% url "index" %}{% endlanguage %}">
+                <a href="{% language lang_info.code %}{% url "index" %}{% endlanguage %}" title="{{ lang_info.name_translated }}">
                     <li class="{% if LANGUAGE_CODE == lang_info.code %}active{% endif %}">
-                        {{ lang_info.code|upper }}
+                        {{ language|last|upper }}
                     </li>
                 </a>
             {% endfor %}
