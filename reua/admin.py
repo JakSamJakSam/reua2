@@ -105,9 +105,9 @@ class StaffAdmin(SummernoteModelAdminMixin, SortableAdmin):
 class LabelAdmin(SortableAdmin):
     pass
 
-@admin.register(WaterStation)
-class LabelAdmin(SortableAdmin):
-    pass
+# @admin.register(WaterStation)
+# class WaterStationAdmin(SortableAdmin):
+#     pass
 
 class ProjectPhotoInline(admin.StackedInline):
     model = ProjectPhoto
@@ -145,7 +145,7 @@ class ProjectAdmin(SummernoteModelAdminMixin, SortableAdmin):
                 'for_city_en', 'for_region_en'
             ],
         }),
-        ('Статсу', {
+        ('Статус', {
             'fields': [
                 'status', 'status_en'
             ],
@@ -193,7 +193,7 @@ class BankTransferAttributesAdmin(SummernoteModelAdmin):
 
 
 @admin.register(GeneralProjectImages)
-class ProjectAdmin(SortableAdmin):
+class GeneralProjectImagesAdmin(SortableAdmin):
     pass
 
 

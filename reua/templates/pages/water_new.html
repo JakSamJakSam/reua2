@@ -111,8 +111,7 @@
                             <div class="made_for">
                                 <p>{{ project.localized_for1 }}</p>
                                 <p class="city">
-                                    {{ project.localized_for_city }}{% if project.localized_for_region %}
-                                        <span>, {{ project.localized_for_region }}</span>{% endif %}
+                                    {{ project.localized_for_city }}{% if project.localized_for_region %}<span>, {{ project.localized_for_region }}</span>{% endif %}
                                 </p>
                             </div>
                         </div>
@@ -195,7 +194,8 @@
                         {% elif forloop.counter == 3 %}left
                         {% endif %}">
                     <video src="{{ video.localized_video.url }}"
-                           {% if forloop.counter == 1 and videos|length == 1 %}controls{% elif forloop.counter == 2 %}controls{% endif %} {% if video.poster %}poster="{{ video.poster.url }}{% endif %}">
+                           {% if forloop.counter == 1 and videos|length == 1 %}controls{% elif forloop.counter == 2 %}controls{% endif %}
+                           {% if video.poster %}poster="{{ video.poster.url }}{% endif %}">
 
                     </video>
                 </div>
