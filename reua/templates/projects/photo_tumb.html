@@ -1,0 +1,11 @@
+{% load thumbnail %}
+{% thumbnail photo.photo "800" format="PNG" upscale=True crop='center' as im %}
+    <img class="slider__item
+                                        {% if counter == 1 and videos|length == 1 %}active
+                                        {% elif counter == 1 %}right
+                                        {% elif counter == 2 %}active
+                                        {% elif counter == 3 %}left
+                                        {% endif %}"
+         src="{{ im.url }}" alt="{{ project.localized_title }}"
+         onclick="changeImage('{{ im.url }}')">
+{% endthumbnail %}

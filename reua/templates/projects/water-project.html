@@ -20,16 +20,14 @@
                         <div class="thumbnail__images">
                             <div class="thumbnails-list">
                                 {% for photo in photos %}
-                                    {% thumbnail photo.photo "800" format="PNG" upscale=True crop='center' as im %}
-                                        <img class="slider__item
-                                        {% if forloop.counter == 1 and videos|length == 1 %}active
-                                        {% elif forloop.counter == 1 %}right
-                                        {% elif forloop.counter == 2 %}active
-                                        {% elif forloop.counter == 3 %}left
-                                        {% endif %}"
-                                             src="{{ im.url }}" alt="{{ project.localized_title }}"
-                                             onclick="changeImage('img/projects/Буча.JPG')">
-                                    {% endthumbnail %}
+                                    {% if forloop.counter == photos|length %}
+                                        {% include "projects/photo_tumb.html" with photo=photo counter=1 %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% for photo in photos %}
+                                    {% if forloop.counter != photos|length %}
+                                        {% include "projects/photo_tumb.html" with photo=photo counter=forloop.counter|add:1  %}
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
