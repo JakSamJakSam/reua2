@@ -22,7 +22,7 @@
     {% if page_image_url %}
         <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/{{ page_image_url }}"/>
     {% else %}
-        <meta property="og:image" content="{% static "reua/img/logo_small.png" %}" />
+        <meta property="og:image" content="{% static "reua/img/reua-short.png" %}" />
     {% endif %}
     <meta name="H1" content="{{ page_title|default:default_title }}"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
