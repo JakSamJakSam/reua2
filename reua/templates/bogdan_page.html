@@ -64,6 +64,9 @@
           gtag('config', '{{ google_data_stream_id }}');
         </script>
     {% endif %}
+    {% if google_recaptcha_key %}
+        <script src="https://www.google.com/recaptcha/enterprise.js?render={{ google_recaptcha_key }}" async defer></script>
+    {% endif %}
     <script src="{% static "reua/js/main-10.js" %}"></script>
     <script src="{% static "reua/js/header10.js" %}"></script>
 {% endblock %}
