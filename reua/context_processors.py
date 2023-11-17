@@ -22,6 +22,7 @@ def top_menus(request):
         'founding_documents': FoundingDocument.objects.all(),
         'site_settings': SiteSettings.objects.get(site=site),
         'google_data_stream_id': settings.GOOGLE_DATA_STREAM_ID,
+        'google_recaptcha_key': settings.GOOGLE_RECAPTCHA_KEY,
         'payments': {
             'reH2O': {
                 'title': _("Питна вода"),
