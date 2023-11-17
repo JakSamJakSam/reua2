@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 
-from reua.forms.feedback import FeedbackForm
+from reua.forms.feedback import FeedbackForm, FeedbackFormGCaptcha
 from reua.models import TopMenu, FoundingDocument, SiteSettings, BankTransferAttributes
 from reua.models.projects import currencies, KindProject
 
@@ -36,5 +36,5 @@ def top_menus(request):
                 'crypto': settings.PAYMENT_CRYPTO_RE_CITY,
             },
         },
-        'feedback_form': FeedbackForm(),
+        'feedback_form': FeedbackForm() if settings.GOOGLE_RECAPTCHA_KEY is None else FeedbackFormGCaptcha() ,
     }

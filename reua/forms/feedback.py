@@ -18,3 +18,8 @@ class FeedbackForm(ModelForm):
         model = FeedbackMessage
         fields = '__all__'
 
+
+class FeedbackFormGCaptcha(ModelForm):
+    class Meta:
+        model = FeedbackMessage
+        fields = '__all__'

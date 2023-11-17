@@ -18,6 +18,7 @@ qrcode = {extras = ["pil"], version = "*"}
 requests = "*"
 pytils = "*"
 django-simple-captcha = "*"
+django_recaptcha = '*'
 
 [dev-packages]
 

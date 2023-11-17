@@ -229,6 +229,11 @@ try:
 except ImportError:
     GOOGLE_DATA_STREAM_ID = None
 
+try:
+    from .override_settings import GOOGLE_RECAPTCHA_KEY
+except ImportError:
+    GOOGLE_RECAPTCHA_KEY = None
+
 from .summernote_config import *
 
 PAYMENT_CRYPTO_RE_H2O = 'https://reua.pay.whitepay.com/'

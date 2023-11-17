@@ -69,8 +69,25 @@ function initCaptcha() {
   })
 }
 
+function submit_feedback_form(...r){
+  console.log(r);
+}
+function initGCaptcha() {
+  const captchaButtons = document.querySelectorAll('.g-recaptcha')
+  captchaButtons.forEach((button, idx) => {
+    fName = `submit_feedback_form-${idx}`;
+    window[fName] = function (token) {
+      button.form.submit();
+    }
+    button.dataset.callback = fName;
+  });
+
+  }
+
+
 initScroll();
 initCoockies();
 initPaymentModal();
 initLanguages();
 initCaptcha();
+initGCaptcha();

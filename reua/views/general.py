@@ -10,7 +10,7 @@ from django.views.generic import TemplateView, FormView, DetailView
 from django.utils.translation import gettext_lazy as _
 from qrcode.image.styles.moduledrawers.svg import *
 
-from reua.forms.feedback import FeedbackForm
+from reua.forms.feedback import FeedbackForm, FeedbackFormGCaptcha
 from reua.models import Partner, Staff, WaterStation, Project, FoundingDocument
 
 __all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView", "ContactsView", "FileView",
@@ -71,6 +71,11 @@ class IndexView(TemplateView):
 class FeedbackFormView(FormView):
     form_class = FeedbackForm
     template_name = 'feedback.html'
+
+    def get_form_class(self):
+        if settings.GOOGLE_RECAPTCHA_KEY is not None:
+            return FeedbackFormGCaptcha
+        return FeedbackForm
 
     def form_valid(self, form):
         template = get_template('email/feedback.html')
