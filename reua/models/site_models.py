@@ -28,6 +28,7 @@ class TopMenu(SortableMixin, models.Model):
         (KIND_FP, _("Сторінка FlatPage")),
         (KIND_BASIC, _("Стандартна сторінка")),
     ))
+    parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, default=None, verbose_name=_('Батьківський пункт меню'), related_name='child')
 
     def clean(self):
         if self.kind == self.KIND_FP and self.fp is None:
@@ -231,6 +232,7 @@ class BankTransferAttributes(models.Model):
         verbose_name = _("Банківські реквізити")
         verbose_name_plural = _("Банківські реквізити")
         unique_together = (('kind', 'currency'),)
+
 
 
 class GeneralProjectImages(SortableMixin, models.Model):

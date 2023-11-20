@@ -10,9 +10,9 @@
 {% block content %}
     {{ block.super }}
     {% if page_settings and page_settings.video %}
-        <div id="video__modal" class="modal">
+        <div id="video__modal" class="modal_new" data-modal-type="video">
             <div class="modal-content">
-                <span class="close" id="close__modal"><img src="{% static "reua/img/_b/close.svg" %}"
+                <span class="close" id="close__modal" data-modal="videoModal"><img src="{% static "reua/img/_b/close.svg" %}"
                                                            alt="Close"></span>
                 <div class="video__wrapper">
                     <video id="video__player" width="100%" height="100%"

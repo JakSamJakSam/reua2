@@ -1,0 +1,82 @@
+{% load i18n %}
+{% load static %}
+<div id="donateModal" class="modal_new" data-modal-type="image">
+    <div class="modal-content">
+        <div class="modal__wrapper">
+            <div class="img_wrapper">
+                <img id="img_reh20" class="active" src="{% static "reua/img/_b/modal/reh20.jpg" %}" alt="">
+                <img id="img_city" src="{% static "reua/img/_b/modal/city.jpg" %}" alt="">
+            </div>
+            <div class="text__wrapper">
+                <div class="active" id="main__modal">
+                    <span class="close" data-modal="donateModal">
+                        <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_173_643)">
+                                <path d="M-1.54612e-08 1.54612e-08L21 21" stroke="black" stroke-width="3"/>
+                                <path d="M21 -1.5462e-08L-3.96439e-07 21" stroke="black" stroke-width="3"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_173_643">
+                                    <rect width="21" height="21" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </span>
+                    <h5 class="modal__title">
+                        {% trans "Оберіть категорію внеску" %}
+                    </h5>
+                    <div class="modal__btn">
+                        {% for payment in payments.values %}
+                            <button class="btn yellow bg_blue {% if forloop.counter0 == 0 %}not__active{% else %}active{% endif %}"
+                                    id="btn__{{ payment.key }}">
+                                {{ payment.title }}
+                            </button>
+                        {% endfor %}
+                    </div>
+                    {% for payment in payments.values %}
+                        <div class="tab__item {% if forloop.counter0 == 0 %}active{% endif %}"
+                             id="payment__{{ payment.key }}">
+                            <p>{{ payment.desc }}</p>
+                            <div class="payment__method">
+                                <div>
+                                    <h5>{% trans "На рахунок" %}</h5>
+                                    {% for b in payment.bank %}
+                                        <button class="btn"
+                                                id="{{ payment.key }}__{{ b.currency|lower }}__payment">{{ b.currency|lower }}</button>
+                                    {% endfor %}
+                                </div>
+                                <div>
+                                    <h5>{% trans "На карту" %}</h5>
+                                    {% for k,v in payment.credit_cards.items %}
+                                        <a href="{{ v }}" class="btn">{{ k|lower }}</a>
+                                    {% endfor %}
+                                </div>
+                                <div>
+                                    <h5>{% trans "Крипто-валютою" %}</h5>
+                                    <a href="{{ payment.crypto }}" class="btn">whitepay.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% for payment in payments.values %}
+                    {% for b in payment.bank %}
+                        <div class="payment" id="{{ payment.key }}__{{ b.currency|lower }}__modal">
+                            <span class="back"><object data="{% static "reua/img/_b/modal/back.svg" %}"
+                                                       type=""></object></span>
+                            <h3>{% trans "Банківські реквізити:" as t %}{{ t|upper }}</h3>
+                            <div class="payment__wrapper {{ b.currency|lower }}">
+                                {{ b.localized_attr|safe }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="bg__modal" class="bg_blur"></div>
+</div>
+
+

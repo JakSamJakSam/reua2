@@ -18,7 +18,7 @@ def top_menus(request):
         ),
     ).order_by('order')
     return {
-        'top_menu_items': TopMenu.objects.filter(disabled=False).order_by('order'),
+        'top_menu_items': TopMenu.objects.filter(disabled=False, parent=None).order_by('order'),
         'founding_documents': FoundingDocument.objects.all(),
         'site_settings': SiteSettings.objects.get(site=site),
         'google_data_stream_id': settings.GOOGLE_DATA_STREAM_ID,
@@ -26,15 +26,21 @@ def top_menus(request):
         'payments': {
             'reH2O': {
                 'title': _("Питна вода"),
+                'desc': _("Благодійний внесок на виготовлення мобільних систем очищення води для зруйнованих міст та селищ України, та забезпечення статутної діяльності фонду"),
                 'bank': bta.filter(kind=KindProject.water.value),
                 'credit_card': reverse('Pay_ReH2O'),
+                'credit_cards': settings.PAYMENT_CARD_RE_H2O,
                 'crypto': settings.PAYMENT_CRYPTO_RE_H2O,
+                'key': 'reh20',
             },
             'reCity': {
                 'title': _("Відбудова житла"),
+                'desc': _("Благодійний внесок на виготовлення мобільних систем очищення води для зруйнованих міст та селищ України, та забезпечення статутної діяльності фонду"),
                 'bank': bta.filter(kind=KindProject.city.value),
                 'credit_card': reverse('Pay_ReCity'),
+                'credit_cards': settings.PAYMENT_CARD_RE_CITY,
                 'crypto': settings.PAYMENT_CRYPTO_RE_CITY,
+                'key': 'city',
             },
         },
         'feedback_form': FeedbackForm() if settings.GOOGLE_RECAPTCHA_KEY is None else FeedbackFormGCaptcha() ,
