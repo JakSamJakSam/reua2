@@ -1,0 +1,82 @@
+[
+{
+  "model": "reua.banktransferattributes",
+  "pk": 1,
+  "fields": {
+    "kind": 1,
+    "currency": "UAH",
+    "attr": "<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<p>Філія - Головне управління по м. Києву та Київській області АТ «Ощадбанк»;</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>IBAN:</h5>\r\n\t\t\t\t\t\t\t\t<p>UA673226690000026001300113741</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>Код отримувача:</h5>\r\n\t\t\t\t\t\t\t\t<p>44686402</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>Призначення платежу заміни:</h5>\r\n\t\t\t\t\t\t\t\t<p>«Благодійний внесок на виготовлення мобільних систем очищення води для зруйнованих міст та\r\n\t\t\t\t\t\t\t\t\tселищ України, та забезпечення статутної діяльності фонду»</p>\r\n\t\t\t\t\t\t\t</div>",
+    "attr_en": ""
+  }
+},
+{
+  "model": "reua.banktransferattributes",
+  "pk": 2,
+  "fields": {
+    "kind": 1,
+    "currency": "USD",
+    "attr": "<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY:</h5>\r\n\t\t\t\t\t\t\t\t<p>Charitable organization \"charitable foundation \"REBUILD OUR UKRAINE\"</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY BANK:</h5>\r\n\t\t\t\t\t\t\t\t<p>Branch #10026/0540 JSC Oschadbank</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK NAME:</h5>\r\n\t\t\t\t\t\t\t\t<p>CITIBANK N.A., New York</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COSBUAUKKIE</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>ACCOUNT NUMBER:</h5>\r\n\t\t\t\t\t\t\t\t<p>CITIUS33</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY ADDRESS:</h5>\r\n\t\t\t\t\t\t\t\t<p>Povitroflotsky avenue 3, of. 21, Kyiv, 03049, Ukraine</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>CITIUS33</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>IBAN:</h5>\r\n\t\t\t\t\t\t\t\t<p>UA673226690000026001300113741</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>PURPOSE OF PAYMENT:</h5>\r\n\t\t\t\t\t\t\t\t<p>for acc 26001300113741/1</p>\r\n\t\t\t\t\t\t\t</div>",
+    "attr_en": ""
+  }
+},
+{
+  "model": "reua.banktransferattributes",
+  "pk": 3,
+  "fields": {
+    "kind": 1,
+    "currency": "EUR",
+    "attr": "<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY:</h5>\r\n\t\t\t\t\t\t\t\t<p>Charitable organization \"charitable foundation \"REBUILD OUR UKRAINE\"</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY BANK:</h5>\r\n\t\t\t\t\t\t\t\t<p>Branch #10026/0540 JSC Oschadbank</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COSBUAUKKIE</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY ADDRESS:</h5>\r\n\t\t\t\t\t\t\t\t<p>Povitroflotsky avenue 3, of. 21, Kyiv, 03049, Ukraine</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>IBAN:</h5>\r\n\t\t\t\t\t\t\t\t<p>UA673226690000026001300113741</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK NAME:</h5>\r\n\t\t\t\t\t\t\t\t<p>COMMERZBANK AG, Frankfurt am Main</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>ACCOUNT NUMBER:</h5>\r\n\t\t\t\t\t\t\t\t<p>4008865941/01</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COBADEFF</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>PURPOSE OF PAYMENT:</h5>\r\n\t\t\t\t\t\t\t\t<p>for acc 26001300113741/1</p>\r\n\t\t\t\t\t\t\t</div>",
+    "attr_en": ""
+  }
+},
+{
+  "model": "reua.banktransferattributes",
+  "pk": 4,
+  "fields": {
+    "kind": 1,
+    "currency": "GPB",
+    "attr": "<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY:</h5>\r\n\t\t\t\t\t\t\t\t<p>Charitable organization \"charitable foundation \"REBUILD OUR UKRAINE\"</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY BANK:</h5>\r\n\t\t\t\t\t\t\t\t<p>Branch #10026/0540 JSC Oschadbank</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COSBUAUKKIE</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY ADDRESS:</h5>\r\n\t\t\t\t\t\t\t\t<p>Povitroflotsky avenue 3, of. 21, Kyiv, 03049, Ukraine</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>IBAN:</h5>\r\n\t\t\t\t\t\t\t\t<p>UA673226690000026001300113741</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK NAME:</h5>\r\n\t\t\t\t\t\t\t\t<p>COMMERZBANK AG, Frankfurt am Main</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>ACCOUNT NUMBER:</h5>\r\n\t\t\t\t\t\t\t\t<p>400886594100</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COBADEFF</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>PURPOSE OF PAYMENT:</h5>\r\n\t\t\t\t\t\t\t\t<p>for acc 26001300113741/1</p>\r\n\t\t\t\t\t\t\t</div>",
+    "attr_en": ""
+  }
+},
+{
+  "model": "reua.banktransferattributes",
+  "pk": 5,
+  "fields": {
+    "kind": 2,
+    "currency": "UAH",
+    "attr": "<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<p>Філія - Головне управління по м. Києву та Київській області АТ «Ощадбанк»;</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>IBAN:</h5>\r\n\t\t\t\t\t\t\t\t<p>UA673226690000026001300113741</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>Код отримувача:</h5>\r\n\t\t\t\t\t\t\t\t<p>44686402</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>Призначення платежу заміни:</h5>\r\n\t\t\t\t\t\t\t\t<p>«Благодійний внесок для будівництва житла постраждалим мешканцям Маріуполя, та забезпечення\r\n\t\t\t\t\t\t\t\t\tстатутної діяльності фонду»</p>\r\n\t\t\t\t\t\t\t</div>",
+    "attr_en": ""
+  }
+},
+{
+  "model": "reua.banktransferattributes",
+  "pk": 6,
+  "fields": {
+    "kind": 2,
+    "currency": "USD",
+    "attr": "<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY:</h5>\r\n\t\t\t\t\t\t\t\t<p>Charitable organization \"charitable foundation \"REBUILD OUR UKRAINE\"</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY BANK:</h5>\r\n\t\t\t\t\t\t\t\t<p>Branch #10026/0540 JSC Oschadbank</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COSBUAUKKIE</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY ADDRESS</h5>\r\n\t\t\t\t\t\t\t\t<p>Povitroflotsky avenue 3, of. 21, Kyiv, 03049, Ukraine</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>IBAN:</h5>\r\n\t\t\t\t\t\t\t\t<p>UA673226690000026001300113741</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK NAME:</h5>\r\n\t\t\t\t\t\t\t\t<p>CITIBANK N.A., New York</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>ACCOUNT NUMBER:</h5>\r\n\t\t\t\t\t\t\t\t<p>CITIUS33</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>CITIUS33</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>PURPOSE OF PAYMENT:</h5>\r\n\t\t\t\t\t\t\t\t<p>for acc 26001300113741/2</p>\r\n\t\t\t\t\t\t\t</div>",
+    "attr_en": ""
+  }
+},
+{
+  "model": "reua.banktransferattributes",
+  "pk": 7,
+  "fields": {
+    "kind": 2,
+    "currency": "EUR",
+    "attr": "<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY:</h5>\r\n\t\t\t\t\t\t\t\t<p>Charitable organization \"charitable foundation \"REBUILD OUR UKRAINE\"</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY BANK:</h5>\r\n\t\t\t\t\t\t\t\t<p>Branch #10026/0540 JSC Oschadbank</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COSBUAUKKIE</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY ADDRESS</h5>\r\n\t\t\t\t\t\t\t\t<p>Povitroflotsky avenue 3, of. 21, Kyiv, 03049, Ukraine</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>IBAN:</h5>\r\n\t\t\t\t\t\t\t\t<p>UA673226690000026001300113741</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK NAME:</h5>\r\n\t\t\t\t\t\t\t\t<p>COMMERZBANK AG, Frankfurt am Main</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>ACCOUNT NUMBER:</h5>\r\n\t\t\t\t\t\t\t\t<p>4008865941/01</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COBADEFF</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>PURPOSE OF PAYMENT:</h5>\r\n\t\t\t\t\t\t\t\t<p>for acc 26001300113741/2</p>\r\n\t\t\t\t\t\t\t</div>",
+    "attr_en": ""
+  }
+},
+{
+  "model": "reua.banktransferattributes",
+  "pk": 8,
+  "fields": {
+    "kind": 2,
+    "currency": "GPB",
+    "attr": "<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY:</h5>\r\n\t\t\t\t\t\t\t\t<p>Charitable organization \"charitable foundation \"REBUILD OUR UKRAINE\"</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY BANK:</h5>\r\n\t\t\t\t\t\t\t\t<p>Branch #10026/0540 JSC Oschadbank</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COSBUAUKKIE</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>BENEFICIARY ADDRESS</h5>\r\n\t\t\t\t\t\t\t\t<p>Povitroflotsky avenue 3, of. 21, Kyiv, 03049, Ukraine</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>IBAN:</h5>\r\n\t\t\t\t\t\t\t\t<p>UA673226690000026001300113741</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK NAME:</h5>\r\n\t\t\t\t\t\t\t\t<p>COMMERZBANK AG, Frankfurt am Main</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>ACCOUNT NUMBER:</h5>\r\n\t\t\t\t\t\t\t\t<p>400886594100</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>CORRESPONDENT BANK (SWIFT):</h5>\r\n\t\t\t\t\t\t\t\t<p>COBADEFF</p>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"item\">\r\n\t\t\t\t\t\t\t\t<h5>PURPOSE OF PAYMENT:</h5>\r\n\t\t\t\t\t\t\t\t<p>for acc 26001300113741/2</p>\r\n\t\t\t\t\t\t\t</div>",
+    "attr_en": ""
+  }
+}
+]
