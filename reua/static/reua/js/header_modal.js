@@ -56,7 +56,6 @@ window.addEventListener("click", function (event) {
 // btn__reh20 - btn__city
 // =============
 
-
 const btnReh20 = document.getElementById('btn__reh20');
 const btnCity = document.getElementById('btn__city');
 const imgReh20 = document.getElementById('img_reh20');
@@ -118,22 +117,22 @@ const reh20EurPayment = document.getElementById('reh20__eur__payment');
 const reh20GpbPayment = document.getElementById('reh20__gpb__payment');
 
 reh20UahPayment.addEventListener('click', function () {
-	activateModal('reh2o__uah__modal');
+	activateModal('reh20__uah__modal');
 	imgReh20.classList.remove('active');
 });
 
 reh20UsdPayment.addEventListener('click', function () {
-	activateModal('reh2o__usd__modal');
+	activateModal('reh20__usd__modal');
 	imgReh20.classList.remove('active');
 });
 
 reh20EurPayment.addEventListener('click', function () {
-	activateModal('reh2o__eur__modal');
+	activateModal('reh20__eur__modal');
 	imgReh20.classList.remove('active');
 });
 
 reh20GpbPayment.addEventListener('click', function () {
-	activateModal('reh2o__gpb__modal');
+	activateModal('reh20__gpb__modal');
 	imgReh20.classList.remove('active');
 });
 
@@ -181,7 +180,9 @@ document.querySelectorAll('.back').forEach(function (backBtn) {
 
 // Функция для активации модального блока по его id
 function activateModal(modalId) {
+	console.log(modalId, document.getElementById(modalId))
 	document.getElementById(modalId).classList.add('active');
+	console.log(document.getElementById('main__modal'))
 	document.getElementById('main__modal').classList.remove('active');
 }
 

@@ -2499,7 +2499,8 @@ path.triangle_arrow_prew {
 
 	#slider .slider__item.left,
 	#slider .slider__item.right {
-		top: -20%;
+		/* top: -20%; */
+		display: none;
 	}
 
 	#technical_characteristics .title h3 {

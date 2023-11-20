@@ -1,3 +1,64 @@
+// window.addEventListener('load', function() {
+//     if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
+//         document.body.classList.add('safari');
+//     }
+// });
+
+// if (typeof window.chrome !== "undefined" && window.navigator.vendor === "Google Inc.") {
+//     // Браузер Chrome
+//     console.log("Это Chrome.");
+// } else if (/constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))) {
+//     // Браузер Safari
+//     console.log("Это Safari.");
+//     document.body.classList.add('safari');
+// } else {
+//     // Другой браузер
+//     console.log("Это другой браузер.");
+// }
+
+
+// window.addEventListener('load', function() {
+//     if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1) {
+//     alert('Opera');
+//   } else if (navigator.userAgent.indexOf("Edg") != -1) {
+//     alert('Edge');
+//   } else if (navigator.userAgent.indexOf("Chrome") != -1) {
+//     console.log("Это Chrome.");
+//   } else if (navigator.userAgent.indexOf("Safari") != -1) {
+//     console.log("Это Safari.");
+//      document.body.classList.add('safari');
+//   } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+//     alert('Firefox');
+//   } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
+//   {
+//     alert('IE');
+//   } else {
+//     alert('unknown');
+//   }
+// });
+
+// window.addEventListener('load', function() {
+//     // Получаем все элементы с классом onSafari и noSafari
+//     var onSafariElements = document.querySelectorAll('.onSafari');
+//     var noSafariElements = document.querySelectorAll('.noSafari');
+
+//     // Проверяем, если браузер определен как Safari
+//     if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
+//         // Показываем элементы с классом noSafari, скрываем элементы с классом onSafari
+//         document.body.classList.add('Chrome');
+//         noSafariElements.forEach(function(element) {
+//             element.style.display = 'block';
+//         });
+//     } else {
+//         // Показываем элементы с классом onSafari, скрываем элементы с классом noSafari
+//         document.body.classList.add('safari');
+//         onSafariElements.forEach(function(element) {
+//             element.style.display = 'block';
+//         });
+//     }
+// });
+
+
 // =============
 // Preloader
 // =============
@@ -6,31 +67,39 @@ var videos = document.querySelectorAll("video");
 var startTime = Date.now(); // Время начала отсчета
 var timerElement = document.getElementById("percents");
 
-const LOADER_TIME = 5000;
-
 function updatePercent() {
 	var currentTime = Date.now();
 	var elapsedTime = currentTime - startTime;
-	var percent = (elapsedTime / LOADER_TIME) * 100; // 5 секунд
+	var percent = (elapsedTime / 5000) * 100; // 5 секунд
 	if (percent > 100) {
 		percent = 100;
 	}
 	timerElement.textContent = Math.round(percent);
 }
 
-var timerInterval = setInterval(updatePercent, LOADER_TIME / 50); // Обновляем процент каждые 5 секунд
+var timerInterval = setInterval(updatePercent, 100); // Обновляем процент каждые 5 секунд
 
 setTimeout(function () {
 	clearInterval(timerInterval);
 	var preloader = document.getElementById("preloader");
 	preloader.classList.add("preloader--hide");
-}, LOADER_TIME);
+}, 5000);
 
 
 document.addEventListener('DOMContentLoaded', function () {
 
 
+	// =============
+	// burdger
+	// =============
 
+	var navIcon = document.getElementById('nav-icon1');
+	var menuBox = document.getElementById('menubox');
+
+	navIcon.addEventListener('click', function () {
+		navIcon.classList.toggle('open');
+		menuBox.classList.toggle('open');
+	});
 
 
 	// =============
@@ -65,35 +134,35 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Modal
 	// =============
 
-	const openModalButton = document.getElementById("openVideoModal");
-	const modal = document.getElementById("video__modal");
-	const closeModalButton = document.getElementById("close__modal");
-	const closeModalBG = document.getElementById("bg__modal");
-	const videoPlayer = document.getElementById("video__player");
+	// const openModalButton = document.getElementById("openVideoModal");
+	// const modal = document.getElementById("video__modal");
+	// const closeModalButton = document.getElementById("close__modal");
+	// const closeModalBG = document.getElementById("bg__modal");
+	// const videoPlayer = document.getElementById("video__player");
 
-	// Функция для воспроизведения видео и открытия модального окна
-	function openModal() {
-		modal.style.display = "block";
-		videoPlayer.play();
-	}
+	// // Функция для воспроизведения видео и открытия модального окна
+	// function openModal() {
+	// 	modal.style.display = "block";
+	// 	videoPlayer.play();
+	// }
 
-	// Функция для паузы видео и закрытия модального окна
-	function closeModal() {
-		modal.style.display = "none";
-		videoPlayer.pause();
-	}
+	// // Функция для паузы видео и закрытия модального окна
+	// function closeModal() {
+	// 	modal.style.display = "none";
+	// 	videoPlayer.pause();
+	// }
 
-	// Обработчики событий
-	openModalButton.addEventListener("click", openModal);
-	closeModalButton.addEventListener("click", closeModal);
-	closeModalBG.addEventListener("click", closeModal);
+	// // Обработчики событий
+	// openModalButton.addEventListener("click", openModal);
+	// closeModalButton.addEventListener("click", closeModal);
+	// closeModalBG.addEventListener("click", closeModal);
 
-	// Закрытие модального окна при клике за его пределами
-	window.addEventListener("click", function (event) {
-		if (event.target === modal) {
-			closeModal();
-		}
-	});
+	// // Закрытие модального окна при клике за его пределами
+	// window.addEventListener("click", function (event) {
+	// 	if (event.target === modal) {
+	// 		closeModal();
+	// 	}
+	// });
 
 
 
@@ -217,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 		// =============
-		// scroll animation .title__inner 
+		// scroll animation .title__inner
 		// =============
 
 		// JavaScript для керування margin - left в залежності від прокрутки
@@ -240,13 +309,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	const slider = document.querySelector('.slider');
 	const items = document.querySelectorAll('.slider__item');
-	const arrowNext = document.querySelector('.arrow_prew');
-	const arrowPrew = document.querySelector('.arrow__next');
+	const arrowNext = document.querySelector('.arrow__next');
+	const arrowPrew = document.querySelector('.arrow_prew');
 
 	// Функция для установки активного элемента и управления видео
 	function setActiveItem(newActiveIndex) {
 		items.forEach((item, index) => {
-			item.classList.remove('active', 'left', 'right');
+			item.classList.remove('active', 'left', 'right', 'next', 'prev');
 			const video = item.querySelector('video');
 			if (video) {
 				video.pause();
@@ -254,6 +323,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				video.removeAttribute('controls');
 				video.removeAttribute('muted');
 			}
+			const newIndexDiff = index - newActiveIndex;
+
 			if (index === newActiveIndex) {
 				item.classList.add('active');
 				const activeVideo = item.querySelector('video');
@@ -263,10 +334,14 @@ document.addEventListener('DOMContentLoaded', function () {
 					activeVideo.setAttribute('controls', '');
 					activeVideo.setAttribute('muted', '');
 				}
-			} else if (index === newActiveIndex - 1) {
+			} else if (newIndexDiff === 1 || newIndexDiff === -items.length + 1) {
 				item.classList.add('right');
-			} else if (index === newActiveIndex + 1) {
+			} else if (newIndexDiff === -1 || newIndexDiff === items.length - 1) {
 				item.classList.add('left');
+			} else if (newIndexDiff === 2 || newIndexDiff === -items.length + 2) {
+				item.classList.add('next');
+			} else if (newIndexDiff === -2 || newIndexDiff === items.length - 2) {
+				item.classList.add('prev');
 			}
 		});
 	}
@@ -277,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (currentActiveIndex > 0) {
 			setActiveItem(currentActiveIndex - 1);
 		} else {
-			arrowPrew.classList.add('disabled');
+			setActiveItem(items.length - 1); // Зациклить к последнему слайду
 		}
 	});
 
@@ -286,8 +361,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		const currentActiveIndex = Array.from(items).findIndex(item => item.classList.contains('active'));
 		if (currentActiveIndex < items.length - 1) {
 			setActiveItem(currentActiveIndex + 1);
+		} else {
+			setActiveItem(0); // Зациклить к первому слайду
 		}
 	});
+
+
 
 
 	// =============

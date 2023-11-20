@@ -77,6 +77,12 @@ header h3,
 header h4,
 header h5,
 header h6,
+.modal_new h1,
+.modal_new h2,
+.modal_new h3,
+.modal_new h4,
+.modal_new h5,
+.modal_new h6,
 footer h1,
 footer h2,
 footer h3,
@@ -86,7 +92,21 @@ footer h6{
 	color: var(--black);
 	font-family: var(--title-font);
 	font-size: 32px;
+	font-weight: 700;
 }
+
+.modal-content_b {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	width: 100%;
+	height: 100%;
+}
+
+
 
 header .btn,
 footer .btn{
@@ -485,3 +505,95 @@ footer .btn:hover {
 
 /* End (Footer) */
 
+
+.modal_new img {
+	width: 100%;
+	/* height: 100%; */
+	object-fit: cover;
+}
+
+.modal_new .btn {
+	position: relative;
+	font-family: var(--title-font);
+	background-color: var(--dark_blue);
+	color: var(--white);
+	padding: 10px 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	display: inline-block;
+	transition: all .3s ease;
+	border: solid 3px var(--dark_blue);
+	cursor: pointer;
+}
+
+.modal_new .btn.yellow {
+	background-color: var(--yellow);
+	color: var(--dark_blue);
+}
+
+.modal_new .btn.bg_blue {
+	border: solid 3px #ffffff00;
+	padding: 5px 30px;
+}
+
+.modal_new .btn.yellow.active:hover {
+	background-color: var(--yellow);
+	color: var(--dark_blue);
+}
+
+.modal_new .button__needed {
+	cursor: no-drop;
+}
+
+.modal_new .bg_blue.button__needed:hover {
+	background-color: var(--dark_blue);
+	color: var(--white);
+}
+
+.modal_new .btn.grey {
+	background-color: var(--grey);
+}
+
+.modal_new .btn:hover {
+	background-color: var(--white);
+	color: var(--dark_blue)!important;
+}
+
+.modal_new .btn.not__active {
+	box-shadow: 0px 0px 28px 0px var(--yellow);
+	background-color: var(--yellow);
+	cursor: not-allowed;
+	pointer-events: all;
+}
+
+.modal_new .btn.not__active:hover {
+	box-shadow: 0px 0px 28px 0px var(--yellow);
+	background-color: var(--yellow);
+	color: var(--dark_blue);
+	cursor: not-allowed;
+}
+
+.modal_new .btn.active {
+	box-shadow: none;
+	cursor: pointer;
+	background-color: var(--grey);
+	pointer-events: all;
+}
+
+.modal_new .btn.active:hover {
+	background-color: var(--grey) !important;
+	color: var(--dark_blue) !important
+}
+
+.modal_new p,
+.modal_new li {
+	color: var(--black);
+	font-size: 24px;
+	font-family: var(--base-font);
+	font-weight: 500;
+}
+
+.modal_new object {
+    pointer-events: none;
+}

@@ -93,7 +93,7 @@
 	cursor: pointer;
 }
 
-.modal-content {
+.modal-content_b {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -124,7 +124,7 @@
 	z-index: 101;
 }
 
-.modal-content video {
+.modal-content_b video {
 	position: absolute;
 	top: 45%;
 	left: 50%;
@@ -134,7 +134,7 @@
 	z-index: 102;
 }
 
-.modal-content {
+.modal-content_b {
 	border: 0;
 }
 
@@ -157,7 +157,7 @@
 }
 
 .modal__btn .active {
-	color: var(--white);
+	color: var(--white)!important;
 }
 
 .modal__btn .btn.active:hover {
@@ -227,7 +227,8 @@
 }
 
 .payment__method .btn:hover {
-	background-color: var(--dark_blue);
+	background-color: var(--dark_blue)!important;
+	color: var(--white)!important;
 }
 
 .payment__wrapper {

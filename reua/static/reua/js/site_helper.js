@@ -87,7 +87,7 @@ function initGCaptcha() {
 
 initScroll();
 initCoockies();
-initPaymentModal();
+// initPaymentModal();
 initLanguages();
 initCaptcha();
 initGCaptcha();
