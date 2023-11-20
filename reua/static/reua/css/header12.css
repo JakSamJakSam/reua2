@@ -243,6 +243,10 @@ header nav a:hover {
 .mob_logo svg {
 	display: none;
 }
+.mob {
+	display: none;
+}
+
 
 /* End (Header) */
 /* --------------------- */
