@@ -210,6 +210,8 @@ header a {
 	color: var(--white);
 	padding: 5px 10px;
 	transition: all .3s ease;
+	text-decoration-skip-ink: auto;
+	text-rendering: optimizeSpeed;
 }
 
 header a.donate {
@@ -600,4 +602,28 @@ footer .btn:hover {
 
 .modal_new object {
     pointer-events: none;
+}
+
+/* МНУ */
+header .logo svg {
+	vertical-align: unset;
+}
+
+header ul {
+	padding-inline-start: 40px;
+}
+
+header .donate {
+	font-weight: 500;
+}
+
+footer .btn {
+	border-radius: 0;
+}
+
+footer .small {
+	color: unset;
+	font-family: serif;
+	font-size: medium;
+	/*font-weight: 500;*/
 }
