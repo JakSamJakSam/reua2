@@ -24,9 +24,12 @@
                                         {% include "projects/photo_tumb.html" with photo=photo counter=1 %}
                                     {% endif %}
                                 {% endfor %}
+                                {% if project.image %}
+                                    {% include "projects/photo_tumb.html" with photo=project.image counter=2  %}
+                                {% endif %}
                                 {% for photo in photos %}
                                     {% if forloop.counter != photos|length %}
-                                        {% include "projects/photo_tumb.html" with photo=photo counter=forloop.counter|add:1  %}
+                                        {% include "projects/photo_tumb.html" with photo=photo counter=forloop.counter|add:2  %}
                                     {% endif %}
                                 {% endfor %}
                             </div>

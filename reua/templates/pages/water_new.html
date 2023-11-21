@@ -29,7 +29,7 @@
     <!-- intro -->
     <section id="intro">
         <img class="mob onSafari" src="{% static "reua/img/_b/wrapper.png" %}" alt="">
-        <video class="desktop noSafari" src="{% static "reua/video/intro.webm" %}" autoplay loop muted>
+        <video class="desktop noSafari" src="{% static "reua/video/intro.webm" %}" autoplay loop muted poster="{% static "reua/img/_b/wrapper.png" %}">
             <source src="{% static "reua/video/intro.webm" %}" type="video/mp4">
         </video>
         <div class="wrapper_intro _pt-2">
@@ -189,9 +189,9 @@
             {% for video in videos %}
                 <div class="slider__item
                         {% if forloop.counter == 1 and videos|length == 1 %}active
-                        {% elif forloop.counter == 1 %}right
+                        {% elif forloop.counter == 1 %}left
                         {% elif forloop.counter == 2 %}active
-                        {% elif forloop.counter == 3 %}left
+                        {% elif forloop.counter == 3 %}right
                         {% endif %}">
                     <video src="{{ video.localized_video.url }}"
                            {% if forloop.counter == 1 and videos|length == 1 %}controls{% elif forloop.counter == 2 %}controls{% endif %}
@@ -251,7 +251,6 @@
                     <img class="mob onSafari" src="{% static "reua/img/_b/inner.png" %}" alt="">
                     <video class="noSafari" src="{% static "reua/video/technical_characteristics.webm" %}"
                            autoplay loop muted poster="{% static "reua/img/_b/inner.png" %}">
-
                     </video>
                 </div>
 
