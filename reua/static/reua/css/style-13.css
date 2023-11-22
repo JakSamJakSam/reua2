@@ -95,13 +95,13 @@ object {
 
 @font-face {
 	font-family: Benzin;
-	src: url(fonts/Benzin-Bold.ttf);
+	src: url('../fonts/Benzin-Bold.ttf');
 	font-weight: bold;
 }
 
 @font-face {
 	font-family: Benzin;
-	src: url(fonts/Benzin-Regular.ttf);
+	src: url('../fonts/Benzin-Regular.ttf');
 	font-weight: normal;
 }
 
