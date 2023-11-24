@@ -38,7 +38,7 @@
                                 {% endif %}
                                 {% for photo in photos %}
                                     {% if forloop.counter != photos|length %}
-                                        {% include "projects/photo_tumb.html" with photo=photo counter=forloop.counter  %}
+                                        {% include "projects/photo_tumb.html" with photo=photo.photo counter=forloop.counter  %}
                                     {% endif %}
                                 {% endfor %}
                             </div>
