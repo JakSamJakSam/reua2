@@ -28,8 +28,8 @@
 
     <!-- intro -->
     <section id="intro">
-        <img class="mob onSafari" src="{% static "reua/img/_b/wrapper.png" %}" alt="">
-        <video class="desktop noSafari" src="{% static "reua/video/intro.webm" %}" autoplay loop muted poster="{% static "reua/img/_b/wrapper.png" %}">
+        <img class="mob onSafari" src="{% static "reua/img/_b/station.png" %}" alt="">
+        <video class="desktop noSafari" src="{% static "reua/video/intro.webm" %}" autoplay loop muted poster="{% static "reua/img/_b/station.png" %}">
             <source src="{% static "reua/video/intro.webm" %}" type="video/mp4">
         </video>
         <div class="wrapper_intro _pt-2">
@@ -330,5 +330,6 @@
 
 {% block scripts %}
     {{ block.super }}
+    <script src="{% static "reua/js/main-12.js" %}"></script>
     <script src="{% static "reua/js/svg_map.js" %}"></script>
 {% endblock %}
