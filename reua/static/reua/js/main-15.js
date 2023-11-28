@@ -1,64 +1,3 @@
-// window.addEventListener('load', function() {
-//     if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
-//         document.body.classList.add('safari');
-//     }
-// });
-
-// if (typeof window.chrome !== "undefined" && window.navigator.vendor === "Google Inc.") {
-//     // Браузер Chrome
-//     console.log("Это Chrome.");
-// } else if (/constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))) {
-//     // Браузер Safari
-//     console.log("Это Safari.");
-//     document.body.classList.add('safari');
-// } else {
-//     // Другой браузер
-//     console.log("Это другой браузер.");
-// }
-
-
-// window.addEventListener('load', function() {
-//     if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1) {
-//     alert('Opera');
-//   } else if (navigator.userAgent.indexOf("Edg") != -1) {
-//     alert('Edge');
-//   } else if (navigator.userAgent.indexOf("Chrome") != -1) {
-//     console.log("Это Chrome.");
-//   } else if (navigator.userAgent.indexOf("Safari") != -1) {
-//     console.log("Это Safari.");
-//      document.body.classList.add('safari');
-//   } else if (navigator.userAgent.indexOf("Firefox") != -1) {
-//     alert('Firefox');
-//   } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
-//   {
-//     alert('IE');
-//   } else {
-//     alert('unknown');
-//   }
-// });
-
-// window.addEventListener('load', function() {
-//     // Получаем все элементы с классом onSafari и noSafari
-//     var onSafariElements = document.querySelectorAll('.onSafari');
-//     var noSafariElements = document.querySelectorAll('.noSafari');
-
-//     // Проверяем, если браузер определен как Safari
-//     if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
-//         // Показываем элементы с классом noSafari, скрываем элементы с классом onSafari
-//         document.body.classList.add('Chrome');
-//         noSafariElements.forEach(function(element) {
-//             element.style.display = 'block';
-//         });
-//     } else {
-//         // Показываем элементы с классом onSafari, скрываем элементы с классом noSafari
-//         document.body.classList.add('safari');
-//         onSafariElements.forEach(function(element) {
-//             element.style.display = 'block';
-//         });
-//     }
-// });
-
-
 // =============
 // Preloader
 // =============
@@ -129,49 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
-
-	// =============
-	// Modal
-	// =============
-
-	// const openModalButton = document.getElementById("openVideoModal");
-	// const modal = document.getElementById("video__modal");
-	// const closeModalButton = document.getElementById("close__modal");
-	// const closeModalBG = document.getElementById("bg__modal");
-	// const videoPlayer = document.getElementById("video__player");
-
-	// // Функция для воспроизведения видео и открытия модального окна
-	// function openModal() {
-	// 	modal.style.display = "block";
-	// 	videoPlayer.play();
-	// }
-
-	// // Функция для паузы видео и закрытия модального окна
-	// function closeModal() {
-	// 	modal.style.display = "none";
-	// 	videoPlayer.pause();
-	// }
-
-	// // Обработчики событий
-	// openModalButton.addEventListener("click", openModal);
-	// closeModalButton.addEventListener("click", closeModal);
-	// closeModalBG.addEventListener("click", closeModal);
-
-	// // Закрытие модального окна при клике за его пределами
-	// window.addEventListener("click", function (event) {
-	// 	if (event.target === modal) {
-	// 		closeModal();
-	// 	}
-	// });
-
-
-
-
 	// =============
 	// projects slider
 	// =============
 
-	if (document.documentElement.clientWidth > 1000) {
+	if (document.documentElement.clientWidth > 1100) {
 		const sliderContainer = document.querySelector("#projects .item__wrapper");
 		const prevButton = document.querySelector(".prev-button");
 		const nextButton = document.querySelector(".next-button");

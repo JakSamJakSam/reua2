@@ -1960,7 +1960,7 @@ path.triangle_arrow_prew {
 	header nav {
 		position: absolute;
 		background-color: var(--dark_blue);
-		top: -1300px;
+		top: -1400px;
 		left: 0;
 		height: 100vh;
 		width: 100vw;
@@ -2075,6 +2075,23 @@ path.triangle_arrow_prew {
 }
 
 @media screen and (max-width: 1200px) {
+	#video_slider {
+		height: 300px;
+	}
+
+	#map .wrapper__svg_map {
+		width: 70vw;
+		height: inherit;
+	}
+
+	.title__inner p {
+		max-width: 70vw;
+	}
+
+	#map {
+		padding-bottom: 300px;
+	}
+
 	.footer__item:nth-child(3) {
 		order: 2;
 		width: 50%;
@@ -2129,9 +2146,9 @@ path.triangle_arrow_prew {
 		right: 0;
 	}
 
-	.wrapper__description object {
-		width: 15%;
-	}
+	/*.wrapper__description object {*/
+	/*	width: 15%;*/
+	/*}*/
 
 	.price p:nth-child(2) {
 		font-size: 24px;
@@ -2161,6 +2178,40 @@ path.triangle_arrow_prew {
 	.technical__item p:nth-child(1) {
 		width: auto;
 	}
+
+	#projects .item {
+		flex: 0 0 48vw;
+	}
+
+	#map .amount {
+		position: absolute;
+		left: 0;
+	}
+
+	#map .amount p {
+		font-size: 36px;
+		padding-top: 10px;
+	}
+
+	#map .wrapper__img {
+		margin-top: -25px;
+		right: -50px;
+	}
+
+	.arrow_prew {
+		bottom: 0;
+		left: 1vw;
+	}
+
+	.arrow__next {
+		bottom: 0;
+		right: 1vw;
+	}
+
+	#video_slider {
+		margin-bottom: 50px;
+	}
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -2234,9 +2285,9 @@ path.triangle_arrow_prew {
 		font-size: 14px;
 	}
 
-	#projects .item {
-		flex: 0 0 48vw;
-	}
+	/*#projects .item {*/
+	/*	flex: 0 0 48vw;*/
+	/*}*/
 
 	#map .amount {
 		position: absolute;
