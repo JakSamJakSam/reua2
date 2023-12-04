@@ -56,6 +56,7 @@ window.addEventListener("click", function (event) {
 // btn__reh20 - btn__city
 // =============
 
+
 const btnReh20 = document.getElementById('btn__reh20');
 const btnCity = document.getElementById('btn__city');
 const imgReh20 = document.getElementById('img_reh20');
@@ -180,12 +181,28 @@ document.querySelectorAll('.back').forEach(function (backBtn) {
 
 // Функция для активации модального блока по его id
 function activateModal(modalId) {
-	console.log(modalId, document.getElementById(modalId))
 	document.getElementById(modalId).classList.add('active');
-	console.log(document.getElementById('main__modal'))
 	document.getElementById('main__modal').classList.remove('active');
 }
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
 
+
+	// =============
+	// burdger
+	// =============
+
+	var navIcon = document.getElementById('nav-icon1');
+	var menuBox = document.getElementById('menubox');
+
+	navIcon.addEventListener('click', function () {
+		navIcon.classList.toggle('open');
+		menuBox.classList.toggle('open');
+	});
+
+
+
+
+});

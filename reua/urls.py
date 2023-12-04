@@ -26,8 +26,8 @@ urlpatterns = [
     path('news/', ListNewsView.as_view(), name='news-list'),
     path('news/<str:slug>/', DetailNewsView.as_view(), name='news-item'),
     path('pdf/<int:pk>/', FileView.as_view(), name='pdf-item'),
-    path('pay/ReH2O/', ReH2OPaymentView.as_view(), name='Pay_ReH2O'),
-    path('pay/ReCity/', ReCityPaymentView.as_view(), name='Pay_ReCity'),
+    path('pay/ReH2O/', ReH2OPaymentNewView.as_view(), name='Pay_ReH2O'),
+    path('pay/ReCity/', ReCityPaymentNewView.as_view(), name='Pay_ReCity'),
 
     path('fp/', include('django.contrib.flatpages.urls')),
 

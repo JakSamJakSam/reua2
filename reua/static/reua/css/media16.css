@@ -217,6 +217,21 @@
 	.title__inner p {
 		max-width: 40vw;
 	}
+
+
+	.single__donate .payment__wrapper,
+	.single__donate .payment__method {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.single__donate .payment__wrapper.uah .item:nth-child(1),
+	.single__donate .payment__wrapper.uah .item:nth-child(4),
+	.single__donate .payment__wrapper.uah .item:nth-child(1),
+	.single__donate .payment__wrapper.uah .item:nth-child(4),
+	.single__donate .payment__wrapper.other .item:nth-child(1) {
+		grid-column: 1;
+	}
+
 }
 
 @media screen and (max-width: 1400px) {
@@ -374,6 +389,9 @@
 		height: auto;
 	}
 
+	.payment__wrapper .item p {
+		font-size: 18px !important;
+	}
 }
 
 @media screen and (max-width: 1200px) {
@@ -616,6 +634,52 @@
 }
 
 @media screen and (min-width: 540px) {
+	.single__donate .payment__method {
+		margin-left: inherit;
+		background-color: var(--white);
+		padding-left: 10px;
+	}
+
+	.single__donate.single__wrapper .title__wrapper h2 {
+		margin-bottom: 5px;
+		padding: 5px 10px;
+		padding-bottom: 2px;
+	}
+
+	.single__donate .slider__wrapper .mob {
+		margin-bottom: -40px;
+	}
+
+	.single__donate .single__wrapper .title__wrapper h2 {
+		padding-bottom: 5px;
+		margin-bottom: 5px;
+	}
+
+	.single__donate .slider__wrapper {
+		position: relative;
+	}
+
+	.single__donate .payment_info {
+		padding-left: 10px;
+	}
+
+	.single__donate .payment h3 {
+		font-size: 20px;
+	}
+
+	.single__donate .payment__wrapper .item p {
+		font-size: 15px !important;
+	}
+
+	.single__donate .payment h5 {
+		font-size: 16px;
+	}
+
+	.single__donate.single__wrapper .title__wrapper {
+		margin-left: 10px;
+		padding: 2vh 0 0 0;
+	}
+
 	.left__item {
 		margin-top: -20px;
 	}

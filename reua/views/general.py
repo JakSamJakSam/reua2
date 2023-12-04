@@ -14,10 +14,11 @@ from reua.forms.feedback import FeedbackForm, FeedbackFormGCaptcha
 from reua.models import Partner, Staff, WaterStation, Project, FoundingDocument
 
 __all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildView", "ContactsView", "FileView",
-           'ReH2OPaymentView', 'ReCityPaymentView')
+           'ReH2OPaymentView', 'ReCityPaymentView',
+           'ReH2OPaymentNewView', 'ReCityPaymentNewView')
 
 from reua.models.projects import KindProject, currencies, kind_project_values
-from reua.models.site_models import GeneralProjectImages, ReH2OSettings, ReH2OVideos
+from reua.models.site_models import GeneralProjectImages, ReH2OSettings, ReH2OVideos, BankTransferAttributes
 from reua.models.waters import ActivePoints
 
 from reua.views.mixins import BreadCrumbsMixin
@@ -198,6 +199,23 @@ class ReH2OPaymentView(BreadCrumbsMixin, TemplateView):
         } for cur, url in settings.PAYMENT_CARD_RE_H2O.items()]
         return ctx
 
+class ReH2OPaymentNewView(BreadCrumbsMixin, TemplateView):
+    page_title = "ReH₂O"
+    template_name = "payment/basic_new.html"
+
+    def get_context_data(self, *args, **kwargs):
+        ctx = super().get_context_data(*args, **kwargs)
+        ctx['title'] = _('Питна вода')
+        ctx['desc'] = _('Благодійний внесок на виготовлення мобільних систем очищення води для зруйнованих міст та селищ України, та забезпечення статутної діяльності фонду')
+        ctx['bank_attrs'] =BankTransferAttributes.objects.filter(kind=KindProject.water.value)
+        ctx['credit_cards'] = [{
+            'url': url,
+            'currency': cur,
+            'currency_sign': currencies[cur] if cur in currencies else ''
+        } for cur, url in settings.PAYMENT_CARD_RE_H2O.items()]
+        ctx['ctypto'] = settings.PAYMENT_CRYPTO_RE_H2O
+        return ctx
+
 
 class ReCityPaymentView(BreadCrumbsMixin, TemplateView):
     bc = [{'title': _("Зробити внесок")}]
@@ -212,4 +230,21 @@ class ReCityPaymentView(BreadCrumbsMixin, TemplateView):
             'currency': cur,
             'currency_sign': currencies[cur] if cur in currencies else ''
         } for cur, url in settings.PAYMENT_CARD_RE_CITY.items()]
+        return ctx
+
+class ReCityPaymentNewView(BreadCrumbsMixin, TemplateView):
+    page_title = "ReCity"
+    template_name = "payment/basic_new.html"
+
+    def get_context_data(self, *args, **kwargs):
+        ctx = super().get_context_data(*args, **kwargs)
+        ctx['title'] = _('Відбудова')
+        ctx['desc'] = _('Благодійний внесок на відбудову житла для мешканців України та забезпечення статутної діяльності фонду')
+        ctx['bank_attrs'] =BankTransferAttributes.objects.filter(kind=KindProject.city.value)
+        ctx['credit_cards'] = [{
+            'url': url,
+            'currency': cur,
+            'currency_sign': currencies[cur] if cur in currencies else ''
+        } for cur, url in settings.PAYMENT_CARD_RE_CITY.items()]
+        ctx['ctypto'] = settings.PAYMENT_CRYPTO_RE_CITY
         return ctx
