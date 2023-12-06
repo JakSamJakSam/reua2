@@ -8,7 +8,8 @@ from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMi
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import *
 from reua.models.projects import ProjectPhoto
-from reua.models.site_models import GeneralProjectImages, FeedbackMessage, ReH2OSettings, ReH2OVideos
+from reua.models.site_models import GeneralProjectImages, FeedbackMessage, ReH2OSettings, ReH2OVideos, \
+    BankTransferAttributesStrings
 from reua.models.waters import ActivePoints
 
 
@@ -185,11 +186,16 @@ class NewFlatPageAdmin(SummernoteModelAdminMixin, FlatPageAdmin):
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, NewFlatPageAdmin)
 
+class BankTransferAttributesStringsInline(admin.StackedInline):
+    model = BankTransferAttributesStrings
+
+
 @admin.register(BankTransferAttributes)
 class BankTransferAttributesAdmin(SummernoteModelAdmin):
     list_display = ('kind', 'currency',)
-    summernote_fields = ('attr', 'attr_en')
+    summernote_fields = ('attr', )
     list_filter = ('kind', 'currency' )
+    inlines = (BankTransferAttributesStringsInline, )
 
 
 @admin.register(GeneralProjectImages)

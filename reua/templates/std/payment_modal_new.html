@@ -68,7 +68,15 @@
                                                        type=""></object></span>
                             <h3>{% trans "Банківські реквізити:" as t %}{{ t|upper }}</h3>
                             <div class="payment__wrapper {{ b.currency|lower }}">
-                                {{ b.localized_attr|safe }}
+                                {#                                {{ b.localized_attr|safe }}#}
+                                {% for s in b.strings.all %}
+                                    <div class="item">
+                                        {% if s.header %}
+                                            <h5>{{ s.header }}</h5>
+                                        {% endif %}
+                                        <p>{{ s.text }}</p>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                     {% endfor %}

@@ -217,13 +217,6 @@ class BankTransferAttributes(models.Model):
                                             choices=[(k, v) for k, v in kind_project_values.items()])
     currency = models.CharField(max_length=3, verbose_name=_('Валюта'), choices=[(e, v) for e, v in currencies.items()])
     attr = models.TextField(verbose_name=_('Банківські реквізити (укр)'))
-    attr_en = models.TextField(verbose_name=_('Банківські реквізити (англ)'), blank=True)
-
-    @property
-    def localized_attr(self):
-        lg = get_language()
-        localized_attr = getattr(self, f'attr_{lg}', self.attr)
-        return localized_attr if localized_attr else self.attr
 
     def __str__(self):
         return f'{kind_project_values[self.kind]} {self.currency}'
@@ -233,6 +226,18 @@ class BankTransferAttributes(models.Model):
         verbose_name_plural = _("Банківські реквізити")
         unique_together = (('kind', 'currency'),)
 
+
+class BankTransferAttributesStrings(models.Model):
+    attrs  = models.ForeignKey(BankTransferAttributes, on_delete=models.CASCADE, verbose_name= _("Банківські реквізити"), related_name='strings')
+    header = models.CharField(max_length=150, verbose_name= _("Заголовок"))
+    text = models.TextField(verbose_name= _("Текст"))
+
+    def __str__(self):
+        return self.header
+
+    class Meta:
+        verbose_name = _("Строка реквізитів")
+        verbose_name_plural = _("Строки реквізитів")
 
 
 class GeneralProjectImages(SortableMixin, models.Model):
