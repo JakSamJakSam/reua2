@@ -6,7 +6,7 @@ from reua.models import TopMenu, News
 
 class TopMenuAdminForm(forms.ModelForm):
     ALLOWED_URL_NAMES = (
-        'company-list', 'investition-list', 'water',
+        'company-list', 'investition-list', 'water-new',
         'about', 'rebuild', 'contacts', 'news-list',
     )
 
