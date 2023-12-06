@@ -235,7 +235,6 @@ class BankTransferAttributes(models.Model):
     kind = models.PositiveSmallIntegerField(verbose_name=_('Тип'),
                                             choices=[(k, v) for k, v in kind_project_values.items()])
     currency = models.CharField(max_length=3, verbose_name=_('Валюта'), choices=[(e, v) for e, v in currencies.items()])
-    attr = models.TextField(verbose_name=_('Банківські реквізити (укр)'))
 
     def __str__(self):
         return f'{kind_project_values[self.kind]} {self.currency}'
