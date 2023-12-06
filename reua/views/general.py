@@ -1,8 +1,8 @@
 import qrcode
 import qrcode.image.svg
 from django.conf import settings
-from django.contrib.sites.models import Site
 from django.contrib.sites.shortcuts import get_current_site
+from django.db.models import Case, When, Value
 from django.template.loader import get_template
 from django.templatetags.static import static
 from django.urls import reverse
@@ -207,7 +207,13 @@ class ReH2OPaymentNewView(BreadCrumbsMixin, TemplateView):
         ctx = super().get_context_data(*args, **kwargs)
         ctx['title'] = _('Питна вода')
         ctx['desc'] = _('Благодійний внесок на виготовлення мобільних систем очищення води для зруйнованих міст та селищ України, та забезпечення статутної діяльності фонду')
-        ctx['bank_attrs'] =BankTransferAttributes.objects.filter(kind=KindProject.water.value)
+        ctx['bank_attrs'] =BankTransferAttributes.objects.filter(kind=KindProject.water.value).annotate(
+            order=Case(
+                *[When(currency=v, then=Value(i)) for i, v in enumerate(currencies.keys())],
+                default=99,
+            ),
+        ).order_by('order')
+
         ctx['credit_cards'] = [{
             'url': url,
             'currency': cur,
@@ -240,7 +246,12 @@ class ReCityPaymentNewView(BreadCrumbsMixin, TemplateView):
         ctx = super().get_context_data(*args, **kwargs)
         ctx['title'] = _('Відбудова')
         ctx['desc'] = _('Благодійний внесок на відбудову житла для мешканців України та забезпечення статутної діяльності фонду')
-        ctx['bank_attrs'] =BankTransferAttributes.objects.filter(kind=KindProject.city.value)
+        ctx['bank_attrs'] =BankTransferAttributes.objects.filter(kind=KindProject.city.value).annotate(
+            order=Case(
+                *[When(currency=v, then=Value(i)) for i, v in enumerate(currencies.keys())],
+                default=99,
+            ),
+        ).order_by('order')
         ctx['credit_cards'] = [{
             'url': url,
             'currency': cur,
