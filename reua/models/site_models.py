@@ -229,7 +229,7 @@ class BankTransferAttributes(models.Model):
 
 class BankTransferAttributesStrings(models.Model):
     attrs  = models.ForeignKey(BankTransferAttributes, on_delete=models.CASCADE, verbose_name= _("Банківські реквізити"), related_name='strings')
-    header = models.CharField(max_length=150, verbose_name= _("Заголовок"))
+    header = models.CharField(max_length=150, verbose_name= _("Заголовок"), blank=True)
     text = models.TextField(verbose_name= _("Текст"))
 
     def __str__(self):
