@@ -95,6 +95,14 @@ class SiteSettingsAdmin(admin.ModelAdmin):
             'classes': ('collapse',),
             'fields': ('company_add_code', 'invest_add_code'),
         }),
+        (_('Призначення ReH₂O'), {
+            'classes': ('collapse',),
+            'fields': ('reh2o_text', 'reh2o_text_en'),
+        }),
+        (_('Призначення ReCity'), {
+            'classes': ('collapse',),
+            'fields': ('reCity_text', 'reCity_text_en'),
+        }),
     )
 
 @admin.register(Staff)

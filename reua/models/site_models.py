@@ -127,6 +127,13 @@ class SiteSettings(models.Model):
     lat = models.FloatField(verbose_name=_('Широта'), null=True, blank=True, default=None)
     lng = models.FloatField(verbose_name=_('Долгота'), null=True, blank=True, default=None)
 
+    reh2o_text = models.TextField(verbose_name=_('Текст призначення для ReH2O'), blank=True)
+    reh2o_text_en = models.TextField(verbose_name=_('Текст призначення для ReH2O (англ.)'), blank=True)
+
+    reCity_text = models.TextField(verbose_name=_('Текст призначення для ReCity'), blank=True)
+    reCity_text_en = models.TextField(verbose_name=_('Текст призначення для ReCity (англ.)'), blank=True)
+
+
     def __str__(self):
         return str(self.site)
 
@@ -148,6 +155,18 @@ class SiteSettings(models.Model):
             'title': 'reUA',
             'marker': static("reua/img/reua_marker2.png"),
         }
+
+    @property
+    def localized_reh2o_text(self):
+        lg = get_language()
+        localized_reh2o_text = getattr(self, f'reh2o_text_{lg}', self.reh2o_text)
+        return localized_reh2o_text if localized_reh2o_text else self.reh2o_text
+
+    @property
+    def localized_reCity_text(self):
+        lg = get_language()
+        localized_reCity_text = getattr(self, f'reCity_text_{lg}', self.reCity_text)
+        return localized_reCity_text if localized_reCity_text else self.reCity_text
 
 
 class Staff(SortableMixin, models.Model):
