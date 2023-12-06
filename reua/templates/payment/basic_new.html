@@ -32,7 +32,15 @@
                         <div class="payment" id="reh20__{{ ba.currency }}">
                             <h3>{% trans "БАНКІВСЬКІ РЕКВІЗИТИ:" %}</h3>
                             <div class="payment__wrapper {{ ba.currency }}">
-                                {{ ba.localized_attr|safe }}
+{#                                {{ ba.localized_attr|safe }}#}
+                                {% for s in ba.strings.all %}
+                                    <div class="item">
+                                        {% if s.header %}
+                                            <h5>{{ s.header }}</h5>
+                                        {% endif %}
+                                        <p>{{ s.text }}</p>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                     {% endfor %}
