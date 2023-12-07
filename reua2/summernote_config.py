@@ -3,6 +3,8 @@ SUMMERNOTE_THEME = 'bs4'
 SUMMERNOTE_CONFIG = {
     'iframe': True,
     'summernote': {
+        "fontNames": ['Benzin', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana'],
+        "fontNamesIgnoreCheck": ['Benzin'],
         "colors": [
             ['#3056b8', '#f5d731', '#000', '#fff', '#dee2e6', '#ced4da', '#adb5bd', '#212529'],
             ['#0d6efd', '#6610f2', '#6f42c1','#d63384', '#dc3545', '#fd7e14', '#ffc107', '#198754'],
@@ -16,6 +18,6 @@ SUMMERNOTE_CONFIG = {
         'airMode': False,
         'width': '100%',
     },
-    'css': ("/static/reua/css/bootstrap_overrides.css",),
+    'css': ("/static/reua/css/bootstrap_overrides.css", "/static/reua/css/admin_summernote.css"),
 
 }

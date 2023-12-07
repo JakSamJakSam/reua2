@@ -18,7 +18,8 @@ __all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildVi
            'ReH2OPaymentNewView', 'ReCityPaymentNewView')
 
 from reua.models.projects import KindProject, currencies, kind_project_values
-from reua.models.site_models import GeneralProjectImages, ReH2OSettings, ReH2OVideos, BankTransferAttributes
+from reua.models.site_models import GeneralProjectImages, ReH2OSettings, ReH2OVideos, BankTransferAttributes, \
+    SiteSettings
 from reua.models.waters import ActivePoints
 
 from reua.views.mixins import BreadCrumbsMixin
@@ -205,8 +206,11 @@ class ReH2OPaymentNewView(BreadCrumbsMixin, TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
+        site = get_current_site(self.request)
+        ss = SiteSettings.objects.get(site=site)
+
         ctx['title'] = _('Питна вода')
-        ctx['desc'] = _('Благодійний внесок на виготовлення мобільних систем очищення води для зруйнованих міст та селищ України, та забезпечення статутної діяльності фонду')
+        ctx['desc'] = ss.localized_reh2o_text
         ctx['bank_attrs'] =BankTransferAttributes.objects.filter(kind=KindProject.water.value).annotate(
             order=Case(
                 *[When(currency=v, then=Value(i)) for i, v in enumerate(currencies.keys())],
@@ -244,8 +248,10 @@ class ReCityPaymentNewView(BreadCrumbsMixin, TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
+        site = get_current_site(self.request)
+        ss = SiteSettings.objects.get(site=site)
         ctx['title'] = _('Відбудова')
-        ctx['desc'] = _('Благодійний внесок на відбудову житла для мешканців України та забезпечення статутної діяльності фонду')
+        ctx['desc'] = ss.localized_reCity_text
         ctx['bank_attrs'] =BankTransferAttributes.objects.filter(kind=KindProject.city.value).annotate(
             order=Case(
                 *[When(currency=v, then=Value(i)) for i, v in enumerate(currencies.keys())],

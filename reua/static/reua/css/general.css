@@ -220,3 +220,41 @@ footer {
 .news-content a {
     text-decoration: none;
 }
+
+.payment-logos {
+    display: flex;
+    justify-content: space-between;
+    height: 1.875rem;
+    margin-top: 1rem;
+}
+
+.payment-logos .payment-logo {
+    height: 100%;
+    background-color: var(--bs-white);
+    border-radius: .5rem;
+    padding: .425rem 1.25rem;
+    display: flex;
+}
+
+.payment-logos .payment-logo img {
+    /*height: 100%;*/
+}
+
+.payment-logo.mastercard {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.payment-logo.visa {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.payment-logo.gpay {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+}
+.payment-logo.apay   {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+}
