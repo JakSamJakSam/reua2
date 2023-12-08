@@ -68,7 +68,7 @@
                     {% for images in positions.values %}
                         <div class="d-flex overflow-hidden row row-cols-3">
                             {% for image in images %}
-                                {% thumbnail image.image "150x150" format="PNG" upscale=True crop='center' as im %}
+                                {% thumbnail image.image "300x300" format="PNG" upscale=True crop='center' as im %}
                                     <img src="{{ im.url }}" alt="{{ project }}" class="p-0">
                                 {% endthumbnail %}
                             {% endfor %}
@@ -79,6 +79,7 @@
                                     {% if project == 'ReCity' %}
                                         <h3 class="project-word">project</h3>
                                         <h1 class="project-name">ReCITY</h1>
+{#                                        <h1 class="project-name">FORESIGHT TOWN</h1>#}
                                     {% elif project == 'ReH2O' %}
                                         <h3 class="project-word">Technology</h3>
                                         <h1 class="project-name">ReH2O</h1>
@@ -92,7 +93,7 @@
                                             <h2 class="project-digit me-2 me-sm-0">3,9</h2>
                                             <span class="fs-5 fw-bolder">{% trans "млрд $" %}</span>
                                         {% elif project == 'ReH2O' %}
-                                            <h2 class="project-digit">7,5</h2>
+                                            <h2 class="project-digit">10</h2>
                                             <span class="fs-5 fw-bolder">{% trans "млн $" %}</span>
                                         {% endif %}
                                     </div>
@@ -101,7 +102,7 @@
                                             <h2 class="project-digit">40</h2>
                                             <span class="fs-5 fw-bolder">{% trans "міст" %}</span>
                                         {% elif project == 'ReH2O' %}
-                                            <h2 class="project-digit">100</h2>
+                                            <h2 class="project-digit">150</h2>
                                             <span class="fs-5 fw-bolder">{% trans "систем очистки води" %}</span>
                                         {% endif %}
                                     </div>

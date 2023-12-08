@@ -1,3 +1,16 @@
+@font-face {
+	font-family: Intro;
+	src: url(../fonts/8439.ttf);
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: Montserrat;
+	src: url(../fonts/Montserrat-ExtraBold_0.ttf);
+	font-weight: bold;
+}
+
+
 html{
     font-size: 14px;
 }
@@ -160,6 +173,8 @@ footer {
     letter-spacing: -.5rem;
     margin: -1.5rem 0 0 -.25rem;
     position: relative;
+    /*font-family: Intro, serif;*/
+    /*font-family: Montserrat;*/
 }
 
 .project-name:after {
