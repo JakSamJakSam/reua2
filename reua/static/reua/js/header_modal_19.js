@@ -160,7 +160,7 @@ document.querySelectorAll('.back').forEach(function (backBtn) {
 		document.getElementById(modalId).classList.remove('active');
 
 		// Возвращаем активные фотографии
-		if (modalId.includes('reh2o')) {
+		if (modalId.includes('reh20')) {
 			imgReh20.classList.add('active');
 		} else if (modalId.includes('city')) {
 			imgCity.classList.add('active');
