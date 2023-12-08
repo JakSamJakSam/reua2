@@ -12,7 +12,8 @@ const videoPlayer = document.getElementById("video__player");
 function openModal(modal) {
 	modal.style.display = "block";
 	const modalType = modal.getAttribute("data-modal-type");
-
+	document.getElementById('menubox').classList.remove('open');
+	document.body.style.overflowY = 'hidden';
 	if (modalType === "video") {
 		videoPlayer.play();
 	}
@@ -21,6 +22,7 @@ function openModal(modal) {
 // Функция для закрытия модального окна
 function closeModal(modal) {
 	modal.style.display = "none";
+	document.body.style.overflowY = 'inherit';
 	videoPlayer.pause();
 }
 
@@ -97,19 +99,6 @@ function handleBtnCityClick() {
 // Назначение обработчиков событий
 btnReh20.addEventListener('click', handleBtnCityClick);
 btnCity.addEventListener('click', handleBtnReh20Click);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Назначение обработчика событий для кнопок валюты "Питна вода"
 const reh20UahPayment = document.getElementById('reh20__uah__payment');
