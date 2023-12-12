@@ -1814,6 +1814,17 @@ path.triangle_arrow_prew {
 	cursor: no-drop;
 }
 
+.slider__wrapper.city img {
+	width: 45vw;
+}
+
+.slider__wrapper.city {
+	transition: all .3s ease;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+
 /* end single__donate */
 
 @media screen and (min-width: 2400px) {
@@ -2465,6 +2476,16 @@ path.triangle_arrow_prew {
 }
 
 @media screen and (max-width: 540px) {
+	.slider__wrapper.city img {
+		width: 100vw;
+	}
+
+	.slider__wrapper.city {
+		position: relative;
+		top: inherit;
+		transform: inherit;
+	}
+
 	.single__donate .payment__method {
 		margin-left: inherit;
 		background-color: var(--white);

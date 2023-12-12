@@ -747,5 +747,16 @@ footer .small {
 	cursor: no-drop;
 }
 
+.slider__wrapper.city img {
+	width: 45vw;
+}
+
+.slider__wrapper.city {
+	transition: all .3s ease;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+
 /* end single__donate */
 

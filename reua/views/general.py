@@ -202,7 +202,7 @@ class ReH2OPaymentView(BreadCrumbsMixin, TemplateView):
 
 class ReH2OPaymentNewView(BreadCrumbsMixin, TemplateView):
     page_title = "ReH₂O"
-    template_name = "payment/basic_new.html"
+    template_name = "payment/reh2O.html"
 
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
@@ -244,7 +244,7 @@ class ReCityPaymentView(BreadCrumbsMixin, TemplateView):
 
 class ReCityPaymentNewView(BreadCrumbsMixin, TemplateView):
     page_title = "ReCity"
-    template_name = "payment/basic_new.html"
+    template_name = "payment/reCity.html"
 
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
