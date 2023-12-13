@@ -11,11 +11,11 @@
                 <div class="slider__wrapper" id="single_slider">
                     <div class="slider__inner">
                         <div class="main-image">
-                            {% with photos|first as main_photo %}
-                                {% thumbnail main_photo.photo "800" format="PNG" upscale=True crop='center' as im %}
+                            {% if project.image %}
+                                {% thumbnail project.image "800" format="PNG" upscale=True crop='center' as im %}
                                     <img src="{{ im.url }}" alt="{{ project.localized_title }}">
                                 {% endthumbnail %}
-                            {% endwith %}
+                            {% endif %}
                             <div class="wrapper_arrow" id="left">
                                 <svg viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -37,9 +37,7 @@
                                     {% include "projects/photo_tumb.html" with photo=project.image counter=0  %}
                                 {% endif %}
                                 {% for photo in photos %}
-                                    {% if forloop.counter != photos|length %}
-                                        {% include "projects/photo_tumb.html" with photo=photo.photo counter=forloop.counter  %}
-                                    {% endif %}
+                                    {% include "projects/photo_tumb.html" with photo=photo.photo counter=forloop.counter  %}
                                 {% endfor %}
                             </div>
                         </div>
