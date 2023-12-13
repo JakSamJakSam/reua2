@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-07 19:38+0200\n"
+"POT-Creation-Date: 2023-12-13 13:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,6 @@ msgid "Коди"
 msgstr "Codes"
 
 #: .\reua\admin.py:98
-#| msgid "Станції очищення води \"ReH₂O\""
 msgid "Призначення ReH₂O"
 msgstr "\"ReH₂O\" assignment"
 
@@ -634,7 +633,6 @@ msgid "Банківські реквізити"
 msgstr "Bank details"
 
 #: .\reua\models\site_models.py:250
-#| msgid "Головна"
 msgid "Заголовок"
 msgstr "Header"
 
@@ -841,19 +839,19 @@ msgstr ""
 msgid "Зробити внесок карткою"
 msgstr "Support our project"
 
-#: .\reua\templates\index\index.html:87
-msgid "млрд $"
-msgstr "billions $"
+#: .\reua\templates\index\index.html:94
+msgid "млрд"
+msgstr "billion"
 
-#: .\reua\templates\index\index.html:90
-msgid "млн $"
-msgstr "millions $"
+#: .\reua\templates\index\index.html:97
+msgid "млн"
+msgstr "million"
 
-#: .\reua\templates\index\index.html:96
+#: .\reua\templates\index\index.html:103
 msgid "міст"
 msgstr "cities"
 
-#: .\reua\templates\index\index.html:99
+#: .\reua\templates\index\index.html:106
 msgid "систем очистки води"
 msgstr "water purification systems"
 
@@ -1554,22 +1552,22 @@ msgstr "Expected"
 msgid "Оберіть зручну для вас валюту внеску."
 msgstr "Choose the payment currency convenient for you."
 
-#: .\reua\templates\payment\basic_new.html:22
+#: .\reua\templates\payment\basic_new.html:18
 #: .\reua\templates\std\payment_modal.html:25
 #: .\reua\templates\std\payment_modal_new.html:43
 msgid "На рахунок"
 msgstr "To account"
 
-#: .\reua\templates\payment\basic_new.html:33
+#: .\reua\templates\payment\basic_new.html:29
 msgid "БАНКІВСЬКІ РЕКВІЗИТИ:"
 msgstr "BANK DETAILS:"
 
-#: .\reua\templates\payment\basic_new.html:50
+#: .\reua\templates\payment\basic_new.html:46
 #: .\reua\templates\std\payment_modal_new.html:50
 msgid "На карту"
 msgstr "On card"
 
-#: .\reua\templates\payment\basic_new.html:59
+#: .\reua\templates\payment\basic_new.html:55
 #: .\reua\templates\std\payment_modal.html:43
 #: .\reua\templates\std\payment_modal_new.html:56
 msgid "Крипто-валютою"
@@ -1621,7 +1619,6 @@ msgid "Напишіть нам, якщо у вас є ідеї або пропо
 msgstr "Email us if you have ideas or suggestions"
 
 #: .\reua\templates\std\footer_new.html:37
-#| msgid "Напишіть нам, якщо у вас є ідеї або пропозиції"
 msgid "Напишіть нам, <br><span>якщо у вас є ідеї або пропозиції</span>"
 msgstr "Email us <br><span>if you have ideas or suggestions</span>"
 
