@@ -131,12 +131,12 @@ class ProjectAdmin(SummernoteModelAdminMixin, SortableAdmin):
     fieldsets = [
         ('Назва та опис', {
             'fields': [
-                'kind', 'title', 'desc', 'desc1', 'image'
+                'kind', 'title', 'desc', 'image'
             ],
         }),
         ('Назва та опис (англ)', {
             'fields': [
-                'title_en', 'desc_en', 'desc_en1'
+                'title_en', 'desc_en'
             ],
         }),
         ('Для кого', {
