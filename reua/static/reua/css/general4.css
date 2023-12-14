@@ -249,6 +249,8 @@ footer {
     border-radius: .5rem;
     padding: .425rem 1.25rem;
     display: flex;
+    flex: 0 0 auto;
+    width: 4rem;
 }
 
 .payment-logos .payment-logo img {
