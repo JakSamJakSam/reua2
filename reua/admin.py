@@ -122,12 +122,12 @@ class ProjectPhotoInline(admin.StackedInline):
     model = ProjectPhoto
 
 @admin.register(Project)
-class ProjectAdmin(SummernoteModelAdminMixin, SortableAdmin):
+class ProjectAdmin(SortableAdmin):
     inlines = [
         ProjectPhotoInline,
     ]
     list_display = ('title', 'for_city', 'for_region', 'closed')
-    summernote_fields = ('desc', 'desc_en')
+    # summernote_fields = ('desc', 'desc_en')
     fieldsets = [
         ('Назва та опис', {
             'fields': [
