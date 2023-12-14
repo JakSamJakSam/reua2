@@ -73,7 +73,9 @@ class Project(SortableMixin, models.Model):
     def localized_desc(self):
         lg = get_language()
         localized_desc = getattr(self, f'desc_{lg}', self.desc)
-        return localized_desc if localized_desc else self.desc
+        str = localized_desc if localized_desc else self.desc
+
+        return ''.join(f'<p>{s}</p>' for s in str.split('\n'))
 
     @property
     def localized_for1(self):

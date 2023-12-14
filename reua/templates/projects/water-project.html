@@ -56,7 +56,7 @@
                     {% endif %}
                 </div>
                 <div class="main__text">
-                    {{ project.localized_desc }}
+                    {{ project.localized_desc|safe }}
                 </div>
                 <div class="result">
                     <p><span>{% trans "Статус:" %}</span>
