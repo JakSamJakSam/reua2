@@ -126,22 +126,17 @@ class ProjectAdmin(SummernoteModelAdminMixin, SortableAdmin):
     inlines = [
         ProjectPhotoInline,
     ]
-    list_display = ('title', 'for_city', 'target', 'current', 'closed')
+    list_display = ('title', 'for_city', 'for_region', 'closed')
     summernote_fields = ('desc', 'desc_en')
     fieldsets = [
         ('Назва та опис', {
             'fields': [
-                'kind', 'title','short_desc', 'desc', 'image'
+                'kind', 'title', 'desc', 'desc1', 'image'
             ],
         }),
         ('Назва та опис (англ)', {
             'fields': [
-                'title_en','short_desc_en', 'desc_en'
-            ],
-        }),
-        ('Ціль', {
-            'fields': [
-                'currency', 'target', 'current', 'closed'
+                'title_en', 'desc_en', 'desc_en1'
             ],
         }),
         ('Для кого', {
@@ -156,7 +151,7 @@ class ProjectAdmin(SummernoteModelAdminMixin, SortableAdmin):
         }),
         ('Статус', {
             'fields': [
-                'status', 'status_en'
+                'closed', 'status', 'status_en'
             ],
         }),
     ]
