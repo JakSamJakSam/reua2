@@ -38,8 +38,6 @@ class Project(SortableMixin, models.Model):
 
     desc = models.TextField(verbose_name=_('Детальний опис (українською)'), blank=True)
     desc_en = models.TextField(verbose_name=_('Детальний опис (англійською)'), blank=True)
-    desc1 = models.TextField(verbose_name=_('Детальний опис (українською)'), blank=True)
-    desc_en1 = models.TextField(verbose_name=_('Детальний опис (англійською)'), blank=True)
 
     # target = models.DecimalField(verbose_name=_('Потрібно'), max_digits=13, decimal_places=0)
     # current = models.DecimalField(verbose_name=_('Зібрано'), max_digits=13, decimal_places=0, blank=True, default=0)
