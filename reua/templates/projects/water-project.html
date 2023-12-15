@@ -13,7 +13,7 @@
                         <div class="main-image">
                             {% if project.image %}
                                 {% thumbnail project.image "800" format="PNG" upscale=True crop='center' as im %}
-                                    <img src="{{ im.url }}" alt="{{ project.localized_title }}">
+                                    <img src="{{ im.url }}" alt="{{ project.localized_title }}" id="mainImage">
                                 {% endthumbnail %}
                             {% endif %}
                             <div class="wrapper_arrow" id="left">
