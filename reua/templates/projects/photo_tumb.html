@@ -1,4 +1,6 @@
 {% load thumbnail %}
 {% thumbnail photo "800" format="PNG" upscale=True crop='center' as im %}
-    <img class="slider__item" src="{{ im.url }}" alt="{{ project.localized_title }}" data-index="{{ counter }}">
+    <div class="slider__item">
+        <img class="slider__item" src="{{ im.url }}" alt="{{ project.localized_title }}" data-index="{{ counter }}">
+    </div>
 {% endthumbnail %}

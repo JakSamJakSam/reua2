@@ -1,13 +1,13 @@
 function changeImage(imageSrc) {
-	const mainImage = document.querySelector('.single__wrapper .main-image img');
-	mainImage.src = imageSrc;
-	mainImage.alt = imageSrc;
+  const mainImage = document.querySelector('.single__wrapper .main-image img');
+  mainImage.src = imageSrc;
+  mainImage.alt = imageSrc;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   const thumbnailsList = document.querySelector('.thumbnails-list');
-  const thumbnails = thumbnailsList.querySelectorAll('img');
-  let currentIndex = 0; // Изменяем начальный индекс на 0
+  const thumbnails = thumbnailsList.querySelectorAll('.slider__item');
+  let currentIndex = 0;
 
   function setActiveItem(newIndex) {
     thumbnails.forEach((thumbnail, index) => {
@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    const mainImage = document.querySelector('.main-image img');
-    mainImage.src = thumbnails[newIndex].src;
-    mainImage.alt = thumbnails[newIndex].alt;
+    const mainImage = document.getElementById('mainImage'); // Получаем элемент mainImage
+    mainImage.src = thumbnails[newIndex].querySelector('img').src; // Обращаемся к изображению внутри slider__item
+    mainImage.alt = thumbnails[newIndex].querySelector('img').alt;
   }
 
   thumbnails.forEach((thumbnail, index) => {
     thumbnail.addEventListener('click', function () {
-      const newIndex = parseInt(thumbnail.getAttribute('data-index'));
+      const newIndex = parseInt(thumbnail.querySelector('img').getAttribute('data-index'));
 
       if (newIndex !== currentIndex) {
         setActiveItem(newIndex);
@@ -49,6 +49,5 @@ document.addEventListener('DOMContentLoaded', function () {
     setActiveItem(currentIndex);
   });
 
-  // Set active thumbnail initially
   setActiveItem(currentIndex);
 });
