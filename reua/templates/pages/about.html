@@ -69,10 +69,13 @@
             <li style="width: 14rem">
                 <a href="#" class="d-block text-center text-dark text-decoration-none" data-bs-toggle="modal"
                    data-bs-target="#staff_{{ staff.pk }}">
-                    {% thumbnail staff.photo "150x150" format="PNG" upscale=True crop='center' as im %}
-                        <img src="{{ im.url }}" class="rounded-circle"
-                             alt="{{ staff.localized_name }}" width="{{ im.width }}" height="{{ im.height }}">
-                    {% endthumbnail %}
+                    {% if staff.photo %}
+                        {% thumbnail staff.photo "150x150" format="PNG" upscale=True crop='center' as im %}
+                            <img src="{{ im.url }}" class="rounded-circle"
+                                 alt="{{ staff.localized_name }}"
+                            />
+                        {% endthumbnail %}
+                    {% endif %}
                     <div class="fs-5 fw-bold">{{ staff.localized_name }}</div>
                     <div class="fst-italic">{{ staff.localized_position }}</div>
                 </a>
@@ -88,8 +91,7 @@
                             <div>
                                 {% thumbnail staff.photo "100x100" format="PNG" upscale=True crop='center' as im %}
                                     <img src="{{ im.url }}" class="rounded-circle"
-                                         alt="{{ staff.localized_name }}" width="{{ im.width }}"
-                                         height="{{ im.height }}">
+                                         alt="{{ staff.localized_name }}" >
                                 {% endthumbnail %}
                             </div>
                             <div class="ms-3">

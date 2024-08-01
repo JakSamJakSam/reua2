@@ -12,11 +12,13 @@
                     {% endif %}
                     <div class="partner mb-4 text-center">
                         {% if partner.logo %}
-                            {% thumbnail partner.logo "x80" format="PNG" as im %}
-                                <img src="{{ im.url }}"
-                                     alt="{{ partner.localized_title }}"
-                                     class="mb-4 mw-100">
-                            {% endthumbnail %}
+                            <div style="height: 80px" class="d-flex align-items-center justify-content-center mb-4">
+                                {% thumbnail partner.logo "x160" format="PNG" as im %}
+                                    <img src="{{ im.url }}"
+                                         alt="{{ partner.localized_title }}"
+                                         class="mw-100 mh-100">
+                                {% endthumbnail %}
+                            </div>
                         {% endif %}
                         <h5>{{ partner.localized_title }}</h5>
                     </div>
