@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-13 13:45+0200\n"
+"POT-Creation-Date: 2025-02-14 10:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,11 +61,11 @@ msgstr "\"ReH₂O\" assignment"
 msgid "Призначення ReCity"
 msgstr "ReCity assignment"
 
-#: .\reua\admin.py:181
+#: .\reua\admin.py:176
 msgid "Опублікувати обрані новини"
 msgstr "Publish selected news"
 
-#: .\reua\admin.py:185
+#: .\reua\admin.py:180
 msgid "Приховати обрані новини"
 msgstr "Hide selected news"
 
@@ -403,14 +403,6 @@ msgstr "For the"
 msgid "Тип"
 msgstr "Type"
 
-#: .\reua\models\projects.py:36
-msgid "Короткий опис (українською)"
-msgstr "Brief description (ukr)"
-
-#: .\reua\models\projects.py:37
-msgid "Короткий опис (англійською)"
-msgstr "Brief description (en)"
-
 #: .\reua\models\projects.py:39
 msgid "Детальний опис (українською)"
 msgstr "Detail description (ukr)"
@@ -419,21 +411,9 @@ msgstr "Detail description (ukr)"
 msgid "Детальний опис (англійською)"
 msgstr "Detail description (en)"
 
-#: .\reua\models\projects.py:42
-msgid "Потрібно"
-msgstr "Target"
-
-#: .\reua\models\projects.py:43
-msgid "Зібрано"
-msgstr "Current"
-
 #: .\reua\models\projects.py:44
 msgid "Завершено"
 msgstr "Done"
-
-#: .\reua\models\projects.py:46 .\reua\models\site_models.py:237
-msgid "Валюта"
-msgstr "Currency"
 
 #: .\reua\models\projects.py:52
 msgid "Для кого"
@@ -463,23 +443,23 @@ msgstr "Status"
 msgid "Статус (англ.)"
 msgstr "Status (en)"
 
-#: .\reua\models\projects.py:105 .\reua\models\projects.py:114
+#: .\reua\models\projects.py:107 .\reua\models\projects.py:116
 msgid "Проєкт"
 msgstr "Project"
 
-#: .\reua\models\projects.py:106
+#: .\reua\models\projects.py:108
 msgid "Проєкти"
 msgstr "Projects"
 
-#: .\reua\models\projects.py:115 .\reua\models\site_models.py:183
+#: .\reua\models\projects.py:117 .\reua\models\site_models.py:183
 msgid "Фото"
 msgstr "Photo"
 
-#: .\reua\models\projects.py:118
+#: .\reua\models\projects.py:120
 msgid "Фото проєкту"
 msgstr "Project photo"
 
-#: .\reua\models\projects.py:119
+#: .\reua\models\projects.py:121
 msgid "Фото проєктів"
 msgstr "Project fotos"
 
@@ -626,6 +606,10 @@ msgstr "Partner"
 #: .\reua\models\site_models.py:227
 msgid "Партнери"
 msgstr "Partners"
+
+#: .\reua\models\site_models.py:237
+msgid "Валюта"
+msgstr "Currency"
 
 #: .\reua\models\site_models.py:243 .\reua\models\site_models.py:244
 #: .\reua\models\site_models.py:249
@@ -1408,12 +1392,13 @@ msgid "Відеозвернення"
 msgstr "VIDEO ADDRESS"
 
 #: .\reua\templates\pages\water_new.html:71
-msgid "Вартість проєкту:"
-msgstr "Project cost:"
+#| msgid "Вартість проєкту:"
+msgid "Вартість станції:"
+msgstr "Station cost:"
 
 #: .\reua\templates\pages\water_new.html:72
-msgid "10 млн€"
-msgstr "€10 million"
+msgid "$81 000"
+msgstr ""
 
 #: .\reua\templates\pages\water_new.html:75
 #: .\reua\templates\pages\water_new.html:76
@@ -1584,7 +1569,7 @@ msgstr "Collected"
 msgid "Зробити внесок"
 msgstr "Donate"
 
-#: .\reua\templates\projects\water-project.html:64
+#: .\reua\templates\projects\water-project.html:62
 msgid "Статус:"
 msgstr "Status:"
 
@@ -1708,6 +1693,21 @@ msgid ""
 msgstr ""
 "The platform works to collect funds to solve the priority humanitarian tasks "
 "of internally displaced persons from Mariupol and Ukraine as a whole."
+
+#~ msgid "Короткий опис (українською)"
+#~ msgstr "Brief description (ukr)"
+
+#~ msgid "Короткий опис (англійською)"
+#~ msgstr "Brief description (en)"
+
+#~ msgid "Потрібно"
+#~ msgstr "Target"
+
+#~ msgid "Зібрано"
+#~ msgstr "Current"
+
+#~ msgid "10 млн€"
+#~ msgstr "€10 million"
 
 #~ msgid "Банківські реквізити (укр)"
 #~ msgstr "Bank details (ukr)"
