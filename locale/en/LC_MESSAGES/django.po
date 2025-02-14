@@ -1394,11 +1394,11 @@ msgstr "VIDEO ADDRESS"
 #: .\reua\templates\pages\water_new.html:71
 #| msgid "Вартість проєкту:"
 msgid "Вартість станції:"
-msgstr "Station cost:"
+msgstr "Total station cost:"
 
 #: .\reua\templates\pages\water_new.html:72
 msgid "$81 000"
-msgstr ""
+msgstr "$81 000"
 
 #: .\reua\templates\pages\water_new.html:75
 #: .\reua\templates\pages\water_new.html:76
