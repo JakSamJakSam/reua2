@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-14 10:46+0200\n"
+"POT-Creation-Date: 2025-02-14 11:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1388,11 +1388,10 @@ msgstr ""
 "whole                            "
 
 #: .\reua\templates\pages\water_new.html:63
-msgid "Відеозвернення"
-msgstr "VIDEO ADDRESS"
+msgid "Звіт про результати 2024–2025"
+msgstr "Impact Report 2024-2025"
 
 #: .\reua\templates\pages\water_new.html:71
-#| msgid "Вартість проєкту:"
 msgid "Вартість станції:"
 msgstr "Total station cost:"
 
@@ -1693,6 +1692,9 @@ msgid ""
 msgstr ""
 "The platform works to collect funds to solve the priority humanitarian tasks "
 "of internally displaced persons from Mariupol and Ukraine as a whole."
+
+#~ msgid "Відеозвернення"
+#~ msgstr "VIDEO ADDRESS"
 
 #~ msgid "Короткий опис (українською)"
 #~ msgstr "Brief description (ukr)"
