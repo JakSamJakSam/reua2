@@ -56,9 +56,13 @@ class IndexView(TemplateView):
             }
             for project_key, project_name in reversed(kind_project_values.items())
         }
+        # qrcodes = {
+        #     'reH2O': {'url': reverse('Pay_ReH2O'), 'color': 'var(--main-blue'},
+        #     'reCity': {'url': reverse('Pay_ReCity'), 'color': 'var(--main-yellow'},
+        # }
         qrcodes = {
-            'reH2O': {'url': reverse('Pay_ReH2O'), 'color': 'var(--main-blue'},
-            'reCity': {'url': reverse('Pay_ReCity'), 'color': 'var(--main-yellow'},
+            'reH2O': {'url': 'https://qp.payhub.com.ua/#/payment/c-103415', 'color': 'var(--main-blue'},
+            'reCity': {'url': 'https://qp.payhub.com.ua/#/payment/c-103416', 'color': 'var(--main-yellow'},
         }
         for k in qrcodes.keys():
             qrcodes[k]['img'] = get_qrcode(

@@ -40,7 +40,7 @@
                 <ul class="d-flex gap-2 list-unstyled justify-content-between">
                     {% for project_name, qr in qrcodes.items %}
                         <li class="qr-code {{ project_name }}">
-                            <a href="{{ qr.url }}" class="qrpay_button text-decoration-none">
+                            <a href="{{ qr.url }}" class="qrpay_button text-decoration-none" target="_blank">
                                 {{ qr.img|safe }}
                                 <span class="qr-title text-capitalize">
                                 {{ project_name }}
