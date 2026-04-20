@@ -176,8 +176,17 @@ footer {
     /*font-family: Intro, serif;*/
     /*font-family: Montserrat;*/
 }
+.project-name2 {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -.27rem;
+    margin: -1.0rem 0 0 -.25rem;
+    position: relative;
+    /*font-family: Intro, serif;*/
+    /*font-family: Montserrat;*/
+}
 
-.project-name:after {
+.project-name:after, .project-name2:after {
     content: '___';
     position: absolute;
     left: .25rem;
