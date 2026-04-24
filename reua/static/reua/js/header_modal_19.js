@@ -97,8 +97,12 @@ function handleBtnCityClick() {
 }
 
 // Назначение обработчиков событий
-btnReh20.addEventListener('click', handleBtnCityClick);
-btnCity.addEventListener('click', handleBtnReh20Click);
+if (btnReh20) {
+	btnReh20.addEventListener('click', handleBtnCityClick);
+}
+if (btnCity) {
+	btnCity.addEventListener('click', handleBtnReh20Click);
+}
 
 // Назначение обработчика событий для кнопок валюты "Питна вода"
 const reh20UahPayment = document.getElementById('reh20__uah__payment');
@@ -106,25 +110,33 @@ const reh20UsdPayment = document.getElementById('reh20__usd__payment');
 const reh20EurPayment = document.getElementById('reh20__eur__payment');
 const reh20GpbPayment = document.getElementById('reh20__gpb__payment');
 
-reh20UahPayment.addEventListener('click', function () {
-	activateModal('reh20__uah__modal');
-	imgReh20.classList.remove('active');
-});
+if (reh20UahPayment) {
+	reh20UahPayment.addEventListener('click', function () {
+		activateModal('reh20__uah__modal');
+		imgReh20.classList.remove('active');
+	});
+}
 
-reh20UsdPayment.addEventListener('click', function () {
-	activateModal('reh20__usd__modal');
-	imgReh20.classList.remove('active');
-});
+if (reh20UsdPayment) {
+	reh20UsdPayment.addEventListener('click', function () {
+		activateModal('reh20__usd__modal');
+		imgReh20.classList.remove('active');
+	});
+}
 
-reh20EurPayment.addEventListener('click', function () {
-	activateModal('reh20__eur__modal');
-	imgReh20.classList.remove('active');
-});
+if (reh20EurPayment) {
+	reh20EurPayment.addEventListener('click', function () {
+		activateModal('reh20__eur__modal');
+		imgReh20.classList.remove('active');
+	});
+}
 
-reh20GpbPayment.addEventListener('click', function () {
-	activateModal('reh20__gpb__modal');
-	imgReh20.classList.remove('active');
-});
+if (reh20GpbPayment) {
+	reh20GpbPayment.addEventListener('click', function () {
+		activateModal('reh20__gpb__modal');
+		imgReh20.classList.remove('active');
+	});
+}
 
 // Назначение обработчика событий для кнопок валюты "Відбудова"
 const cityUahPayment = document.getElementById('city__uah__payment');
@@ -132,25 +144,33 @@ const cityUsdPayment = document.getElementById('city__usd__payment');
 const cityEurPayment = document.getElementById('city__eur__payment');
 const cityGpbPayment = document.getElementById('city__gpb__payment');
 
-cityUahPayment.addEventListener('click', function () {
-	activateModal('city__uah__modal');
-	imgCity.classList.remove('active');
-});
+if (cityUahPayment) {
+	cityUahPayment.addEventListener('click', function () {
+		activateModal('city__uah__modal');
+		imgCity.classList.remove('active');
+	});
+}
 
-cityUsdPayment.addEventListener('click', function () {
-	activateModal('city__usd__modal');
-	imgCity.classList.remove('active');
-});
+if (cityUsdPayment) {
+	cityUsdPayment.addEventListener('click', function () {
+		activateModal('city__usd__modal');
+		imgCity.classList.remove('active');
+	});
+}
 
-cityEurPayment.addEventListener('click', function () {
-	activateModal('city__eur__modal');
-	imgCity.classList.remove('active');
-});
+if (cityEurPayment) {
+	cityEurPayment.addEventListener('click', function () {
+		activateModal('city__eur__modal');
+		imgCity.classList.remove('active');
+	});
+}
 
-cityGpbPayment.addEventListener('click', function () {
-	activateModal('city__gpb__modal');
-	imgCity.classList.remove('active');
-});
+if (cityGpbPayment) {
+	cityGpbPayment.addEventListener('click', function () {
+		activateModal('city__gpb__modal');
+		imgCity.classList.remove('active');
+	});
+}
 
 // Назначение обработчика событий для кнопки "назад" (back)
 document.querySelectorAll('.back').forEach(function (backBtn) {
