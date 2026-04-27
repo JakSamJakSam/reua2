@@ -5,83 +5,77 @@
 {% block content %}
     {{ block.super }}
     <div class="row row-cols-1 row-cols-lg-2">
-        <div class="col p-0 d-flex">
-            <div class="p-5 d-flex flex-column justify-content-center"
-                 style="background-image: url({% static "reua/img/rebuild/bg_slide1.webp" %}); background-size: cover">
-                <h3 class="text-warning fw-bold">
-                    {% blocktrans %}
-                        У наслідок повномасштабного вторгнення на початок 2023 року кількість зруйнованих будівель в
-                        Україні
-                        перевищила 140 тисяч - про це повідовим омбудсмен України. Через що близько 10 мільйонів
-                        українців
-                        вимушено виїхали за кордон.
-                    {% endblocktrans %}
-                </h3>
+        <div class="col p-0 d-flex mk-block">
+            <div class="p-5 d-flex flex-column justify-content-center w-100"
+                 style="background-image: url({% static "reua/img/mk/map.jpg" %}); background-size: cover; background-position: center;"
+            >
             </div>
         </div>
         <div class="col p-0  d-flex">
             <div class="p-5 bg-white d-flex flex-column justify-content-center">
                 <h2 class="text-primary fw-bold">
-                    {% trans "Житло для 1000 сімей за 8 місяців" %}
+                    {% trans "1. Соціальна програма повернення українців додому." %}
                 </h2>
-                <p class="fs-3">
-                    {% trans "Для вирішення проблеми - фонд створив проєкт ReCITY, у рамках якого здійснить відбудову постійного житла для ВПО." %}
+                <p class="fs-3 fw-bold text-justify">
+                    {% trans "Маріупольський квартал — це не тимчасове житло і не модульне містечко." %}<br/>
+                    {% trans "Це повноцінне міське середовище для повернення українців додому." %}
                 </p>
-                <h3 class="text-primary  fw-bold">
-                    {% trans "Мета - 40 міст на території України, кожне з яких розраховане на 1000 сімей." %}
-                </h3>
+                <p class="fs-3  text-justify">
+                    {% trans "Тут люди отримують не прихисток, а власне житло, роботу, сервіси, медицину, освіту та умови для довгострокового життя родини." %}
+                </p>
+                <p class="fs-3  text-justify fw-bold">
+                    {% trans "Проєкт створює не просто квартири, а нову якість життя — з відчуттям дому, безпеки та майбутнього в Україні." %}
+                </p>
             </div>
         </div>
         <div class="col p-0  d-flex">
             <div class="p-5 d-flex flex-column justify-content-center">
                 <h2 class="text-primary fw-bold">
-                    {% trans "КРОК 1 - ЗВЕДЕННЯ СМАРТ-МІСТА" %}
+                    {% trans "2. Дорожная карта" %}
                 </h2>
-                <h3 class="text-primary fw-bold fst-italic">
-                    {% trans "Близько 200 000 осіб безкоштовно отримають постійне житло в одному з міст." %}
-                </h3>
-                <p class="fs-4">
-                    {% trans "З метою забезпечення житлом та робочими місцями постраждалих від дій агресора, зокрема маріупольчан, було створено концепцію будівництва житлової та промислової локацій." %}
+                <p>
+                <ol class="mt-2 ms-4 ps-2 fs-4">
+                    <li>{% trans "Підготовка команди та концепції." %}</li>
+                    <li>{% trans "ТЕО та бізнес-план." %}</li>
+                    <li>{% trans "Проектування." %}</li>
+                    <li>{% trans "Дозвільна документація." %}</li>
+                    <li>{% trans "Будівництво за етапами." %}</li>
+                    <li>{% trans "Заселення." %}</li>
+                    <li>{% trans "Запуск сервісів." %}</li>
+                    <li>{% trans "Масштабування моделі." %}</li>
+                </ol>
                 </p>
-                <p class="fs-4">
-                    {% trans "Для успішної реалізації проектів, благодійний фонд зібрав кращі екологічні та інноваційно-технологічні рішення з усього світу. Над втіленням яких працюють провідні світові партнери." %}
-                </p>
-                <p class="fs-4 fst-italic">
-                    {% trans "Відбудову міст здійснить група компаній підрозділу фонду BUILDING GROUP." %}
-                </p>
-
             </div>
         </div>
         <div class="col p-0 d-flex">
-            <div class="p-5 w-100"
-                 style="background: url({% static "reua/img/rebuild/bg_slide2.webp" %}) center center no-repeat;
-                         background-size: cover; min-height: 20rem;">
+            <div class="p-5 w-100 mk-block"
+                 style="background: url({% static "reua/img/mk/schema.jpg" %}) center center no-repeat;
+                         background-size: cover;">
             </div>
         </div>
         <div class="col p-0  d-flex">
-            <div class="p-5 d-flex flex-column justify-content-center"
-                 style="background: url({% static "reua/img/rebuild/bg_slide3.webp" %}) center center no-repeat; background-size: cover">
-                <h2 class="text-white fw-bold">
-                    {% trans "КРОК 2 - ЗВЕДЕННЯ ІНДУСТРІАЛЬНОГО ХАБУ ПРИ КОЖНОМУ СМАРТ-МІСТУ" %}
-                </h2>
-                <p class="fs-4 text-white">
-                    {% trans "Повноцінне повернення до повсякденного життя внутрішньо переміщених осіб можливе лише при їх впевненості у завтрашньому дні. Це потребує розширення екосистеми містечка до створення супроводжуючого індустріального парку, який зможе забезпечити жителів постійними робочими місцями, а містечко – власним виробництвом." %}
-                </p>
-
+            <div class="p-5 d-flex flex-column justify-content-center mk-block w-100"
+                 style="background: url({% static "reua/img/mk/geo.jpg" %}) center center no-repeat; background-size: cover">
             </div>
         </div>
-        <div class="col p-0 d-flex">
-            <div class="p-5 w-100 bg-main-yellow"
-                 style="background: url({% static "reua/img/invest/invest.webp" %}) center center no-repeat;
-                         background-size: cover; min-height: 20rem;"
-                >
+        <div class="col p-0">
+            <div class="p-5 w-100">
+                <h2 class="text-primary fw-bold">
+                    {% trans "3. Ми створюємо нову модель життя для України після війни." %}
+                </h2>
+            <ul class="list-unstyled fs-4">
+                <li>{% trans "Для людей — дім." %}</li>
+                <li>{% trans "Для держави — повернення громадян." %}</li>
+                <li>{% trans "Для інвесторів — легітимний довгостроковий актив." %}</li>
+                <li>{% trans "Для України — нова модель відновлення." %}</li>
+            </ul>
             </div>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-3">
         {% for n in "123456789"|make_list %}
             {% with forloop.counter|stringformat:"d" as s %}
-                {% static "reua/img/rebuild/photo/img"|add:s|add:".webp" as img_url %}
+                {% static "reua/img/mk/photo/img"|add:s|add:".jpg" as img_url %}
                 <div class="col p-2">
                     <div class="rounded"
                          style="height: 450px; background: url({{ img_url }}) center center no-repeat; background-size: cover;">

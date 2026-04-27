@@ -284,3 +284,6 @@ footer {
     padding-right: 8px;
     padding-bottom: 4px;
 }
+.mk-block {
+    min-height: 20rem;
+}
