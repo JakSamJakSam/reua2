@@ -163,8 +163,8 @@ class WaterNewView(BreadCrumbsMixin, TemplateView):
 
 
 class RebuildView(BreadCrumbsMixin, TemplateView):
-    bc = [{'title': _("Відбудова")}]
-    page_title = _("Відбудова житла")
+    bc = [{'title': _("Маріупольський Квартал")}]
+    page_title = _("Маріупольський Квартал")
     template_name = "pages/rebuild.html"
 
 
