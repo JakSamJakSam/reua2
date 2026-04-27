@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 15:44+0300\n"
+"POT-Creation-Date: 2026-04-27 16:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -822,6 +822,18 @@ msgstr ""
 msgid "Зробити внесок карткою"
 msgstr "Support our project"
 
+#: .\reua\templates\index\index.html:80
+msgid "квартал"
+msgstr "quarter"
+
+#: .\reua\templates\index\index.html:81
+msgid "Маріупольський"
+msgstr "Mariupol"
+
+#: .\reua\templates\index\index.html:84
+msgid "Технологія"
+msgstr "Technology"
+
 #: .\reua\templates\index\index.html:103
 msgid "міст"
 msgstr "cities"
@@ -1027,19 +1039,23 @@ msgstr "1. A social program for bringing Ukrainians back home."
 
 #: .\reua\templates\pages\rebuild.html:20
 msgid "Маріупольський квартал — це не тимчасове житло і не модульне містечко."
-msgstr "Mariupol Quarter is not temporary housing and not a modular settlement."
+msgstr ""
+"Mariupol Quarter is not temporary housing and not a modular settlement."
 
 #: .\reua\templates\pages\rebuild.html:21
 msgid "Це повноцінне міське середовище для повернення українців додому."
-msgstr "It is a fully functional urban environment designed to bring Ukrainians back home."
+msgstr ""
+"It is a fully functional urban environment designed to bring Ukrainians back "
+"home."
 
 #: .\reua\templates\pages\rebuild.html:24
 msgid ""
 "Тут люди отримують не прихисток, а власне житло, роботу, сервіси, медицину, "
 "освіту та умови для довгострокового життя родини."
 msgstr ""
-"Here, people receive not shelter, but their own homes, jobs, services, healthcare, "
-"education, and the conditions for long-term family life."
+"Here, people receive not shelter, but their own homes, jobs, services, "
+"healthcare, education, and the conditions for long-term family life."
+
 #: .\reua\templates\pages\rebuild.html:27
 msgid ""
 "Проєкт створює не просто квартири, а нову якість життя — з відчуттям дому, "
@@ -1047,6 +1063,7 @@ msgid ""
 msgstr ""
 "The project creates not just apartments, but a new quality of life — with a "
 "sense of home, security, and a future in Ukraine."
+
 #: .\reua\templates\pages\rebuild.html:34
 msgid "2. Дорожная карта"
 msgstr "2. Roadmap"
@@ -1619,7 +1636,7 @@ msgstr "Who are we?"
 
 #: .\reua\views\general.py:166 .\reua\views\general.py:167
 msgid "Маріупольський Квартал"
-msgstr ""
+msgstr "Mariupol Quarter"
 
 #: .\reua\views\general.py:172 .\reua\views\general.py:173
 msgid "Контакти"
