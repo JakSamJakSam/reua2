@@ -7,7 +7,7 @@
     <div class="row row-cols-1 row-cols-lg-2">
         <div class="col p-0 d-flex mk-block">
             <div class="p-5 d-flex flex-column justify-content-center w-100"
-                 style="background-image: url({% static "reua/img/mk/map.jpg" %}); background-size: cover; background-position: center;"
+                 style="background-image: url({% static "reua/img/mk/map.webp" %}); background-size: cover; background-position: center;"
             >
             </div>
         </div>
@@ -49,13 +49,13 @@
         </div>
         <div class="col p-0 d-flex">
             <div class="p-5 w-100 mk-block"
-                 style="background: url({% static "reua/img/mk/schema.jpg" %}) center center no-repeat;
+                 style="background: url({% static "reua/img/mk/schema.webp" %}) center center no-repeat;
                          background-size: cover;">
             </div>
         </div>
         <div class="col p-0  d-flex">
             <div class="p-5 d-flex flex-column justify-content-center mk-block w-100"
-                 style="background: url({% static "reua/img/mk/geo.jpg" %}) center center no-repeat; background-size: cover">
+                 style="background: url({% static "reua/img/mk/geo.webp" %}) center center no-repeat; background-size: cover">
             </div>
         </div>
         <div class="col p-0">
@@ -75,7 +75,7 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-3">
         {% for n in "123456789"|make_list %}
             {% with forloop.counter|stringformat:"d" as s %}
-                {% static "reua/img/mk/photo/img"|add:s|add:".jpg" as img_url %}
+                {% static "reua/img/mk/photo/img"|add:s|add:".webp" as img_url %}
                 <div class="col p-2">
                     <div class="rounded"
                          style="height: 450px; background: url({{ img_url }}) center center no-repeat; background-size: cover;">
