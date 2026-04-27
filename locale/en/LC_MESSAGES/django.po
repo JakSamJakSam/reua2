@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-14 11:23+0200\n"
+"POT-Creation-Date: 2026-04-27 15:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,14 +69,13 @@ msgstr "Publish selected news"
 msgid "Приховати обрані новини"
 msgstr "Hide selected news"
 
-#: .\reua\context_processors.py:29 .\reua\views\general.py:119
-#: .\reua\views\general.py:120 .\reua\views\general.py:144
-#: .\reua\views\general.py:145 .\reua\views\general.py:212
+#: .\reua\context_processors.py:29 .\reua\views\general.py:123
+#: .\reua\views\general.py:124 .\reua\views\general.py:148
+#: .\reua\views\general.py:149 .\reua\views\general.py:216
 msgid "Питна вода"
 msgstr "Water"
 
-#: .\reua\context_processors.py:38 .\reua\views\general.py:162
-#: .\reua\views\general.py:253
+#: .\reua\context_processors.py:38 .\reua\views\general.py:257
 msgid "Відбудова"
 msgstr "Rebuilding"
 
@@ -823,14 +822,6 @@ msgstr ""
 msgid "Зробити внесок карткою"
 msgstr "Support our project"
 
-#: .\reua\templates\index\index.html:94
-msgid "млрд"
-msgstr "billion"
-
-#: .\reua\templates\index\index.html:97
-msgid "млн"
-msgstr "million"
-
 #: .\reua\templates\index\index.html:103
 msgid "міст"
 msgstr "cities"
@@ -912,116 +903,113 @@ msgstr "Follow our news on social networks"
 
 #: .\reua\templates\pages\about.html:14
 msgid ""
-"Український благодійний фонд «Відбудуємо нашу Україну» - створений від "
-"початку повномасштабного вторгнення."
+"\n"
+"                            Український благодійний фонд\n"
+"                            <b>«Відбудуємо нашу Україну»</b>\n"
+"                            був створений від початку повномасштабного "
+"вторгнення як відповідь на виклики війни та\n"
+"                            потребу допомагати людям у найскладніших "
+"умовах.\n"
+"                        "
 msgstr ""
-"\"REBUILD OUR UKRAINE\" charitable foundation - is a response to the "
-"challenges that Ukraine faced."
 
-#: .\reua\templates\pages\about.html:17
+#: .\reua\templates\pages\about.html:22
 msgid ""
-"Засновник та директор фонду - Олег Кленін. Маріупольчанин з відомим для "
-"Маріуполя ім'ям та власною історією цієї війни."
+"\n"
+"                            Засновник фонду — <b>Олег Кленін</b>,\n"
+"                            маріуполець із відомим для міста ім’ям та "
+"особистою історією, нерозривно пов’язаною з цією\n"
+"                            війною.\n"
+"                        "
 msgstr ""
-"The initiator of the foundation is Oleg Klenin, from city of Mariupol, a "
-"symbol of the indomitable Ukrainian resistance, a city that suffered "
-"critical destruction and became the center of the largest humanitarian "
-"disaster in modern Ukraine."
 
-#: .\reua\templates\pages\about.html:26
+#: .\reua\templates\pages\about.html:35
+#, fuzzy
+#| msgid ""
+#| "Трагедія Маріуполя спонукала Олега Кленіна об'єднати навколо фонду "
+#| "провідних національних і світових партнерів та розпочати відбудову на "
+#| "території України."
 msgid ""
-"Трагедія Маріуполя спонукала Олега Кленіна об'єднати навколо фонду провідних "
-"національних і світових партнерів та розпочати відбудову на території "
-"України."
+"Трагедія Маріуполя стала поштовхом для Олега Кленіна об’єднати навколо фонду "
+"провідних національних і міжнародних партнерів і розпочати системну роботу з "
+"відновлення України."
 msgstr ""
 "Oleg Klenin gathered around him like-minded, professionals, caring people "
 "with an active public position."
 
-#: .\reua\templates\pages\about.html:32
-msgid "Будь-який внесок – це безцінна допомога для постраждалих."
-msgstr ""
-"Each contribution is a chance to make an impact on the development of "
-"society."
+#: .\reua\templates\pages\about.html:41 .\reua\views\general.py:111
+msgid "Про фонд"
+msgstr "About fund"
 
-#: .\reua\templates\pages\about.html:34
+#: .\reua\templates\pages\about.html:43
 msgid ""
 "\n"
-"            <b>Мета фонду</b> - відбудова міст на території України з повним "
-"інфраструктурним комплексом та належним\n"
-"            рівнем\n"
-"            безпеки населеністю в 1000 сімей. Зведення поблизу кожного смарт-"
-"міста індустріального хабу, який\n"
-"            гарантовано забезпечуватиме мешканців робочими місцями. Завдяки "
-"експертності у питанні водопостачання, а\n"
-"            саме власній запатентованій технології, фонд гарантує "
-"цілодобовий доступ до чистої питної води кожному з\n"
-"            міст. Мешканцями яких стануть ті, хто втратив своє житло через "
-"дії російської агресії, <b>зокрема\n"
-"            маріупольчани</b>.\n"
+"            Мета фонду — створити повноцінну інвестиційну платформу для "
+"відбудови України через будівництво нових\n"
+"            сучасних кварталів, повернення українців додому та масштабування "
+"цієї моделі по всій країні.\n"
 "        "
 msgstr ""
-"\n"
-"            <b>The goal of our Foundation </b> - is the construction of "
-"modern settlements for people affected by the war, with a full-fledged "
-"infrastructure complex, which includes the use of innovative technologies "
-"for the construction of housing allowing for efficient use of water and "
-"energy, and solving environmental issues. We not only build housing for "
-"people, we create a new environment for the maximum expressionof human "
-"potential. We also create places for education, work, recreation and "
-"prerequisites for the development of human creative potential.        "
 
-#: .\reua\templates\pages\about.html:45
+#: .\reua\templates\pages\about.html:49
 msgid ""
 "\n"
-"            БФ «Відбудуємо нашу Україну» виступає стратегічним партнером "
-"Національної академії наук та найкомпетентніших\n"
-"            у своїй галузі українських та європейських компаній, які "
-"долучені до відбудови.\n"
+"            Фонд Rebuild Our Ukraine ініціює проєкт «Маріупольський квартал» "
+"як практичну модель\n"
+"            післявоєнного відновлення: не тимчасове житло, не модульне "
+"містечко, а повноцінне міське середовище,\n"
+"            де люди отримують дім, роботу, сервіси, освіту, медицину та "
+"можливість будувати майбутнє на рідній землі.\n"
 "        "
 msgstr ""
-"\n"
-"            The goal that we set for ourselves in the implementation of our "
-"projects is not only the solution ofissues of survival, but also creating "
-"significant improvements to the quality of life in new environment. That is "
-"why we collaborate with the best scientists of the country, the most "
-"powerful global partners and employ state-of-the-art technologies.        "
-
-#: .\reua\templates\pages\about.html:50
-msgid ""
-"Першочергова мета – зведення 40 міст, в яких проживатиме близько 200 000 ВПО."
-msgstr ""
-"The primary goal is the construction of 40 cities in which about 200,000 "
-"IDPs will live."
-
-#: .\reua\templates\pages\about.html:51
-msgid "Напрямки діяльності/проєкти фонду:"
-msgstr "Areas of activity:"
-
-#: .\reua\templates\pages\about.html:55
-msgid "ПРОЄКТ ReH2O"
-msgstr "ReH2O Project"
 
 #: .\reua\templates\pages\about.html:56
 msgid ""
-"Здійснює постачання безкоштовної питної води, завдяки унікальній "
-"високотехнологічній водоочисній станції."
+"\n"
+"            Наша стратегічна ціль — залучити державних партнерів, "
+"міжнародних донорів, приватних інвесторів,\n"
+"            громади та бізнес до створення нових житлово-інфраструктурних "
+"кварталів по всій території України.\n"
+"        "
 msgstr ""
-"Provides free drinking water thanks to a unique high-tech water purification "
-"station."
-
-#: .\reua\templates\pages\about.html:61
-msgid "ПРОЄКТ ReCITY"
-msgstr "ReCITY project"
 
 #: .\reua\templates\pages\about.html:62
 msgid ""
-"Реалізовує відбудову смарт-міст по всій території України для внутрішньо "
-"переміщених осіб."
+"\n"
+"            «Маріупольський квартал» — це пілотна модель, яку можна "
+"масштабувати в інших регіонах країни за\n"
+"            участю всіх зацікавлених державних, громадських і приватних "
+"партнерів.\n"
+"        "
 msgstr ""
-"Implements the reconstruction of smart cities throughout the territory of "
-"Ukraine for internally displaced persons."
 
-#: .\reua\templates\pages\about.html:66
+#: .\reua\templates\pages\about.html:71
+msgid ""
+"\n"
+"                        Основний напрям діяльності фонду — створення системи "
+"децентралізованого водопостачання України,\n"
+"                        що забезпечує людей чистою питною водою. Для "
+"реалізації проєкту вибудовується довгострокова\n"
+"                        бізнес-модель із залученням інвесторів та "
+"міжнародних партнерів.\n"
+"                    "
+msgstr ""
+
+#: .\reua\templates\pages\about.html:82
+msgid ""
+"\n"
+"                        Фонд створює не один житловий проєкт, а нову модель "
+"відновлення України.\n"
+"                        люди повертаються додому;\n"
+"                        держава отримує інструмент демографічного "
+"відновлення;\n"
+"                        інвестори отримують довгостроковий інфраструктурний "
+"актив;\n"
+"                        Україна отримує масштабований механізм відбудови.\n"
+"                    "
+msgstr ""
+
+#: .\reua\templates\pages\about.html:93
 msgid "Команда"
 msgstr "Team"
 
@@ -1033,99 +1021,87 @@ msgstr "Download"
 msgid "Зачекайте будь-ласка..."
 msgstr "Please wait..."
 
-#: .\reua\templates\pages\rebuild.html:12
-msgid ""
-"\n"
-"                        У наслідок повномасштабного вторгнення на початок "
-"2023 року кількість зруйнованих будівель в\n"
-"                        Україні\n"
-"                        перевищила 140 тисяч - про це повідовим омбудсмен "
-"України. Через що близько 10 мільйонів\n"
-"                        українців\n"
-"                        вимушено виїхали за кордон.\n"
-"                    "
-msgstr ""
-"\n"
-"Because of the armed aggression of the Russian Federation against Ukraine, a "
-"significant number of residents of the city of Mariupol were left without "
-"housing and were forced to move to other regions of "
-"Ukraine.                                        "
+#: .\reua\templates\pages\rebuild.html:17
+msgid "1. Соціальна програма повернення українців додому."
+msgstr "1. A social program for bringing Ukrainians back home."
 
-#: .\reua\templates\pages\rebuild.html:25
-msgid "Житло для 1000 сімей за 8 місяців"
-msgstr "Housing for 1000 families in 8 months"
+#: .\reua\templates\pages\rebuild.html:20
+msgid "Маріупольський квартал — це не тимчасове житло і не модульне містечко."
+msgstr "Mariupol Quarter is not temporary housing and not a modular settlement."
 
-#: .\reua\templates\pages\rebuild.html:28
-msgid ""
-"Для вирішення проблеми - фонд створив проєкт ReCITY, у рамках якого "
-"здійснить відбудову постійного житла для ВПО."
-msgstr ""
-"To solve the problem, the fund created the ReCITY project, within the "
-"framework of which it will rebuild permanent housing for IDPs."
+#: .\reua\templates\pages\rebuild.html:21
+msgid "Це повноцінне міське середовище для повернення українців додому."
+msgstr "It is a fully functional urban environment designed to bring Ukrainians back home."
 
-#: .\reua\templates\pages\rebuild.html:31
+#: .\reua\templates\pages\rebuild.html:24
 msgid ""
-"Мета - 40 міст на території України, кожне з яких розраховане на 1000 сімей."
+"Тут люди отримують не прихисток, а власне житло, роботу, сервіси, медицину, "
+"освіту та умови для довгострокового життя родини."
 msgstr ""
-"The goal is 40 cities on the territory of Ukraine, each of which is designed "
-"for 1,000 families."
+"Here, people receive not shelter, but their own homes, jobs, services, healthcare, "
+"education, and the conditions for long-term family life."
+#: .\reua\templates\pages\rebuild.html:27
+msgid ""
+"Проєкт створює не просто квартири, а нову якість життя — з відчуттям дому, "
+"безпеки та майбутнього в Україні."
+msgstr ""
+"The project creates not just apartments, but a new quality of life — with a "
+"sense of home, security, and a future in Ukraine."
+#: .\reua\templates\pages\rebuild.html:34
+msgid "2. Дорожная карта"
+msgstr "2. Roadmap"
 
 #: .\reua\templates\pages\rebuild.html:38
-msgid "КРОК 1 - ЗВЕДЕННЯ СМАРТ-МІСТА"
-msgstr "STEP 1 - BUILDING A SMART CITY"
+msgid "Підготовка команди та концепції."
+msgstr "Formation of the project team and concept. "
+
+#: .\reua\templates\pages\rebuild.html:39
+msgid "ТЕО та бізнес-план."
+msgstr "Feasibility study and business plan."
+
+#: .\reua\templates\pages\rebuild.html:40
+msgid "Проектування."
+msgstr "Design and planning."
 
 #: .\reua\templates\pages\rebuild.html:41
-msgid ""
-"Близько 200 000 осіб безкоштовно отримають постійне житло в одному з міст."
-msgstr ""
-"About 200,000 people will receive free permanent housing in one of the "
-"cities."
+msgid "Дозвільна документація."
+msgstr "Permitting documentation."
+
+#: .\reua\templates\pages\rebuild.html:42
+msgid "Будівництво за етапами."
+msgstr "Phased construction."
+
+#: .\reua\templates\pages\rebuild.html:43
+msgid "Заселення."
+msgstr "Resident settlement."
 
 #: .\reua\templates\pages\rebuild.html:44
-msgid ""
-"З метою забезпечення житлом та робочими місцями постраждалих від дій "
-"агресора, зокрема маріупольчан, було створено концепцію будівництва житлової "
-"та промислової локацій."
-msgstr ""
-"In order to provide housing and jobs to the victims of the aggressor's "
-"actions, in particular the residents of Mariupol, the concept of building "
-"residential and industrial locations was created."
+msgid "Запуск сервісів."
+msgstr "Launch of services."
 
-#: .\reua\templates\pages\rebuild.html:47
-msgid ""
-"Для успішної реалізації проектів, благодійний фонд зібрав кращі екологічні "
-"та інноваційно-технологічні рішення з усього світу. Над втіленням яких "
-"працюють провідні світові партнери."
-msgstr ""
-"For the successful implementation of projects, the charitable foundation has "
-"collected the best ecological and innovative technological solutions from "
-"around the world. The world's leading partners are working on their "
-"implementation."
+#: .\reua\templates\pages\rebuild.html:45
+msgid "Масштабування моделі."
+msgstr "Scaling of the model."
 
-#: .\reua\templates\pages\rebuild.html:50
-msgid ""
-"Відбудову міст здійснить група компаній підрозділу фонду BUILDING GROUP."
-msgstr ""
-"The reconstruction of cities will be carried out by a group of companies of "
-"the division of the BUILDING GROUP fund."
+#: .\reua\templates\pages\rebuild.html:64
+msgid "3. Ми створюємо нову модель життя для України після війни."
+msgstr "3.  We are creating a new model of life for post-war Ukraine."
 
-#: .\reua\templates\pages\rebuild.html:65
-msgid "КРОК 2 - ЗВЕДЕННЯ ІНДУСТРІАЛЬНОГО ХАБУ ПРИ КОЖНОМУ СМАРТ-МІСТУ"
-msgstr "STEP 2 - BUILDING AN INDUSTRIAL HUB AT EACH SMART CITY"
+#: .\reua\templates\pages\rebuild.html:67
+msgid "Для людей — дім."
+msgstr "For people — a home."
 
 #: .\reua\templates\pages\rebuild.html:68
-msgid ""
-"Повноцінне повернення до повсякденного життя внутрішньо переміщених осіб "
-"можливе лише при їх впевненості у завтрашньому дні. Це потребує розширення "
-"екосистеми містечка до створення супроводжуючого індустріального парку, який "
-"зможе забезпечити жителів постійними робочими місцями, а містечко – власним "
-"виробництвом."
-msgstr ""
-"A full return to the daily life of internally displaced persons is possible "
-"only if they have confidence in the future. This requires the expansion of "
-"the town's ecosystem to the creation of an accompanying industrial park, "
-"which will be able to provide residents with permanent jobs, and the town "
-"with its own production."
+msgid "Для держави — повернення громадян."
+msgstr "For the state — the return of its citizens."
+
+#: .\reua\templates\pages\rebuild.html:69
+msgid "Для інвесторів — легітимний довгостроковий актив."
+msgstr "For investors — a legitimate long-term asset."
+
+#: .\reua\templates\pages\rebuild.html:70
+msgid "Для України — нова модель відновлення."
+msgstr "For Ukraine — a new model of recovery."
 
 #: .\reua\templates\pages\water.html:10
 msgid "Забезпечення чистою питною водою населення України"
@@ -1396,7 +1372,9 @@ msgid "Вартість станції:"
 msgstr "Total station cost:"
 
 #: .\reua\templates\pages\water_new.html:72
-msgid "$81 000"
+#, fuzzy
+#| msgid "$81 000"
+msgid "$90 000"
 msgstr "$81 000"
 
 #: .\reua\templates\pages\water_new.html:75
@@ -1562,9 +1540,8 @@ msgid "Зібрано: "
 msgstr "Collected"
 
 #: .\reua\templates\projects\common-list.html:50
-#: .\reua\templates\std\menu.html:35 .\reua\templates\std\new_menu.html:50
-#: .\reua\templates\std\new_menu.html:57 .\reua\views\general.py:189
-#: .\reua\views\general.py:231
+#: .\reua\templates\std\menu.html:35 .\reua\views\general.py:193
+#: .\reua\views\general.py:235
 msgid "Зробити внесок"
 msgstr "Donate"
 
@@ -1589,7 +1566,7 @@ msgstr "E-Mail"
 
 #: .\reua\templates\std\feedback_form.html:38
 #: .\reua\templates\std\feedback_form_new.html:34
-#: .\reua\templates\std\feedback_form_new.html:40
+#: .\reua\templates\std\feedback_form_new.html:43
 msgid "Надіслати"
 msgstr "Send"
 
@@ -1632,27 +1609,23 @@ msgstr "Apply"
 msgid "Додано компанію до групи компаній"
 msgstr "Added the company to the company group"
 
-#: .\reua\views\general.py:85
+#: .\reua\views\general.py:89
 msgid "Отримано повідомлення"
 msgstr "Message received"
 
-#: .\reua\views\general.py:107
-msgid "Про фонд"
-msgstr "About fund"
-
-#: .\reua\views\general.py:108
+#: .\reua\views\general.py:112
 msgid "Хто ми?"
 msgstr "Who are we?"
 
-#: .\reua\views\general.py:163
-msgid "Відбудова житла"
-msgstr "Housing reconstruction"
+#: .\reua\views\general.py:166 .\reua\views\general.py:167
+msgid "Маріупольський Квартал"
+msgstr ""
 
-#: .\reua\views\general.py:168 .\reua\views\general.py:169
+#: .\reua\views\general.py:172 .\reua\views\general.py:173
 msgid "Контакти"
 msgstr "Contacts"
 
-#: .\reua\views\general.py:195
+#: .\reua\views\general.py:199
 msgid ""
 "Дякуємо, що ви готові підтримати наш проект з чистої води для мешканців "
 "України!"
@@ -1660,7 +1633,7 @@ msgstr ""
 "Thank you for being ready to support our clean water project for the "
 "residents of Ukraine!"
 
-#: .\reua\views\general.py:237
+#: .\reua\views\general.py:241
 msgid ""
 "Дякуємо, що ви готові підтримати наш проект з відбудови житла для мешканців "
 "України!"
@@ -1692,6 +1665,192 @@ msgid ""
 msgstr ""
 "The platform works to collect funds to solve the priority humanitarian tasks "
 "of internally displaced persons from Mariupol and Ukraine as a whole."
+
+#~ msgid "млрд"
+#~ msgstr "billion"
+
+#~ msgid "млн"
+#~ msgstr "million"
+
+#~ msgid ""
+#~ "Український благодійний фонд «Відбудуємо нашу Україну» - створений від "
+#~ "початку повномасштабного вторгнення."
+#~ msgstr ""
+#~ "\"REBUILD OUR UKRAINE\" charitable foundation - is a response to the "
+#~ "challenges that Ukraine faced."
+
+#~ msgid ""
+#~ "Засновник та директор фонду - Олег Кленін. Маріупольчанин з відомим для "
+#~ "Маріуполя ім'ям та власною історією цієї війни."
+#~ msgstr ""
+#~ "The initiator of the foundation is Oleg Klenin, from city of Mariupol, a "
+#~ "symbol of the indomitable Ukrainian resistance, a city that suffered "
+#~ "critical destruction and became the center of the largest humanitarian "
+#~ "disaster in modern Ukraine."
+
+#~ msgid "Будь-який внесок – це безцінна допомога для постраждалих."
+#~ msgstr ""
+#~ "Each contribution is a chance to make an impact on the development of "
+#~ "society."
+
+#~ msgid ""
+#~ "\n"
+#~ "            <b>Мета фонду</b> - відбудова міст на території України з "
+#~ "повним інфраструктурним комплексом та належним\n"
+#~ "            рівнем\n"
+#~ "            безпеки населеністю в 1000 сімей. Зведення поблизу кожного "
+#~ "смарт-міста індустріального хабу, який\n"
+#~ "            гарантовано забезпечуватиме мешканців робочими місцями. "
+#~ "Завдяки експертності у питанні водопостачання, а\n"
+#~ "            саме власній запатентованій технології, фонд гарантує "
+#~ "цілодобовий доступ до чистої питної води кожному з\n"
+#~ "            міст. Мешканцями яких стануть ті, хто втратив своє житло "
+#~ "через дії російської агресії, <b>зокрема\n"
+#~ "            маріупольчани</b>.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "            <b>The goal of our Foundation </b> - is the construction of "
+#~ "modern settlements for people affected by the war, with a full-fledged "
+#~ "infrastructure complex, which includes the use of innovative technologies "
+#~ "for the construction of housing allowing for efficient use of water and "
+#~ "energy, and solving environmental issues. We not only build housing for "
+#~ "people, we create a new environment for the maximum expressionof human "
+#~ "potential. We also create places for education, work, recreation and "
+#~ "prerequisites for the development of human creative potential.        "
+
+#~ msgid ""
+#~ "\n"
+#~ "            БФ «Відбудуємо нашу Україну» виступає стратегічним партнером "
+#~ "Національної академії наук та найкомпетентніших\n"
+#~ "            у своїй галузі українських та європейських компаній, які "
+#~ "долучені до відбудови.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "            The goal that we set for ourselves in the implementation of "
+#~ "our projects is not only the solution ofissues of survival, but also "
+#~ "creating significant improvements to the quality of life in new "
+#~ "environment. That is why we collaborate with the best scientists of the "
+#~ "country, the most powerful global partners and employ state-of-the-art "
+#~ "technologies.        "
+
+#~ msgid ""
+#~ "Першочергова мета – зведення 40 міст, в яких проживатиме близько 200 000 "
+#~ "ВПО."
+#~ msgstr ""
+#~ "The primary goal is the construction of 40 cities in which about 200,000 "
+#~ "IDPs will live."
+
+#~ msgid "Напрямки діяльності/проєкти фонду:"
+#~ msgstr "Areas of activity:"
+
+#~ msgid "ПРОЄКТ ReH2O"
+#~ msgstr "ReH2O Project"
+
+#~ msgid ""
+#~ "Здійснює постачання безкоштовної питної води, завдяки унікальній "
+#~ "високотехнологічній водоочисній станції."
+#~ msgstr ""
+#~ "Provides free drinking water thanks to a unique high-tech water "
+#~ "purification station."
+
+#~ msgid "ПРОЄКТ ReCITY"
+#~ msgstr "ReCITY project"
+
+#~ msgid ""
+#~ "Реалізовує відбудову смарт-міст по всій території України для внутрішньо "
+#~ "переміщених осіб."
+#~ msgstr ""
+#~ "Implements the reconstruction of smart cities throughout the territory of "
+#~ "Ukraine for internally displaced persons."
+
+#~ msgid ""
+#~ "\n"
+#~ "                        У наслідок повномасштабного вторгнення на початок "
+#~ "2023 року кількість зруйнованих будівель в\n"
+#~ "                        Україні\n"
+#~ "                        перевищила 140 тисяч - про це повідовим омбудсмен "
+#~ "України. Через що близько 10 мільйонів\n"
+#~ "                        українців\n"
+#~ "                        вимушено виїхали за кордон.\n"
+#~ "                    "
+#~ msgstr ""
+#~ "\n"
+#~ "Because of the armed aggression of the Russian Federation against "
+#~ "Ukraine, a significant number of residents of the city of Mariupol were "
+#~ "left without housing and were forced to move to other regions of "
+#~ "Ukraine.                                        "
+
+#~ msgid "Житло для 1000 сімей за 8 місяців"
+#~ msgstr "Housing for 1000 families in 8 months"
+
+#~ msgid ""
+#~ "Для вирішення проблеми - фонд створив проєкт ReCITY, у рамках якого "
+#~ "здійснить відбудову постійного житла для ВПО."
+#~ msgstr ""
+#~ "To solve the problem, the fund created the ReCITY project, within the "
+#~ "framework of which it will rebuild permanent housing for IDPs."
+
+#~ msgid ""
+#~ "Мета - 40 міст на території України, кожне з яких розраховане на 1000 "
+#~ "сімей."
+#~ msgstr ""
+#~ "The goal is 40 cities on the territory of Ukraine, each of which is "
+#~ "designed for 1,000 families."
+
+#~ msgid "КРОК 1 - ЗВЕДЕННЯ СМАРТ-МІСТА"
+#~ msgstr "STEP 1 - BUILDING A SMART CITY"
+
+#~ msgid ""
+#~ "Близько 200 000 осіб безкоштовно отримають постійне житло в одному з міст."
+#~ msgstr ""
+#~ "About 200,000 people will receive free permanent housing in one of the "
+#~ "cities."
+
+#~ msgid ""
+#~ "З метою забезпечення житлом та робочими місцями постраждалих від дій "
+#~ "агресора, зокрема маріупольчан, було створено концепцію будівництва "
+#~ "житлової та промислової локацій."
+#~ msgstr ""
+#~ "In order to provide housing and jobs to the victims of the aggressor's "
+#~ "actions, in particular the residents of Mariupol, the concept of building "
+#~ "residential and industrial locations was created."
+
+#~ msgid ""
+#~ "Для успішної реалізації проектів, благодійний фонд зібрав кращі "
+#~ "екологічні та інноваційно-технологічні рішення з усього світу. Над "
+#~ "втіленням яких працюють провідні світові партнери."
+#~ msgstr ""
+#~ "For the successful implementation of projects, the charitable foundation "
+#~ "has collected the best ecological and innovative technological solutions "
+#~ "from around the world. The world's leading partners are working on their "
+#~ "implementation."
+
+#~ msgid ""
+#~ "Відбудову міст здійснить група компаній підрозділу фонду BUILDING GROUP."
+#~ msgstr ""
+#~ "The reconstruction of cities will be carried out by a group of companies "
+#~ "of the division of the BUILDING GROUP fund."
+
+#~ msgid "КРОК 2 - ЗВЕДЕННЯ ІНДУСТРІАЛЬНОГО ХАБУ ПРИ КОЖНОМУ СМАРТ-МІСТУ"
+#~ msgstr "STEP 2 - BUILDING AN INDUSTRIAL HUB AT EACH SMART CITY"
+
+#~ msgid ""
+#~ "Повноцінне повернення до повсякденного життя внутрішньо переміщених осіб "
+#~ "можливе лише при їх впевненості у завтрашньому дні. Це потребує "
+#~ "розширення екосистеми містечка до створення супроводжуючого "
+#~ "індустріального парку, який зможе забезпечити жителів постійними робочими "
+#~ "місцями, а містечко – власним виробництвом."
+#~ msgstr ""
+#~ "A full return to the daily life of internally displaced persons is "
+#~ "possible only if they have confidence in the future. This requires the "
+#~ "expansion of the town's ecosystem to the creation of an accompanying "
+#~ "industrial park, which will be able to provide residents with permanent "
+#~ "jobs, and the town with its own production."
+
+#~ msgid "Відбудова житла"
+#~ msgstr "Housing reconstruction"
 
 #~ msgid "Відеозвернення"
 #~ msgstr "VIDEO ADDRESS"
