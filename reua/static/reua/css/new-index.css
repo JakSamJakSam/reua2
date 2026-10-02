@@ -1,0 +1,57 @@
+.text-with-bg {
+  position: relative;
+  isolation: isolate;
+  padding: 30px;
+  color: white;
+}
+
+.text-with-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: rgba(15, 31, 61, 1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-radius: 30px;
+
+  /* мягкое исчезновение по краям */
+  mask-image: radial-gradient(
+    ellipse,
+    #000 45%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse,
+    #000 45%,
+    transparent 100%
+  );
+}
+.stats-list .stats-item{
+    position: relative;
+    max-width: 28rem;
+}
+.stats-list .stats-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: #ccc;
+}
+.stats-list .icon {
+    color: var(--main_blue);
+}
+
+.stats-list .stats-item .header {
+    line-height: 1.0;
+    margin-bottom: 0.5rem;
+    color: var(--dark_blue)
+}
+.stats-list .stats-item .text {
+    line-height: 1.0;
+    margin-bottom: 0.5rem;
+}

@@ -73,6 +73,20 @@ class IndexView(TemplateView):
 
         return ctx
 
+class NewIndexView(TemplateView):
+    template_name = 'index/new_index.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['stats'] = [
+            {'title': 'Встановлені станції', 'value': 23, 'icon': 'fa-solid fa-gear'},
+            {'title': 'Регіонів України', 'value': 10, 'icon': 'fa-solid fa-location-dot'},
+            {'title': 'Людей вже отримали доступ до безпечної питної води', 'value': "700 000", 'icon': 'fa-solid fa-users', 'need_do': True},
+            {'title': 'літрів на добу потужність однієї системи', 'value': "100 000", 'icon': 'fa-solid fa-hand-holding-droplet', 'need_do': True},
+            {'title': 'Ресурс експлуатації', 'value': "15 років", 'icon': 'fa-solid fa-clipboard-list', 'need_do': True},
+        ]
+        return ctx
+
 
 class FeedbackFormView(FormView):
     form_class = FeedbackForm

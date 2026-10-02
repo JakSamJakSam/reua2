@@ -1,13 +1,14 @@
 from .views import *
 from django.urls import path, include
 
-from .views.general import WaterNewView
+from .views.general import WaterNewView, NewIndexView
 from .views.projects import DetailWaterProjectView
 
 # app_name = 'reua'
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
+    path('new-index/', NewIndexView.as_view(), name='new-index'),
     path('feedback/', FeedbackFormView.as_view(), name='feedback'),
     path('company/', ListCompanyView.as_view(), name='company-list'),
     path('company/<int:pk>/', DetailCompanyView.as_view(), name='company-item'),

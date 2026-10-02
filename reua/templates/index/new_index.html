@@ -1,0 +1,69 @@
+{% extends "reua_base.html" %}
+{% load thumbnail %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {% trans "Головна сторінка" %}
+{% endblock %}
+{% block css %}
+    {{ block.super }}
+    <link href="{% static "reua/css/new-index.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block menu %}
+    {% include 'std/new_menu.html' with is_index=True %}
+{% endblock %}
+{% block body %}
+    <section class="landing_block position-relative">
+        <div class="under_header"></div>
+        <div class="container-fluid p-4"
+             style="background-image: url('{% static 'reua/img/new2026-10/reua1.png' %}'); background-size: cover; background-position: left top;">
+            <div class="row m-5">
+                <div class="col md-6 text-white p-5">
+                    <div class="text-with-bg">
+                        <h4 class="text-white text-uppercase" style="letter-spacing: 2px;">
+                            <span class="text-main-yellow">Re</span><span class="text-white-50">build</span>
+                            <span class="text-white-50">Our</span>
+                            <span class="text-main-yellow">Ukraine</span>
+                        </h4>
+
+                        <h1 class="display-1 fw-bolder text-uppercase">
+                            <span class="text-white"> Безпечна питна вода - </span><span
+                                class="text-main-yellow">завжди</span></h1>
+                        <h5 class="fw-bold">Національна програма водної стійкості України</h5>
+                        <h5 class="fw-normal">Другий контур пиної безпеки для людей</h5>
+                        <p>Автономні джерела питної води для громад, лікарень та критичної інфраструктури</p>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="btn btn-main-yellow">Про національну програму &bkarow;</a>
+                            <a href="#" class="btn btn-outline-light">Стати партнером</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col md-6">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid px-5">
+            <div class="d-flex mx-5 stats-list gap-2">
+                {% for stat in stats %}
+               <div class="d-flex align-items-center stats-item px-2">
+                   <div class="icon">
+                   <i class="fa-3x {{ stat.icon }}"></i>
+                   </div>
+                   <div class="ms-2">
+                       <div class="fw-bolder fs-1 header ">
+                           {% if stat.need_do%}<span style="font-size: 1.5rem">до</span>{% endif %}{{ stat.value }}
+                       </div>
+                       <div class="fs-4 text-uppercase text">{{ stat.title }}</div>
+                   </div>
+               </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div id="header_marker"></div>
+        {% include "index/partners.html" %}
+        {{ block.super }}
+    </section>
+{% endblock %}
