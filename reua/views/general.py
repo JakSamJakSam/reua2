@@ -85,6 +85,14 @@ class NewIndexView(TemplateView):
             {'title': 'літрів на добу потужність однієї системи', 'value': "100 000", 'icon': 'fa-solid fa-hand-holding-droplet', 'need_do': True},
             {'title': 'Ресурс експлуатації', 'value': "15 років", 'icon': 'fa-solid fa-clipboard-list', 'need_do': True},
         ]
+        ctx['steps'] = [
+            {'title': 'Підземне джерело води', 'image': static("reua/img/how_it_works/undeground.png")},
+            {'title': 'Очищення ReH\u2082O', 'image': static("reua/img/how_it_works/station.png")},
+            {'title': 'Автономна сонячна енергія', 'image': static("reua/img/how_it_works/suns.png")},
+            {'title': 'Безпечна питна вода', 'image': static("reua/img/how_it_works/water.png")},
+            {'title': 'Дистанційний моніторінг', 'image': static("reua/img/how_it_works/monitor.png")},
+        ]
+        ctx['partners'] = Partner.objects.all()
         return ctx
 
 
