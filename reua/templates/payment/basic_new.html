@@ -19,7 +19,7 @@
                         <div class="line"></div>
                     </div>
                     {% for ba in bank_attrs %}
-                        <button class="btn" id="reh20__{{ ba.currency }}__payment__single"
+                        <button class="bogdan_btn" id="reh20__{{ ba.currency }}__payment__single"
                                 onclick="toggleActive('reh20__{{ ba.currency }}__payment__single', 'reh20__{{ ba.currency }}')">{{ ba.currency }}</button>
                     {% endfor %}
                 </div>
@@ -47,7 +47,7 @@
                         <div class="line"></div>
                     </div>
                     {% for ca in credit_cards %}
-                        <a href="{{ ca.url }}" class="btn">{{ ca.currency }}</a>
+                        <a href="{{ ca.url }}" class="bogdan_btn">{{ ca.currency }}</a>
                     {% endfor %}
                 </div>
                 <div class="payment__list">
@@ -55,7 +55,7 @@
                         <h5>{% trans "Крипто-валютою" %}</h5>
                         <div class="line"></div>
                     </div>
-                    <a href="{{ ctypto }}" class="btn">whitepay.com</a>
+                    <a href="{{ ctypto }}" class="bogdan_btn">whitepay.com</a>
                 </div>
             </div>
         </div>

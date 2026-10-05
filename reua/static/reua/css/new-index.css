@@ -309,4 +309,78 @@ path.triangle_arrow_prew {
 }
 
 
+bogdan_btn {
+	position: relative;
+	font-family: var(--title-font);
+	background-color: var(--dark_blue);
+	color: var(--white);
+	padding: 10px 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	display: inline-block;
+	transition: all .3s ease;
+	border: solid 3px var(--dark_blue);
+	cursor: pointer;
+}
+
+.bogdan_btn.yellow {
+	background-color: var(--yellow);
+	color: var(--dark_blue);
+}
+
+.bogdan_btn.bg_blue {
+	border: solid 3px #ffffff00;
+	padding: 5px 30px;
+}
+
+.bogdan_btn.yellow.active:hover {
+	background-color: var(--yellow);
+	color: var(--dark_blue);
+}
+
+.button__needed {
+	cursor: no-drop;
+}
+
+.bg_blue.button__needed:hover {
+	background-color: var(--dark_blue);
+	color: var(--white);
+}
+
+.bogdan_btn.grey {
+	background-color: var(--grey);
+}
+
+.bogdan_btn:hover {
+	background-color: var(--white);
+	color: var(--dark_blue);
+}
+
+.bogdan_btn.not__active {
+	box-shadow: 0px 0px 28px 0px var(--yellow);
+	background-color: var(--yellow);
+	cursor: not-allowed;
+	pointer-events: all;
+}
+
+.bogdan_btn.not__active:hover {
+	box-shadow: 0px 0px 28px 0px var(--yellow);
+	background-color: var(--yellow);
+	color: var(--dark_blue);
+	cursor: not-allowed;
+}
+
+.bogdan_btn.active {
+	box-shadow: none;
+	cursor: pointer;
+	background-color: var(--grey);
+	pointer-events: all;
+}
+
+.bogdan_btn.active:hover {
+	background-color: var(--grey) !important;
+	color: var(--dark_blue) !important
+}
+
 /* End (Video slider) */

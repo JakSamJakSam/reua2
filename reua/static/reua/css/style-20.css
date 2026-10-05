@@ -217,7 +217,7 @@ img {
 	object-fit: cover;
 }
 
-.btn {
+.bogdan_btn {
 	position: relative;
 	font-family: var(--title-font);
 	background-color: var(--dark_blue);
@@ -232,17 +232,17 @@ img {
 	cursor: pointer;
 }
 
-.btn.yellow {
+.bogdan_btn.yellow {
 	background-color: var(--yellow);
 	color: var(--dark_blue);
 }
 
-.btn.bg_blue {
+.bogdan_btn.bg_blue {
 	border: solid 3px #ffffff00;
 	padding: 5px 30px;
 }
 
-.btn.yellow.active:hover {
+.bogdan_btn.yellow.active:hover {
 	background-color: var(--yellow);
 	color: var(--dark_blue);
 }
@@ -256,37 +256,37 @@ img {
 	color: var(--white);
 }
 
-.btn.grey {
+.bogdan_btn.grey {
 	background-color: var(--grey);
 }
 
-.btn:hover {
+.bogdan_btn:hover {
 	background-color: var(--white);
 	color: var(--dark_blue);
 }
 
-.btn.not__active {
+.bogdan_btn.not__active {
 	box-shadow: 0px 0px 28px 0px var(--yellow);
 	background-color: var(--yellow);
 	cursor: not-allowed;
 	pointer-events: all;
 }
 
-.btn.not__active:hover {
+.bogdan_btn.not__active:hover {
 	box-shadow: 0px 0px 28px 0px var(--yellow);
 	background-color: var(--yellow);
 	color: var(--dark_blue);
 	cursor: not-allowed;
 }
 
-.btn.active {
+.bogdan_btn.active {
 	box-shadow: none;
 	cursor: pointer;
 	background-color: var(--grey);
 	pointer-events: all;
 }
 
-.btn.active:hover {
+.bogdan_btn.active:hover {
 	background-color: var(--grey) !important;
 	color: var(--dark_blue) !important
 }
@@ -633,11 +633,11 @@ a.geo {
 	font-size: 20px;
 }
 
-footer .btn {
+footer .bogdan_btn {
 	width: 47%;
 }
 
-footer .btn:hover {
+footer .bogdan_btn:hover {
 	background-color: var(--white-gray);
 }
 
@@ -803,18 +803,18 @@ footer .btn:hover {
 	margin-right: 35px;
 }
 
-#intro .wrapper .btn {
+#intro .wrapper .bogdan_btn {
 	font-size: 36px;
 }
 
-/* #intro .wrapper__button .btn:nth-child(1) {
+/* #intro .wrapper__button .bogdan_btn:nth-child(1) {
 	box-shadow: 0px 0px 28px 0px var(--yellow);
 	padding: 10px 100px;
 	z-index: 10;
 	font-weight: bold;
 }
 
-#intro .wrapper .btn {
+#intro .wrapper .bogdan_btn {
 	cursor: pointer;
 	background-color: var(--grey_blue);
 	border: none;
@@ -887,7 +887,7 @@ footer .btn:hover {
 	width: 30vw;
 } */
 
-#projects .title__line .btn object {
+#projects .title__line .bogdan_btn object {
 	vertical-align: -10%;
 	margin-left: 10px;
 }
@@ -960,7 +960,7 @@ footer .btn:hover {
 	text-align: center;
 }
 
-#projects .item .btn {
+#projects .item .bogdan_btn {
 	font-size: 24px;
 	font-weight: normal;
 }
@@ -1790,7 +1790,7 @@ path.triangle_arrow_prew {
 	color: var(--dark_blue);
 }
 
-.single__donate .payment__method .btn {
+.single__donate .payment__method .bogdan_btn {
 	font-weight: 400;
 }
 
@@ -1810,11 +1810,11 @@ path.triangle_arrow_prew {
 	margin-bottom: 2vh;
 }
 
-.single__donate .payment__list .btn.active {
+.single__donate .payment__list .bogdan_btn.active {
 	background-color: var(--dark_blue);
 }
 
-.single__donate .payment__list .btn.active:hover {
+.single__donate .payment__list .bogdan_btn.active:hover {
 	background-color: var(--dark_blue) !important;
 	color: var(--white) !important;
 	cursor: no-drop;
@@ -2004,7 +2004,7 @@ path.triangle_arrow_prew {
 		font-size: 24px;
 	}
 
-	#intro .wrapper .btn {
+	#intro .wrapper .bogdan_btn {
 		font-size: 24px;
 	}
 
@@ -2012,7 +2012,7 @@ path.triangle_arrow_prew {
 		font-size: 94px;
 	}
 
-	#projects .item .btn {
+	#projects .item .bogdan_btn {
 		font-size: 18px;
 	}
 
@@ -2319,7 +2319,7 @@ path.triangle_arrow_prew {
 		font-size: 24px;
 	}
 
-	.btn {
+	.bogdan_btn {
 		padding: 5px 15px;
 	}
 
@@ -2440,7 +2440,7 @@ path.triangle_arrow_prew {
 		margin-right: 20px;
 	}
 
-	#projects .item .btn {
+	#projects .item .bogdan_btn {
 		font-size: 10px;
 	}
 
@@ -2752,7 +2752,7 @@ path.triangle_arrow_prew {
 		font-size: 64px;
 	}
 
-	a.btn.grey.to_id {
+	a.bogdan_btn.grey.to_id {
 		display: none;
 	}
 
@@ -3030,7 +3030,7 @@ path.triangle_arrow_prew {
 		padding: 5px 10px;
 	}
 
-	#intro .wrapper .btn {
+	#intro .wrapper .bogdan_btn {
 		font-size: 18px;
 	}
 
@@ -3043,7 +3043,7 @@ path.triangle_arrow_prew {
 		margin-bottom: 10px;
 	}
 
-	#intro .wrapper .btn {
+	#intro .wrapper .bogdan_btn {
 		padding: 5px 10px;
 	}
 
