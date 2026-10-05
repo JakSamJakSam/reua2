@@ -309,7 +309,7 @@ path.triangle_arrow_prew {
 }
 
 
-bogdan_btn {
+.bogdan_btn {
 	position: relative;
 	font-family: var(--title-font);
 	background-color: var(--dark_blue);
