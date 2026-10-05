@@ -72,7 +72,7 @@
                 <h4 class="fw-bold">{% trans "$90 000" %}</h4>
             </div>
             <div class="marquee">
-                <p class="text">{% trans "Розроблено та виготовлено в Україні" %}</p>
+                <p class="test_b">{% trans "Розроблено та виготовлено в Україні" %}</p>
                 <p class="text2">{% trans "Розроблено та виготовлено в Україні" %}</p>
             </div>
         </div>
@@ -96,74 +96,7 @@
                 </div>
             </div>
         </div>
-        <div class="slider">
-            <div class="item__wrapper">
-                {% for project in projects %}
-                    <div class="item">
-                        <div class="wrapper__img">
-                            <a href="{% url "water-project-item" pk=project.pk %}">
-                                {% if project.image %}
-                                    {% thumbnail project.image "650x440" format="PNG" upscale=True crop='center' as im %}
-                                        <img src="{{ im.url }}" alt="{{ project.localized_title }}">
-                                    {% endthumbnail %}
-                                {% endif %}
-                            </a>
-                            <div class="made_for">
-                                <p>{{ project.localized_for1 }}</p>
-                                <p class="city">
-                                    {{ project.localized_for_city }}{% if project.localized_for_region %}<span>, {{ project.localized_for_region }}</span>{% endif %}
-                                </p>
-                            </div>
-                        </div>
-                        <p class="description">{{ project.localized_title }}</p>
-                        <div class="flex">
-                            <div class="price">
-                                {% if project.closed %}
-                                    <p>{% trans "Збір завершено" %}</p>
-                                {% endif %}
-                            </div>
-                            <div>
-                                <a href="{% url "water-project-item" pk=project.pk %}" class="btn">
-                                    {% trans "Докладніше" %}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <button class="prev-button arrow">
-                <svg class="desktop" width="300" height="41" viewBox="0 0 300 41" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path class="triangle_arrow_prew"
-                          d="M169 23.5C170.381 23.5 171.5 22.3807 171.5 21C171.5 19.6193 170.381 18.5 169 18.5V23.5ZM162.232 19.2322C161.256 20.2085 161.256 21.7915 162.232 22.7678L178.142 38.6777C179.118 39.654 180.701 39.654 181.678 38.6777C182.654 37.7014 182.654 36.1184 181.678 35.1421L167.536 21L181.678 6.85786C182.654 5.88155 182.654 4.29864 181.678 3.32233C180.701 2.34602 179.118 2.34602 178.142 3.32233L162.232 19.2322ZM169 18.5H164V23.5H169V18.5Z"
-                          fill="#0F1E3C"></path>
-                    <path class="line_arrow_prew" d="M293 21L169 21" stroke="#0F1E3C" stroke-width="5"
-                          stroke-linecap="round"></path>
-                </svg>
-                <svg class="mob" width="40" height="38" viewBox="0 0 40 38" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                            d="M3 16.5C1.61929 16.5 0.5 17.6193 0.5 19C0.5 20.3807 1.61929 21.5 3 21.5L3 16.5ZM38.7678 20.7678C39.7441 19.7915 39.7441 18.2085 38.7678 17.2322L22.8579 1.32233C21.8816 0.346021 20.2986 0.346021 19.3223 1.32233C18.346 2.29864 18.346 3.88155 19.3223 4.85787L33.4645 19L19.3223 33.1421C18.346 34.1184 18.346 35.7014 19.3223 36.6777C20.2986 37.654 21.8816 37.654 22.8579 36.6777L38.7678 20.7678ZM3 21.5L37 21.5L37 16.5L3 16.5L3 21.5Z"
-                            fill="#0F1E3C"></path>
-                </svg>
-            </button>
-            <button class="next-button arrow">
-                <svg class="desktop" width="300" height="41" viewBox="0 0 300 41" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path class="triangle_arrow_prew"
-                          d="M169 23.5C170.381 23.5 171.5 22.3807 171.5 21C171.5 19.6193 170.381 18.5 169 18.5V23.5ZM162.232 19.2322C161.256 20.2085 161.256 21.7915 162.232 22.7678L178.142 38.6777C179.118 39.654 180.701 39.654 181.678 38.6777C182.654 37.7014 182.654 36.1184 181.678 35.1421L167.536 21L181.678 6.85786C182.654 5.88155 182.654 4.29864 181.678 3.32233C180.701 2.34602 179.118 2.34602 178.142 3.32233L162.232 19.2322ZM169 18.5H164V23.5H169V18.5Z"
-                          fill="#0F1E3C"></path>
-                    <path class="line_arrow_prew" d="M293 21L169 21" stroke="#0F1E3C" stroke-width="5"
-                          stroke-linecap="round"></path>
-                </svg>
-                <svg class="mob" width="40" height="38" viewBox="0 0 40 38" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                            d="M3 16.5C1.61929 16.5 0.5 17.6193 0.5 19C0.5 20.3807 1.61929 21.5 3 21.5L3 16.5ZM38.7678 20.7678C39.7441 19.7915 39.7441 18.2085 38.7678 17.2322L22.8579 1.32233C21.8816 0.346021 20.2986 0.346021 19.3223 1.32233C18.346 2.29864 18.346 3.88155 19.3223 4.85787L33.4645 19L19.3223 33.1421C18.346 34.1184 18.346 35.7014 19.3223 36.6777C20.2986 37.654 21.8816 37.654 22.8579 36.6777L38.7678 20.7678ZM3 21.5L37 21.5L37 16.5L3 16.5L3 21.5Z"
-                            fill="#0F1E3C"></path>
-                </svg>
-            </button>
-        </div>
+        {% include "pages/parts/water_stations_slider.html" %}
     </section>
 
     <!-- video slider -->

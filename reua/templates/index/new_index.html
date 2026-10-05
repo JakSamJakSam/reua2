@@ -62,37 +62,44 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="container-fluid px-5 bg-gray200">
-            <div class="d-flex mx-5 how-it-works gap-2 py-4">
-                <div class="header ">
-                    <h1 class="text-uppercase text fw-bolder">Як це працює</h1>
-                    <p>Автономна странція ReH<sub>2</sub>O забезпечує повний цикл — від підзменої
-                        води до безпечного питної води</p>
-                    <a href="#" class="btn btn-main-yellow btn-lg fw-bold">Детальніше &bkarow;</a>
-                </div>
-                <div class="d-flex justify-content-between flex-fill">
-                    {% for step in steps %}
-                        <div class="d-flex flex-column  align-items-start step px-2 py-3">
-                            <div class="flex-fill d-flex justify-content-center align-items-center h-100 w-100">
-                                <img src="{{ step.image }}" alt="{{ step.title }}" class="w-auto h-100">
+        {% if a %}
+            <div class="container-fluid px-5 bg-gray200">
+                <div class="d-flex mx-5 how-it-works gap-2 py-4">
+                    <div class="header ">
+                        <h1 class="text-uppercase text fw-bolder">Як це працює</h1>
+                        <p>Автономна странція ReH<sub>2</sub>O забезпечує повний цикл — від підзменої
+                            води до безпечного питної води</p>
+                        <a href="#" class="btn btn-main-yellow btn-lg fw-bold">Детальніше &bkarow;</a>
+                    </div>
+                    <div class="d-flex justify-content-between flex-fill">
+                        {% for step in steps %}
+                            <div class="d-flex flex-column  align-items-start step px-2 py-3">
+                                <div class="flex-fill d-flex justify-content-center align-items-center h-100 w-100">
+                                    <img src="{{ step.image }}" alt="{{ step.title }}" class="w-auto h-100">
+                                </div>
+                                <div class="ms-2 w-100">
+                                    <div class="text text-center fw-bold text">{{ step.title }}</div>
+                                </div>
                             </div>
-                            <div class="ms-2 w-100">
-                                <div class="text text-center fw-bold text">{{ step.title }}</div>
-                            </div>
-                        </div>
-                        {% if forloop.counter < steps|length %}
-                            <div class="align-self-center">
-                                {#                        <i class="fa-solid fa-right-long"></i>#}
-                                <i class="fa-solid fa-arrow-right fa-lg"></i>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                            {% if forloop.counter < steps|length %}
+                                <div class="align-self-center">
+                                    {#                        <i class="fa-solid fa-right-long"></i>#}
+                                    <i class="fa-solid fa-arrow-right fa-lg"></i>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-        {% include "index/partners.html" %}
-        {{ block.super }}
+        {% endif %}
     </section>
+    {% if projects %}
+        <section id="projects" class="scroll_animation scroll-container">
+            {% include "pages/parts/water_stations_slider.html" %}
+        </section>
+    {% endif %}
+    {% include "index/partners.html" %}
+    {{ block.super }}
 {% endblock %}
 
 {% block footer %}
@@ -126,4 +133,10 @@
 
 
     </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static "reua/js/main-18.js" %}"></script>
+{#    <script src="{% static "reua/js/svg_map.js" %}"></script>#}
 {% endblock %}

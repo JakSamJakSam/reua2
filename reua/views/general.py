@@ -93,6 +93,8 @@ class NewIndexView(TemplateView):
             {'title': 'Дистанційний моніторінг', 'image': static("reua/img/how_it_works/monitor.png")},
         ]
         ctx['partners'] = Partner.objects.all()
+        ctx['projects'] = Project.objects.filter(kind=KindProject.water.value)
+
         return ctx
 
 

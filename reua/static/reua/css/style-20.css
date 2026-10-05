@@ -728,14 +728,14 @@ footer .btn:hover {
 	font-size: 20px;
 }
 
-.text {
+.test_b {
 	animation: marquee 20s linear infinite;
 	animation-fill-mode: both;
 	visibility: hidden;
 	animation-delay: 10s;
 }
 
-.text:first-child {
+.test_b:first-child {
 	visibility: visible;
 }
 
