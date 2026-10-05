@@ -98,6 +98,9 @@
 
 #projects .wrapper__img img {
 	transition: all .3s ease;
+    width: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 #projects .wrapper__img a:hover img {
