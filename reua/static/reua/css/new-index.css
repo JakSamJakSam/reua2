@@ -108,7 +108,33 @@
 	/* transform: rotate(10deg); */
 }
 
-#projects .flex div:nth-child(2) {
+#projects .flex div:nth-child(2) .made_for {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+
+	background-color: var(--white);
+	padding: 7px 15px;
+}
+
+.made_for p:nth-child(1) {
+	margin-bottom: -10px;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+.made_for .city {
+	font-size: 32px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.made_for span {
+	font-size: 16px;
+	color: var(--grey);
+}
+
+{
 	text-align: center;
 }
 
