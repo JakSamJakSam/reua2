@@ -108,10 +108,6 @@
 	/* transform: rotate(10deg); */
 }
 
-#projects .flex div:nth-child(2) {
-	text-align: center;
-}
-
 .made_for {
 	position: absolute;
 	left: 0;
@@ -143,9 +139,25 @@
 }
 
 #projects .flex {
+    display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
+
+.price p:nth-child(1) {
+	/* margin-bottom: -15px; */
+	color: var(--grey);
+}
+
+.price p:nth-child(2) {
+	font-size: 40px;
+	font-weight: 600;
+}
+
+#projects .flex div:nth-child(2) {
+	text-align: center;
+}
+
 
 #projects .item .btn {
 	font-size: 24px;
@@ -294,10 +306,6 @@ path.triangle_arrow_prew {
 	font-size: 24px;
 	font-family: var(--base-font);
 	font-weight: 500;
-}
-
-#projects .flex {
-	display: flex;
 }
 
 
