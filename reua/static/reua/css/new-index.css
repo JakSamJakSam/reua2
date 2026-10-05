@@ -136,3 +136,98 @@
 }
 
 /* END OF PROJECTS*/
+
+/* BGDN_GLB */
+.scroll_animation {
+	transition: all 2s ease;
+	opacity: 1;
+}
+
+.item__wrapper {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 80px;
+}
+
+/* END BGDN_GLB*/
+
+/* Start (Video slider) */
+
+#video_slider {
+	position: relative;
+	height: 50vh;
+	margin: 10vh 0;
+}
+
+#slider .slider__item {
+	position: absolute;
+	width: 25vw;
+	top: 25%;
+	opacity: 0;
+	transition: all .3s ease;
+}
+
+#slider .slider__item video {
+	width: 100%;
+	height: 100%;
+}
+
+#slider .slider__item.active {
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 50vw;
+	display: block;
+	opacity: 1;
+	z-index: 10;
+}
+
+#slider .slider__item.left {
+	left: 0;
+	opacity: .5;
+}
+
+#slider .slider__item.right {
+	right: 0;
+	opacity: .5;
+}
+
+.arrow_prew {
+	position: absolute;
+	bottom: 1vh;
+	left: 5vw;
+	cursor: pointer;
+}
+
+.arrow__next {
+	position: absolute;
+	bottom: 1vh;
+	right: 5vw;
+	cursor: pointer;
+	transform: rotate(180deg);
+}
+
+path.line_arrow_prew,
+path.triangle_arrow_prew {
+	transition: all .3s ease;
+}
+
+path.line_arrow_prew {
+	stroke: var(--grey);
+}
+
+path.triangle_arrow_prew {
+	fill: var(--grey);
+}
+
+.arrow:hover path.line_arrow_prew {
+	d: path("M293 21L13 21");
+	stroke: var(--dark_blue);
+}
+
+.arrow:hover path.triangle_arrow_prew {
+	d: path("M13 23.5C14.3807 23.5 15.5 22.3807 15.5 21C15.5 19.6193 14.3807 18.5 13 18.5V23.5ZM6.23223 19.2322C5.25592 20.2085 5.25592 21.7915 6.23223 22.7678L22.1421 38.6777C23.1184 39.654 24.7014 39.654 25.6777 38.6777C26.654 37.7014 26.654 36.1184 25.6777 35.1421L11.5355 21L25.6777 6.85786C26.654 5.88155 26.654 4.29864 25.6777 3.32233C24.7014 2.34602 23.1184 2.34602 22.1421 3.32233L6.23223 19.2322ZM13 18.5H8V23.5H13V18.5Z");
+	fill: var(--dark_blue);
+}
+
+/* End (Video slider) */
