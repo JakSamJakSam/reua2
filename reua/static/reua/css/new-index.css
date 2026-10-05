@@ -296,5 +296,9 @@ path.triangle_arrow_prew {
 	font-weight: 500;
 }
 
+#projects .flex {
+	display: flex;
+}
+
 
 /* End (Video slider) */
