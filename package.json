@@ -1,0 +1,29 @@
+{
+  "name": "reua2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss:build": "sass --load-path=node_modules reua/static/src/scss/main.scss reua/static/reua/css/2026/main.css --style=expanded",
+    "scss:prod": "sass --load-path=node_modules reua/static/src/scss/main.scss reua/static/reua/css/2026/main.min.css --style=compressed",
+    "scss:watch": "sass --load-path=node_modules --watch reua/static/src/scss/main.scss:reua/static/reua/css/2026/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakSamJakSam/reua2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JakSamJakSam/reua2/issues"
+  },
+  "homepage": "https://github.com/JakSamJakSam/reua2#readme",
+  "devDependencies": {
+    "sass": "^1.106.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  }
+}

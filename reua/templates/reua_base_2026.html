@@ -1,0 +1,37 @@
+{% extends "base2026.html" %}
+{% load static %}
+
+{% block menu %}
+    {% include '2026/std/menu.html' %}
+{% endblock %}
+{% block body %}
+{#    {% include 'std/payment_modal_new.html' %}#}
+{% endblock %}
+{% block footer %}
+{#    {% include 'std/footer_new.html' %}#}
+{% endblock %}
+{% block cokies_toast %}
+{#    {% include 'std/cokies_toast.html' %}#}
+{% endblock %}
+{% block scripts %}
+    {{ block.super }}
+{#    <script src="{% static "reua/js/site_helper.js" %}"></script>#}
+    {% if google_data_stream_id %}
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_data_stream_id }}"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+
+          gtag('js', new Date());
+
+          gtag('config', '{{ google_data_stream_id }}');
+        </script>
+    {% endif %}
+    {% if google_recaptcha_key %}
+        <script src="https://www.google.com/recaptcha/enterprise.js?render={{ google_recaptcha_key }}" async defer></script>
+    {% endif %}
+{% endblock %}

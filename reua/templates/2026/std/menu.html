@@ -1,0 +1,73 @@
+{% load static %}
+{% load i18n %}
+
+<nav class="navbar navbar-expand">
+    <div class="container">
+        <a class="navbar-brand " href="{% url "index" %}">
+            <img src="{% static 'reua/img/2026/logo/reua-logo-light.svg' %}" alt="logo" aclass="h-100">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainnavbarContent"
+                aria-controls="mainnavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainnavbarContent">
+            <ul class="navbar-nav">
+                {% for menu_item in top_menu_items %}
+                    {% with menu_item.child.all as child %}
+                        {% if child and False %}
+                            <li class="sub__menu"><a href="#" class="desktop">{{ menu_item.localized_title }}</a>
+                                <ul class="submenu">
+                                    {% for child_item in child %}
+                                        <li><a href="{{ child_item.url }}">{{ child_item.localized_title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link{% if request.path == menu_item.url %} active {% endif %}"
+                                   href="{{ menu_item.url }}">
+                                    {{ menu_item.localized_title }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </ul>
+            <ul class="navbar-nav socials me-3 ms-auto">
+                <li class="nav-item">
+                    <a href='https://www.facebook.com/reua.com.ua' class="nav-link" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href='https://www.youtube.com/channel/UC1Wg8_m7TDH61IFrPuJFekA'
+                       class="nav-link" target="_blank">
+                        <i class="fa-brands fa-youtube fa-fw"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href='https://www.instagram.com/reua.com.ua/' class="nav-link" target="_blank">
+                        <i class="fa-brands fa-instagram fa-fw"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href='???' class="nav-link" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav lngs">
+                {% get_available_languages as languages %}
+                {% for language in languages %}
+                    {% get_language_info for language|first as lang_info %}
+                    <li class="nav-item">
+                        <a href="{% language lang_info.code %}{% url "index" %}{% endlanguage %}"
+                           title="{{ lang_info.name_translated }}" class="nav-link {% if LANGUAGE_CODE == lang_info.code %}active{% endif %}">
+                            {{ language|last|upper }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

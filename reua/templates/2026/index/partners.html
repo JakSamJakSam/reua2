@@ -1,0 +1,32 @@
+{% load i18n %}
+{% load thumbnail %}
+
+{% if partners %}
+    <section class="py-5 container">
+        <h3 class="landing_title">{% trans "Нас підтримують" %}</h3>
+        <ul class="list-unstyled row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+            {% for partner in partners %}
+                <li class="col">
+                    {% if partner.url %}
+                        <a href="{{ partner.url }}" target="_blank" class="text-decoration-none text-dark">
+                    {% endif %}
+                    <div class="partner mb-4 text-center">
+                        {% if partner.logo %}
+                            <div style="height: 80px" class="d-flex align-items-center justify-content-center mb-4">
+                                {% thumbnail partner.logo "x160" format="PNG" as im %}
+                                    <img src="{{ im.url }}"
+                                         alt="{{ partner.localized_title }}"
+                                         class="mw-100 mh-100">
+                                {% endthumbnail %}
+                            </div>
+                        {% endif %}
+                        <h5>{{ partner.localized_title }}</h5>
+                    </div>
+                    {% if partner.url %}
+                        </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endif %}

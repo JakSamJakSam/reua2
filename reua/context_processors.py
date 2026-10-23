@@ -19,30 +19,37 @@ def top_menus(request):
     ).order_by('order')
     ss = SiteSettings.objects.get(site=site)
     return {
-        'top_menu_items': TopMenu.objects.filter(disabled=False, parent=None).order_by('order'),
-        'founding_documents': FoundingDocument.objects.all(),
-        'site_settings': ss,
+        # 'top_menu_items': TopMenu.objects.filter(disabled=False, parent=None).order_by('order'),
+        'top_menu_items': [
+            {'url': '/a1/', 'localized_title': 'Станції ReH₂O'},
+            {'url': '/a2/', 'localized_title': 'Про фонд'},
+            {'url': '/a2/', 'localized_title': 'Інфраструктурні проєкти'},
+            {'url': '/a2/', 'localized_title': 'Медіацентр'},
+            {'url': '/a2/', 'localized_title': 'Контакти'},
+        ],
+        # 'founding_documents': FoundingDocument.objects.all(),
+        # 'site_settings': ss,
         'google_data_stream_id': settings.GOOGLE_DATA_STREAM_ID,
         'google_recaptcha_key': settings.GOOGLE_RECAPTCHA_KEY,
-        'payments': {
-            'reH2O': {
-                'title': _("Питна вода"),
-                'desc': ss.localized_reh2o_text,
-                'bank': bta.filter(kind=KindProject.water.value),
-                'credit_card': reverse('Pay_ReH2O'),
-                'credit_cards': settings.PAYMENT_CARD_RE_H2O,
-                'crypto': settings.PAYMENT_CRYPTO_RE_H2O,
-                'key': 'reh20',
-            },
-            'reCity': {
-                'title': _("Відбудова"),
-                'desc': ss.localized_reCity_text,
-                'bank': bta.filter(kind=KindProject.city.value),
-                'credit_card': reverse('Pay_ReCity'),
-                'credit_cards': settings.PAYMENT_CARD_RE_CITY,
-                'crypto': settings.PAYMENT_CRYPTO_RE_CITY,
-                'key': 'city',
-            },
-        },
-        'feedback_form': FeedbackForm() if settings.GOOGLE_RECAPTCHA_KEY is None else FeedbackFormGCaptcha() ,
+        # 'payments': {
+        #     'reH2O': {
+        #         'title': _("Питна вода"),
+        #         'desc': ss.localized_reh2o_text,
+        #         'bank': bta.filter(kind=KindProject.water.value),
+        #         'credit_card': reverse('Pay_ReH2O'),
+        #         'credit_cards': settings.PAYMENT_CARD_RE_H2O,
+        #         'crypto': settings.PAYMENT_CRYPTO_RE_H2O,
+        #         'key': 'reh20',
+        #     },
+        #     'reCity': {
+        #         'title': _("Відбудова"),
+        #         'desc': ss.localized_reCity_text,
+        #         'bank': bta.filter(kind=KindProject.city.value),
+        #         'credit_card': reverse('Pay_ReCity'),
+        #         'credit_cards': settings.PAYMENT_CARD_RE_CITY,
+        #         'crypto': settings.PAYMENT_CRYPTO_RE_CITY,
+        #         'key': 'city',
+        #     },
+        # },
+        # 'feedback_form': FeedbackForm() if settings.GOOGLE_RECAPTCHA_KEY is None else FeedbackFormGCaptcha() ,
     }

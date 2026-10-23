@@ -1,0 +1,77 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+{% trans "Благодійний Фонд «Відбудуємо нашу Україну»" as default_title %}
+{% trans "Платформа працює на збір коштів для вирішення першочергових гуманітарних задач внутрішньо переміщених осіб з Маріуполя та України в цілому."  as default_desc %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <base href="{{ request.scheme }}://{{ request.get_host }}">
+    <meta name="title" content="{{ page_title|default:default_title }}">
+    <meta name="description"
+          content="{{ page_desc|default:default_desc }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="REUA"/>
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/{{ request.path }}"/>
+    <meta property="og:title" content="{{ page_title|default:default_title }}"/>
+    <meta property="og:description"
+          content="{{ page_desc|default:default_desc }}"/>
+    {% if page_image_url %}
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}/{{ page_image_url }}"/>
+    {% else %}
+        <meta property="og:image" content="{% static "reua/img/reua-short.png" %}" />
+    {% endif %}
+    <meta name="H1" content="{{ page_title|default:default_title }}"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}"/>
+    <link rel="apple-touch-icon" href="{% static "/reua/img/reua-short.png" %}"/>
+    <link rel="shortcut icon" href="{% static "/reua/img/reua-short.png" %}"/>
+    {% get_available_languages as lngs %}
+    {# TODO: #}
+{#    {% for lng in lngs %}#}
+{#        {% with l|first as ll %}#}
+{#            {% language ll %}#}
+{#                <link rel="alternate" hreflang="{{ language|first }}" href="https://reua.city/en/"/>#}
+{#            {% endlanguage %}#}
+{#        {% endwith %}#}
+{#    {% endfor %}#}
+
+    {% block css %}
+        <link href="{% static "reua/css/2026/main.css" %}" rel="stylesheet">
+        <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+
+    {% endblock %}
+    {% block favicons %}
+        <!-- Favicons -->
+{#        <link rel="icon" type="image/svg+xml" href="{% static "reua/img/favicons/favicon.svg" %}">#}
+{#        <link rel="icon" type="image/png" href="{% static "reua/img/favicons/favicon.png" %}">#}
+
+    {% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+{% block menu %}
+{% endblock %}
+{% block body %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static "reua/assets/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "fontawesomefree/js/all.min.js" %}"></script>
+    <script src="{% static "reua/assets/js.cookie.min.js" %}"></script>
+{#    <script src="{% static "reua/js/header_modal_20.js" %}"></script>#}
+{% endblock %}
+</body>
+</html>
