@@ -7,3 +7,74 @@
     {% trans "Головна сторінка" %}
 {% endblock %}
 
+{% block body %}
+    {{ block.super }}
+    <section id="hero">
+        <div class="container">
+            <div class="row fund">
+                <div class="col-6">
+                    <div class="reua mb-4">
+                        <img src="{% static 'reua/img/2026/hero/flag.svg' %}" alt="Rebuild Our Ukraine" class="me-2">
+                        Rebuild Our Ukraine
+                    </div>
+                    <h5>
+                        Благодійний Фонд
+                    </h5>
+                    <h1 class="mb-4">
+                        &laquo;Відбудуємо нашу <span>Україну&raquo;</span>
+                    </h1>
+                    <p class="text-muted">Ми відновлюємо критично важливі для життя ресурси та інфраструктуру</p>
+                </div>
+            </div>
+            <div class="flagman_program row shadow">
+                <div class="col-5 title">
+                    <div class="program d-flex align-items-center mb-2">
+                        <span class="bg-primary rounded-pill text-white py-1 px-2 me-2 program-title">Re H<sub>2</sub>0</span>
+                        <span class="program-tag">Флагманська програма</span>
+                    </div>
+                    <h4>
+                        Національна програма водної стійкості України ReH₂O
+                    </h4>
+                    <p>
+                        Автономні джерела питної води для громад, лікарень та критичної інфраструктури
+                    </p>
+                    <a href="#" class="btn btn-warning px-4 py-3 rounded-pill fw-bold">
+                        Про програму <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+                <div class="col-7 description d-flex align-items-center ">
+                    <div class="wrapper">
+                    <h6 class="mb-4">Реалізовано</h6>
+                    <ul>
+                        <li>
+                            <div>
+                                <h6>23</h6>
+                                <p class="description">встановлені станції</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h6>10</h6>
+                                <p class="description">регіонів України</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h6>700 000</h6>
+                                <p class="description">людей з доступом до чистої питної води</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h6>15</h6>
+                                <p class="description">років роботи станцій</p>
+                            </div>
+                        </li>
+                    </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,111 @@
+.display-100 {
+  font-size: 100px;
+  font-weight: 900;
+  letter-spacing: -4%;
+}
+
+.h1 {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -3.5%;
+  line-height: 98%;
+}
+
+.h2 {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -3%;
+  line-height: 105%;
+
+  &.accent {
+    font-size: 66px;
+    letter-spacing: -3.5%;
+    line-height: 98%;
+  }
+}
+
+.h3 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 130%;
+}
+
+.digit {
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 125%;
+  letter-spacing: 0;
+}
+
+.price {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 115%;
+  letter-spacing: -2%;
+}
+
+.lead {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+  letter-spacing: 0;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0;
+}
+
+.card-text {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 135%;
+  letter-spacing: 0;
+}
+
+.reua-button {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+.reua-nav {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+.reua-label {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 6%;
+  text-transform: uppercase;
+}
+
+.reua-price-label {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 115%;
+  letter-spacing: 2%;
+}
+
+.sign {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 115%;
+  letter-spacing: 2%;
+}
+
+.date {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+

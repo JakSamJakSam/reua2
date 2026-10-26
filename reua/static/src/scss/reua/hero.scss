@@ -1,0 +1,147 @@
+#hero {
+    background-image: url("/static/reua/img/2026/hero/img.png");
+    background-size: contain;
+    background-position: top right;
+    background-repeat: no-repeat;
+
+  .fund {
+    height: 584px;
+
+    .reua {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 16%;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+    }
+
+    h5 {
+      font-size: 22px;
+      font-weight: 600;
+      color: rgba(var(--brand-navy-rgb), 0.75);
+    }
+
+    h1 {
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 98%;
+      letter-spacing: -3.5%;
+
+      span {
+        color: var(--brand-blue);
+        position: relative;
+        display: inline-block;
+
+        &::after {
+          content: "";
+          display: block;
+          height: 20px;
+          background-color: var(--bs-warning);
+          margin-top: -17px;
+        }
+      }
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 140%;
+      //color: var(--bs-info);
+    }
+  }
+
+  .flagman_program {
+    font-size: 13px;
+    margin-top: -4.5rem;
+    padding: 2rem 1.5rem;
+    border-radius: 28px;
+    background: var(--bs-white);
+
+    .title {
+      .program {
+
+        span.program-title {
+          font-weight: 900;
+        }
+
+        span.program-tag {
+          font-weight: 700;
+          text-transform: uppercase;
+          color: var(--brand-blue);
+          letter-spacing: 14%;
+          font-size: 11px;
+        }
+      }
+
+      h4 {
+        font-weight: 800;
+        line-height: 118%;
+        letter-spacing: -1.5%;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 150%;
+        color: rgba(var(--brand-navy-rgb), 0.75);
+      }
+    }
+
+    .description {
+      .wrapper {
+        border-left: 1px solid rgba(var(--brand-navy-rgb), 0.1);
+        padding-left: 32px;
+      }
+
+      h6 {
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 100%;
+        letter-spacing: 6%;
+        text-transform: uppercase;
+
+      }
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        margin-block-start: 0;
+        padding-inline-start: 0;
+        margin-bottom: 0;
+
+        li {
+          flex: 1 1 auto;
+          width: 100%;
+          display: flex;
+          gap: 16px;
+          list-style: none;
+          flex-direction: column;
+          padding: 0;
+
+          &:before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            background: url("/static/reua/img/2026/hero/marker.svg") no-repeat center / contain;
+          }
+
+          h6 {
+            font-weight: 800;
+            font-size: 26px;
+            line-height: 100%;
+            letter-spacing: -3%;
+          }
+
+          .description {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 130%;
+            letter-spacing: 0;
+            color: rgba(var(--brand-navy-rgb), 0.75);
+          }
+        }
+      }
+    }
+  }
+}
+
+

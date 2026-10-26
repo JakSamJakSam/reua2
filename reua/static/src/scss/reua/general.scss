@@ -1,0 +1,14 @@
+:root {
+  --brand-navy: #{$brand-navy};
+  --brand-navy-rgb: #{$brand-navy-rgb};
+  --brand-blue: #{$brand-blue};
+  --brand-blue-rgb: #{$brand-blue-rgb};
+  --sky: #{$sky};
+  --menu_bg: #{$menu_bg};
+  --support_ink2: #{$support_ink2};
+  --support_live: #{$support_live};
+  --bs-body-color: var(--brand-navy);
+  --bs-body-color-rgb: var(--brand-navy-rgb);
+  --bs-box-shadow: 0px 24px 60px -24px rgba(var(--brand-navy-rgb), 0.18); // В hero в подсчете по количеству станций
+}
+

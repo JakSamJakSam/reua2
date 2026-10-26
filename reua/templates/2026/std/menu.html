@@ -24,7 +24,7 @@
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link{% if request.path == menu_item.url %} active {% endif %}"
+                                <a class="reua-nav nav-link{% if request.path == menu_item.url %} active {% endif %}"
                                    href="{{ menu_item.url }}">
                                     {{ menu_item.localized_title }}
                                 </a>
