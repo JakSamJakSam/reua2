@@ -1,14 +1,220 @@
 :root {
-  --brand-navy: #{$brand-navy};
-  --brand-navy-rgb: #{$brand-navy-rgb};
-  --brand-blue: #{$brand-blue};
-  --brand-blue-rgb: #{$brand-blue-rgb};
+  --navy: #{$brand-navy};
+  --navy-rgb: #{$brand-navy-rgb};
+  --blue: #{$brand-blue};
+  --yellow: #{$yellow};
+  --white: #{$white};
+  --white-rgb: #{$white-rgb};
   --sky: #{$sky};
-  --menu_bg: #{$menu_bg};
-  --support_ink2: #{$support_ink2};
-  --support_live: #{$support_live};
-  --bs-body-color: var(--brand-navy);
-  --bs-body-color-rgb: var(--brand-navy-rgb);
-  --bs-box-shadow: 0px 24px 60px -24px rgba(var(--brand-navy-rgb), 0.18); // В hero в подсчете по количеству станций
+  --ink: #{$support_ink2};
+  --deep: #{$support_deep};
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  //--brand-navy: #{$brand-navy};
+  //--brand-navy-rgb: #{$brand-navy-rgb};
+  //--brand-blue: #{$brand-blue};
+  //--brand-blue-rgb: #{$brand-blue-rgb};
+  //--sky: #{$sky};
+  //--menu_bg: #{$menu_bg};
+  //--support_ink2: #{$support_ink2};
+  //--support_live: #{$support_live};
+  //--bs-body-color: var(--brand-navy);
+  //--bs-body-color-rgb: var(--brand-navy-rgb);
+  --bs-box-shadow: 0px 24px 60px -24px rgba(var(--navy-rgb), 0.18); // В hero в подсчете по количеству станций
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: #{$font-family-base};
+  color: var(--navy);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+/* ---------- поява при прокрутці ---------- */
+.rv {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+  transition-delay: var(--d, 0s);
+}
+
+.in .rv, .rv.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- шапка ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--white);
+  transition: background .3s, box-shadow .3s;
+
+  &.small {
+    background: rgba(var(--white-rgb), .92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px -20px rgba(var(--navy-rgb), .35);
+
+    .wrap {
+      height: 64px;
+    }
+
+    .logo {
+      img {
+        height: 34px;
+      }
+    }
+  }
+
+
+  .wrap {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 84px;
+    transition: height .3s;
+  }
+
+}
+
+.logo {
+  img {
+    height: 42px;
+    display: block;
+    transition: height .3s;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 36px;
+  font-size: 15px;
+  white-space: nowrap;
+  font-weight: 600;
+  color: rgba(var(--navy-rgb), .75);
+  margin: 0 auto;
+
+  a:hover {
+    color: var(--blue);
+  }
+
+}
+
+
+.soc {
+  display: flex;
+  gap: 2px;
+  background: var(--sky);
+  border-radius: 999px;
+  padding: 3px;
+
+  a {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 800;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-color: var(--white);
+    }
+    &.facebook {
+      background-image: url('/static/reua/img/2026/socials/facebook.svg');
+    }
+    &.youtube {
+      background-image: url('/static/reua/img/2026/socials/youtube.svg');
+    }
+    &.instagram {
+      background-image: url('/static/reua/img/2026/socials/instagram.svg');
+    }
+    &.linkedin {
+      background-image: url('/static/reua/img/2026/socials/linkedin.svg');
+    }
+  }
+}
+
+
+.lang {
+  display: flex;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--sky);
+  border-radius: 999px;
+  padding: 3px;
+
+  a {
+    padding: 6px 11px;
+    border-radius: 999px;
+    color: rgba(var(--navy-rgb), .75);
+
+    &.on {
+      background: var(--navy);
+      color: var(--white);
+    }
+  }
+}
+
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  white-space: nowrap;
+  transition: transform .25s var(--ease), box-shadow .25s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+}
+
+
+.btn-y {
+  background: var(--yellow);
+  box-shadow: 0 8px 24px -10px rgba(254, 215, 0, .9);
+}
+
+.btn-g {
+  border: 1.5px solid rgba(0, 23, 57, .2);
+}
+
+.btn-sm {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
 

@@ -12,15 +12,18 @@ $brand-navy-rgb:
     math.div(color.channel($brand-navy, "green", $space: rgb), 1),
     math.div(color.channel($brand-navy, "blue", $space: rgb), 1);
 
-$primary: $brand-blue;
-$secondary: rgba($brand-navy, 0.3); //text/secondary
 $yellow: #FED700;
-$warning: $yellow;
 $white: #FFFFFF;
+$white-rgb:
+    math.div(color.channel($white, "red", $space: rgb), 1),
+    math.div(color.channel($white, "green", $space: rgb), 1),
+    math.div(color.channel($white, "blue", $space: rgb), 1);
+
 $sky: #EEF4FF;
 $menu_bg: #EDF2FC;
 $support_ink2: #44526e;
 $support_live: #22C55e;
+$support_deep: #08337F;
 
 
 $container-max-widths: (

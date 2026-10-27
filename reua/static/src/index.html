@@ -1,0 +1,2463 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>REUA — анімація головної</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <style>
+        :root {
+            --navy: #001739;
+            --blue: #0E52BD;
+            --yellow: #FED700;
+            --white: #FFFFFF;
+            --sky: #EEF4FF;
+            --ink: #44526E;
+            --deep: #08337F;
+            --ease: cubic-bezier(.22, .61, .36, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        /* ---------- поява при прокрутці ---------- */
+        .rv {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .9s var(--ease), transform .9s var(--ease);
+            transition-delay: var(--d, 0s);
+        }
+
+        .in .rv, .rv.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ---------- шапка ---------- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0);
+            transition: background .3s, box-shadow .3s;
+        }
+
+        .header.small {
+            background: rgba(255, 255, 255, .92);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px -20px rgba(0, 23, 57, .35);
+        }
+
+        .header .wrap {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            height: 84px;
+            transition: height .3s;
+        }
+
+        .header.small .wrap {
+            height: 64px;
+        }
+
+        .logo img {
+            height: 42px;
+            display: block;
+            transition: height .3s;
+        }
+
+        .header.small .logo img {
+            height: 34px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 36px;
+            font-size: 15px;
+            white-space: nowrap;
+            font-weight: 600;
+            color: rgba(0, 23, 57, .75);
+            margin: 0 auto;
+        }
+
+        .nav a:hover {
+            color: var(--blue);
+        }
+
+        .soc {
+            display: flex;
+            gap: 2px;
+            background: var(--sky);
+            border-radius: 999px;
+            padding: 3px;
+        }
+
+        .soc a {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .soc a:hover {
+            background: var(--white);
+        }
+
+        .lang {
+            display: flex;
+            font-size: 13px;
+            font-weight: 700;
+            background: var(--sky);
+            border-radius: 999px;
+            padding: 3px;
+        }
+
+        .lang a {
+            padding: 6px 11px;
+            border-radius: 999px;
+            color: rgba(0, 23, 57, .75);
+        }
+
+        .lang a.on {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 56px;
+            padding: 0 28px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 16px;
+            white-space: nowrap;
+            transition: transform .25s var(--ease), box-shadow .25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-y {
+            background: var(--yellow);
+            box-shadow: 0 8px 24px -10px rgba(254, 215, 0, .9);
+        }
+
+        .btn-g {
+            border: 1.5px solid rgba(0, 23, 57, .2);
+        }
+
+        .btn-sm {
+            height: 44px;
+            padding: 0 20px;
+            font-size: 14px;
+        }
+
+        /* ---------- перший екран ---------- */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #fff 0%, var(--sky) calc(100% - 50px), #fff 100%);
+            padding-bottom: 132px;
+            margin-top: -84px;
+            padding-top: 84px;
+        }
+
+        .sky {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 66%;
+            height: 700px;
+            background: linear-gradient(180deg, var(--navy) 0%, var(--blue) 55%, rgba(14, 82, 189, .65) 100%);
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .25) 18%, rgba(0, 0, 0, .8) 42%, #000 60%), linear-gradient(180deg, transparent 0, #000 120px, #000 520px, transparent 700px);
+            -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .25) 18%, rgba(0, 0, 0, .8) 42%, #000 60%), linear-gradient(180deg, transparent 0, #000 120px, #000 520px, transparent 700px);
+            mask-composite: intersect;
+            opacity: 0;
+            transition: opacity 1.6s var(--ease) .2s;
+        }
+
+        .loaded .sky {
+            opacity: 1;
+        }
+
+        .top {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 640px 1fr;
+            gap: 40px;
+            min-height: 520px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin: 40px 0 20px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 32px;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--blue) 50%, var(--yellow) 50%);
+        }
+
+        .pre {
+            font-size: 22px;
+            font-weight: 600;
+            color: rgba(0, 23, 57, .75);
+        }
+
+        h1 {
+            font-weight: 900;
+            font-size: 64px;
+            line-height: 1;
+            letter-spacing: -.035em;
+            margin-top: 14px;
+        }
+
+        .mark {
+            position: relative;
+            color: var(--blue);
+            white-space: nowrap;
+            z-index: 0;
+        }
+
+        .mark::before {
+            content: "";
+            position: absolute;
+            left: -4px;
+            right: -6px;
+            bottom: .06em;
+            height: .3em;
+            background: var(--yellow);
+            z-index: -1;
+            transform: skewX(-8deg) scaleX(0);
+            transform-origin: left;
+            transition: transform .9s var(--ease) 1.1s;
+        }
+
+        .loaded .mark::before {
+            transform: skewX(-8deg) scaleX(1);
+        }
+
+        .lead {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: rgba(0, 23, 57, .7);
+            margin-top: 22px;
+            max-width: 579px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        /* сцена: карта + станція */
+        .scene {
+            position: relative;
+            height: 520px;
+        }
+
+        .map {
+            position: absolute;
+            left: -136px;
+            top: 36px;
+            width: 500px;
+        }
+
+        .map svg {
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        .obl {
+            fill: rgba(14, 82, 189, 0);
+            stroke: #fff;
+            stroke-width: 2.35;
+            stroke-linejoin: round;
+            stroke-dasharray: 2200;
+            stroke-dashoffset: 2200;
+            transition: stroke-dashoffset 2.2s var(--ease), fill 1s var(--ease) 1s;
+        }
+
+        .loaded .obl {
+            stroke-dashoffset: 0;
+            fill: #0E52BD;
+        }
+
+        .arc {
+            fill: none;
+            stroke: var(--yellow);
+            stroke-width: 2.6;
+            stroke-linecap: round;
+            opacity: 0;
+            transition: opacity 1s var(--ease);
+        }
+
+        .arcs-on .arc {
+            opacity: .85;
+        }
+
+        .pt circle.halo {
+            fill: var(--yellow);
+            opacity: .28;
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: halo 3.2s ease-in-out infinite;
+            animation-delay: var(--hd, 0s);
+        }
+
+        .pt image {
+            filter: drop-shadow(0 4px 4px rgba(0, 23, 57, .55));
+        }
+
+        .pt {
+            opacity: 0;
+            transform: scale(.4);
+            transform-box: fill-box;
+            transform-origin: center;
+            transition: opacity .5s var(--ease), transform .5s var(--ease);
+            transition-delay: var(--d);
+            cursor: pointer;
+        }
+
+        .pts-on .pt {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .pt text {
+            font-weight: 800;
+            font-size: 16px;
+            fill: var(--navy);
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+        }
+
+        .spark {
+            fill: #fff;
+            filter: drop-shadow(0 0 5px #fff);
+        }
+
+        @keyframes halo {
+            0%, 100% {
+                transform: scale(1);
+                opacity: .28;
+            }
+            50% {
+                transform: scale(1.35);
+                opacity: .12;
+            }
+        }
+
+        .tip {
+            position: absolute;
+            z-index: 5;
+            background: #fff;
+            border-radius: 12px;
+            padding: 8px 12px;
+            box-shadow: 0 10px 24px -8px rgba(0, 23, 57, .35);
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -110%) translateY(6px);
+            transition: opacity .2s, transform .2s;
+            white-space: nowrap;
+        }
+
+        .tip.on {
+            opacity: 1;
+            transform: translate(-50%, -110%);
+        }
+
+        .tip b {
+            display: block;
+            font-size: 14px;
+        }
+
+        .tip span {
+            font-size: 12px;
+            color: var(--ink);
+        }
+
+        .counter {
+            position: absolute;
+            left: 289px;
+            top: 64px;
+            z-index: 4;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px;
+            background: #fff;
+            border-radius: 999px;
+            box-shadow: 0 8px 20px -8px rgba(0, 23, 57, .4);
+            font-weight: 800;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .counter .drop {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--blue);
+            display: grid;
+            place-items: center;
+        }
+
+        .counter .num {
+            font-variant-numeric: tabular-nums;
+            min-width: 78px;
+            margin-left: -4px;
+        }
+
+        .counter .ctag {
+            font-size: 12px;
+            border-radius: 999px;
+            padding: 6px 10px;
+            background: var(--yellow);
+            color: var(--navy);
+        }
+
+        .counter button {
+            position: relative;
+            font: inherit;
+            font-size: 12px;
+            border: 0;
+            cursor: pointer;
+            border-radius: 999px;
+            padding: 6px 10px;
+            background: var(--yellow);
+            color: var(--navy);
+            transition: background .3s, color .3s, transform .25s var(--ease);
+        }
+
+        .counter button:hover {
+            transform: scale(1.06);
+        }
+
+        .counter.all button {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        /* підказка «натисни»: кільця розходяться від кнопки, поки її не натиснули */
+        .counter button::before, .counter button::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 2px solid var(--yellow);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .counter.hint button {
+            animation: glow 2.4s ease-in-out infinite;
+        }
+
+        .counter.hint button::before {
+            animation: ping 2.4s ease-out infinite;
+        }
+
+        .counter.hint button::after {
+            animation: ping 2.4s ease-out .8s infinite;
+        }
+
+        @keyframes ping {
+            0% {
+                transform: scale(1);
+                opacity: .9;
+            }
+            100% {
+                transform: scale(2.1, 2.6);
+                opacity: 0;
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(254, 215, 0, 0);
+            }
+            50% {
+                box-shadow: 0 0 14px 2px rgba(254, 215, 0, .85);
+            }
+        }
+
+        .station {
+            pointer-events: none;
+            position: absolute;
+            left: 119px;
+            top: 257px;
+            width: 450px;
+            z-index: 3;
+            transform: translateY(-14px);
+            opacity: 0;
+            transition: transform 1.4s var(--ease) .6s, opacity 1.2s var(--ease) .6s;
+            filter: drop-shadow(0 26px 22px rgba(0, 15, 45, .35));
+        }
+
+        .loaded .station {
+            transform: none;
+            opacity: 1;
+        }
+
+        .station img {
+            display: block;
+            width: 100%;
+        }
+
+        .station .slot {
+            position: absolute;
+            left: 1.6%;
+            top: 32.1%;
+            width: 12.6%;
+            height: 9.5%;
+            transform: matrix(.989, -.148, 0, 1, 0, 0);
+            transform-origin: 0 0;
+            border-style: dashed;
+            display: grid;
+            place-items: center;
+            border: 1px dashed rgba(255, 255, 255, .75);
+            border-radius: 4px;
+            color: rgba(255, 255, 255, .88);
+            font-weight: 700;
+            font-size: clamp(7px, .62vw, 10px);
+            letter-spacing: .04em;
+            white-space: nowrap;
+        }
+
+        /* панель програми */
+        .panel {
+            position: relative;
+            z-index: 4;
+            margin-top: 28px;
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 24px 60px -24px rgba(0, 23, 57, .25);
+            display: grid;
+            grid-template-columns: 470px 1px 1fr;
+            gap: 40px;
+            padding: 32px 36px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge b {
+            background: var(--blue);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-weight: 900;
+            font-size: 13px;
+        }
+
+        .badge span {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--blue);
+        }
+
+        .panel h2 {
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.18;
+            letter-spacing: -.015em;
+            margin-top: 10px;
+        }
+
+        .panel p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(0, 23, 57, .75);
+            margin-top: 8px;
+        }
+
+        .panel .more {
+            margin-top: 20px;
+            color: var(--navy);
+        }
+
+        .vline {
+            width: 1px;
+            height: 150px;
+            background: #DFE5EF;
+        }
+
+        .done-l {
+            display: inline-block;
+            color: var(--navy);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .stats i {
+            display: block;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--sky);
+        }
+
+        .stats i svg {
+            display: block;
+            width: 36px;
+            height: 36px;
+        }
+
+        .stats b {
+            display: block;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -.03em;
+            margin-top: 6px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stats span {
+            font-size: 12px;
+            line-height: 1.3;
+            color: rgba(0, 23, 57, .75);
+        }
+
+        /* ---------- Як це працює ---------- */
+        .how {
+            position: relative;
+            margin-top: 0;
+            padding: 110px 0 140px;
+            color: #fff;
+            background: linear-gradient(180deg, rgba(14, 82, 189, 0) 0, rgba(14, 82, 189, .2) 4px, rgba(14, 82, 189, .333) 8px, rgba(14, 82, 189, .4286) 12px, rgba(14, 82, 189, .5) 16px, rgba(14, 82, 189, 0.510) calc(16px + 0.083 * (62% - 16px)), rgba(14, 82, 189, 0.537) calc(16px + 0.167 * (62% - 16px)), rgba(14, 82, 189, 0.578) calc(16px + 0.250 * (62% - 16px)), rgba(14, 82, 189, 0.630) calc(16px + 0.333 * (62% - 16px)), rgba(14, 82, 189, 0.688) calc(16px + 0.417 * (62% - 16px)), rgba(14, 82, 189, 0.750) calc(16px + 0.500 * (62% - 16px)), rgba(14, 82, 189, 0.812) calc(16px + 0.583 * (62% - 16px)), rgba(14, 82, 189, 0.870) calc(16px + 0.667 * (62% - 16px)), rgba(14, 82, 189, 0.922) calc(16px + 0.750 * (62% - 16px)), rgba(14, 82, 189, 0.963) calc(16px + 0.833 * (62% - 16px)), rgba(14, 82, 189, 0.990) calc(16px + 0.917 * (62% - 16px)), rgba(14, 82, 189, 1.000) calc(16px + 1.000 * (62% - 16px)), #0A3C93 82%, var(--navy) 100%), #fff;
+        }
+
+        .waves {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 79px;
+            overflow: hidden;
+            pointer-events: none;
+            top: -63px;
+            -webkit-mask-image: linear-gradient(#000 calc(100% - 16px), transparent);
+            mask-image: linear-gradient(#000 calc(100% - 16px), transparent);
+        }
+
+        .waves svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2880px;
+            height: 88px;
+        }
+
+        /* кола від курсора на воді */
+        .water {
+            position: relative;
+        }
+
+        .ripple {
+            position: absolute;
+            width: 150px;
+            height: 40px;
+            margin: -20px 0 0 -75px;
+            border: 1.5px solid rgba(255, 255, 255, .6);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            animation: ripple 1.6s ease-out forwards;
+        }
+
+        @keyframes ripple {
+            from {
+                transform: scale(.1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        .w1 {
+            animation: drift 26s linear infinite reverse;
+        }
+
+        .w2 {
+            animation: drift 18s linear infinite;
+        }
+
+        @keyframes drift {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-1440px);
+            }
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .35);
+            border: 1px solid rgba(255, 255, 255, .6);
+            animation: rise linear infinite;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-260px) translateX(8px);
+            }
+            90% {
+                opacity: .8;
+            }
+            100% {
+                transform: translateY(-520px) translateX(-6px);
+                opacity: 0;
+            }
+        }
+
+        .how h2 {
+            font-size: 66px;
+            font-weight: 900;
+            letter-spacing: -.035em;
+            line-height: 1;
+        }
+
+        .how-row {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 56px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .how-row p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .how-row .btn {
+            margin-top: 24px;
+        }
+
+        .steps {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .pipe {
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            top: 98px;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, .25);
+            overflow: hidden;
+        }
+
+        .pipe::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .9));
+            transition: width 2.4s var(--ease) .6s;
+        }
+
+        .how.in .pipe::after {
+            width: 100%;
+        }
+
+        .droplet {
+            position: absolute;
+            top: 89px;
+            left: 10%;
+            width: 22px;
+            height: 22px;
+            margin-left: -11px;
+            opacity: 0;
+        }
+
+        .how.in .droplet {
+            animation: flow 6s cubic-bezier(.45, 0, .55, 1) 3s infinite;
+        }
+
+        @keyframes flow {
+            0% {
+                left: 10%;
+                opacity: 0;
+            }
+            8% {
+                opacity: 1;
+            }
+            92% {
+                opacity: 1;
+            }
+            100% {
+                left: 90%;
+                opacity: 0;
+            }
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step .n {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--navy);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 999px;
+        }
+
+        .circle {
+            width: 132px;
+            height: 132px;
+            margin: 12px auto 0;
+            border-radius: 50%;
+            background: #fff;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 14px 30px -12px rgba(0, 10, 40, .45);
+            transition: transform .4s var(--ease);
+        }
+
+        .step:hover .circle {
+            transform: translateY(-4px);
+        }
+
+        .circle {
+            overflow: hidden;
+        }
+
+        .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .step h4 {
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-top: 14px;
+        }
+
+        .glass-fill {
+            transform-box: fill-box;
+            transform-origin: bottom;
+            animation: fill 4s var(--ease) infinite;
+        }
+
+        @keyframes fill {
+            0%, 10% {
+                transform: scaleY(0);
+            }
+            60%, 90% {
+                transform: scaleY(1);
+            }
+            100% {
+                transform: scaleY(1);
+                opacity: 0;
+            }
+        }
+
+        .sun, .rays {
+            transform-box: view-box;
+            transform-origin: 92px 27px;
+        }
+
+        .rays {
+            animation: spin 18s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .tank-w {
+            animation: slosh 3.2s linear infinite;
+        }
+
+        @keyframes slosh {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-39px);
+            }
+        }
+
+        .pump {
+            transform-box: view-box;
+            animation: pump 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pump {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(5px);
+            }
+        }
+
+        .drip {
+            transform-box: fill-box;
+            animation: drip 2.4s ease-in infinite;
+        }
+
+        .drip.d2 {
+            animation-delay: 1.2s;
+        }
+
+        @keyframes drip {
+            0%, 15% {
+                transform: translateY(-6px);
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            80% {
+                transform: translateY(8px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(12px);
+                opacity: 0;
+            }
+        }
+
+        .pulse {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        .blink {
+            animation: blink 1.6s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: .25;
+            }
+        }
+
+        .chart {
+            stroke-dasharray: 80;
+            stroke-dashoffset: 80;
+        }
+
+        .how.in .chart {
+            animation: draw 3.5s var(--ease) 1.4s infinite;
+        }
+
+        @keyframes draw {
+            0% {
+                stroke-dashoffset: 80;
+            }
+            40%, 100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+
+        /* ---------- Новини ---------- */
+        .news {
+            background: var(--navy);
+            color: #fff;
+            padding: 40px 0 110px;
+        }
+
+        .sec-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .sec-head h2 {
+            font-size: 72px;
+            font-weight: 900;
+            letter-spacing: -.035em;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .link-y {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--yellow);
+        }
+
+        .link-y::after {
+            content: " →";
+            display: inline-block;
+            transition: transform .25s var(--ease);
+        }
+
+        .link-y:hover::after {
+            transform: translateX(4px);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 44px;
+        }
+
+        .card {
+            position: relative;
+            display: block;
+            height: 440px;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #0B2550;
+            isolation: isolate;
+        }
+
+        .card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .9s var(--ease);
+            z-index: -2;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(0, 23, 57, 0) 30%, rgba(0, 23, 57, .55) 55%, rgba(0, 23, 57, .92) 100%);
+        }
+
+        .card:hover img {
+            transform: scale(1.04);
+        }
+
+        .card .reg {
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            background: var(--yellow);
+            color: var(--navy);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 999px;
+        }
+
+        .card .body {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            height: 196px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card time {
+            align-self: flex-start;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(0, 23, 57, .6);
+            backdrop-filter: blur(6px);
+        }
+
+        .card h3 {
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-top: 12px;
+        }
+
+        .card .arr {
+            margin-top: auto;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, .55);
+            display: grid;
+            place-items: center;
+            transition: transform .3s var(--ease), background .3s, color .3s, border-color .3s;
+        }
+
+        .card:hover .arr {
+            transform: translateX(4px);
+            background: var(--yellow);
+            border-color: var(--yellow);
+            color: var(--navy);
+        }
+
+        /* ---------- Партнери ---------- */
+        .partners {
+            padding: 100px 0;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .partners .wrap {
+            display: grid;
+            grid-template-columns: 340px minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .partners h2 {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: -.02em;
+            text-transform: uppercase;
+        }
+
+        .partners p {
+            font-size: 14px;
+            color: var(--ink);
+            margin-top: 16px;
+        }
+
+        .partners .link-y {
+            color: var(--blue);
+            display: inline-block;
+            margin-top: 14px;
+        }
+
+        .rows {
+            display: grid;
+            gap: 22px;
+            overflow: hidden;
+            padding: 6px 0 10px;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .row {
+            display: flex;
+            width: max-content;
+            animation: marquee 50s linear infinite;
+        }
+
+        .row.rev {
+            animation-direction: reverse;
+            animation-duration: 60s;
+        }
+
+        .rows:hover .row, .rows:focus-within .row {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logo-i {
+            position: relative;
+            flex: none;
+            width: 210px;
+            height: 84px;
+            margin-right: 20px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            transition: transform .3s var(--ease), background .3s;
+        }
+
+        .logo-i img {
+            max-width: 160px;
+            max-height: 50px;
+            mix-blend-mode: multiply;
+        }
+
+        .logo-i .txt {
+            font-weight: 800;
+            font-size: 21px;
+            color: var(--navy);
+        }
+
+        .logo-i em {
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translate(-50%, 4px);
+            font-style: normal;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--blue);
+            opacity: 0;
+            transition: opacity .25s, transform .25s var(--ease);
+            white-space: nowrap;
+        }
+
+        .logo-i:hover {
+            transform: translateY(-4px);
+            background: var(--sky);
+        }
+
+        .logo-i:hover em {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        /* ---------- Гасло ---------- */
+        .slogan {
+            position: relative;
+            margin-top: 63px;
+            min-height: 680px;
+            color: #fff;
+            background: linear-gradient(180deg, #5C8CD6 0%, var(--blue) 45%, #08337F 100%);
+        }
+
+        .slogan .clip {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .slogan .photo {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: auto;
+            max-width: none;
+        }
+
+        .slogan .wrap {
+            position: relative;
+            z-index: 2;
+            padding-top: 120px;
+            padding-bottom: 110px;
+        }
+
+        .slogan h2 {
+            max-width: 620px;
+        }
+
+        .slogan .plate {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--navy);
+            border-radius: 4px;
+            padding: 6px 16px 2px;
+            font-size: 66px;
+            font-weight: 900;
+            line-height: .98;
+            letter-spacing: -.035em;
+        }
+
+        .slogan .sub {
+            display: block;
+            margin-top: 18px;
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.12;
+            letter-spacing: -.03em;
+        }
+
+        .slogan p {
+            max-width: 560px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, .72);
+            margin-top: 24px;
+        }
+
+        .slogan .actions {
+            margin-top: 36px;
+        }
+
+        .btn-w {
+            border: 1.5px solid rgba(255, 255, 255, .5);
+            color: #fff;
+        }
+
+        .btn-w:hover {
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .ph-b {
+            position: absolute;
+            z-index: 2;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, .85);
+            box-shadow: 0 18px 40px -16px rgba(0, 10, 40, .6);
+            animation: float var(--t, 7s) ease-in-out infinite;
+            animation-delay: var(--dl, 0s);
+        }
+
+        .ph-b img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(var(--fx, 4px), var(--fy, -9px));
+            }
+        }
+
+        .people {
+            position: absolute;
+            z-index: 3;
+            right: 48px;
+            bottom: 56px;
+            text-align: right;
+            font-weight: 900;
+            font-size: 27px;
+            line-height: 1.12;
+            text-transform: uppercase;
+            text-shadow: 0 2px 14px rgba(0, 15, 45, .45);
+        }
+
+        .people .yp {
+            position: relative;
+            display: inline-block;
+            color: var(--navy);
+            padding: 2px 10px;
+            text-shadow: none;
+            margin-top: 4px;
+            z-index: 0;
+        }
+
+        .people .yp::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--yellow);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s var(--ease) .8s;
+        }
+
+        .people.in .yp::before {
+            transform: scaleX(1);
+        }
+
+        /* ---------- Футер ---------- */
+        .footer {
+            background: var(--navy);
+            color: #fff;
+            padding: 70px 0 28px;
+            overflow: hidden;
+        }
+
+        .fgrid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr 1.1fr 1.1fr 1fr;
+            gap: 32px;
+        }
+
+        .fgrid img {
+            height: 40px;
+        }
+
+        .fgrid .about {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.55;
+            color: #fff;
+            margin-top: 18px;
+        }
+
+        .footer h5 {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .footer ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .footer ul a:hover {
+            color: var(--yellow);
+        }
+
+        .footer .si {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer .si b {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            transition: transform .25s var(--ease);
+        }
+
+        .footer .si:hover b {
+            transform: scale(1.12);
+        }
+
+        .footer .btn {
+            margin-top: 18px;
+            color: var(--navy);
+            border: 0;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .big {
+            font-weight: 900;
+            font-size: 110px;
+            line-height: 1.1;
+            letter-spacing: -.02em;
+            white-space: nowrap;
+            width: max-content;
+            color: rgba(255, 255, 255, .06);
+            margin-top: 56px;
+            will-change: transform;
+        }
+
+        .fbot {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255, 255, 255, .15);
+            margin-top: 8px;
+            padding-top: 22px;
+            font-size: 13px;
+            color: #fff;
+        }
+
+        /* ---------- Модалка «Напишіть нам» ---------- */
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 80;
+            display: grid;
+            place-items: center;
+            padding: 16px;
+            background: rgba(0, 15, 40, 0);
+            visibility: hidden;
+            transition: background .25s, visibility 0s .3s;
+        }
+
+        .modal.open {
+            background: rgba(0, 15, 40, .55);
+            visibility: visible;
+            transition: background .25s;
+        }
+
+        .mbox {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            background: #fff;
+            border-radius: 32px;
+            padding: 40px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .3s var(--ease), transform .3s var(--ease);
+        }
+
+        .modal.open .mbox {
+            opacity: 1;
+            transform: none;
+        }
+
+        .mbox:focus {
+            outline: none;
+        }
+
+        .mbox h3 {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -.03em;
+        }
+
+        .mbox .msub {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(0, 23, 57, .7);
+            margin-top: 6px;
+        }
+
+        .mbox .mnote {
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: rgba(0, 23, 57, .6);
+            margin-top: 14px;
+            text-align: center;
+        }
+
+        .thanks p {
+            font-size: 17px;
+        }
+
+        .mbox p {
+            font-size: 14px;
+            color: var(--ink);
+            margin-top: 8px;
+        }
+
+        .mbox label {
+            display: block;
+            margin-top: 16px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .mbox input, .mbox textarea {
+            width: 100%;
+            margin-top: 6px;
+            font: inherit;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1.5px solid #D6DEEB;
+            border-radius: 14px;
+            padding: 13px 16px;
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+            resize: vertical;
+        }
+
+        .mbox input:focus, .mbox textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 4px rgba(14, 82, 189, .12);
+        }
+
+        .mbox ::placeholder {
+            color: #9AA6BC;
+            opacity: 1;
+            transition: color .2s;
+        }
+
+        .mbox :focus::placeholder {
+            color: transparent;
+        }
+
+        .mbox .btn {
+            width: 100%;
+            margin-top: 22px;
+            border: 0;
+            cursor: pointer;
+            font-family: inherit;
+            color: var(--navy);
+        }
+
+        .mclose {
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 0;
+            background: var(--sky);
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform .25s var(--ease);
+        }
+
+        .mclose:hover {
+            transform: rotate(90deg);
+        }
+
+        .thanks {
+            text-align: center;
+            display: none;
+        }
+
+        .mbox.sent form {
+            display: none;
+        }
+
+        .mbox.sent .thanks {
+            display: block;
+            animation: pop .5s var(--ease);
+        }
+
+        .thanks .ok {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--yellow);
+            display: grid;
+            place-items: center;
+            margin: 0 auto 18px;
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+        }
+
+        .note {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 60;
+            background: var(--navy);
+            color: #fff;
+            padding: 12px 14px;
+            border-radius: 14px;
+            font-size: 12px;
+            line-height: 1.5;
+            max-width: 280px;
+        }
+
+        .note button {
+            margin-top: 8px;
+            font: inherit;
+            font-weight: 700;
+            border: 0;
+            background: var(--yellow);
+            border-radius: 999px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .rv, .pt, .station, .sky {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .obl {
+                stroke-dashoffset: 0 !important;
+            }
+
+            .arc {
+                opacity: .85 !important;
+            }
+
+            .people .yp::before {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header" id="hdr">
+    <div class="wrap">
+        <a class="logo" href="#"><img src="brand/light-logo.svg" alt="REUA — Rebuild Our Ukraine"></a>
+        <nav class="nav"><a href="#">Станції ReH₂O</a><a href="#">Про фонд</a><a href="#">Інфраструктурні проєкти</a><a
+                href="#">Медіацентр</a><a href="#">Контакти</a></nav>
+        <div class="soc"><a href="#" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <circle cx="12" cy="12" r="10.8" fill="#fff"/>
+                <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"
+                      fill="#001739"/>
+            </svg>
+        </a><a href="#" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path d="M9 8L16.5 12L9 16Z" fill="#FFFFFF"/>
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                      fill="#001739"/>
+            </svg>
+        </a><a href="#" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <defs>
+                    <radialGradient id="iggh" cx="0.3" cy="1.07" r="1.25">
+                        <stop offset="0" stop-color="#FFDD55"/>
+                        <stop offset="0.1" stop-color="#FFDD55"/>
+                        <stop offset="0.5" stop-color="#FF543E"/>
+                        <stop offset="1" stop-color="#C837AB"/>
+                    </radialGradient>
+                </defs>
+                <path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
+                      fill="#001739"/>
+            </svg>
+        </a><a href="#" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" fill="#FFFFFF"/>
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                      fill="#001739"/>
+            </svg>
+        </a></div>
+        <div class="lang"><a class="on" href="#">UA</a><a href="#">EN</a></div>
+    </div>
+</header>
+
+<section class="hero" id="hero">
+    <div class="sky"></div>
+    <div class="wrap">
+        <div class="top">
+            <div>
+                <div class="eyebrow rv" style="--d:.1s">Rebuild Our Ukraine</div>
+                <div class="pre rv" style="--d:.2s">Благодійний Фонд</div>
+                <h1 class="rv" style="--d:.3s">«Відбудуємо нашу <span class="mark">Україну»</span></h1>
+                <p class="lead rv" style="--d:.45s">Ми відновлюємо критично важливі для життя ресурси та
+                    інфраструктуру</p>
+            </div>
+            <div class="scene" id="scene">
+                <div class="counter rv" id="counter" style="--d:1.6s">
+                    <span class="drop"><svg width="12" height="12" viewBox="0 0 24 24"><path
+                            d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" fill="#fff"/></svg></span>
+                    <span>до</span><span class="num" id="cnum">0</span><span>л/добу</span>
+                    <span class="ctag">23 станції</span>
+                </div>
+                <div class="map" id="map">
+                    <svg viewBox="0 0 1020 689" id="mapsvg">
+                        <g id="obl">
+                            <path class="obl"
+                                  d="M528 31L550 32L552 38L563 37L573 32L578 20L577 14L587 14L598 20L604 19L608 21L623 10L635 12L630 23L631 28L640 35L639 37L634 36L633 45L622 49L617 56L618 62L621 66L620 69L623 76L621 79L623 81L620 82L619 93L616 94L614 91L613 93L616 96L617 104L614 108L611 110L609 116L616 118L615 120L617 122L624 120L621 125L623 131L620 140L622 146L614 167L606 175L596 178L585 177L584 174L577 174L570 179L565 179L556 168L559 166L559 163L555 162L549 156L546 157L543 162L536 165L528 166L517 165L516 161L512 159L514 153L507 144L493 146L488 145L490 138L483 134L482 126L475 123L475 106L477 105L482 94L479 89L481 85L478 81L479 79L475 77L475 74L477 72L478 66L481 65L482 61L481 61L484 58L483 56L496 41L499 41L497 39L498 35L509 34L515 38L519 33Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M179 45L206 50L204 51L204 56L197 66L197 73L202 76L200 80L200 95L201 97L204 94L215 92L214 97L228 109L227 113L222 115L222 118L227 119L230 126L223 128L225 133L223 136L225 138L218 142L215 155L205 149L194 153L189 151L189 155L190 157L185 157L185 163L176 162L178 166L174 170L180 176L173 184L171 179L165 177L165 179L154 179L145 172L142 174L139 169L143 166L141 163L138 162L133 157L128 160L123 155L120 155L118 148L115 147L115 144L112 143L111 141L113 138L122 136L112 130L109 124L106 112L99 106L96 100L93 99L97 91L94 86L95 84L92 83L91 74L93 72L100 71L113 75L127 64L131 55L135 51L154 51Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M199 47L227 49L234 53L247 53L249 57L261 57L276 62L288 61L290 69L295 70L295 75L303 75L308 72L318 75L319 77L317 83L313 85L313 92L308 88L308 96L303 99L305 105L297 121L291 125L293 130L292 141L295 146L291 156L293 159L291 163L285 159L279 165L275 164L269 166L269 170L266 169L260 178L251 187L246 188L237 195L236 191L237 186L233 188L228 186L222 186L214 193L200 196L194 195L195 199L189 207L180 200L178 190L181 187L180 184L173 184L180 176L174 170L178 166L176 163L186 162L185 157L190 157L189 155L189 151L194 153L205 149L215 155L218 142L225 138L223 136L225 133L223 128L230 126L227 119L222 118L222 115L227 113L228 109L214 97L215 92L204 94L201 97L200 95L200 80L202 76L197 73L197 66L204 56L204 51L206 50L200 49Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M347 70L354 80L361 77L369 78L371 87L375 87L376 91L380 80L390 77L393 72L398 72L404 81L403 85L407 93L413 94L412 101L406 105L408 115L411 113L418 119L417 127L413 127L419 135L418 143L422 144L424 149L418 158L419 161L417 164L419 167L415 173L422 173L425 181L429 185L429 193L432 198L428 200L428 207L432 213L426 220L415 225L414 232L417 233L417 235L411 240L407 241L406 243L390 242L391 239L388 235L391 230L385 219L381 218L375 225L359 224L355 227L350 226L328 228L317 225L313 217L310 215L312 212L310 208L314 208L317 205L314 202L316 195L314 187L311 190L307 189L293 176L297 168L291 163L293 159L291 156L295 146L292 141L293 130L291 125L297 121L305 105L303 99L308 96L308 88L313 92L313 85L317 83L320 86L324 81L326 73L333 78L339 78Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M428 83L432 88L437 88L440 86L456 84L464 91L464 96L466 99L477 104L475 106L475 123L482 126L483 134L490 138L488 145L493 146L507 144L514 153L512 159L520 166L536 165L543 162L546 157L549 156L555 162L559 163L559 166L556 168L565 179L561 188L557 188L557 194L549 200L550 206L547 208L542 221L536 220L535 217L529 222L526 216L514 220L512 223L512 236L509 240L511 245L499 257L497 263L495 262L487 265L484 262L474 265L471 263L468 272L466 270L456 268L457 265L455 264L452 267L453 269L444 270L439 277L434 278L432 276L432 274L427 271L424 266L420 265L419 261L423 257L421 251L422 248L418 244L419 238L416 237L418 233L414 233L415 226L431 214L428 201L432 198L429 193L429 186L425 181L422 174L415 173L419 167L417 164L419 161L418 158L424 149L422 144L418 143L419 135L413 127L417 127L418 119L411 113L408 115L406 105L412 100L413 94L411 93L417 92L419 88ZM488 184L490 184L490 180L493 179L489 171L488 166L493 159L493 155L487 152L482 160L477 160L477 162L470 153L465 153L465 155L461 155L462 159L460 158L461 161L458 163L457 176L459 176L460 173L464 174L469 183L469 186L471 186L473 191L475 192L475 196L478 201L479 207L482 205L481 198L483 195L480 186L486 186L487 182Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M10 342L10 328L20 319L23 304L28 294L32 292L34 285L38 288L45 288L49 292L52 291L52 298L57 304L64 303L69 311L75 310L75 313L78 311L80 314L90 316L97 322L101 322L102 326L108 330L109 336L121 331L122 345L127 346L130 343L132 344L133 347L141 354L144 358L143 363L149 371L145 381L136 380L125 384L114 379L106 381L101 377L89 375L84 378L66 367L62 375L58 377L54 375L53 379L51 380L49 377L50 372L47 368L44 366L36 367L29 355L22 355L19 346L17 346L18 342Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M259 354L241 358L240 368L234 376L184 384L173 397L165 400L168 389L165 376L168 367L177 360L177 356L190 344L196 342L202 343L203 332L200 323L204 319L209 320L210 323L213 320L217 325L221 326L227 321L229 330L232 329L230 325L232 325L235 332L244 333L251 331L258 338L259 333L264 334L259 330L265 331L264 326L267 329L270 325L272 330L277 327L281 329L287 329L288 327L293 328L295 326L293 324L298 325L301 323L303 324L308 336L303 341L299 339L292 345L282 342L282 345L277 346L271 343L268 345L267 352L262 348Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M165 400L162 399L158 392L151 389L150 384L145 381L149 371L143 363L144 358L131 343L128 346L122 345L121 331L109 336L108 331L102 326L101 322L97 322L88 315L90 295L98 283L122 281L138 276L137 272L133 272L134 267L129 267L137 261L135 259L138 249L146 248L153 251L158 259L160 270L162 273L161 282L168 284L168 288L164 287L163 289L169 294L176 296L178 303L180 299L183 298L182 305L183 304L187 305L183 307L183 311L189 307L189 304L193 305L193 303L195 303L195 307L205 313L204 319L200 323L203 332L202 343L196 342L190 344L177 356L177 360L168 367L165 376L168 389Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M347 589L348 585L350 583L363 584L363 580L365 578L362 572L367 567L367 563L373 562L373 559L376 557L377 547L389 543L388 536L392 528L387 521L388 505L401 498L402 513L407 510L408 504L412 508L416 502L418 503L418 507L425 513L431 504L437 515L442 512L451 512L454 508L451 508L447 502L441 499L444 495L442 475L422 464L424 454L423 452L420 454L417 450L421 448L421 440L423 438L422 432L418 431L416 435L414 436L404 422L401 423L400 422L397 415L404 396L401 393L404 386L401 385L398 378L390 382L383 376L394 369L393 365L396 363L405 369L416 366L419 368L428 368L430 365L428 361L436 358L440 361L442 357L446 357L451 364L463 364L464 368L458 370L458 376L463 380L465 391L468 393L470 405L473 407L483 407L485 410L486 407L490 406L490 410L495 414L493 423L497 436L504 438L510 437L511 439L508 444L514 445L519 451L514 461L504 464L511 474L512 490L490 497L488 500L491 506L489 510L486 514L483 514L484 518L474 536L454 558L453 552L452 559L446 556L444 562L442 559L443 566L440 563L435 565L439 571L432 575L429 568L429 561L426 558L424 580L427 581L430 579L425 587L426 590L428 587L428 589L431 590L432 587L433 589L431 592L433 601L429 609L428 609L427 598L415 591L409 590L404 591L389 600L387 603L379 600L378 604L380 606L375 608L355 601L351 591Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M315 338L314 335L308 336L304 325L301 323L302 312L304 311L301 297L302 290L308 281L312 282L314 279L323 282L329 279L327 272L329 269L325 260L327 257L321 255L322 253L320 250L324 247L323 244L325 239L322 235L326 232L325 230L350 226L356 227L359 224L375 225L382 218L386 219L391 230L388 235L391 242L406 243L407 241L414 237L419 238L418 244L422 247L421 251L423 256L419 261L420 265L429 272L428 275L430 277L428 284L424 290L428 292L426 296L431 299L430 303L432 305L434 311L440 313L439 317L444 321L448 331L444 337L448 336L451 338L443 344L442 340L440 339L434 346L432 353L435 357L434 359L428 361L430 364L429 368L419 368L416 366L405 369L396 363L393 365L394 369L383 376L380 366L366 363L362 370L358 361L353 364L355 356L348 358L345 354L341 356L340 349L331 347L322 338Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M41 279L44 269L38 248L45 235L48 234L64 212L94 182L97 177L113 174L114 167L119 163L118 158L120 155L123 155L128 160L133 157L138 162L141 163L143 166L139 169L142 174L145 171L153 179L165 179L165 177L172 179L173 184L180 184L181 187L178 190L180 200L193 212L191 218L174 224L175 231L170 232L166 239L154 245L153 251L146 248L138 249L135 259L137 261L129 267L134 267L133 272L137 272L138 274L137 276L122 281L118 280L114 282L97 284L90 295L88 315L80 314L78 311L75 313L75 310L69 311L64 303L57 304L52 298L50 285L42 278Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M654 11L657 11L671 26L674 45L676 45L681 51L685 51L691 59L689 65L673 69L673 71L676 72L681 81L679 91L685 94L685 96L679 104L684 106L689 103L702 105L706 110L714 110L721 107L728 107L732 120L743 122L739 125L739 128L743 132L750 152L745 155L747 166L754 171L757 178L762 179L761 181L752 181L752 183L746 180L745 184L742 183L737 188L731 188L725 194L722 192L719 196L707 196L705 199L695 199L694 195L696 192L692 185L689 185L689 179L683 172L682 163L680 163L671 169L663 164L658 166L660 168L653 170L629 162L624 165L616 163L622 146L620 140L623 131L621 125L624 120L617 122L615 120L616 118L609 116L611 110L614 108L617 104L616 96L613 93L614 91L616 94L619 93L620 82L623 81L621 79L623 76L620 69L621 66L616 58L622 49L633 45L634 36L637 37L640 35L631 28L630 23L635 12L639 11L641 17Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M858 172L861 180L868 184L867 191L875 202L886 208L895 221L890 223L893 226L887 231L890 232L890 237L887 242L888 248L882 257L884 266L886 268L881 275L865 273L863 277L867 277L869 279L855 288L851 294L852 298L847 300L845 306L840 305L838 308L836 307L836 312L829 309L825 311L818 310L819 323L812 325L805 322L800 327L800 330L795 331L795 323L787 315L788 311L783 306L777 304L780 300L777 295L768 297L749 294L733 280L723 278L722 268L726 265L734 267L739 265L744 259L742 252L750 251L745 246L750 245L747 235L743 236L737 233L733 221L721 217L716 213L715 208L719 204L719 196L722 192L725 194L731 188L738 188L738 185L741 185L742 183L745 184L746 180L752 183L752 181L761 181L770 173L785 173L794 185L802 183L809 186L809 190L812 191L826 181L846 178L851 173Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M901 203L907 203L910 210L918 213L927 211L928 215L937 219L942 225L948 224L954 219L960 230L964 231L970 229L977 231L980 241L990 247L995 246L1001 241L1008 243L1003 251L1010 264L1009 271L998 281L997 288L983 290L983 294L988 301L998 304L1002 301L1004 303L1000 310L989 308L985 313L981 326L992 328L994 333L993 335L997 344L991 350L1001 353L992 366L992 373L988 374L990 379L986 391L967 390L963 389L952 390L948 388L947 375L937 373L935 371L935 366L924 361L922 352L914 352L913 348L917 346L912 339L907 338L908 332L905 330L904 320L907 315L905 314L906 305L903 304L902 298L891 296L894 292L892 286L894 280L889 281L884 279L884 276L887 275L882 273L886 268L884 266L882 257L888 248L887 242L890 237L890 232L887 231L893 226L890 223L895 221L891 216L899 213Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M948 388L936 388L931 403L927 402L921 407L908 410L905 418L905 426L901 434L906 435L907 438L901 443L902 451L898 456L896 457L897 453L894 451L892 453L882 451L874 453L867 452L862 456L853 469L847 465L837 470L835 465L841 462L841 457L835 454L833 448L827 443L831 442L830 434L836 435L839 434L841 428L845 430L847 421L842 422L832 412L829 413L824 408L821 409L819 404L821 403L818 402L815 393L812 393L811 387L809 385L809 383L814 382L811 378L812 369L816 368L826 373L829 370L828 362L831 359L829 351L824 348L824 341L826 339L828 328L825 327L823 331L821 331L823 325L820 325L818 310L825 311L829 309L836 312L836 307L838 308L840 305L845 306L847 300L852 298L851 294L855 288L869 279L867 277L863 277L865 273L878 275L882 273L887 275L884 276L884 279L889 281L894 279L892 286L894 292L891 295L902 298L903 304L906 305L905 314L907 315L904 320L905 330L908 332L907 338L912 339L917 346L913 348L914 352L922 352L924 361L935 366L935 371L937 373L947 375Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M648 533L650 525L653 527L657 526L674 535L681 535L687 537L694 547L696 547L698 545L707 545L712 551L713 561L721 566L724 566L742 596L750 602L764 598L770 587L771 592L778 596L787 588L795 587L796 590L806 590L809 593L812 591L814 598L807 598L807 602L802 608L802 614L804 620L794 623L792 626L782 623L779 627L771 627L763 619L752 617L746 622L746 625L748 626L745 627L744 632L741 629L738 630L736 634L732 635L728 644L723 640L708 643L694 649L687 665L683 665L674 675L665 679L653 677L660 674L658 666L653 664L652 662L654 658L652 655L648 655L647 650L651 647L650 644L645 642L647 633L643 617L635 611L627 614L607 597L598 597L594 600L590 600L586 598L584 593L593 583L599 580L603 580L606 574L623 565L622 561L628 564L640 555L642 556L647 553L651 555L651 550L656 549L647 547L649 545Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M724 566L721 566L713 561L712 551L707 545L698 545L696 547L694 547L687 537L672 534L660 527L653 527L650 525L649 531L648 533L646 530L643 532L644 536L640 537L641 539L636 539L633 534L629 535L630 532L625 532L626 524L620 532L614 529L614 532L607 533L600 532L585 537L572 532L571 528L572 526L565 526L560 521L558 521L551 516L551 520L545 518L547 514L556 514L561 510L558 505L547 503L549 499L564 500L577 504L581 501L582 498L593 489L580 495L576 496L571 492L565 496L564 492L558 489L556 482L566 481L570 475L577 476L579 473L586 473L587 470L597 474L610 471L602 469L613 465L610 463L610 461L611 459L614 462L616 458L609 453L608 451L612 444L615 444L620 441L619 437L620 430L614 425L616 421L618 425L620 424L618 411L629 414L632 418L644 411L645 416L648 418L663 416L680 419L685 437L690 436L692 433L696 433L695 436L699 458L702 463L708 465L712 473L703 485L709 488L708 493L711 497L716 498L716 501L725 504L727 517L730 518L725 522L720 523L718 522L713 528L717 549ZM739 522L733 532L723 537L726 531L735 528ZM612 539L615 540L615 542L592 538ZM554 526L565 530L534 521L530 512L536 521Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M770 491L759 501L751 506L739 522L743 513L741 515L739 514L740 506L736 504L734 500L733 502L735 510L730 518L728 518L725 504L716 501L716 498L711 497L708 493L709 488L703 485L712 474L712 471L699 458L695 436L696 433L692 433L690 436L685 437L680 419L701 412L719 415L720 412L718 409L721 397L717 396L718 390L713 386L719 380L713 374L716 365L717 369L730 365L738 365L752 369L761 365L769 370L777 368L778 373L782 372L780 375L783 380L786 381L785 386L783 386L784 389L788 389L791 387L791 390L795 391L799 389L811 389L812 393L815 393L818 402L821 403L819 404L821 409L824 408L829 413L832 412L842 422L847 421L845 430L841 428L839 434L836 435L830 434L831 442L827 443L833 448L835 454L841 457L841 462L835 465L837 470L827 476L822 490L821 489L822 489L824 482L820 479L814 478L801 482L795 492L790 487L774 488Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M653 677L649 675L645 669L642 669L633 662L645 659L641 656L643 652L641 645L644 639L651 647L647 650L648 655L652 655L654 658L652 662L653 664L658 666L660 674Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M547 503L541 502L540 507L530 494L534 497L546 497L549 499ZM555 483L554 476L558 465L554 463L556 459L550 457L552 452L543 438L542 441L547 443L547 449L550 451L548 459L554 459L552 464L553 466L556 465L554 471L550 476L552 481L552 489L547 491L539 488L535 489L534 491L529 490L536 474L530 481L526 476L530 483L525 490L521 493L512 490L511 474L504 464L514 461L519 451L514 445L508 444L511 439L510 437L504 438L497 436L493 423L495 414L490 410L490 406L486 407L485 410L483 407L473 407L470 405L468 393L465 391L463 380L458 376L458 370L464 368L463 364L466 362L481 363L486 360L492 362L494 360L497 362L505 357L512 358L516 365L530 366L530 371L536 366L544 367L545 372L541 374L550 384L549 393L559 392L565 397L570 391L583 394L593 392L595 389L594 384L597 383L596 378L600 377L603 378L606 376L607 373L612 372L615 379L615 382L617 384L616 394L618 398L612 400L614 406L612 409L618 411L620 424L618 425L616 421L614 425L620 430L619 437L620 440L615 444L612 444L608 450L609 453L616 458L614 462L611 459L610 461L610 463L614 464L602 469L610 471L603 474L597 474L587 470L586 473L579 473L576 477L570 475L567 481Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M598 178L606 175L616 163L624 165L629 162L653 170L660 168L658 166L663 164L671 169L680 163L682 163L683 172L689 179L689 185L692 185L696 192L694 195L695 199L705 199L707 196L719 196L719 204L715 208L717 214L721 217L733 221L735 229L740 235L747 235L750 245L746 246L750 250L742 251L744 259L738 266L734 267L725 265L721 271L723 278L720 277L716 280L716 277L712 277L691 285L687 291L689 293L685 294L684 298L686 305L684 308L685 310L681 313L656 298L651 300L650 303L646 298L643 300L636 296L634 297L629 292L632 288L624 286L615 277L601 270L601 264L595 252L599 246L599 242L596 236L589 233L589 228L581 224L578 220L580 211L576 204L572 203L570 198L572 195L569 196L561 188L565 179L570 179L577 174L584 174L587 178Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M291 163L297 168L294 171L293 176L302 183L307 189L311 190L314 187L316 195L314 202L317 205L314 208L310 208L312 212L310 216L313 217L317 225L328 228L325 230L326 233L322 234L325 239L323 244L324 247L320 250L322 253L321 255L327 257L325 260L329 269L327 272L329 278L323 282L314 279L312 282L307 282L301 293L304 311L299 325L293 324L294 328L288 327L286 329L277 327L272 330L270 325L267 329L264 326L265 331L259 330L264 334L259 333L259 337L257 338L251 331L246 332L245 328L242 325L242 322L238 318L237 310L239 308L237 306L235 296L237 286L236 274L239 268L233 249L239 237L236 234L237 227L235 223L233 211L237 209L235 206L237 203L236 201L240 199L236 196L241 193L246 188L251 187L260 178L266 169L269 170L269 166L274 164L279 165L285 159Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M228 186L233 188L237 186L236 191L237 195L236 196L240 199L236 201L237 203L235 206L237 209L233 211L235 223L237 227L236 234L239 237L233 249L239 268L236 274L237 286L235 296L237 306L239 308L237 310L238 318L245 328L244 333L233 330L232 325L230 325L232 329L229 330L227 321L221 326L217 325L213 320L210 323L209 320L204 319L204 312L195 307L194 303L193 305L189 304L189 307L183 311L183 307L187 305L183 304L182 305L183 298L180 299L178 303L176 296L169 294L163 289L164 287L168 288L168 284L161 282L162 273L160 270L158 259L153 251L154 245L166 239L170 232L175 231L174 224L191 218L191 214L193 213L190 206L192 206L195 199L194 195L200 196L214 193L222 186Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M723 278L733 280L749 294L768 297L777 295L780 300L777 304L783 306L788 311L787 315L795 323L795 331L800 330L800 327L806 321L812 325L819 323L820 325L823 325L821 331L823 331L825 327L828 327L826 339L824 341L824 349L829 351L831 358L828 362L828 370L825 373L816 368L812 369L811 378L814 382L809 384L811 389L799 389L795 391L791 390L791 387L788 389L784 389L783 386L785 386L786 381L783 380L780 375L782 372L778 373L777 368L769 370L761 365L752 369L738 365L730 365L717 369L716 365L713 374L719 380L713 386L718 390L717 396L721 397L718 409L720 412L719 415L701 412L677 420L663 416L649 419L645 416L644 411L632 418L629 414L613 409L614 406L612 400L618 398L616 394L617 384L615 382L616 373L620 369L625 368L626 361L628 367L632 360L635 361L641 356L642 351L638 332L658 320L646 315L645 310L650 308L652 310L655 308L659 312L664 303L681 313L685 310L684 308L686 305L684 298L685 294L689 293L687 291L691 285L712 277L716 277L716 280L720 277Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M558 187L563 188L569 196L572 195L570 198L572 203L576 204L580 211L578 220L581 224L589 228L589 233L596 236L599 242L599 246L595 252L601 264L599 277L605 291L600 295L596 293L593 296L589 295L587 298L582 287L578 288L576 284L565 294L564 299L559 298L551 304L549 299L543 297L538 299L532 298L531 306L528 312L520 315L514 313L506 315L485 312L480 316L480 320L476 324L478 325L478 329L469 328L468 331L460 336L457 334L452 338L448 336L444 337L448 331L444 321L439 317L440 313L434 311L432 305L430 303L431 299L426 296L428 292L424 290L430 281L428 274L430 273L432 274L433 277L439 277L442 271L449 268L453 269L455 264L457 265L456 268L466 270L468 272L471 263L474 265L484 262L487 265L495 262L497 263L499 257L511 245L509 240L512 236L512 223L514 220L526 216L529 222L535 217L536 220L542 221L547 208L550 206L549 200L557 194L556 189Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M601 270L615 277L624 286L632 288L629 292L634 297L636 296L643 300L646 298L650 303L651 300L656 298L664 303L659 312L655 308L652 310L650 308L645 309L644 311L646 315L658 320L638 332L642 351L641 356L635 361L632 360L628 367L626 361L625 368L619 370L615 378L611 372L607 373L606 376L603 378L600 377L596 378L597 383L594 384L595 389L593 392L583 394L570 391L565 397L559 392L550 393L550 384L541 374L545 372L544 368L536 366L530 371L530 366L516 365L512 358L509 357L502 358L497 362L494 360L492 362L486 360L481 363L466 362L464 364L451 364L446 357L442 357L440 361L437 358L434 359L435 355L432 353L434 346L439 340L442 339L443 344L451 338L457 334L460 336L468 331L469 328L478 329L478 325L476 324L480 320L480 316L485 312L506 315L514 313L520 315L528 312L531 306L532 298L538 299L543 297L549 299L551 304L559 298L565 299L565 294L576 284L578 288L582 287L586 298L589 295L593 296L596 293L601 295L605 290L599 277Z"
+                                  fill-rule="evenodd"/>
+                            <path class="obl"
+                                  d="M487 152L493 155L493 159L488 166L489 171L493 179L490 180L490 184L487 182L486 186L480 186L483 195L481 198L482 205L479 207L478 201L475 196L475 192L473 191L471 186L469 186L469 183L464 174L460 173L457 177L458 168L460 158L462 159L461 155L465 155L465 153L470 153L477 162L477 160L482 160Z"
+                                  fill-rule="evenodd"/>
+                        </g>
+                        <g id="arcs"></g>
+                        <g id="pts"></g>
+                    </svg>
+                </div>
+                <div class="tip" id="tip"><b></b><span></span></div>
+                <div class="station"><img src="anim/station-nologo.png" alt="Станція ReH₂O"><span class="slot"
+                                                                                                  title="Місце для логотипа партнера">Partners</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="rv" style="--d:.2s">
+                <div class="badge"><b>ReH₂O</b><span>Флагманська програма</span></div>
+                <h2>Національна програма водної стійкості України ReH₂O</h2>
+                <p>Автономні джерела питної води для громад, лікарень та критичної інфраструктури</p>
+                <a class="btn btn-y more" href="#how">Про програму →</a>
+            </div>
+            <div class="vline"></div>
+            <div class="rv" style="--d:.35s">
+                <span class="done-l">Реалізовано</span>
+                <div class="stats">
+                    <div><i>
+                        <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                            <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
+                        </svg>
+                    </i><b data-to="23">0</b><span>встановлені станції</span></div>
+                    <div><i>
+                        <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                            <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
+                        </svg>
+                    </i><b data-to="10">0</b><span>регіонів України</span></div>
+                    <div><i>
+                        <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                            <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
+                        </svg>
+                    </i><b data-to="700000">0</b><span>людей з доступом до чистої питної води</span></div>
+                    <div><i>
+                        <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                            <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
+                        </svg>
+                    </i><b data-to="15">0</b><span>років роботи станцій</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how water" id="how">
+    <div class="waves">
+        <svg class="w1" viewBox="0 0 2880 88" preserveAspectRatio="none">
+            <path d="M0 34.65 C 120.0 9.4 240.0 9.4 360.0 34.6 C 480.0 59.9 600.0 59.9 720.0 34.6 C 840.0 9.4 960.0 9.4 1080.0 34.6 C 1200.0 59.9 1320.0 59.9 1440.0 34.6 C 1560.0 9.4 1680.0 9.4 1800.0 34.6 C 1920.0 59.9 2040.0 59.9 2160.0 34.6 C 2280.0 9.4 2400.0 9.4 2520.0 34.6 C 2640.0 59.9 2760.0 59.9 2880.0 34.6 L2880 88 L0 88Z"
+                  fill="#0E52BD" fill-opacity=".23"/>
+        </svg>
+        <svg class="w2" viewBox="0 0 2880 88" preserveAspectRatio="none">
+            <path d="M0 40.95 C 180.0 18.9 300.0 53.5 420.0 37.8 C 540.0 22.1 620.0 22.1 720.0 41.0 C 900.0 18.9 1020.0 53.5 1140.0 37.8 C 1260.0 22.1 1340.0 22.1 1440.0 41.0 C 1620.0 18.9 1740.0 53.5 1860.0 37.8 C 1980.0 22.1 2060.0 22.1 2160.0 41.0 C 2340.0 18.9 2460.0 53.5 2580.0 37.8 C 2700.0 22.1 2780.0 22.1 2880.0 41.0 L2880 88 L0 88Z"
+                  fill="#0E52BD" fill-opacity=".35"/>
+        </svg>
+    </div>
+    <div id="bubbles"></div>
+    <div class="wrap">
+        <h2 class="rv">Як це працює</h2>
+        <div class="how-row">
+            <div class="rv" style="--d:.15s">
+                <p>Автономна станція ReH₂O забезпечує повний цикл — від підземного джерела до безпечної питної води</p>
+                <a class="btn btn-y" href="#" style="color:var(--navy)">Детальніше →</a>
+            </div>
+            <div class="steps">
+                <div class="pipe"></div>
+                <svg class="droplet" viewBox="0 0 24 30">
+                    <path d="M12 2s9 10 9 16a9 9 0 0 1-18 0c0-6 9-16 9-16z" fill="#FED700" stroke="#fff"
+                          stroke-width="2"/>
+                </svg>
+                <div class="step rv" style="--d:.3s"><span class="n">01</span>
+                    <div class="circle"><img src="anim/how-1.webp" alt=""></div>
+                    <h4>Підземне джерело води</h4></div>
+                <div class="step rv" style="--d:.42s"><span class="n">02</span>
+                    <div class="circle"><img src="anim/how-2.webp" alt=""></div>
+                    <h4>Очищення ReH₂O</h4></div>
+                <div class="step rv" style="--d:.54s"><span class="n">03</span>
+                    <div class="circle"><img src="anim/how-3.webp" alt=""></div>
+                    <h4>Автономна сонячна енергія</h4></div>
+                <div class="step rv" style="--d:.66s"><span class="n">04</span>
+                    <div class="circle"><img src="anim/how-4.webp" alt=""></div>
+                    <h4>Безпечна питна вода</h4></div>
+                <div class="step rv" style="--d:.78s"><span class="n">05</span>
+                    <div class="circle"><img src="anim/how-5.webp" alt=""></div>
+                    <h4>Дистанційний моніторинг</h4></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news" id="news">
+    <div class="wrap">
+        <div class="sec-head"><h2 class="rv">Новини</h2><a class="link-y rv" style="--d:.1s" href="#">Усі новини</a>
+        </div>
+        <div class="cards">
+            <a class="card rv" href="#" style="--d:0.1s"><img src="anim/n1.jpg" alt="" loading="lazy"><span class="reg">Дніпропетровська обл.</span>
+                <div class="body">
+                    <time>12.09.2026</time>
+                    <h3>Нова станція ReH₂O запрацювала у громаді</h3><span class="arr">→</span></div>
+            </a>
+            <a class="card rv" href="#" style="--d:0.2s"><img src="anim/n2.jpg" alt="" loading="lazy"><span class="reg">м. Дніпро</span>
+                <div class="body">
+                    <time>05.09.2026</time>
+                    <h3>Безпечна вода для обласної онколікарні</h3><span class="arr">→</span></div>
+            </a>
+            <a class="card rv" href="#" style="--d:0.3s"><img src="anim/n3.jpg" alt="" loading="lazy"><span class="reg">Харківська обл.</span>
+                <div class="body">
+                    <time>28.08.2026</time>
+                    <h3>Як працює станція після встановлення</h3><span class="arr">→</span></div>
+            </a>
+            <a class="card rv" href="#" style="--d:0.4s"><img src="anim/n4.jpg" alt="" loading="lazy"><span class="reg">Сумська обл.</span>
+                <div class="body">
+                    <time>20.08.2026</time>
+                    <h3>24 станції — наступний етап програми</h3><span class="arr">→</span></div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="partners" id="partners">
+    <div class="wrap">
+        <div class="rv">
+            <h2>Партнери<br>водної стійкості<br>України</h2>
+        </div>
+        <div class="rows rv" style="--d:.15s">
+            <div class="row"><a class="logo-i" href="#" aria-label="Renew Democracy Initiative"><img
+                    src="anim/logos/rdi-fig.svg" alt="Renew Democracy Initiative"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" href="#" aria-label="Canada-Ukraine Foundation"><img src="anim/logos/cuf.jpg"
+                                                                                        alt="Canada-Ukraine Foundation"><em>Сайт
+                партнера ↗</em></a><a class="logo-i" href="#" aria-label="LifeLine Ukraine"><img
+                    src="anim/logos/lifeline.jpg" alt="LifeLine Ukraine"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                        href="#"
+                                                                                                        aria-label="BlueCheck Ukraine"><img
+                    src="anim/logos/bluecheck.svg" alt="BlueCheck Ukraine"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                          href="#"
+                                                                                                          aria-label="American Jewish Committee"><img
+                    src="anim/logos/ajc.svg" alt="American Jewish Committee"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                    aria-label="Renew Democracy Initiative"><img src="anim/logos/rdi-fig.svg"
+                                                                 alt="Renew Democracy Initiative"><em>Сайт партнера
+                ↗</em></a><a class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                             aria-label="Canada-Ukraine Foundation"><img src="anim/logos/cuf.jpg"
+                                                                         alt="Canada-Ukraine Foundation"><em>Сайт
+                партнера ↗</em></a><a class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                                      aria-label="LifeLine Ukraine"><img src="anim/logos/lifeline.jpg"
+                                                                         alt="LifeLine Ukraine"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" aria-hidden="true" tabindex="-1" href="#" aria-label="BlueCheck Ukraine"><img
+                    src="anim/logos/bluecheck.svg" alt="BlueCheck Ukraine"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                          aria-hidden="true"
+                                                                                                          tabindex="-1"
+                                                                                                          href="#"
+                                                                                                          aria-label="American Jewish Committee"><img
+                    src="anim/logos/ajc.svg" alt="American Jewish Committee"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                    aria-label="Renew Democracy Initiative"><img src="anim/logos/rdi-fig.svg"
+                                                                 alt="Renew Democracy Initiative"><em>Сайт партнера
+                ↗</em></a><a class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                             aria-label="Canada-Ukraine Foundation"><img src="anim/logos/cuf.jpg"
+                                                                         alt="Canada-Ukraine Foundation"><em>Сайт
+                партнера ↗</em></a><a class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                                      aria-label="LifeLine Ukraine"><img src="anim/logos/lifeline.jpg"
+                                                                         alt="LifeLine Ukraine"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" aria-hidden="true" tabindex="-1" href="#" aria-label="BlueCheck Ukraine"><img
+                    src="anim/logos/bluecheck.svg" alt="BlueCheck Ukraine"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                          aria-hidden="true"
+                                                                                                          tabindex="-1"
+                                                                                                          href="#"
+                                                                                                          aria-label="American Jewish Committee"><img
+                    src="anim/logos/ajc.svg" alt="American Jewish Committee"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                    aria-label="Renew Democracy Initiative"><img src="anim/logos/rdi-fig.svg"
+                                                                 alt="Renew Democracy Initiative"><em>Сайт партнера
+                ↗</em></a><a class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                             aria-label="Canada-Ukraine Foundation"><img src="anim/logos/cuf.jpg"
+                                                                         alt="Canada-Ukraine Foundation"><em>Сайт
+                партнера ↗</em></a><a class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                                      aria-label="LifeLine Ukraine"><img src="anim/logos/lifeline.jpg"
+                                                                         alt="LifeLine Ukraine"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" aria-hidden="true" tabindex="-1" href="#" aria-label="BlueCheck Ukraine"><img
+                    src="anim/logos/bluecheck.svg" alt="BlueCheck Ukraine"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                          aria-hidden="true"
+                                                                                                          tabindex="-1"
+                                                                                                          href="#"
+                                                                                                          aria-label="American Jewish Committee"><img
+                    src="anim/logos/ajc.svg" alt="American Jewish Committee"><em>Сайт партнера ↗</em></a></div>
+            <div class="row rev"><a class="logo-i" href="#" aria-label="Ukraine Aid International"><img
+                    src="anim/logos/uai.png" alt="Ukraine Aid International"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" href="#" aria-label="Mission 823"><img src="anim/logos/mission823.jpg"
+                                                                          alt="Mission 823"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" href="#"><span class="txt">GO Ukraina</span><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" href="#" aria-label="Angels for Ukraine"><img src="anim/logos/angels.png"
+                                                                                 alt="Angels for Ukraine"><em>Сайт
+                партнера ↗</em></a><a class="logo-i" aria-hidden="true" tabindex="-1" href="#"
+                                      aria-label="Ukraine Aid International"><img src="anim/logos/uai.png"
+                                                                                  alt="Ukraine Aid International"><em>Сайт
+                партнера ↗</em></a><a class="logo-i" aria-hidden="true" tabindex="-1" href="#" aria-label="Mission 823"><img
+                    src="anim/logos/mission823.jpg" alt="Mission 823"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                     aria-hidden="true"
+                                                                                                     tabindex="-1"
+                                                                                                     href="#"><span
+                    class="txt">GO Ukraina</span><em>Сайт партнера ↗</em></a><a class="logo-i" aria-hidden="true"
+                                                                                tabindex="-1" href="#"
+                                                                                aria-label="Angels for Ukraine"><img
+                    src="anim/logos/angels.png" alt="Angels for Ukraine"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                        aria-hidden="true"
+                                                                                                        tabindex="-1"
+                                                                                                        href="#"
+                                                                                                        aria-label="Ukraine Aid International"><img
+                    src="anim/logos/uai.png" alt="Ukraine Aid International"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" aria-hidden="true" tabindex="-1" href="#" aria-label="Mission 823"><img
+                    src="anim/logos/mission823.jpg" alt="Mission 823"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                     aria-hidden="true"
+                                                                                                     tabindex="-1"
+                                                                                                     href="#"><span
+                    class="txt">GO Ukraina</span><em>Сайт партнера ↗</em></a><a class="logo-i" aria-hidden="true"
+                                                                                tabindex="-1" href="#"
+                                                                                aria-label="Angels for Ukraine"><img
+                    src="anim/logos/angels.png" alt="Angels for Ukraine"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                        aria-hidden="true"
+                                                                                                        tabindex="-1"
+                                                                                                        href="#"
+                                                                                                        aria-label="Ukraine Aid International"><img
+                    src="anim/logos/uai.png" alt="Ukraine Aid International"><em>Сайт партнера ↗</em></a><a
+                    class="logo-i" aria-hidden="true" tabindex="-1" href="#" aria-label="Mission 823"><img
+                    src="anim/logos/mission823.jpg" alt="Mission 823"><em>Сайт партнера ↗</em></a><a class="logo-i"
+                                                                                                     aria-hidden="true"
+                                                                                                     tabindex="-1"
+                                                                                                     href="#"><span
+                    class="txt">GO Ukraina</span><em>Сайт партнера ↗</em></a><a class="logo-i" aria-hidden="true"
+                                                                                tabindex="-1" href="#"
+                                                                                aria-label="Angels for Ukraine"><img
+                    src="anim/logos/angels.png" alt="Angels for Ukraine"><em>Сайт партнера ↗</em></a></div>
+        </div>
+    </div>
+</section>
+
+<section class="slogan water" id="slogan">
+    <div class="waves">
+        <svg class="w1" viewBox="0 0 2880 88" preserveAspectRatio="none">
+            <path d="M0 34.65 C 120.0 9.4 240.0 9.4 360.0 34.6 C 480.0 59.9 600.0 59.9 720.0 34.6 C 840.0 9.4 960.0 9.4 1080.0 34.6 C 1200.0 59.9 1320.0 59.9 1440.0 34.6 C 1560.0 9.4 1680.0 9.4 1800.0 34.6 C 1920.0 59.9 2040.0 59.9 2160.0 34.6 C 2280.0 9.4 2400.0 9.4 2520.0 34.6 C 2640.0 59.9 2760.0 59.9 2880.0 34.6 L2880 88 L0 88Z"
+                  fill="#5C8CD6" fill-opacity=".35"/>
+        </svg>
+        <svg class="w2" viewBox="0 0 2880 88" preserveAspectRatio="none">
+            <path d="M0 40.95 C 180.0 18.9 300.0 53.5 420.0 37.8 C 540.0 22.1 620.0 22.1 720.0 41.0 C 900.0 18.9 1020.0 53.5 1140.0 37.8 C 1260.0 22.1 1340.0 22.1 1440.0 41.0 C 1620.0 18.9 1740.0 53.5 1860.0 37.8 C 1980.0 22.1 2060.0 22.1 2160.0 41.0 C 2340.0 18.9 2460.0 53.5 2580.0 37.8 C 2700.0 22.1 2780.0 22.1 2880.0 41.0 L2880 88 L0 88Z"
+                  fill="#5C8CD6"/>
+        </svg>
+    </div>
+    <div class="clip">
+        <img class="photo" src="anim/slogan.webp" alt="Дівчина у вишиванці п’є чисту воду">
+        <div id="bubbles2"></div>
+    </div>
+    <span class="ph-b" style="width:118px;height:118px;left:51%;top:150px;--t:7s;--fx:5px;--fy:-8px"><img
+            src="anim/b-reua-tap.webp" alt=""></span>
+    <span class="ph-b" style="width:150px;height:150px;right:6%;top:58px;--t:8.5s;--dl:-2s;--fx:-6px;--fy:-10px"><img
+            src="anim/b-hands-canister.webp" alt=""></span>
+    <span class="ph-b" style="width:136px;height:136px;right:3.5%;top:330px;--t:6.5s;--dl:-4s;--fx:-4px;--fy:8px"><img
+            src="anim/b-girl-tap.webp" alt=""></span>
+    <span class="ph-b" style="width:150px;height:150px;left:52%;top:438px;--t:9s;--dl:-1s;--fx:6px;--fy:-7px"><img
+            src="anim/b-woman-cups.webp" alt=""></span>
+    <div class="wrap">
+        <h2 class="rv"><span class="plate">Кожні 3 долари</span><span class="sub">донорського внеску — це 15 років чистої питної води для однієї людини</span>
+        </h2>
+        <p class="rv" style="--d:.15s">Інвестиція у водну стійкість — це не разова допомога. Це доступ до безпечної
+            питної води сьогодні та інфраструктура, що працюватиме роками.</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="wrap">
+        <div class="fgrid">
+            <div><img src="brand/dark-logo.svg" alt="REUA">
+                <p class="about">Благодійний фонд «Відбудуємо нашу Україну»</p>
+                <p class="about">Національна програма водної стійкості ReH₂O</p></div>
+            <div><h5>Меню</h5>
+                <ul>
+                    <li><a href="#">Станції ReH₂O</a></li>
+                    <li><a href="#">Про фонд</a></li>
+                    <li><a href="#">Інфраструктурні проєкти</a></li>
+                    <li><a href="#">Медіацентр</a></li>
+                </ul>
+            </div>
+            <div><h5>Документи</h5>
+                <ul>
+                    <li><a href="#">Публічна оферта</a></li>
+                    <li><a href="#">Політика конфіденційності</a></li>
+                    <li><a href="#">Статут</a></li>
+                    <li><a href="#">Звіти</a></li>
+                </ul>
+            </div>
+            <div><h5>Контакти</h5>
+                <ul>
+                    <li>+380 67 077 2255</li>
+                    <li>+380 96 077 2255</li>
+                    <li>Київ, проспект Повітряних сил, 3, оф. 21</li>
+                </ul>
+                <button class="btn btn-y btn-sm" type="button" id="openM">Напишіть нам →</button>
+            </div>
+            <div><h5>Ми в соцмережах</h5>
+                <ul>
+                    <li><a class="si" href="#"><b>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                             aria-hidden="true">
+                            <circle cx="12" cy="12" r="10.8" fill="#fff"/>
+                            <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"
+                                  fill="#0866FF"/>
+                        </svg>
+                    </b>Facebook</a></li>
+                    <li><a class="si" href="#"><b>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                             aria-hidden="true">
+                            <path d="M9 8L16.5 12L9 16Z" fill="#FFFFFF"/>
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                                  fill="#FF0000"/>
+                        </svg>
+                    </b>YouTube</a></li>
+                    <li><a class="si" href="#"><b>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                             aria-hidden="true">
+                            <defs>
+                                <radialGradient id="iggf" cx="0.3" cy="1.07" r="1.25">
+                                    <stop offset="0" stop-color="#FFDD55"/>
+                                    <stop offset="0.1" stop-color="#FFDD55"/>
+                                    <stop offset="0.5" stop-color="#FF543E"/>
+                                    <stop offset="1" stop-color="#C837AB"/>
+                                </radialGradient>
+                            </defs>
+                            <path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
+                                  fill="url(#iggf)"/>
+                        </svg>
+                    </b>Instagram</a></li>
+                    <li><a class="si" href="#"><b>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                             aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" fill="#FFFFFF"/>
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                                  fill="#0A66C2"/>
+                        </svg>
+                    </b>LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="big" id="big">REBUILD OUR UKRAINE</div>
+        <div class="fbot"><span>© 2026 БФ «Відбудуємо нашу Україну»</span></div>
+    </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <div class="mbox" id="mbox" tabindex="-1">
+        <button class="mclose" type="button" id="closeM" aria-label="Закрити">✕</button>
+        <form id="mform">
+            <h3 id="mt">Напишіть нам,</h3>
+            <p class="msub">якщо у вас є ідеї або пропозиції</p>
+            <label>Ім’я<input type="text" placeholder="Ваше ім’я" required></label>
+            <label>Номер телефону<input type="tel" placeholder="+380"></label>
+            <label>E-mail<input type="email" placeholder="name@example.com"></label>
+            <label>Повідомлення<textarea rows="4" placeholder="Ваша ідея або пропозиція"></textarea></label>
+            <button class="btn btn-y" type="submit">Надіслати</button>
+            <p class="mnote">Натискаючи кнопку, ви погоджуєтесь з політикою конфіденційності.</p>
+        </form>
+        <div class="thanks">
+            <div class="ok">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#001739" stroke-width="3"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12l5 5 9-10"/>
+                </svg>
+            </div>
+            <h3>Дякуємо!</h3>
+            <p>Повідомлення надіслано. Ми зв’яжемося з вами найближчим часом.</p>
+            <button class="btn btn-y" type="button" id="closeM2">Закрити</button>
+        </div>
+    </div>
+</div>
+
+<div class="note">Прототип анімацій головної · оновіть сторінку, щоб побачити появу ще раз. Наведіть на станції на
+    карті, поводьте курсором по воді, натисніть «Напишіть нам» у футері.<br>
+    <button type="button" onclick="location.reload()">Показати ще раз</button>
+</div>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s);
+  // шапка
+  addEventListener('scroll', () => $('#hdr').classList.toggle('small', scrollY > 40), {passive: true});
+  // поява при прокрутці
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  }), {threshold: .2});
+  document.querySelectorAll('.rv, .how').forEach(el => io.observe(el));
+
+  // ---- карта
+  const NS = 'http://www.w3.org/2000/svg';
+  const M = [[456.6, 162.5, 2, 'Буча, Ворзель'], [634.6, 383.2, 1, 'Кривий Ріг'], [490.3, 499.9, 2, 'Одеса, Одеська обл.'], [435.9, 169.3, 1, 'Макарів'], [703.3, 406.2, 1, 'Марганець'], [792.1, 208.7, 2, 'Харків'], [546.3, 399.1, 1, 'Ольгопіль (Миколаївська обл.)'], [512.7, 490.6, 1, 'Коблеве'], [555.9, 463.9, 3, 'Миколаїв (2), Галицинове'], [532.3, 491.7, 1, 'Очаків'], [475.4, 170.5, 1, 'Київ'], [458.7, 312.9, 1, 'Умань'], [368.7, 217.1, 1, 'Бердичів'], [523.1, 146.0, 1, 'Чернігівська обл.'], [634.1, 78.6, 1, 'Кролевець'], [796.8, 301.2, 1, 'Лозова'], [726.3, 336.8, 1, 'Дніпро'], [862.5, 315.3, 1, 'Олександрівка']];
+  const E = [[0, 10], [0, 3], [10, 13], [3, 12], [13, 14], [12, 11], [11, 6], [6, 8], [8, 9], [9, 7], [7, 2], [6, 1], [1, 4], [4, 16], [16, 15], [15, 17], [15, 5]];
+  const arcs = $('#arcs'), pts = $('#pts');
+  const word = n => n === 1 ? 'станція' : (n < 5 ? 'станції' : 'станцій');
+  E.forEach(([a, b], i) => {
+    const [x1, y1] = M[a], [x2, y2] = M[b];
+    const p = document.createElementNS(NS, 'path');
+    p.setAttribute('class', 'arc');
+    p.setAttribute('id', 'arc' + i);
+    p.setAttribute('d', `M${x1} ${y1} L${x2} ${y2}`);
+    arcs.appendChild(p);
+    if (!reduce) {
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('r', 4);
+      c.setAttribute('class', 'spark');
+      const am = document.createElementNS(NS, 'animateMotion');
+      am.setAttribute('dur', (5 + (i % 4)) + 's');
+      am.setAttribute('repeatCount', 'indefinite');
+      am.setAttribute('begin', (3 + i * .35) + 's');
+      const mp = document.createElementNS(NS, 'mpath');
+      mp.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#arc' + i);
+      mp.setAttribute('href', '#arc' + i);
+      am.appendChild(mp);
+      c.appendChild(am);
+      c.setAttribute('opacity', 0);
+      arcs.appendChild(c);
+      am.addEventListener('beginEvent', () => c.setAttribute('opacity', 1));
+    }
+  });
+  M.forEach(([x, y, n, name], i) => {
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('class', 'pt');
+    g.style.setProperty('--d', (i * .09) + 's');
+    g.style.setProperty('--hd', (i * .2) + 's');
+    // іконка станції: маленький контейнер з тінню; число станцій у точці — біла позначка
+    g.innerHTML = `<circle class="halo" cx="${x}" cy="${y}" r="20.5"/>`
+      + `<image href="anim/map-station.png" x="${x - 38.8}" y="${y - 21}" width="77.5" height="42"/>`
+      + (n > 1 ? `<circle cx="${x + 18.4}" cy="${y - 24.8}" r="12" fill="#fff"/><text x="${x + 18.4}" y="${y - 24.8}">${n}</text>` : '');
+    g.addEventListener('mouseenter', () => showTip(g, name, n));
+    g.addEventListener('mouseleave', hideTip);
+    pts.appendChild(g);
+  });
+  const tip = $('#tip'), scene = $('#scene');
+
+  function showTip(g, name, n) {
+    const r = g.querySelector('image').getBoundingClientRect(), s = scene.getBoundingClientRect();
+    tip.querySelector('b').textContent = name;
+    tip.querySelector('span').textContent = n + ' ' + word(n);
+    tip.style.left = (r.left + r.width / 2 - s.left) + 'px';
+    tip.style.top = (r.top - s.top - 6) + 'px';
+    tip.classList.add('on');
+  }
+
+  function hideTip() {
+    tip.classList.remove('on');
+  }
+
+  // послідовність першого екрана
+  requestAnimationFrame(() => document.body.classList.add('loaded'));
+  const map = $('#map');
+  setTimeout(() => map.classList.add('pts-on'), reduce ? 0 : 1600);
+  setTimeout(() => map.classList.add('arcs-on'), reduce ? 0 : 2600);
+  document.querySelectorAll('#hero .rv').forEach(el => el.classList.add('in'));
+
+  // лічильники
+  const fmt = n => Math.round(n).toLocaleString('uk-UA');
+
+  function count(el, from, to, dur = 1400) {
+    if (reduce) {
+      el.textContent = fmt(to);
+      return;
+    }
+    const t0 = performance.now();
+    const tick = t => {
+      const k = Math.min(1, (t - t0) / dur);
+      el.textContent = fmt(from + (to - from) * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  setTimeout(() => document.querySelectorAll('.stats b').forEach((b, i) => setTimeout(() => count(b, 0, +b.dataset.to), i * 120)), reduce ? 0 : 900);
+  const cnum = $('#cnum');
+  // лічильник на карті одразу рахує загальну кількість води всіх станцій
+  setTimeout(() => count(cnum, 0, 2300000, 1800), reduce ? 0 : 1700);
+
+  // бульбашки у воді
+  if (!reduce) ['#bubbles', '#bubbles2'].forEach((id, k) => {
+    const bb = $(id);
+    for (let i = 0; i < (k ? 9 : 16); i++) {
+      const b = document.createElement('i');
+      b.className = 'bubble';
+      const s = 4 + Math.random() * 8;
+      Object.assign(b.style, {
+        left: (k ? 12 : 0) + Math.random() * (k ? 82 : 100) + '%',
+        width: s + 'px',
+        height: s + 'px',
+        animationDuration: 9 + Math.random() * 9 + 's',
+        animationDelay: -Math.random() * 12 + 's'
+      });
+      bb.appendChild(b);
+    }
+  });
+
+  // кола від курсора на воді
+  if (!reduce) document.querySelectorAll('.water').forEach(w => {
+    let last = 0;
+    w.addEventListener('pointermove', e => {
+      const now = performance.now();
+      if (now - last < 120) return;
+      last = now;
+      const r = w.getBoundingClientRect(), ring = document.createElement('i');
+      ring.className = 'ripple';
+      ring.style.left = (e.clientX - r.left) + 'px';
+      ring.style.top = (e.clientY - r.top) + 'px';
+      w.appendChild(ring);
+      ring.addEventListener('animationend', () => ring.remove());
+    });
+  });
+
+
+  // великий напис у футері — легкий паралакс
+  const big = $('#big');
+  // розмір шрифту підганяємо під ширину контейнера, щоб напис займав рівно рядок
+  const fitBig = () => {
+    big.style.fontSize = '100px';
+    big.style.fontSize = (100 * (big.parentElement.clientWidth - 80) / big.scrollWidth).toFixed(1) + 'px';
+  };
+  document.fonts.ready.then(fitBig);
+  addEventListener('resize', fitBig);
+  // під час прокрутки напис «доїжджає» на місце: зсув зменшується до нуля, коли футер повністю на екрані
+  if (!reduce) addEventListener('scroll', () => {
+    const r = big.getBoundingClientRect();
+    const k = Math.max(0, Math.min(1, (r.top - (innerHeight - r.height - 40)) / 400));
+    big.style.transform = `translateX(${(k * 90).toFixed(1)}px)`;
+  }, {passive: true});
+
+  // модалка «Напишіть нам»
+  const modal = $('#modal'), mbox = $('#mbox');
+  const openM = () => {
+    mbox.classList.remove('sent');
+    modal.classList.add('open');
+    setTimeout(() => mbox.focus(), 300);
+  };
+  const closeM = () => modal.classList.remove('open');
+  $('#openM').addEventListener('click', openM);
+  $('#closeM').addEventListener('click', closeM);
+  $('#closeM2').addEventListener('click', closeM);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeM();
+  });
+  addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeM();
+  });
+  $('#mform').addEventListener('submit', e => {
+    e.preventDefault();
+    mbox.classList.add('sent');
+  });
+</script>
+</body>
+</html>
