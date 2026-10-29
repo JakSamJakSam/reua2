@@ -1,0 +1,19 @@
+<div class="modal" id="feedback_modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <div class="mbox" tabindex="-1">
+        <button class="mclose" type="button" id="closeM" aria-label="Закрити">✕</button>
+        <form id="mform" action="{% url 'feedback' %}" method="post">
+        {% include '2026/std/feedback_form.html' %}
+        </form>
+        <div class="thanks">
+            <div class="ok">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#001739" stroke-width="3"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12l5 5 9-10"/>
+                </svg>
+            </div>
+            <h3>Дякуємо!</h3>
+            <p>Повідомлення надіслано. Ми зв’яжемося з вами найближчим часом.</p>
+            <button class="btn btn-y" type="button" id="closeM2">Закрити</button>
+        </div>
+    </div>
+</div>

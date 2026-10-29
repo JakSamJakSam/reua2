@@ -1,22 +1,24 @@
 from adminsortable.admin import SortableAdmin
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import *
+from reua.models.projects import ProjectPhoto
 
 
-# @admin.register(TopMenu)
-# class TopMenuAdmin(SortableAdmin):
-#     form = TopMenuAdminForm
+@admin.register(TopMenu)
+class TopMenuAdmin(SortableAdmin):
+    form = TopMenuAdminForm
 
 
-# @admin.register(Partner)
-# class TopMenuAdmin(SortableAdmin):
-#     pass
-#
-#
-# admin.site.register(FoundingDocument, admin.ModelAdmin)
-#
+@admin.register(Partner)
+class TopMenuAdmin(SortableAdmin):
+    pass
+
+
+admin.site.register(FoundingDocument, admin.ModelAdmin)
+
 # @admin.register(CompanyCategory)
 # class CompanyCategoryAdmin(SortableAdmin):
 #     pass
@@ -76,27 +78,27 @@ from reua.models import *
 #     )
 #
 #
-# @admin.register(SiteSettings)
-# class SiteSettingsAdmin(admin.ModelAdmin):
-#     fieldsets = (
-#         (_('Адреса'), {
-#             # 'classes': ('collapse',),
-#             'fields': ('addr', 'addr_en', 'phone', 'phone2', 'email', 'lat', 'lng'),
-#         }),
-#         (_('Коди'), {
-#             'classes': ('collapse',),
-#             'fields': ('company_add_code', 'invest_add_code'),
-#         }),
-#         (_('Призначення ReH₂O'), {
-#             'classes': ('collapse',),
-#             'fields': ('reh2o_text', 'reh2o_text_en'),
-#         }),
-#         (_('Призначення ReCity'), {
-#             'classes': ('collapse',),
-#             'fields': ('reCity_text', 'reCity_text_en'),
-#         }),
-#     )
-#
+@admin.register(SiteSettings)
+class SiteSettingsAdmin(admin.ModelAdmin):
+    fieldsets = (
+        (_('Адреса'), {
+            # 'classes': ('collapse',),
+            'fields': ('addr', 'addr_en', 'phone', 'phone2', 'email', 'lat', 'lng'),
+        }),
+        (_('Коди'), {
+            'classes': ('collapse',),
+            'fields': ('company_add_code', 'invest_add_code'),
+        }),
+        (_('Призначення ReH₂O'), {
+            'classes': ('collapse',),
+            'fields': ('reh2o_text', 'reh2o_text_en'),
+        }),
+        (_('Призначення ReCity'), {
+            'classes': ('collapse',),
+            'fields': ('reCity_text', 'reCity_text_en'),
+        }),
+    )
+
 # @admin.register(Staff)
 # class StaffAdmin(SummernoteModelAdminMixin, SortableAdmin):
 #     summernote_fields = ('descriprion', 'descriprion_en')
@@ -110,44 +112,44 @@ from reua.models import *
 # # class WaterStationAdmin(SortableAdmin):
 # #     pass
 #
-# class ProjectPhotoInline(admin.StackedInline):
-#     model = ProjectPhoto
-#
-# @admin.register(Project)
-# class ProjectAdmin(SortableAdmin):
-#     inlines = [
-#         ProjectPhotoInline,
-#     ]
-#     list_display = ('title', 'for_city', 'for_region', 'closed')
-#     # summernote_fields = ('desc', 'desc_en')
-#     fieldsets = [
-#         ('Назва та опис', {
-#             'fields': [
-#                 'kind', 'title', 'desc', 'image'
-#             ],
-#         }),
-#         ('Назва та опис (англ)', {
-#             'fields': [
-#                 'title_en', 'desc_en'
-#             ],
-#         }),
-#         ('Для кого', {
-#             'fields': [
-#                 'for1', 'for_city', 'for_region'
-#             ],
-#         }),
-#         ('Для кого (агнл)', {
-#             'fields': [
-#                 'for_city_en', 'for_region_en'
-#             ],
-#         }),
-#         ('Статус', {
-#             'fields': [
-#                 'closed', 'status', 'status_en'
-#             ],
-#         }),
-#     ]
-#
+class ProjectPhotoInline(admin.StackedInline):
+    model = ProjectPhoto
+
+@admin.register(Project)
+class ProjectAdmin(SortableAdmin):
+    inlines = [
+        ProjectPhotoInline,
+    ]
+    list_display = ('title', 'for_city', 'for_region', 'closed')
+    # summernote_fields = ('desc', 'desc_en')
+    fieldsets = [
+        ('Назва та опис', {
+            'fields': [
+                'kind', 'title', 'desc', 'image'
+            ],
+        }),
+        ('Назва та опис (англ)', {
+            'fields': [
+                'title_en', 'desc_en'
+            ],
+        }),
+        ('Для кого', {
+            'fields': [
+                'for1', 'for_city', 'for_region'
+            ],
+        }),
+        ('Для кого (агнл)', {
+            'fields': [
+                'for_city_en', 'for_region_en'
+            ],
+        }),
+        ('Статус', {
+            'fields': [
+                'closed', 'status', 'status_en'
+            ],
+        }),
+    ]
+
 #
 # admin.site.register(NewsCategory, admin.ModelAdmin)
 #

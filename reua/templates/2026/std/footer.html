@@ -1,0 +1,37 @@
+{% load static %}
+<footer class="footer">
+    <div class="wrap">
+        <div class="fgrid">
+            <div><img src="{% static 'reua/img/2026/logo/reua-logo-dark.svg' %}" alt="REUA">
+                <p class="about">Благодійний фонд «Відбудуємо нашу Україну»</p>
+                <p class="about">Національна програма водної стійкості ReH₂O</p></div>
+            <div><h5>Меню</h5>
+                <ul>
+            {% for menu_item in top_menu_items %}
+                 <li><a href="{{ menu_item.url }}">{{ menu_item.localized_title }}</a></li>
+            {% endfor %}
+                </ul>
+            </div>
+            <div><h5>Документи</h5>
+                <ul>
+                    {% for fd in founding_documents %}
+                        <li><a href="{{ fd.url }}">{{ fd.localized_title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div><h5>Контакти</h5>
+                <ul>
+                    <li>{{ site_settings.phone.as_international }}</li>
+                    <li>{{ site_settings.phone2.as_international }}</li>
+                    <li>{{ site_settings.localized_addr }}</li>
+                </ul>
+                <button class="btn btn-y btn-sm" type="button" data-modal-open="#feedback_modal">Напишіть нам →</button>
+            </div>
+            <div>
+                {% include "2026/std/soicals.html" %}
+            </div>
+        </div>
+        <div class="big" id="big">REBUILD OUR UKRAINE</div>
+        <div class="fbot"><span>© 2026 БФ «Відбудуємо нашу Україну»</span></div>
+    </div>
+</footer>

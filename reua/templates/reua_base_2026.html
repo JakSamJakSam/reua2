@@ -5,17 +5,18 @@
     {% include '2026/std/menu.html' %}
 {% endblock %}
 {% block body %}
-{#    {% include 'std/payment_modal_new.html' %}#}
+    {% include '2026/std/message_modal.html' %}
 {% endblock %}
 {% block footer %}
-{#    {% include 'std/footer_new.html' %}#}
+    {% include '2026/std/footer.html' %}
 {% endblock %}
 {% block cokies_toast %}
 {#    {% include 'std/cokies_toast.html' %}#}
 {% endblock %}
 {% block scripts %}
     {{ block.super }}
-{#    <script src="{% static "reua/js/site_helper.js" %}"></script>#}
+    <script src="{% static 'reua/js/2026/offcanvas.js' %}"></script>
+    <script src="{% static 'reua/js/2026/main.js' %}"></script>
     {% if google_data_stream_id %}
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_data_stream_id }}"></script>
@@ -34,4 +35,5 @@
     {% if google_recaptcha_key %}
         <script src="https://www.google.com/recaptcha/enterprise.js?render={{ google_recaptcha_key }}" async defer></script>
     {% endif %}
+
 {% endblock %}

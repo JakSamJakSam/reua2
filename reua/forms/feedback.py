@@ -1,4 +1,5 @@
 from captcha.fields import CaptchaField, CaptchaTextInput
+from django import forms
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from reua.models import FeedbackMessage
@@ -17,6 +18,21 @@ class FeedbackForm(ModelForm):
     class Meta:
         model = FeedbackMessage
         fields = '__all__'
+        widgets = {
+            'fio': forms.TextInput(attrs={
+                'placeholder': "Ваше ім’я",
+            }),
+            'phone': forms.TextInput(attrs={
+                'placeholder': "+380",
+            }),
+            'email': forms.EmailInput(attrs={
+                'placeholder': "name@example.com",
+            }),
+            'message': forms.Textarea(attrs={
+                'placeholder': "Ваша ідея або пропозиція",
+                'rows': 4
+            }),
+        }
 
 
 class FeedbackFormGCaptcha(ModelForm):

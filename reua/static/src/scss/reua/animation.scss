@@ -1,0 +1,246 @@
+.waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 79px;
+  overflow: hidden;
+  pointer-events: none;
+  top: -63px;
+  -webkit-mask-image: linear-gradient(var(--black) calc(100% - 16px), transparent);
+  mask-image: linear-gradient(var(--black) calc(100% - 16px), transparent);
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2880px;
+    height: 88px;
+  }
+
+  .w1 {
+    animation: drift 26s linear infinite reverse;
+  }
+
+  .w2 {
+    animation: drift 18s linear infinite;
+  }
+
+  @keyframes drift {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-720px);
+    }
+  }
+
+
+}
+
+/* кола від курсора на воді */
+.water {
+  position: relative;
+}
+
+.ripple {
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  margin: -20px 0 0 -75px;
+  border: 1.5px solid rgba(var(--white-rgb), .6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  animation: ripple 1.6s ease-out forwards;
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(.1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.bubbles {
+  .bubble {
+    position: absolute;
+    bottom: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .35);
+    border: 1px solid rgba(255, 255, 255, .6);
+    animation: rise linear infinite;
+  }
+
+  @keyframes rise {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-260px) translateX(8px);
+    }
+    90% {
+      opacity: .8;
+    }
+    100% {
+      transform: translateY(-520px) translateX(-6px);
+      opacity: 0;
+    }
+  }
+
+}
+
+.glass-fill {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: fill 4s var(--ease) infinite;
+}
+
+@keyframes fill {
+  0%, 10% {
+    transform: scaleY(0);
+  }
+  60%, 90% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+.sun, .rays {
+  transform-box: view-box;
+  transform-origin: 92px 27px;
+}
+
+.rays {
+  animation: spin 18s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tank-w {
+  animation: slosh 3.2s linear infinite;
+}
+
+@keyframes slosh {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-39px);
+  }
+}
+
+.pump {
+  transform-box: view-box;
+  animation: pump 2.4s ease-in-out infinite;
+}
+
+@keyframes pump {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(5px);
+  }
+}
+
+.drip {
+  transform-box: fill-box;
+  animation: drip 2.4s ease-in infinite;
+
+  .d2 {
+    animation-delay: 1.2s;
+  }
+}
+
+@keyframes drip {
+  0%, 15% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+
+.pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.blink {
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: .25;
+  }
+}
+
+.chart {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 80;
+  }
+  40%, 100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .rv, .pt, .station, .sky {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .obl {
+    stroke-dashoffset: 0 !important;
+  }
+
+  .arc {
+    opacity: .85 !important;
+  }
+
+  .people .yp::before {
+    transform: none !important;
+  }
+}

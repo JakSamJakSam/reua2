@@ -27,7 +27,8 @@
                         <span>до</span><span class="num" id="cnum">0</span><span>л/добу</span>
                         <span class="ctag">23 станції</span>
                     </div>
-                    <div class="map" id="map" data-image-station-icon="{% static 'reua/img/2026/hero/map/map-station-icon.png' %}">
+                    <div class="map" id="map"
+                         data-image-station-icon="{% static 'reua/img/2026/hero/map/map-station-icon.png' %}">
                         {% if a %}
                             <svg viewBox="0 0 1020 689" id="mapsvg">
                                 <g id="obl">
@@ -164,9 +165,127 @@
             </div>
         </div>
     </section>
-{% endblock %}
 
-{% block scripts %}
-    {{ block.super }}
-    <script src="{% static 'reua/js/2026/main.js' %}"></script>
+    <section class="how water" id="how">
+        {% include '2026/std/animation/waves.html' %}
+        {% include '2026/std/animation/bubbles.html' %}
+        <div class="wrap">
+            <h2 class="rv">Як це працює</h2>
+            <div class="how-row">
+                <div class="rv" style="--d:.15s">
+                    <p>Автономна станція ReH₂O забезпечує повний цикл — від підземного джерела до безпечної питної
+                        води</p>
+                    <a class="btn btn-y" href="#" style="color:var(--navy)">Детальніше →</a>
+                </div>
+                <div class="stepsd d-none d-mf-grid">
+                    <div class="pipe"></div>
+                    <svg class="droplet" viewBox="0 0 24 30">
+                        <path d="M12 2s9 10 9 16a9 9 0 0 1-18 0c0-6 9-16 9-16z" fill="#FED700" stroke="#fff"
+                              stroke-width="2"/>
+                    </svg>
+                    <div class="step rv" style="--d:.3s"><span class="n">01</span>
+                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-1.webp" %}" alt=""></div>
+                        <h4>Підземне джерело води</h4></div>
+                    <div class="step rv" style="--d:.42s"><span class="n">02</span>
+                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-2.webp" %}" alt=""></div>
+                        <h4>Очищення ReH₂O</h4></div>
+                    <div class="step rv" style="--d:.54s"><span class="n">03</span>
+                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-3.webp" %}" alt=""></div>
+                        <h4>Автономна сонячна енергія</h4></div>
+                    <div class="step rv" style="--d:.66s"><span class="n">04</span>
+                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-4.webp" %}" alt=""></div>
+                        <h4>Безпечна питна вода</h4></div>
+                    <div class="step rv" style="--d:.78s"><span class="n">05</span>
+                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-5.webp" %}" alt=""></div>
+                        <h4>Дистанційний моніторинг</h4></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="news" id="news">
+        <div class="wrap">
+            <div class="sec-head d-block d-md-flex" >
+                <h2 class="rv">Новини</h2>
+                <a class="link-y rv d-none d-mf-grid" style="--d:.1s" href="#">
+                    Усі новини
+                </a>
+            </div>
+            <div class="cards">
+                {% for news_item in news %}
+                    <a class="card rv" href="#" style="--d:0.{{ forloop.counter }}s">
+                        {% thumbnail news_item.image "280x440" crop='center' as im %}
+                            <img src="{{ im.url }}" alt="" loading="lazy">
+                            <span class="reg">{{ news_item.localized_for_region|default:news_item.localized_for_city }}</span>
+                        {% endthumbnail %}
+                        <div class="body">
+                            <time>12.09.2026</time>
+                            <h3>{{ news_item.localized_title }}</h3><span class="arr">→</span>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="partners" id="partners">
+        <div class="wrap">
+            <div class="rv">
+                <h2>Партнери<br>водної стійкості<br>України</h2>
+            </div>
+            <div class="rows rv" style="--d:.15s">
+                <div class="row">
+                    {% for partner in parnters.r1 %}
+                        <a class="logo-i" href="{{ partner.url }}" aria-label="{{ partner.localized_title }}"
+                           target="_blank">
+                            {% thumbnail partner.logo "160x38" format='PNG' as im %}
+                                <img src="{{ im.url }}" alt="{{ partner.localized_title }}">
+                                <em>Сайт партнера ↗</em>
+                            {% endthumbnail %}
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="row rev">
+                    {% for partner in parnters.r2 %}
+                        <a class="logo-i" href="{{ partner.url }}" aria-label="{{ partner.localized_title }}"
+                           target="_blank">
+                            {% thumbnail partner.logo "160x38" format='PNG' as im %}
+                                <img src="{{ im.url }}" alt="{{ partner.localized_title }}">
+                                <em>Сайт партнера ↗</em>
+                            {% endthumbnail %}
+                        </a>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="slogan water" id="slogan">
+        {% include '2026/std/animation/waves.html' %}
+        <div class="clip">
+            <img class="photo" src="{% static "reua/img/2026/hero/slogan.webp" %}"
+                 alt="Дівчина у вишиванці п’є чисту воду">
+            {% include '2026/std/animation/bubbles.html' %}
+        </div>
+        <span class="ph-b" style="width:118px;height:118px;left:51%;top:150px;--t:7s;--fx:5px;--fy:-8px"><img
+                src="{% static "reua/img/2026/hero/bubble-reua-tap.webp" %}" alt=""></span>
+        <span class="ph-b"
+              style="width:150px;height:150px;right:6%;top:58px;--t:8.5s;--dl:-2s;--fx:-6px;--fy:-10px"><img
+                src="{% static "reua/img/2026/hero/bubble-hands-canister.webp" %}" alt=""></span>
+        <span class="ph-b"
+              style="width:136px;height:136px;right:3.5%;top:330px;--t:6.5s;--dl:-4s;--fx:-4px;--fy:8px"><img
+                src="{% static "reua/img/2026/hero/bubble-girl-tap.webp" %}" alt=""></span>
+        <span class="ph-b" style="width:150px;height:150px;left:52%;top:438px;--t:9s;--dl:-1s;--fx:6px;--fy:-7px"><img
+                src="{% static "reua/img/2026/hero/bubble-woman-cups.webp" %}" alt=""></span>
+        <div class="wrap">
+            <h2 class="rv"><span class="plate">Кожні 3 долари</span><span class="sub">донорського внеску — це 15 років чистої питної води для однієї людини</span>
+            </h2>
+            <p class="rv" style="--d:.15s">Інвестиція у водну стійкість — це не разова допомога. Це доступ до безпечної
+                питної води сьогодні та інфраструктура, що працюватиме роками.</p>
+        </div>
+
+    </section>
+
 {% endblock %}

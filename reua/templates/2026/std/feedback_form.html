@@ -1,0 +1,15 @@
+{% load i18n %}
+{% csrf_token %}
+<h3 id="mt">Напишіть нам,</h3>
+<p class="msub">якщо у вас є ідеї або пропозиції</p>
+{{ feedback_form }}
+
+{% if aaaa %}
+    <label>Ім’я<input type="text" placeholder="Ваше ім’я" required></label>
+    <label>Номер телефону<input type="tel" placeholder="+380"></label>
+    <label>E-mail<input type="email" placeholder="name@example.com"></label>
+    <label>Повідомлення<textarea rows="4" placeholder="Ваша ідея або пропозиція"></textarea></label>
+{% endif %}
+
+<button class="btn btn-y" type="submit">Надіслати</button>
+<p class="mnote">Натискаючи кнопку, ви погоджуєтесь з політикою конфіденційності.</p>

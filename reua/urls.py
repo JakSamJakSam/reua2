@@ -10,7 +10,7 @@ from .views.projects import DetailWaterProjectView
 urlpatterns = [
     path('', index2026, name='index'),
     # path('new-index/', NewIndexView.as_view(), name='new-index'),
-    # path('feedback/', FeedbackFormView.as_view(), name='feedback'),
+    path('feedback/', FeedbackFormView.as_view(), name='feedback'),
     # path('company/', ListCompanyView.as_view(), name='company-list'),
     # path('company/<int:pk>/', DetailCompanyView.as_view(), name='company-item'),
     # path('company/new/', AddCompany.as_view(), name='company-create'),
@@ -27,7 +27,7 @@ urlpatterns = [
     # path('contacts/', ContactsView.as_view(), name='contacts'),
     # path('news/', ListNewsView.as_view(), name='news-list'),
     # path('news/<str:slug>/', DetailNewsView.as_view(), name='news-item'),
-    # path('pdf/<int:pk>/', FileView.as_view(), name='pdf-item'),
+    path('pdf/<int:pk>/', FileView.as_view(), name='pdf-item'),
     # path('pay/ReH2O/', ReH2OPaymentNewView.as_view(), name='Pay_ReH2O'),
     # path('pay/ReCity/', ReCityPaymentNewView.as_view(), name='Pay_ReCity'),
     #

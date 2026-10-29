@@ -116,8 +116,7 @@ function init_counters() {
 
 // бульбашки у воді
 function init_bublles() {
-  if (!reduce) ['#bubbles', '#bubbles2'].forEach((id, k) => {
-    const bb = $(id);
+  if (!reduce) document.querySelectorAll('.bubbles').forEach((bb, k) => {
     for (let i = 0; i < (k ? 9 : 16); i++) {
       const b = document.createElement('i');
       b.className = 'bubble';
@@ -163,14 +162,28 @@ function init_footer() {
 
 // модалка «Напишіть нам»
 function init_modal() {
-  const modal = $('#modal'), mbox = $('#mbox');
-  const openM = () => {
+  const modal = $('#feedback_modal');
+  const openM = (mdl) => {
+    const mbox = mdl.querySelector('.mbox');
     mbox.classList.remove('sent');
     modal.classList.add('open');
     setTimeout(() => mbox.focus(), 300);
   };
+
   const closeM = () => modal.classList.remove('open');
-  $('#openM').addEventListener('click', openM);
+
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-modal-open]');
+    if (trigger) {
+      const selector = trigger.dataset.modalOpen;
+      const element = document.querySelector(selector);
+      const offcanvas = document.getElementById('menuOffcanvas');
+      if (offcanvas) Offcanvas.getInstance(offcanvas)?.hide();
+      openM(element);
+
+    }
+  });
+
   $('#closeM').addEventListener('click', closeM);
   $('#closeM2').addEventListener('click', closeM);
   modal.addEventListener('click', e => {
@@ -179,9 +192,23 @@ function init_modal() {
   addEventListener('keydown', e => {
     if (e.key === 'Escape') closeM();
   });
-  $('#mform').addEventListener('submit', e => {
+  $('#mform').addEventListener('submit', async (e) => {
     e.preventDefault();
-    mbox.classList.add('sent');
+    const form = e.target;
+    const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+    });
+    if (response.redirected){
+      mbox.classList.add('sent');
+      form.reset();
+    } else {
+      const data = await response.text();
+      form.innerHTML = data;
+    }
   });
 }
 
@@ -189,8 +216,8 @@ init_header();
 init_scrolls();
 init_maps();
 init_animation_screen();
-// init_counters();
-// init_bublles();
-// init_ripples();
-// init_footer();
-// init_modal()
+init_counters();
+init_bublles();
+init_ripples();
+init_footer();
+init_modal()

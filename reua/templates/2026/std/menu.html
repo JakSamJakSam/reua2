@@ -5,13 +5,13 @@
     <div class="wrap">
         <a class="logo" href="#"><img src="{% static 'reua/img/2026/logo/reua-logo-light.svg' %}"
                                       alt="REUA — Rebuild Our Ukraine"></a>
-        <nav class="nav">
+        <nav class="nav d-none d-md-flex">
             {% for menu_item in top_menu_items %}
                 <a href="{{ menu_item.url }}">{{ menu_item.localized_title }}</a>
             {% endfor %}
         </nav>
 
-        <div class="soc">
+        <div class="soc d-none d-md-flex">
             <a href="#" aria-label="Facebook" class="facebook"></a>
             <a href="#" aria-label="YouTube" class="youtube"></a>
             <a href="#" aria-label="Instagram" class="instagram"></a>
@@ -26,5 +26,50 @@
                    href="{% language lang_info.code %}{% url "index" %}{% endlanguage %}">{{ language|last|upper }}</a>
             {% endfor %}
         </div>
+        <a href="#" class="burger d-block d-md-none" data-offcanvas-toggle="#menuOffcanvas"
+           aria-label="Открыть меню">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="44" height="44" rx="22" fill="white"/>
+                <rect x="12" y="15" width="20" height="2" rx="1" fill="#001739"/>
+                <rect x="12" y="21" width="16" height="2" rx="1" fill="#001739"/>
+                <rect x="12" y="27" width="20" height="2" rx="1" fill="#001739"/>
+            </svg>
+        </a>
     </div>
 </header>
+
+<div class="offcanvas offcanvas-end" id="menuOffcanvas"
+     tabindex="-1" aria-labelledby="menuOffcanvasLabel"
+     aria-hidden="true">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="menuOffcanvasLabel">
+            {#            Заголовок панели#}
+        </h5>
+        <button type="button" class="offcanvas-close"
+                data-offcanvas-dismiss aria-label="Закрыть">
+            &times;
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+        <nav class="side-menu">
+            <ul class="side-menu-list">
+                {% for menu_item in top_menu_items %}
+                    <li>
+                        <a href="{{ menu_item.url }}" class="side-menu-link">{{ menu_item.localized_title }}</a>
+                    </li>
+                {% endfor %}
+                <li class="socials">
+                    <div class="d-inline-block">
+                        {% include "2026/std/soicals.html" %}
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+    <div class="offcanvas-footer">
+        <button class="btn btn-y btn-sm" type="button" data-modal-open="#feedback_modal">Напишіть нам →</button>
+    </div>
+</div>

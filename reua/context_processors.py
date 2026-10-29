@@ -27,8 +27,8 @@ def top_menus(request):
             {'url': '/a2/', 'localized_title': 'Медіацентр'},
             {'url': '/a2/', 'localized_title': 'Контакти'},
         ],
-        # 'founding_documents': FoundingDocument.objects.all(),
-        # 'site_settings': ss,
+        'founding_documents': FoundingDocument.objects.all(),
+        'site_settings': ss,
         'google_data_stream_id': settings.GOOGLE_DATA_STREAM_ID,
         'google_recaptcha_key': settings.GOOGLE_RECAPTCHA_KEY,
         # 'payments': {
@@ -51,5 +51,5 @@ def top_menus(request):
         #         'key': 'city',
         #     },
         # },
-        # 'feedback_form': FeedbackForm() if settings.GOOGLE_RECAPTCHA_KEY is None else FeedbackFormGCaptcha() ,
+        'feedback_form': FeedbackForm() if settings.GOOGLE_RECAPTCHA_KEY is None else FeedbackFormGCaptcha() ,
     }

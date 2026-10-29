@@ -30,8 +30,9 @@ $support_ink2: #44526e;
 $support_live: #22C55e;
 $support_deep: #08337F;
 
+$font-family-base: 'Montserrat', sans-serif;
 
-$container-max-widths: (
+$grid-breakpoints: (
   sm: 540px,
   md: 720px,
   lg: 960px,
@@ -39,4 +40,3 @@ $container-max-widths: (
   xxl: 1200px
 );
 
-$font-family-base: 'Montserrat', sans-serif;

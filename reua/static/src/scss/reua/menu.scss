@@ -1,3 +1,5 @@
+@use "sass:map";
+
 /* ---------- шапка ---------- */
 .header {
   position: sticky;
@@ -31,84 +33,200 @@
     transition: height .3s;
   }
 
-}
 
-.logo {
-  img {
-    height: 42px;
-    display: block;
-    transition: height .3s;
+  .logo {
+    img {
+      height: 42px;
+      display: block;
+      transition: height .3s;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 36px;
+    font-size: 15px;
+    white-space: nowrap;
+    font-weight: 600;
+    color: rgba(var(--navy-rgb), .75);
+    margin: 0 auto;
+
+    a:hover {
+      color: var(--blue);
+    }
+
+  }
+
+  .soc {
+    display: flex;
+    gap: 2px;
+    background: var(--sky);
+    border-radius: 999px;
+    padding: 3px;
+
+    a {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 800;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      &:hover {
+        background-color: var(--white);
+      }
+
+      &.facebook {
+        background-image: url('/static/reua/img/2026/socials/facebook.svg');
+      }
+
+      &.youtube {
+        background-image: url('/static/reua/img/2026/socials/youtube.svg');
+      }
+
+      &.instagram {
+        background-image: url('/static/reua/img/2026/socials/instagram.svg');
+      }
+
+      &.linkedin {
+        background-image: url('/static/reua/img/2026/socials/linkedin.svg');
+      }
+    }
+  }
+
+  .lang {
+    display: flex;
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--sky);
+    border-radius: 999px;
+    padding: 3px;
+    margin-left: auto;
+
+    a {
+      padding: 6px 11px;
+      border-radius: 999px;
+      color: rgba(var(--navy-rgb), .75);
+
+      &.on {
+        background: var(--navy);
+        color: var(--white);
+      }
+    }
   }
 }
 
-.nav {
-  display: flex;
-  gap: 36px;
-  font-size: 15px;
-  white-space: nowrap;
-  font-weight: 600;
-  color: rgba(var(--navy-rgb), .75);
-  margin: 0 auto;
+/*
+Side menu
+ */
 
-  a:hover {
-    color: var(--blue);
+.side-menu {
+  --menu-color: var(--navy);
+  --menu-hover-bg: #f1f5f9;
+  --menu-active-color: #0e52bd;
+  --menu-active-bg: rgba(14, 82, 189, .08);
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-}
+  &-link {
+    display: flex;
+    align-items: center;
+    gap: .875rem;
+    min-height: 44px;
+    padding: .625rem .875rem;
+    border-radius: .5rem;
+    color: var(--menu-color);
+    text-decoration: none;
+    transition: background-color .15s ease,
+    color .15s ease;
+    font-size: 18px;
+    font-weight: 700;
 
-.soc {
-  display: flex;
-  gap: 2px;
-  background: var(--sky);
-  border-radius: 999px;
-  padding: 3px;
-
-  a {
-    width: 28px;
-    height: 28px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    font-size: 10px;
-    font-weight: 800;
-    background-position: center center;
-    background-repeat: no-repeat;
+    > i:first-child {
+      flex: 0 0 1.25rem;
+      font-size: 1.125rem;
+      text-align: center;
+    }
 
     &:hover {
-      background-color: var(--white);
+      background: var(--menu-hover-bg);
+      color: var(--menu-active-color);
     }
-    &.facebook {
-      background-image: url('/static/reua/img/2026/socials/facebook.svg');
+
+    &.active {
+      background: var(--menu-active-bg);
+      color: var(--menu-active-color);
+      font-weight: 600;
     }
-    &.youtube {
-      background-image: url('/static/reua/img/2026/socials/youtube.svg');
+
+    &:focus-visible {
+      outline: 2px solid var(--menu-active-color);
+      outline-offset: 2px;
     }
-    &.instagram {
-      background-image: url('/static/reua/img/2026/socials/instagram.svg');
+  }
+
+  &-arrow {
+    margin-left: auto;
+    font-size: .875rem;
+  }
+
+  &-badge {
+    margin-left: auto;
+    padding: .125rem .5rem;
+    border-radius: 1rem;
+    background: #e2e8f0;
+    color: #334155;
+    font-size: .75rem;
+    font-weight: 600;
+  }
+
+  &-divider {
+    height: 1px;
+    margin: .5rem 0;
+    background: #e2e8f0;
+  }
+
+  .socials {
+    padding: 0 14px;
+
+    h5 {
+      margin-bottom: 16px;
     }
-    &.linkedin {
-      background-image: url('/static/reua/img/2026/socials/linkedin.svg');
+
+    ul {
+      display: flex;
+      gap: .5rem;
+      list-style: none;
+      background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
+      linear-gradient(0deg, rgba(var(--blue-rgb), 0.07), rgba(var(--blue-rgb), 0.07));
+      border-radius: 16px;
+      padding: 4px 12px;
+
+      li {
+        .si {
+          span {
+            display: none;
+          }
+        }
+      }
     }
   }
 }
 
-.lang {
-  display: flex;
-  font-size: 13px;
-  font-weight: 700;
-  background: var(--sky);
-  border-radius: 999px;
-  padding: 3px;
 
-  a {
-    padding: 6px 11px;
-    border-radius: 999px;
-    color: rgba(var(--navy-rgb), .75);
-
-    &.on {
-      background: var(--navy);
-      color: var(--white);
+@media (min-width: map.get($grid-breakpoints, md)) {
+  .header {
+    .wrap {
     }
   }
 }
-

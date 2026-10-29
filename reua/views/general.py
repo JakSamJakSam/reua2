@@ -100,7 +100,7 @@ class NewIndexView(TemplateView):
 
 class FeedbackFormView(FormView):
     form_class = FeedbackForm
-    template_name = 'feedback.html'
+    template_name = '2026/std/feedback_form.html'
 
     def get_form_class(self):
         if settings.GOOGLE_RECAPTCHA_KEY is not None:

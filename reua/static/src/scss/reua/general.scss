@@ -1,3 +1,5 @@
+@use "sass:map";
+
 :root {
   --navy: #{$brand-navy};
   --navy-rgb: #{$brand-navy-rgb};
@@ -51,7 +53,7 @@ a {
 .wrap {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 16px;
   position: relative;
 }
 
@@ -92,6 +94,7 @@ a {
 .btn-y {
   background: var(--yellow);
   box-shadow: 0 8px 24px -10px rgba(254, 215, 0, .9);
+  border: none;
 }
 
 .btn-g {
@@ -104,4 +107,129 @@ a {
   font-size: 14px;
 }
 
+/* ---------- Футер ---------- */
+.footer {
+  background: var(--navy);
+  color: #fff;
+  padding: 70px 0 28px;
+  overflow: hidden;
+
+  .fgrid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr 1.1fr 1.1fr 1fr;
+    gap: 32px;
+
+    img {
+      height: 40px;
+    }
+
+    .about {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.55;
+      color: #fff;
+      margin-top: 18px;
+    }
+  }
+
+  h5 {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  ul {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+
+    a:hover {
+      color: var(--yellow);
+    }
+  }
+
+  .si {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    b {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      transition: transform .25s var(--ease);
+
+      img{
+        height: auto;
+      }
+    }
+
+    &:hover b {
+      transform: scale(1.12);
+    }
+  }
+
+  .footer .btn {
+    margin-top: 18px;
+    color: var(--navy);
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .big {
+    font-weight: 900;
+    font-size: 110px;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    white-space: nowrap;
+    width: max-content;
+    color: rgba(255, 255, 255, .06);
+    margin-top: 56px;
+    will-change: transform;
+  }
+
+  .fbot {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, .15);
+    margin-top: 8px;
+    padding-top: 22px;
+    font-size: 13px;
+    color: #fff;
+  }
+
+}
+
+.d-none {
+  display: none !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-grid {
+  display: grid !important;
+}
+.d-inline-block {
+  display: inline-block !important;
+}
+
+
+@media (min-width: map.get($grid-breakpoints, md)) {
+  .wrap {
+    padding: 0 40px;
+  }
+}
 
