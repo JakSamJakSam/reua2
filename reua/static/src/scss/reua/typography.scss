@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .display-100 {
   font-size: 100px;
   font-weight: 900;
@@ -5,7 +7,7 @@
 }
 
 h1 {
-  font-size: 64px;
+  font-size: 36px;
   font-weight: 900;
 }
 
@@ -107,3 +109,8 @@ h1 {
   letter-spacing: 0%;
 }
 
+@media (min-width: map.get($grid-breakpoints, md)) {
+  h1 {
+    font-size: 64px;
+  }
+}

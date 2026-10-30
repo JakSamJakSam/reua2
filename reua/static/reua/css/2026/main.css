@@ -289,6 +289,26 @@ a {
   display: inline-block !important;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-end {
+  justify-content: end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-end {
+  align-items: end;
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
 @media (min-width: 720px) {
   .wrap {
     padding: 0 40px;
@@ -523,7 +543,7 @@ a {
 }
 
 h1 {
-  font-size: 64px;
+  font-size: 36px;
   font-weight: 900;
 }
 
@@ -624,6 +644,11 @@ h1 {
   letter-spacing: 0%;
 }
 
+@media (min-width: 720px) {
+  h1 {
+    font-size: 64px;
+  }
+}
 @media (min-width: 540px) {
   .d-sm-none {
     display: none !important;
@@ -1044,9 +1069,9 @@ Side menu
 .hero .sky {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -16px;
   width: 66%;
-  height: 700px;
+  height: 253px;
   background: linear-gradient(180deg, var(--navy) 0%, var(--blue) 55%, rgba(var(--blue-rgb), 0.65) 100%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(var(--black-rgb), 0.25) 18%, rgba(var(--black-rgb), 0.8) 42%, var(--black) 60%), linear-gradient(180deg, transparent 0, var(--black) 120px, var(--black) 520px, transparent 700px);
   -webkit-mask-composite: source-in;
@@ -1061,10 +1086,7 @@ Side menu
 .hero .top {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 640px 1fr;
-  gap: 40px;
-  min-height: 520px;
+  display: block;
 }
 .hero .top .eyebrow {
   display: flex;
@@ -1085,7 +1107,7 @@ Side menu
   background: linear-gradient(90deg, var(--blue) 50%, var(--yellow) 50%);
 }
 .hero .top .pre {
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 600;
   color: rgba(var(--navy-rgb), 0.75);
 }
@@ -1122,24 +1144,25 @@ Side menu
   margin-top: 32px;
 }
 .hero .top .lead {
-  font-size: 32px;
+  font-size: 16px;
   line-height: 1.4;
   color: rgba(var(--navy-rgb), 0.7);
   margin-top: 22px;
   max-width: 579px;
+  margin-bottom: 36px;
 }
 .hero .top {
   /* сцена: карта + станція */
 }
 .hero .top .scene {
   position: relative;
-  height: 520px;
+  height: 225px;
 }
 .hero .top .scene .map {
   position: absolute;
-  left: -136px;
-  top: 36px;
-  width: 500px;
+  left: 10px;
+  top: 13px;
+  width: 225px;
 }
 .hero .top .scene .map.arcs-on .arc {
   opacity: 0.85;
@@ -1243,8 +1266,9 @@ Side menu
 }
 .hero .top .scene .counter {
   position: absolute;
-  left: 289px;
-  top: 64px;
+  left: 50%;
+  translate: -50%;
+  top: -23px;
   z-index: 4;
   display: inline-flex;
   align-items: center;
@@ -1336,8 +1360,8 @@ Side menu
   pointer-events: none;
   position: absolute;
   left: 119px;
-  top: 257px;
-  width: 450px;
+  top: 112px;
+  width: 202px;
   z-index: 3;
   transform: translateY(-14px);
   opacity: 0;
@@ -1407,7 +1431,7 @@ Side menu
   color: var(--blue);
 }
 .hero .panel h2 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.18;
   letter-spacing: -0.015em;
@@ -1428,6 +1452,12 @@ Side menu
   height: 150px;
   background: #DFE5EF;
 }
+.hero .panel .hline {
+  width: 100%;
+  height: 1px;
+  background: #DFE5EF;
+  margin: 16px 0;
+}
 .hero .panel .done-l {
   display: inline-block;
   color: var(--navy);
@@ -1438,7 +1468,7 @@ Side menu
 }
 .hero .panel .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-top: 16px;
 }
@@ -1477,14 +1507,14 @@ Side menu
   background: linear-gradient(180deg, rgba(var(--blue-rgb), 0) 0, rgba(var(--blue-rgb), 0.2) 4px, rgba(var(--blue-rgb), 0.333) 8px, rgba(var(--blue-rgb), 0.4286) 12px, rgba(var(--blue-rgb), 0.5) 16px, rgba(var(--blue-rgb), 0.51) calc(16px + 0.083 * (62% - 16px)), rgba(var(--blue-rgb), 0.537) calc(16px + 0.167 * (62% - 16px)), rgba(var(--blue-rgb), 0.578) calc(16px + 0.25 * (62% - 16px)), rgba(var(--blue-rgb), 0.63) calc(16px + 0.333 * (62% - 16px)), rgba(var(--blue-rgb), 0.688) calc(16px + 0.417 * (62% - 16px)), rgba(var(--blue-rgb), 0.75) calc(16px + 0.5 * (62% - 16px)), rgba(var(--blue-rgb), 0.812) calc(16px + 0.583 * (62% - 16px)), rgba(var(--blue-rgb), 0.87) calc(16px + 0.667 * (62% - 16px)), rgba(var(--blue-rgb), 0.922) calc(16px + 0.75 * (62% - 16px)), rgba(var(--blue-rgb), 0.963) calc(16px + 0.833 * (62% - 16px)), rgba(var(--blue-rgb), 0.99) calc(16px + 0.917 * (62% - 16px)), rgba(var(--blue-rgb), 1) calc(16px + 1 * (62% - 16px)), #0A3C93 82%, var(--navy) 100%), #fff;
 }
 .how h2 {
-  font-size: 66px;
+  font-size: 28px;
   font-weight: 900;
   letter-spacing: -0.035em;
   line-height: 1;
 }
 .how .how-row {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 1fr;
   gap: 56px;
   align-items: center;
   margin-top: 40px;
@@ -1500,7 +1530,7 @@ Side menu
 .how .steps {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 16px;
 }
 .how.in .pipe:after {
@@ -1508,10 +1538,10 @@ Side menu
 }
 .how .pipe {
   position: absolute;
-  left: 10%;
-  right: 10%;
-  top: 98px;
-  height: 6px;
+  top: 10%;
+  bottom: 10%;
+  left: 62px;
+  width: 6px;
   border-radius: 3px;
   background: rgba(var(--white-rgb), 0.25);
   overflow: hidden;
@@ -1534,7 +1564,7 @@ Side menu
 }
 @keyframes flow {
   0% {
-    left: 10%;
+    top: 10%;
     opacity: 0;
   }
   8% {
@@ -1544,14 +1574,14 @@ Side menu
     opacity: 1;
   }
   100% {
-    left: 90%;
+    top: 90%;
     opacity: 0;
   }
 }
 .how .droplet {
   position: absolute;
   top: 89px;
-  left: 10%;
+  left: 65px;
   width: 22px;
   height: 22px;
   margin-left: -11px;
@@ -1896,6 +1926,82 @@ Side menu
   }
   50% {
     transform: translate(var(--fx, 4px), var(--fy, -9px));
+  }
+}
+
+@media (min-width: 720px) {
+  .hero .sky {
+    right: 0;
+    height: 700px;
+  }
+  .hero .top {
+    display: grid;
+    grid-template-columns: 640px 1fr;
+    gap: 40px;
+  }
+  .hero .top .pre {
+    font-size: 22px;
+  }
+  .hero .top .lead {
+    font-size: 32px;
+  }
+  .hero .top .scene {
+    height: 520px;
+  }
+  .hero .top .scene .map {
+    left: -136px;
+    top: 36px;
+    width: 500px;
+  }
+  .hero .top .scene .counter {
+    left: 289px;
+    top: 64px;
+  }
+  .hero .top .scene .station {
+    top: 257px;
+    width: 450px;
+  }
+  .hero .panel h2 {
+    font-size: 24px;
+  }
+  .hero .panel .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .how h2 {
+    font-size: 66px;
+  }
+  .how .how-row {
+    grid-template-columns: 320px 1fr;
+  }
+  .how .steps {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .how .pipe {
+    left: 10%;
+    right: 10%;
+    top: 98px;
+    bottom: unset;
+    height: 6px;
+    width: unset;
+  }
+  .how .droplet {
+    left: 10%;
+  }
+  @keyframes flow {
+    0% {
+      left: 10%;
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    92% {
+      opacity: 1;
+    }
+    100% {
+      left: 90%;
+      opacity: 0;
+    }
   }
 }
 

@@ -10,7 +10,7 @@
 {% block body %}
     {{ block.super }}
     <section class="hero" id="hero">
-        <div class="sky"></div>
+        <div class="sky d-none d-md-block"></div>
         <div class="wrap">
             <div class="top">
                 <div>
@@ -21,6 +21,7 @@
                         інфраструктуру</p>
                 </div>
                 <div class="scene" id="scene">
+                    <div class="sky d-block d-md-none"></div>
                     <div class="counter rv" id="counter" style="--d:1.6s">
                     <span class="drop"><svg width="12" height="12" viewBox="0 0 24 24"><path
                             d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" fill="#fff"/></svg></span>
@@ -129,37 +130,69 @@
                 </div>
             </div>
 
-            <div class="panel">
+            <div class="panel d-block d-md-grid">
                 <div class="rv" style="--d:.2s">
                     <div class="badge"><b>ReH₂O</b><span>Флагманська програма</span></div>
                     <h2>Національна програма водної стійкості України ReH₂O</h2>
                     <p>Автономні джерела питної води для громад, лікарень та критичної інфраструктури</p>
                     <a class="btn btn-y more" href="#how">Про програму →</a>
                 </div>
-                <div class="vline"></div>
+                <div class="vline d-none d-md-block"></div>
+                <div class="hline d-block d-md-none"></div>
                 <div class="rv" style="--d:.35s">
                     <span class="done-l">Реалізовано</span>
                     <div class="stats">
-                        <div><i>
-                            <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                                <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
-                            </svg>
-                        </i><b data-to="23">0</b><span>встановлені станції</span></div>
-                        <div><i>
-                            <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                                <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
-                            </svg>
-                        </i><b data-to="10">0</b><span>регіонів України</span></div>
-                        <div><i>
-                            <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                                <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
-                            </svg>
-                        </i><b data-to="700000">0</b><span>людей з доступом до чистої питної води</span></div>
-                        <div><i>
-                            <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                                <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
-                            </svg>
-                        </i><b data-to="15">0</b><span>років роботи станцій</span></div>
+                        <div>
+                            <div class="d-flex d-md-block align-items-end">
+                                <i>
+                                    <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                                        <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
+                                    </svg>
+                                </i>
+                                <b data-to="23">0</b>
+                            </div>
+                            <div>
+                                <span>встановлені станції</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex d-md-block align-items-end">
+                                <i>
+                                    <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                                        <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
+                                    </svg>
+                                </i>
+                                <b data-to="10">0</b>
+                            </div>
+                            <div>
+                                <span>регіонів України</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex d-md-block align-items-end">
+                                <i>
+                                    <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                                        <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
+                                    </svg>
+                                </i>
+                                <b data-to="700000">0</b>
+                            </div>
+                            <div><span>людей з доступом до чистої питної води</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex d-md-block align-items-end">
+                                <i>
+                                    <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                                        <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
+                                    </svg>
+                                </i>
+                                <b data-to="15">0</b>
+                            </div>
+                            <div>
+                                <span>років роботи станцій</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -177,27 +210,40 @@
                         води</p>
                     <a class="btn btn-y" href="#" style="color:var(--navy)">Детальніше →</a>
                 </div>
-                <div class="stepsd d-none d-mf-grid">
+                <div class="steps">
                     <div class="pipe"></div>
                     <svg class="droplet" viewBox="0 0 24 30">
                         <path d="M12 2s9 10 9 16a9 9 0 0 1-18 0c0-6 9-16 9-16z" fill="#FED700" stroke="#fff"
                               stroke-width="2"/>
                     </svg>
-                    <div class="step rv" style="--d:.3s"><span class="n">01</span>
-                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-1.webp" %}" alt=""></div>
-                        <h4>Підземне джерело води</h4></div>
-                    <div class="step rv" style="--d:.42s"><span class="n">02</span>
-                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-2.webp" %}" alt=""></div>
-                        <h4>Очищення ReH₂O</h4></div>
-                    <div class="step rv" style="--d:.54s"><span class="n">03</span>
-                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-3.webp" %}" alt=""></div>
-                        <h4>Автономна сонячна енергія</h4></div>
-                    <div class="step rv" style="--d:.66s"><span class="n">04</span>
-                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-4.webp" %}" alt=""></div>
-                        <h4>Безпечна питна вода</h4></div>
-                    <div class="step rv" style="--d:.78s"><span class="n">05</span>
-                        <div class="circle"><img src="{% static "reua/img/2026/hero/how-5.webp" %}" alt=""></div>
-                        <h4>Дистанційний моніторинг</h4></div>
+                    {% for m in '12345'|make_list %}
+                    <div class="step rv" style="--d:.{{ forloop.counter|add:2 }}s">
+                        <div class="d-flex d-md-block align-items-center">
+                            <span class="n d-none d-md-inline-block">0{{ forloop.counter }}</span>
+                            <div class="circle">
+                                {% with "reua/img/2026/hero/how-"|add:m|add:".webp" as pp %}
+                                    <img src="{% static pp %}" alt="">
+                                {% endwith %}
+                            </div>
+                            <div class="flex-fill" style="flex-basis: min-content">
+                                <span class="n d-inline-block d-md-none">0{{ forloop.counter }}</span>
+                                <h4>
+                                    {% if forloop.counter == 1 %}
+                                        Підземне джерело води
+                                    {% elif forloop.counter == 2 %}
+                                        Очищення ReH₂O
+                                    {% elif forloop.counter == 3 %}
+                                        Автономна сонячна енергія
+                                    {% elif forloop.counter == 4 %}
+                                        Безпечна питна вода
+                                    {% elif forloop.counter == 5 %}
+                                        Дистанційний моніторинг
+                                    {% endif %}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -206,7 +252,7 @@
 
     <section class="news" id="news">
         <div class="wrap">
-            <div class="sec-head d-block d-md-flex" >
+            <div class="sec-head d-block d-md-flex">
                 <h2 class="rv">Новини</h2>
                 <a class="link-y rv d-none d-mf-grid" style="--d:.1s" href="#">
                     Усі новини
