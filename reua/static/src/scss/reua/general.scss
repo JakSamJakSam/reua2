@@ -116,11 +116,32 @@ a {
 
   .fgrid {
     display: grid;
-    grid-template-columns: 1.25fr 1fr 1.1fr 1.1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "reua reua"
+      "menu docs"
+      "contacts socials";
+
     gap: 32px;
 
+    &>div:nth-child(1) {
+      grid-area: reua;
+    }
+    &>div:nth-child(2) {
+      grid-area: menu;
+    }
+    &>div:nth-child(3) {
+      grid-area: docs;
+    }
+    &>div:nth-child(4) {
+      grid-area: contacts;
+    }
+    &>div:nth-child(5) {
+      grid-area: socials;
+    }
+
     img {
-      height: 40px;
+      height: 36px;
     }
 
     .about {
@@ -165,7 +186,7 @@ a {
       place-items: center;
       transition: transform .25s var(--ease);
 
-      img{
+      img {
         height: auto;
       }
     }
@@ -222,21 +243,27 @@ a {
 .d-grid {
   display: grid !important;
 }
+
 .d-inline-block {
   display: inline-block !important;
 }
+
 .justify-content-center {
   justify-content: center;
 }
+
 .justify-content-end {
   justify-content: end;
 }
+
 .align-items-center {
   align-items: center;
 }
+
 .align-items-end {
   align-items: end;
 }
+
 .flex-fill {
   flex: 1 1 auto;
 }
@@ -244,6 +271,16 @@ a {
 @media (min-width: map.get($grid-breakpoints, md)) {
   .wrap {
     padding: 0 40px;
+  }
+  .fgrid {
+    grid-template-columns: 1.25fr 1fr 1.1fr 1.1fr 1fr;
+    grid-template-areas:
+      "reua menu docs contacts socials";
+  }
+  .footer {
+    img {
+      height: 40px;
+    }
   }
 }
 

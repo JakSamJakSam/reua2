@@ -217,32 +217,32 @@
                               stroke-width="2"/>
                     </svg>
                     {% for m in '12345'|make_list %}
-                    <div class="step rv" style="--d:.{{ forloop.counter|add:2 }}s">
-                        <div class="d-flex d-md-block align-items-center">
-                            <span class="n d-none d-md-inline-block">0{{ forloop.counter }}</span>
-                            <div class="circle">
-                                {% with "reua/img/2026/hero/how-"|add:m|add:".webp" as pp %}
-                                    <img src="{% static pp %}" alt="">
-                                {% endwith %}
-                            </div>
-                            <div class="flex-fill" style="flex-basis: min-content">
-                                <span class="n d-inline-block d-md-none">0{{ forloop.counter }}</span>
-                                <h4>
-                                    {% if forloop.counter == 1 %}
-                                        Підземне джерело води
-                                    {% elif forloop.counter == 2 %}
-                                        Очищення ReH₂O
-                                    {% elif forloop.counter == 3 %}
-                                        Автономна сонячна енергія
-                                    {% elif forloop.counter == 4 %}
-                                        Безпечна питна вода
-                                    {% elif forloop.counter == 5 %}
-                                        Дистанційний моніторинг
-                                    {% endif %}
-                                </h4>
+                        <div class="step rv" style="--d:.{{ forloop.counter|add:2 }}s">
+                            <div class="d-flex d-md-block align-items-center">
+                                <span class="n d-none d-md-inline-block">0{{ forloop.counter }}</span>
+                                <div class="circle">
+                                    {% with "reua/img/2026/hero/how-"|add:m|add:".webp" as pp %}
+                                        <img src="{% static pp %}" alt="">
+                                    {% endwith %}
+                                </div>
+                                <div class="flex-fill" style="flex-basis: min-content">
+                                    <span class="n d-inline-block d-md-none">0{{ forloop.counter }}</span>
+                                    <h4>
+                                        {% if forloop.counter == 1 %}
+                                            Підземне джерело води
+                                        {% elif forloop.counter == 2 %}
+                                            Очищення ReH₂O
+                                        {% elif forloop.counter == 3 %}
+                                            Автономна сонячна енергія
+                                        {% elif forloop.counter == 4 %}
+                                            Безпечна питна вода
+                                        {% elif forloop.counter == 5 %}
+                                            Дистанційний моніторинг
+                                        {% endif %}
+                                    </h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -252,9 +252,9 @@
 
     <section class="news" id="news">
         <div class="wrap">
-            <div class="sec-head d-block d-md-flex">
+            <div class="sec-head">
                 <h2 class="rv">Новини</h2>
-                <a class="link-y rv d-none d-mf-grid" style="--d:.1s" href="#">
+                <a class="link-y rv" style="--d:.1s" href="#">
                     Усі новини
                 </a>
             </div>
@@ -315,16 +315,18 @@
                  alt="Дівчина у вишиванці п’є чисту воду">
             {% include '2026/std/animation/bubbles.html' %}
         </div>
-        <span class="ph-b" style="width:118px;height:118px;left:51%;top:150px;--t:7s;--fx:5px;--fy:-8px"><img
-                src="{% static "reua/img/2026/hero/bubble-reua-tap.webp" %}" alt=""></span>
-        <span class="ph-b"
-              style="width:150px;height:150px;right:6%;top:58px;--t:8.5s;--dl:-2s;--fx:-6px;--fy:-10px"><img
-                src="{% static "reua/img/2026/hero/bubble-hands-canister.webp" %}" alt=""></span>
-        <span class="ph-b"
-              style="width:136px;height:136px;right:3.5%;top:330px;--t:6.5s;--dl:-4s;--fx:-4px;--fy:8px"><img
-                src="{% static "reua/img/2026/hero/bubble-girl-tap.webp" %}" alt=""></span>
-        <span class="ph-b" style="width:150px;height:150px;left:52%;top:438px;--t:9s;--dl:-1s;--fx:6px;--fy:-7px"><img
-                src="{% static "reua/img/2026/hero/bubble-woman-cups.webp" %}" alt=""></span>
+        <span class="ph-b">
+            <img src="{% static "reua/img/2026/hero/bubble-reua-tap.webp" %}" alt="">
+        </span>
+        <span class="ph-b">
+            <img src="{% static "reua/img/2026/hero/bubble-hands-canister.webp" %}" alt="">
+        </span>
+        <span class="ph-b">
+            <img src="{% static "reua/img/2026/hero/bubble-girl-tap.webp" %}" alt="">
+        </span>
+        <span class="ph-b">
+            <img src="{% static "reua/img/2026/hero/bubble-woman-cups.webp" %}" alt="">
+        </span>
         <div class="wrap">
             <h2 class="rv"><span class="plate">Кожні 3 долари</span><span class="sub">донорського внеску — це 15 років чистої питної води для однієї людини</span>
             </h2>
