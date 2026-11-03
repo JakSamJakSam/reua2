@@ -107,6 +107,37 @@ a {
   font-size: 14px;
 }
 
+.sky-bg {
+  background: var(--sky);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 40px 0 20px;
+
+  &::before {
+    content: "";
+    width: 32px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--blue) 50%, var(--yellow) 50%);
+  }
+}
+
+.head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
 /* ---------- Футер ---------- */
 .footer {
   background: var(--navy);
@@ -124,19 +155,23 @@ a {
 
     gap: 32px;
 
-    &>div:nth-child(1) {
+    & > div:nth-child(1) {
       grid-area: reua;
     }
-    &>div:nth-child(2) {
+
+    & > div:nth-child(2) {
       grid-area: menu;
     }
-    &>div:nth-child(3) {
+
+    & > div:nth-child(3) {
       grid-area: docs;
     }
-    &>div:nth-child(4) {
+
+    & > div:nth-child(4) {
       grid-area: contacts;
     }
-    &>div:nth-child(5) {
+
+    & > div:nth-child(5) {
       grid-area: socials;
     }
 
@@ -196,7 +231,7 @@ a {
     }
   }
 
-  .footer .btn {
+  .btn {
     margin-top: 18px;
     color: var(--navy);
     border: 0;
@@ -272,12 +307,13 @@ a {
   .wrap {
     padding: 0 40px;
   }
-  .fgrid {
-    grid-template-columns: 1.25fr 1fr 1.1fr 1.1fr 1fr;
-    grid-template-areas:
-      "reua menu docs contacts socials";
-  }
   .footer {
+    .fgrid {
+      grid-template-columns: 1.25fr 1fr 1.1fr 1.1fr 1fr;
+      grid-template-areas:
+        "reua menu docs contacts socials";
+    }
+
     img {
       height: 40px;
     }

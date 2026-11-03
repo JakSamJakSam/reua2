@@ -21,11 +21,11 @@ def top_menus(request):
     return {
         # 'top_menu_items': TopMenu.objects.filter(disabled=False, parent=None).order_by('order'),
         'top_menu_items': [
-            {'url': '/a1/', 'localized_title': 'Станції ReH₂O'},
-            {'url': '/a2/', 'localized_title': 'Про фонд'},
-            {'url': '/a2/', 'localized_title': 'Інфраструктурні проєкти'},
-            {'url': '/a2/', 'localized_title': 'Медіацентр'},
-            {'url': '/a2/', 'localized_title': 'Контакти'},
+            {'url': reverse('water'), 'localized_title': 'Станції ReH₂O'},
+            {'url': '/a2/', 'localized_title': 'Про фонд', 'disabled': True},
+            {'url': '/a2/', 'localized_title': 'Інфраструктурні проєкти', 'disabled': True},
+            {'url': '/a2/', 'localized_title': 'Медіацентр', 'disabled': True},
+            {'url': '/a2/', 'localized_title': 'Контакти', 'disabled': True},
         ],
         'founding_documents': FoundingDocument.objects.all(),
         'site_settings': ss,

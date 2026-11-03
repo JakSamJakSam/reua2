@@ -16,3 +16,8 @@ def index2026(request):
         }
     }
     return render(request, '2026/index/index.html', ctx)
+
+def water2026(request):
+    ctx = {
+    }
+    return render(request, '2026/index/water.html', ctx)

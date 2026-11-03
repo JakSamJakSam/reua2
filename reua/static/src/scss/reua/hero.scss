@@ -32,26 +32,6 @@
     z-index: 2;
     display: block;
 
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin: 40px 0 20px;
-
-      &::before {
-        content: "";
-        width: 32px;
-        height: 3px;
-        border-radius: 2px;
-        background: linear-gradient(90deg, var(--blue) 50%, var(--yellow) 50%);
-      }
-    }
-
     .pre {
       font-size: 17px;
       font-weight: 600;

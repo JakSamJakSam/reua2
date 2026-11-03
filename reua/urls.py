@@ -2,13 +2,14 @@ from .views import *
 from django.urls import path, include
 
 from .views.general import WaterNewView, NewIndexView
-from .views.general2026 import index2026
+from .views.general2026 import index2026, water2026
 from .views.projects import DetailWaterProjectView
 
 # app_name = 'reua'
 
 urlpatterns = [
     path('', index2026, name='index'),
+    path('water/', water2026, name='water'),
     # path('new-index/', NewIndexView.as_view(), name='new-index'),
     path('feedback/', FeedbackFormView.as_view(), name='feedback'),
     # path('company/', ListCompanyView.as_view(), name='company-list'),
@@ -20,7 +21,6 @@ urlpatterns = [
     # path('projects/', ListProjectView.as_view(), name='project-list'),
     # path('projects/<int:pk>/', DetailProjectView.as_view(), name='project-item'),
     # # path('water/', WaterView.as_view(), name='water'),
-    # path('water/', WaterNewView.as_view(), name='water'),
     # path('water-projects/<int:pk>/', DetailWaterProjectView.as_view(), name='water-project-item'),
     # path('about/', AboutView.as_view(), name='about'),
     # path('rebuild/', RebuildView.as_view(), name='rebuild'),

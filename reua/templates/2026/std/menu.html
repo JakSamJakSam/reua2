@@ -7,7 +7,7 @@
                                       alt="REUA — Rebuild Our Ukraine"></a>
         <nav class="nav d-none d-md-flex">
             {% for menu_item in top_menu_items %}
-                <a href="{{ menu_item.url }}">{{ menu_item.localized_title }}</a>
+                <a href="{{ menu_item.url }}" class="{% if menu_item.disabled %}disabled{% endif %}">{{ menu_item.localized_title }}</a>
             {% endfor %}
         </nav>
 

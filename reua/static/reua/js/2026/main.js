@@ -2,16 +2,26 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = s => document.querySelector(s);
 
 // шапка
-function init_header(){
-  addEventListener('scroll', () => $('#hdr').classList.toggle('small', scrollY > 40), { passive: true });
+function init_header() {
+  addEventListener('scroll', () => $('#hdr').classList.toggle('small', scrollY > 40), {passive: true});
 }
 
 // поява при прокрутці
 function init_scrolls() {
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) {
-      e.target.classList.add('in');
-      io.unobserve(e.target);
+      const t= e.target;
+      t.classList.add('in');
+      io.unobserve(t);
+      if (t.matches('.stats')) {
+        t.querySelectorAll('b[data-to]').forEach((b, i) => setTimeout(() => count(b, +b.dataset.to), i * 150))
+      }
+      if (t.matches('.draw')) {
+        t.classList.add('drawn');
+        t.querySelectorAll('.ln').forEach(l => l.style.strokeDashoffset = 0);
+      }
+      if (t.id === 'sysmap') runMap();
+
     }
   }), {threshold: .2});
   document.querySelectorAll('.rv, .how').forEach(el => io.observe(el));
@@ -27,7 +37,7 @@ function init_maps() {
   const E = [[0, 10], [0, 3], [10, 13], [3, 12], [13, 14], [12, 11], [11, 6], [6, 8], [8, 9], [9, 7], [7, 2], [6, 1], [1, 4], [4, 16], [16, 15], [15, 17], [15, 5]];
   const arcs = $('#arcs'), pts = $('#pts');
   const word = n => n === 1 ? 'станція' : (n < 5 ? 'станції' : 'станцій');
-  E.forEach(([a, b], i) => {
+  if (arcs) E.forEach(([a, b], i) => {
     const [x1, y1] = M[a], [x2, y2] = M[b];
     const p = document.createElementNS(NS, 'path');
     p.setAttribute('class', 'arc');
@@ -52,7 +62,7 @@ function init_maps() {
       am.addEventListener('beginEvent', () => c.setAttribute('opacity', 1));
     }
   });
-  M.forEach(([x, y, n, name], i) => {
+  if (pts) M.forEach(([x, y, n, name], i) => {
     const g = document.createElementNS(NS, 'g');
     g.setAttribute('class', 'pt');
     g.style.setProperty('--d', (i * .09) + 's');
@@ -85,8 +95,10 @@ function init_maps() {
 function init_animation_screen() {
   requestAnimationFrame(() => document.body.classList.add('loaded'));
   const map = $('#map');
-  setTimeout(() => map.classList.add('pts-on'), reduce ? 0 : 1600);
-  setTimeout(() => map.classList.add('arcs-on'), reduce ? 0 : 2600);
+  if (map) {
+    setTimeout(() => map.classList.add('pts-on'), reduce ? 0 : 1600);
+    setTimeout(() => map.classList.add('arcs-on'), reduce ? 0 : 2600);
+  }
   document.querySelectorAll('#hero .rv').forEach(el => el.classList.add('in'));
 }
 
@@ -102,13 +114,13 @@ function init_counters() {
     const t0 = performance.now();
     const tick = t => {
       const k = Math.min(1, (t - t0) / dur);
-      el.textContent = fmt(from + (to - from) * (1 - Math.pow(1 - k, 3)));
+      if (el) el.textContent = fmt(from + (to - from) * (1 - Math.pow(1 - k, 3)));
       if (k < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   }
 
-  setTimeout(() => document.querySelectorAll('.stats b').forEach((b, i) => setTimeout(() => count(b, 0, +b.dataset.to), i * 120)), reduce ? 0 : 900);
+  setTimeout(() => document.querySelectorAll('.stats b[data-to]').forEach((b, i) => setTimeout(() => count(b, 0, +b.dataset.to), i * 120)), reduce ? 0 : 900);
   const cnum = $('#cnum');
   // лічильник на карті одразу рахує загальну кількість води всіх станцій
   setTimeout(() => count(cnum, 0, 2300000, 1800), reduce ? 0 : 1700);
@@ -135,11 +147,20 @@ function init_bublles() {
 
 // кола від курсора на воді
 function init_ripples() {
-  if (!reduce) document.querySelectorAll('.water').forEach(w => { let last = 0;
-    w.addEventListener('pointermove', e => { const now = performance.now(); if (now - last < 120) return; last = now;
-      const r = w.getBoundingClientRect(), ring = document.createElement('i'); ring.className = 'ripple';
-      ring.style.left = (e.clientX - r.left) + 'px'; ring.style.top = (e.clientY - r.top) + 'px';
-      w.appendChild(ring); ring.addEventListener('animationend', () => ring.remove()); }); });
+  if (!reduce) document.querySelectorAll('.water').forEach(w => {
+    let last = 0;
+    w.addEventListener('pointermove', e => {
+      const now = performance.now();
+      if (now - last < 120) return;
+      last = now;
+      const r = w.getBoundingClientRect(), ring = document.createElement('i');
+      ring.className = 'ripple';
+      ring.style.left = (e.clientX - r.left) + 'px';
+      ring.style.top = (e.clientY - r.top) + 'px';
+      w.appendChild(ring);
+      ring.addEventListener('animationend', () => ring.remove());
+    });
+  });
 }
 
 function init_footer() {
@@ -196,13 +217,13 @@ function init_modal() {
     e.preventDefault();
     const form = e.target;
     const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-        },
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+      },
     });
-    if (response.redirected){
+    if (response.redirected) {
       mbox.classList.add('sent');
       form.reset();
     } else {
