@@ -15,5 +15,15 @@
     .d-#{$breakpoint}-inline-block {
       display: inline-block !important;
     }
+
+    .col-#{$breakpoint}-2 {
+      flex: 0 0 auto;
+      width: 16.66%;
+    }
+    .col-#{$breakpoint}-10 {
+      flex: 0 0 auto;
+      width: 83.33%;
+    }
+
   }
 }

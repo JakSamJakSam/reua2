@@ -369,6 +369,37 @@ a.disabled {
   flex: 1 1 auto;
 }
 
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+.col-2 {
+  flex: 0 0 auto;
+  width: 16.66%;
+}
+
+.col-10 {
+  flex: 0 0 auto;
+  width: 83.33%;
+}
+
 @media (min-width: 720px) {
   .wrap {
     padding: 0 40px;
@@ -732,6 +763,14 @@ h1 {
   .d-sm-inline-block {
     display: inline-block !important;
   }
+  .col-sm-2 {
+    flex: 0 0 auto;
+    width: 16.66%;
+  }
+  .col-sm-10 {
+    flex: 0 0 auto;
+    width: 83.33%;
+  }
 }
 @media (min-width: 720px) {
   .d-md-none {
@@ -748,6 +787,14 @@ h1 {
   }
   .d-md-inline-block {
     display: inline-block !important;
+  }
+  .col-md-2 {
+    flex: 0 0 auto;
+    width: 16.66%;
+  }
+  .col-md-10 {
+    flex: 0 0 auto;
+    width: 83.33%;
   }
 }
 @media (min-width: 960px) {
@@ -766,6 +813,14 @@ h1 {
   .d-lg-inline-block {
     display: inline-block !important;
   }
+  .col-lg-2 {
+    flex: 0 0 auto;
+    width: 16.66%;
+  }
+  .col-lg-10 {
+    flex: 0 0 auto;
+    width: 83.33%;
+  }
 }
 @media (min-width: 1140px) {
   .d-xl-none {
@@ -783,6 +838,14 @@ h1 {
   .d-xl-inline-block {
     display: inline-block !important;
   }
+  .col-xl-2 {
+    flex: 0 0 auto;
+    width: 16.66%;
+  }
+  .col-xl-10 {
+    flex: 0 0 auto;
+    width: 83.33%;
+  }
 }
 @media (min-width: 1200px) {
   .d-xxl-none {
@@ -799,6 +862,14 @@ h1 {
   }
   .d-xxl-inline-block {
     display: inline-block !important;
+  }
+  .col-xxl-2 {
+    flex: 0 0 auto;
+    width: 16.66%;
+  }
+  .col-xxl-10 {
+    flex: 0 0 auto;
+    width: 83.33%;
   }
 }
 /* ---------- шапка ---------- */
