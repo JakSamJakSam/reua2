@@ -369,6 +369,14 @@ a.disabled {
   flex: 1 1 auto;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+.gap-2 {
+  gap: 16px;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -379,6 +387,10 @@ a.disabled {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 .row {
