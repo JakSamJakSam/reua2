@@ -8,9 +8,18 @@ function init_header() {
 
 // поява при прокрутці
 function init_scrolls() {
+  function runMap() {
+    const sysmap = document.querySelector('#sysmap');
+    sysmap.querySelectorAll('.rg').forEach(
+      (r, i) => r.style.setProperty('--fd', (i * .03).toFixed(2) + 's')
+    );
+    sysmap.classList.add('lit');
+    setTimeout(() => sysmap.classList.add('rays-on'), reduce ? 0 : 1100);
+  }
+
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) {
-      const t= e.target;
+      const t = e.target;
       t.classList.add('in');
       io.unobserve(t);
       if (t.matches('.stats')) {
@@ -24,13 +33,12 @@ function init_scrolls() {
 
     }
   }), {threshold: .2});
-  document.querySelectorAll('.rv, .how').forEach(el => io.observe(el));
+  document.querySelectorAll('.rv, .how, .stats, #stages, #stage, #sysmap, .chk').forEach(el => io.observe(el));
 }
 
 // ---- карта
 function init_maps() {
   const map = document.querySelector('#map');
-  console.log();
 
   const NS = 'http://www.w3.org/2000/svg';
   const M = [[456.6, 162.5, 2, 'Буча, Ворзель'], [634.6, 383.2, 1, 'Кривий Ріг'], [490.3, 499.9, 2, 'Одеса, Одеська обл.'], [435.9, 169.3, 1, 'Макарів'], [703.3, 406.2, 1, 'Марганець'], [792.1, 208.7, 2, 'Харків'], [546.3, 399.1, 1, 'Ольгопіль (Миколаївська обл.)'], [512.7, 490.6, 1, 'Коблеве'], [555.9, 463.9, 3, 'Миколаїв (2), Галицинове'], [532.3, 491.7, 1, 'Очаків'], [475.4, 170.5, 1, 'Київ'], [458.7, 312.9, 1, 'Умань'], [368.7, 217.1, 1, 'Бердичів'], [523.1, 146.0, 1, 'Чернігівська обл.'], [634.1, 78.6, 1, 'Кролевець'], [796.8, 301.2, 1, 'Лозова'], [726.3, 336.8, 1, 'Дніпро'], [862.5, 315.3, 1, 'Олександрівка']];
@@ -233,6 +241,83 @@ function init_modal() {
   });
 }
 
+function init_draws() {
+  // креслення: підготовка ліній до «прокреслення»
+  document.querySelectorAll('.dw').forEach(svg => {
+    let i = 0;
+    svg.querySelectorAll('path, rect, line, circle').forEach(el => {
+      if (el.closest('defs, clipPath')) return;
+      const st = el.getAttribute('stroke'), dashed = el.getAttribute('stroke-dasharray');
+      if (st && st !== 'none' && !dashed && (!el.getAttribute('fill') || el.getAttribute('fill') === 'none')) {
+        el.setAttribute('pathLength', 1);
+        el.style.strokeDasharray = 1;
+        el.style.strokeDashoffset = 1;
+        el.classList.add('ln');
+        el.style.setProperty('--ld', (i++ * .015).toFixed(3) + 's');
+      } else {
+        el.classList.add('fd');
+        el.style.setProperty('--ld', (1.1 + Math.random() * .5).toFixed(2) + 's');
+      }
+    });
+  });
+}
+
+function init_monitoring_map() {
+  // ---- карта «Єдина система»
+  const NS = 'http://www.w3.org/2000/svg';
+  // координати з макета (кадр карти 1200×552): станції, кількість у точці, центр моніторингу
+  const MK = [[313, 131], [435, 283], [336, 363], [299, 136], [482, 298], [543, 163], [374, 293], [351, 356], [381, 338], [365, 357], [314, 234], [253, 169], [359, 120], [435, 74], [546, 226], [498, 251], [591, 236], [326, 138]];
+  const BADGES = [[324.5, 119.5, 2], [362.5, 344.5, 2], [554.5, 151.5, 2], [392.5, 326.5, 3]];
+  const HUB = [736, 258];
+  const sysmap = $('#sysmap');
+
+  (function buildMap() {
+    const rays = $('#rays'), mks = $('#mks'), hub = $('#hub');
+    if (rays && mks && hub) {
+      MK.forEach(([x, y], i) => {
+        const dx = HUB[0] - x,
+          rd = `M${x} ${y}C${(x + dx * .45).toFixed(1)} ${y} ${(x + dx * .65).toFixed(1)} ${HUB[1]} ${HUB[0]} ${HUB[1]}`;
+        const l = document.createElementNS(NS, 'path');
+        l.setAttribute('d', rd);
+        l.setAttribute('class', 'ray');
+        l.setAttribute('pathLength', 1);
+        l.style.setProperty('--rd', (i * .05).toFixed(2) + 's');
+        rays.appendChild(l);
+        if (!reduce) {
+          const c = document.createElementNS(NS, 'circle');
+          c.setAttribute('r', 2.5);
+          c.setAttribute('class', 'bit');
+          c.innerHTML = `<animateMotion dur="${(2.4 + (i % 5) * .3).toFixed(1)}s" begin="${(2 + i * .15).toFixed(2)}s" repeatCount="indefinite" path="${rd}"/><set attributeName="opacity" to=".9" begin="${(2 + i * .15).toFixed(2)}s"/>`;
+          rays.appendChild(c);
+        }
+        const g = document.createElementNS(NS, 'g');
+        g.setAttribute('class', 'mk');
+        g.style.setProperty('--md', (i * .06).toFixed(2) + 's');
+        g.innerHTML = `<circle class="d" cx="${x}" cy="${y}" r="7"/>`;
+        mks.appendChild(g);
+      });
+      BADGES.forEach(([x, y, n], i) => {
+        const g = document.createElementNS(NS, 'g');
+        g.setAttribute('class', 'mk');
+        g.style.setProperty('--md', (1 + i * .06).toFixed(2) + 's');
+        g.innerHTML = `<circle class="b" cx="${x}" cy="${y}" r="8.5"/><text x="${x}" y="${y}">${n}</text>`;
+        mks.appendChild(g);
+      });
+      hub.innerHTML = [58, 42, 28].map((r, i) => `<circle class="ringc" cx="${HUB[0]}" cy="${HUB[1]}" r="${r}" style="animation-delay:${i * .5}s"/>`).join('') +
+        `<circle cx="${HUB[0]}" cy="${HUB[1]}" r="17" fill="#001739" stroke="#fff" stroke-width="3"/><rect x="${HUB[0] - 7}" y="${HUB[1] - 6}" width="14" height="10" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/><path d="M${HUB[0] - 4} ${HUB[1] + 7}h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>`;
+    }
+  })();
+  // виноска «Центр моніторингу»: зменшена копія монітора з блоку вище + лінія від хаба (у Києві)
+  const gadmonitor =  $('.gad.monitor');
+  if (gadmonitor) {
+    const mm = gadmonitor.cloneNode(true);
+    mm.classList.remove('gad');
+    mm.removeAttribute('style');
+    $('#minimon').appendChild(mm);
+  }
+
+}
+
 init_header();
 init_scrolls();
 init_maps();
@@ -240,5 +325,7 @@ init_animation_screen();
 init_counters();
 init_bublles();
 init_ripples();
+init_draws();
 init_footer();
 init_modal()
+init_monitoring_map();

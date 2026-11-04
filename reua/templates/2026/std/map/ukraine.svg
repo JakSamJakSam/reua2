@@ -1,0 +1,8 @@
+    <svg xmlns="http://www.w3.org/2000/svg" width="1020" height="689" viewBox="0 0 1020 689">
+        <g id="obl">
+            <!-- Ukraine: oblasts incl. Autonomous Republic of Crimea and Sevastopol. Source: Natural Earth (public domain), simplified -->
+            {% include "2026/std/map/data.svg" %}
+        </g>
+        <g id="arcs"></g>
+        <g id="pts"></g>
+    </svg>

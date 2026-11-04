@@ -31,7 +31,7 @@ urlpatterns = [
     # path('pay/ReH2O/', ReH2OPaymentNewView.as_view(), name='Pay_ReH2O'),
     # path('pay/ReCity/', ReCityPaymentNewView.as_view(), name='Pay_ReCity'),
     #
-    # path('fp/', include('django.contrib.flatpages.urls')),
+    path('fp/', include('django.contrib.flatpages.urls')),
     #
 ]
 

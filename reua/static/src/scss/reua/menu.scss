@@ -51,13 +51,6 @@
     color: rgba(var(--navy-rgb), .75);
     margin: 0 auto;
 
-    a.disabled {
-      pointer-events: none;
-      cursor: not-allowed;
-      opacity: 0.5;
-      text-decoration: none;
-    }
-
     a:hover {
       color: var(--blue);
     }

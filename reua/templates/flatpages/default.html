@@ -1,4 +1,4 @@
-{% extends "default_page.html" %}
+{% extends "reua_base_2026.html" %}
 {% block title %}
     {{ flatpage.title }}
 {% endblock %}
@@ -24,9 +24,11 @@
         </ol>
     </nav>
 {% endblock %}
-{% block content %}
+{% block body %}
     {{ block.super }}
-    {{ flatpage.content }}
+    <section class="flatpage" id="flatpage">
+        <div class="wrap">
+            {{ flatpage.content }}
+        </div>
+    </section>
 {% endblock %}
-
-{# TODO: https://github.com/PragmaticMates/django-flatpages-i18n #}

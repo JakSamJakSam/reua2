@@ -1,0 +1,7 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <symbol id="uaShape" viewBox="0 0 1020 689">
+            {% include "2026/std/map/data.svg" %}
+        </symbol>
+    </defs>
+</svg>

@@ -1,24 +1,28 @@
-{% extends "default_page.html" %}
+{% extends "reua_base_2026.html" %}
 {% load l10n %}
 {% load thumbnail %}
 {% load static %}
 {% load i18n %}
 {% load request_heplers %}
 
-{% block content %}
+{% block body %}
     {{ block.super }}
-    <div class="d-flex">
-        <a href="{{ document.file.url }}" download="{{ document.file.name }}" class="btn btn-link ms-auto">
-            {% trans "Завантажити" %}
-        </a>
-    </div>
-    <div id="pdf-view" class="w-100 overflow-hidden">
-        <div class="text-muted text-center">
-            <div class="spinner-border m-5" role="status">
-              <span class="visually-hidden">{% trans "Зачекайте будь-ласка..." %}</span>
+    <section class="pdf" id="pdf">
+        <div class="wrap">
+            <div class="d-flex">
+                <a href="{{ document.file.url }}" download="{{ document.file.name }}" class="btn btn-link ms-auto">
+                    {% trans "Завантажити" %}
+                </a>
+            </div>
+            <div id="pdf-view" class="w-100 overflow-hidden">
+                <div class="text-muted text-center">
+                    <div class="spinner-border m-5" role="status">
+                        <span class="visually-hidden">{% trans "Зачекайте будь-ласка..." %}</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     {#    <object><embed src="{{ document.file.url }}" class="w-100" /></object>#}
 {% endblock %}

@@ -8,7 +8,7 @@
             <div><h5>Меню</h5>
                 <ul>
             {% for menu_item in top_menu_items %}
-                 <li><a href="{{ menu_item.url }}">{{ menu_item.localized_title }}</a></li>
+                 <li><a href="{{ menu_item.url }}" class="{% if menu_item.disabled %}disabled{% endif %}">{{ menu_item.localized_title }}</a></li>
             {% endfor %}
                 </ul>
             </div>
