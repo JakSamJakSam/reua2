@@ -195,7 +195,7 @@
                     {% for partner in parnters.r1 %}
                         <a class="logo-i" href="{{ partner.url }}" aria-label="{{ partner.localized_title }}"
                            target="_blank">
-                            {% thumbnail partner.logo "x50" format='PNG' upscale=True as im %}
+                            {% thumbnail partner.logo "x100" format='PNG' upscale=True as im %}
                                 <img src="{{ im.url }}" alt="{{ partner.localized_title }}">
                                 <em>Сайт партнера ↗</em>
                             {% endthumbnail %}
@@ -206,7 +206,7 @@
                     {% for partner in parnters.r2 %}
                         <a class="logo-i" href="{{ partner.url }}" aria-label="{{ partner.localized_title }}"
                            target="_blank">
-                            {% thumbnail partner.logo "160x38" format='PNG' as im %}
+                            {% thumbnail partner.logo "x100" format='PNG' as im %}
                                 <img src="{{ im.url }}" alt="{{ partner.localized_title }}">
                                 <em>Сайт партнера ↗</em>
                             {% endthumbnail %}
