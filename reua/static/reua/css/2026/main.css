@@ -2184,9 +2184,6 @@ Side menu
   .news .cards {
     grid-template-columns: repeat(4, 1fr);
   }
-  .partners {
-    padding: 100px 0;
-  }
   .partners .wrap {
     display: grid;
   }
