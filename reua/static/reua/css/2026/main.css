@@ -2238,18 +2238,19 @@ Side menu
     top: 438px;
   }
 }
-.monitor {
-  left: 120px;
-  top: 70px;
-  width: 700px;
-}
-.monitor .cl {
+.cl {
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
+}
+
+.monitor {
+  left: 120px;
+  top: 70px;
+  width: 700px;
 }
 .monitor .mframe {
   width: 700px;

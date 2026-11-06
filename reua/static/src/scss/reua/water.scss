@@ -1,19 +1,19 @@
 @use "sass:map";
 
+.cl {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
 .monitor {
   left: 120px;
   top: 70px;
   width: 700px;
 
-
-  .cl {
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-  }
 
   .mframe {
     width: 700px;
@@ -1826,6 +1826,7 @@
             height: auto;
 
           }
+
           .mix {
             height: 91px;
             text-align: start;
@@ -1836,6 +1837,7 @@
             transform: none;
           }
         }
+
         &.s4 {
           .bd {
             flex-direction: column;
