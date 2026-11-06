@@ -1,10 +1,12 @@
 <svg class="gapar {{ class }}" style="{{ style }}" viewBox="0 0 60 34" fill="none" aria-hidden="true">
+    <g {% if rotate %}transform="rotate(90 30 17)"{% endif %}>
     <defs>
-        <linearGradient id="ggg1" x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id="ggg_{{ class }}{% if rotate %}r{% endif %}" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0" stop-color="#0E52BD" stop-opacity=".45"/>
             <stop offset=".55" stop-color="#0E52BD"/>
         </linearGradient>
     </defs>
-    <path class="ah" d="M1 10.9H33.0V1.5L58.5 17.0L33.0 32.5V23.1H1Z" fill="url(#ggg1)" stroke="#fff"
+    <path class="ah" d="M1 10.9H33.0V1.5L58.5 17.0L33.0 32.5V23.1H1Z" fill="url(#ggg_{{ class }}{% if rotate %}r{% endif %})" stroke="#fff"
           stroke-width="2" stroke-linejoin="round"/>
+    </g>
 </svg>
