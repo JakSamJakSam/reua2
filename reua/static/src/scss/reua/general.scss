@@ -149,8 +149,7 @@ a {
 }
 
 .side-t {
-  max-width: 440px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.6;
   color: rgba(var(--navy-rgb), .7);
@@ -361,6 +360,9 @@ a {
   }
   .wrap {
     padding: 0 40px;
+  }
+  .side-t {
+    font-size: 16px;
   }
   .footer {
     .fgrid {
