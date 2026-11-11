@@ -1535,19 +1535,21 @@
   }
 
   .feats {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 16px;
     margin-top: 50px;
+    border-radius: 18px;
+    background: var(--sky);
+    padding: 18px 16px;
+
 
     .feat {
       display: flex;
       align-items: center;
       gap: 14px;
-      background: var(--sky);
-      border-radius: 18px;
-      padding: 18px 16px;
-      min-height: 94px;
+      background: none;
+      padding: 4px 16px;
       font-size: 13px;
       font-weight: 800;
       line-height: 1.3;
@@ -1566,10 +1568,10 @@
 /* ---------- 07 Єдина система ---------- */
 .sys {
   position: relative;
+  border: 1px solid transparent;
 
   p.lead2 {
-    max-width: 620px;
-    font-size: 17px;
+    font-size: 14px;
     line-height: 1.6;
     color: var(--ink);
     margin-top: 22px;
@@ -1577,25 +1579,29 @@
 
   .sysmap {
     position: relative;
-    width: 1200px;
-    height: 552px;
-    margin-top: 36px;
+    width: 100%;
+    aspect-ratio: 1200 / 1400;
+    margin-top: 0;
+    overflow: hidden;
+    --map-width: calc(var(--wrapper-max-width) - var(--wrapper-padding-x) * 2);
 
     .ua {
       position: absolute;
       left: 0;
-      top: 20px;
-      width: 699px;
+      //top: 20px;
+      top: calc(20 * var(--map-width) / 700);
+      width: var(--map-width);
       height: auto;
       overflow: visible;
     }
 
     .net {
+      width: calc(var(--map-width) / 0.7 * 1.2);
       position: absolute;
+      //left: calc(0px - var(--wrapper-padding-x));
       left: 0;
       top: 0;
-      width: 1200px;
-      height: 552px;
+      aspect-ratio: 1200 / 552;
       overflow: visible;
       pointer-events: none;
     }
@@ -1700,17 +1706,17 @@
 
     .legend {
       position: absolute;
-      left: 10px;
-      top: 495px;
+      left: 0;
+      top: calc(var(--map-width) / 1.2 * 0.9 - 25px);
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 14px;
+      font-size: 9px;
       font-weight: 700;
 
       i {
-        width: 18px;
-        height: 18px;
+        width: 14px;
+        height: 14px;
         border-radius: 4px;
         background: #A9C3EC;
       }
@@ -1718,22 +1724,25 @@
 
     .hubcard {
       position: absolute;
-      left: 752px;
-      top: 83px;
-      width: 430px;
+      right: 0;
+      top: calc(100vw / 360 * 250 + 14px);
+      width: 100%;
       z-index: 3;
       opacity: 0;
       transform: translateY(16px);
       transition: opacity .9s var(--ease) .6s, transform .9s var(--ease) .6s;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
       h4 {
-        font-size: 18px;
+        font-size: 12px;
         font-weight: 800;
         line-height: 1.2;
 
         span {
           display: block;
-          font-size: 13px;
+          font-size: 10px;
           font-weight: 700;
           color: var(--blue);
           margin-top: 2px;
@@ -1741,16 +1750,22 @@
       }
 
       p {
-        font-size: 13px;
+        font-size: 10px;
         font-weight: 500;
         color: rgba(0, 23, 57, .7);
         margin-top: 6px;
       }
 
+      & > div {
+        flex: 1 1 auto;
+        width: 50%;
+      }
+
       .minimon {
         position: relative;
-        width: 430px;
-        height: 296px;
+        //width: 430px;
+        aspect-ratio: 430 / 296;
+        //height: 296px;
         margin-top: 6px;
 
         .monitor {
@@ -1759,6 +1774,7 @@
           top: 0;
           transform: scale(.6143);
           transform-origin: 0 0;
+          width: calc(100% / .6143);
         }
       }
     }
@@ -2178,6 +2194,79 @@
         }
       }
 
+    }
+
+    .feats {
+      flex-direction: row;
+      background: none;
+      padding: 0;
+
+      .feat {
+        min-height: 94px;
+        padding: 18px 16px;
+        background: var(--sky);
+        border-radius: 18px;
+      }
+    }
+  }
+  .sys {
+    p.lead2 {
+      font-size: 17px;
+      max-width: 620px;
+    }
+
+    .sysmap {
+      --map-width: 699px;
+      margin-top: 36px;
+      aspect-ratio: 1200 / 552;
+
+      .ua {
+      }
+
+      .net {
+        //left: 0;
+        //width: 1200px;
+      }
+
+      .legend {
+        left: 10px;
+        top: 495px;
+        font-size: 14px;
+
+        i {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .hubcard {
+        left: 752px;
+        top: 83px;
+        width: 430px;
+        flex-direction: column;
+        align-items: normal;
+
+        h4 {
+          font-size: 18px;
+
+          span {
+            font-size: 13px;
+          }
+        }
+
+        p {
+          font-size: 13px;
+        }
+
+        & > div {
+          width: 100%;
+        }
+
+
+        .minimon {
+          width: unset;
+        }
+      }
     }
   }
 }
