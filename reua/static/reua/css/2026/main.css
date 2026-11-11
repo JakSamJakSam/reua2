@@ -2574,7 +2574,7 @@ Side menu
 }
 
 .sec {
-  padding: 0;
+  padding: 20px 0;
 }
 .sec .head-row {
   flex-direction: column;
