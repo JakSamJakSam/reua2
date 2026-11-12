@@ -1,6 +1,7 @@
 from adminsortable.admin import SortableAdmin
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from django_summernote.admin import SummernoteModelAdminMixin
 
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import *
@@ -99,11 +100,11 @@ class SiteSettingsAdmin(admin.ModelAdmin):
         }),
     )
 
-# @admin.register(Staff)
-# class StaffAdmin(SummernoteModelAdminMixin, SortableAdmin):
-#     summernote_fields = ('descriprion', 'descriprion_en')
-#
-#
+@admin.register(Staff)
+class StaffAdmin(SummernoteModelAdminMixin, SortableAdmin):
+    summernote_fields = ('descriprion', 'descriprion_en')
+
+
 # @admin.register(Label)
 # class LabelAdmin(SortableAdmin):
 #     pass

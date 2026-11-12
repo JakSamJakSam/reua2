@@ -139,7 +139,6 @@ class AboutView(BreadCrumbsMixin, TemplateView):
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)
         ctx['staffs'] = Staff.objects.all()
-        ctx['partners'] = Partner.objects.all()
         return ctx
 
 
