@@ -50,7 +50,8 @@
     font-weight: 600;
     color: rgba(var(--navy-rgb), .75);
     margin: 0 auto;
-
+    --bs-link-color-rgb: var(--navy-rgb);
+    --bs-link-opacity: .75;
     a:hover {
       color: var(--blue);
     }

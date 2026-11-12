@@ -1,0 +1,7 @@
+@import "variables";
+
+@import "bootstrap/scss/bootstrap";
+
+.bg-gray200 {
+    background-color: var(--bs-gray-200);
+}

@@ -22,7 +22,7 @@ def top_menus(request):
         # 'top_menu_items': TopMenu.objects.filter(disabled=False, parent=None).order_by('order'),
         'top_menu_items': [
             {'url': reverse('water'), 'localized_title': 'Станції ReH₂O'},
-            {'url': '/a2/', 'localized_title': 'Про фонд', 'disabled': True},
+            {'url': reverse('about'), 'localized_title': 'Про фонд'},
             {'url': '/a2/', 'localized_title': 'Інфраструктурні проєкти', 'disabled': True},
             {'url': '/a2/', 'localized_title': 'Медіацентр', 'disabled': True},
             {'url': '/a2/', 'localized_title': 'Контакти', 'disabled': True},

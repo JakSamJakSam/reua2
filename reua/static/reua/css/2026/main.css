@@ -179,6 +179,10 @@ a.disabled {
   background: var(--yellow);
   box-shadow: 0 8px 24px -10px rgba(254, 215, 0, 0.9);
   border: none;
+  --bs-btn-active-color: var(--navy);
+  --bs-btn-active-bg: var(--yellow);
+  --bs-btn-hover-bg: var(--yellow);
+  --bs-btn-active-border-color: none;
 }
 
 .btn-g {
@@ -770,6 +774,31 @@ h1 {
     font-size: 44px;
   }
 }
+@media (min-width: 0) {
+  .d-xs-none {
+    display: none !important;
+  }
+  .d-xs-flex {
+    display: flex !important;
+  }
+  .d-xs-block {
+    display: block !important;
+  }
+  .d-xs-grid {
+    display: grid !important;
+  }
+  .d-xs-inline-block {
+    display: inline-block !important;
+  }
+  .col-xs-2 {
+    flex: 0 0 auto;
+    width: 16.66%;
+  }
+  .col-xs-10 {
+    flex: 0 0 auto;
+    width: 83.33%;
+  }
+}
 @media (min-width: 540px) {
   .d-sm-none {
     display: none !important;
@@ -934,6 +963,8 @@ h1 {
   font-weight: 600;
   color: rgba(var(--navy-rgb), 0.75);
   margin: 0 auto;
+  --bs-link-color-rgb: var(--navy-rgb);
+  --bs-link-opacity: .75;
 }
 .header .nav a:hover {
   color: var(--blue);
