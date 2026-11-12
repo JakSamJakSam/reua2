@@ -11875,7 +11875,7 @@ textarea.form-control-lg {
   transition: all 0.3s ease-in-out;
 }
 
-.gallery-item.w100 > img {
+.gallery-item.w-100 > img {
   width: 100%;
 }
 .gallery-item > img {
