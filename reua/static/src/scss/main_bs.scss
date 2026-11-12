@@ -3,8 +3,14 @@
 @import "bootstrap/scss/bootstrap";
 
 .bg-gray200 {
-    background-color: var(--bs-gray-200);
+  background-color: var(--bs-gray-200);
 }
+
 .mk-block {
   min-height: 20rem;
+}
+
+.share-item img {
+  height: 1.25rem;
+  transition: all .3s ease-in-out;
 }
