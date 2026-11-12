@@ -11863,4 +11863,8 @@ textarea.form-control-lg {
   background-color: var(--bs-gray-200);
 }
 
+.mk-block {
+  min-height: 20rem;
+}
+
 /*# sourceMappingURL=main_bs.css.map */

@@ -23,7 +23,7 @@ def top_menus(request):
         'top_menu_items': [
             {'url': reverse('water'), 'localized_title': 'Станції ReH₂O'},
             {'url': reverse('about'), 'localized_title': 'Про фонд'},
-            {'url': '/a2/', 'localized_title': 'Інфраструктурні проєкти', 'disabled': True},
+            {'url': reverse('rebuild'), 'localized_title': 'Інфраструктурні проєкти'},
             {'url': '/a2/', 'localized_title': 'Медіацентр', 'disabled': True},
             {'url': '/a2/', 'localized_title': 'Контакти', 'disabled': True},
         ],
