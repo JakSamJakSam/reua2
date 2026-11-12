@@ -154,6 +154,8 @@ document.addEventListener('click', (event) => {
   const trigger = event.target.closest('[data-offcanvas-toggle]');
 
   if (trigger) {
+    event.stopPropagation();
+    event.preventDefault();
     const selector = trigger.dataset.offcanvasToggle;
     const element = document.querySelector(selector);
 
