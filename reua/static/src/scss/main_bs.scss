@@ -24,6 +24,12 @@
 }
 
 .gallery-item {
+  &.w100 {
+    & > img {
+      width: 100%;
+    }
+  }
+
   & > img {
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     transition: all .3s ease-in-out;
@@ -34,4 +40,5 @@
     transform: scale(1.1);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
   }
+
 }
