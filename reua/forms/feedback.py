@@ -20,7 +20,7 @@ class FeedbackForm(ModelForm):
         fields = '__all__'
         widgets = {
             'fio': forms.TextInput(attrs={
-                'placeholder': "Ваше ім’я",
+                'placeholder': _("Ваше ім’я"),
             }),
             'phone': forms.TextInput(attrs={
                 'placeholder': "+380",
@@ -29,7 +29,7 @@ class FeedbackForm(ModelForm):
                 'placeholder': "name@example.com",
             }),
             'message': forms.Textarea(attrs={
-                'placeholder': "Ваша ідея або пропозиція",
+                'placeholder': _("Ваша ідея або пропозиція"),
                 'rows': 4
             }),
         }

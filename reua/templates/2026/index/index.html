@@ -15,18 +15,34 @@
             <div class="top">
                 <div>
                     <div class="eyebrow rv" style="--d:.1s">Rebuild Our Ukraine</div>
-                    <div class="pre rv" style="--d:.2s">Благодійний Фонд</div>
-                    <h1 class="rv" style="--d:.3s">«Відбудуємо нашу <span class="mark">Україну»</span></h1>
-                    <p class="lead rv" style="--d:.45s">Ми відновлюємо критично важливі для життя ресурси та
-                        інфраструктуру</p>
+                    <div class="pre rv" style="--d:.2s">{% trans "Благодійний Фонд" %}</div>
+                    <h1 class="rv" style="--d:.3s">
+                        {% blocktrans %}
+                            Відбудуємо нашу <span class="mark">Україну»</span>
+                        {% endblocktrans %}
+                    </h1>
+                    <p class="lead rv" style="--d:.45s">
+                        {% trans "Ми відновлюємо критично важливі для життя ресурси та інфраструктуру" %}
+                    </p>
                 </div>
                 <div class="scene" id="scene">
                     <div class="sky d-block d-md-none"></div>
                     <div class="counter rv" id="counter" style="--d:1.6s">
-                    <span class="drop"><svg width="12" height="12" viewBox="0 0 24 24"><path
-                            d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" fill="#fff"/></svg></span>
-                        <span>до</span><span class="num" id="cnum">0</span><span>л/добу</span>
-                        <span class="ctag">23 станції</span>
+                        <span class="drop">
+                            <svg width="12" height="12" viewBox="0 0 24 24">
+                                <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" fill="#fff"/>
+                            </svg>
+                        </span>
+                        <span>{% trans "до" %}</span>
+                        <span class="num" id="cnum">0</span>
+                        <span>{% trans "л/добу" %}</span>
+                        <span class="ctag">
+                            {% blocktranslate count counter=stations_count trimmed %}
+                                {{ counter }} станція
+                            {% plural %}
+                                {{ counter }} станції
+                            {% endblocktranslate %}
+                        </span>
                     </div>
                     <div class="map" id="map"
                          data-image-station-icon="{% static 'reua/img/2026/hero/map/map-station-icon.png' %}">
@@ -42,15 +58,15 @@
 
             <div class="panel d-block d-md-grid">
                 <div class="rv" style="--d:.2s">
-                    <div class="badge"><b>ReH₂O</b><span>Флагманська програма</span></div>
-                    <h2>Національна програма водної стійкості України ReH₂O</h2>
-                    <p>Автономні джерела питної води для громад, лікарень та критичної інфраструктури</p>
-                    <a class="btn btn-y more" href="#how">Про програму →</a>
+                    <div class="badge"><b>ReH₂O</b><span>{% trans "Флагманська програма" %}</span></div>
+                    <h2>{% trans "Національна програма водної стійкості України ReH₂O" %}</h2>
+                    <p>{% trans "Автономні джерела питної води для громад, лікарень та критичної інфраструктури" %}</p>
+                    <a class="btn btn-y more" href="#how">{% trans "Про програму →" %}</a>
                 </div>
                 <div class="vline d-none d-md-block"></div>
                 <div class="hline d-block d-md-none"></div>
                 <div class="rv" style="--d:.35s">
-                    <span class="done-l">Реалізовано</span>
+                    <span class="done-l">{% trans "Реалізовано" %}</span>
                     <div class="stats">
                         <div>
                             <div class="d-flex d-md-block align-items-end">
@@ -62,7 +78,7 @@
                                 <b data-to="23">0</b>
                             </div>
                             <div>
-                                <span>встановлені станції</span>
+                                <span>{% trans "встановлені станції" %}</span>
                             </div>
                         </div>
                         <div>
@@ -75,7 +91,7 @@
                                 <b data-to="10">0</b>
                             </div>
                             <div>
-                                <span>регіонів України</span>
+                                <span>{% trans "регіонів України" %}</span>
                             </div>
                         </div>
                         <div>
@@ -87,7 +103,7 @@
                                 </i>
                                 <b data-to="700000">0</b>
                             </div>
-                            <div><span>людей з доступом до чистої питної води</span>
+                            <div><span>{% trans "людей з доступом до чистої питної води" %}</span>
                             </div>
                         </div>
                         <div>
@@ -100,7 +116,7 @@
                                 <b data-to="15">0</b>
                             </div>
                             <div>
-                                <span>років роботи станцій</span>
+                                <span>{% trans "років роботи станцій" %}</span>
                             </div>
                         </div>
                     </div>
@@ -113,12 +129,15 @@
         {% include '2026/std/animation/waves.html' %}
         {% include '2026/std/animation/bubbles.html' %}
         <div class="wrap">
-            <h2 class="rv">Як це працює</h2>
+            <h2 class="rv">
+                {% trans "Як це працює" %}
+            </h2>
             <div class="how-row">
                 <div class="rv" style="--d:.15s">
-                    <p>Автономна станція ReH₂O забезпечує повний цикл — від підземного джерела до безпечної питної
-                        води</p>
-                    <a class="btn btn-y" href="#" style="color:var(--navy)">Детальніше →</a>
+                    <p>
+                        {% trans "Автономна станція ReH₂O забезпечує повний цикл — від підземного джерела до безпечної питної води" %}
+                    </p>
+                    <a class="btn btn-y" href="#" style="color:var(--navy)">{% trans "Детальніше →" %}</a>
                 </div>
                 <div class="steps">
                     <div class="pipe"></div>
@@ -139,15 +158,15 @@
                                     <span class="n d-inline-block d-md-none">0{{ forloop.counter }}</span>
                                     <h4>
                                         {% if forloop.counter == 1 %}
-                                            Підземне джерело води
+                                            {% trans "Підземне джерело води" %}
                                         {% elif forloop.counter == 2 %}
-                                            Очищення ReH₂O
+                                            {% trans "Очищення ReH₂O" %}
                                         {% elif forloop.counter == 3 %}
-                                            Автономна сонячна енергія
+                                            {% trans "Автономна сонячна енергія" %}
                                         {% elif forloop.counter == 4 %}
-                                            Безпечна питна вода
+                                            {% trans "Безпечна питна вода" %}
                                         {% elif forloop.counter == 5 %}
-                                            Дистанційний моніторинг
+                                            {% trans "Дистанційний моніторинг" %}
                                         {% endif %}
                                     </h4>
                                 </div>
@@ -163,9 +182,9 @@
     <section class="news" id="news">
         <div class="wrap">
             <div class="sec-head">
-                <h2 class="rv">Новини</h2>
+                <h2 class="rv">{% trans "Новини" %}</h2>
                 <a class="link-y rv" style="--d:.1s" href="#">
-                    Усі новини
+                    {% trans "Усі новини" %}
                 </a>
             </div>
             <div class="cards">
@@ -188,7 +207,11 @@
     <section class="partners" id="partners">
         <div class="wrap">
             <div class="rv">
-                <h2>Партнери<br>водної стійкості<br>України</h2>
+                <h2>
+                    {% blocktrans %}
+                        Партнери<br>водної стійкості<br>України
+                    {% endblocktrans %}
+                </h2>
             </div>
             <div class="rows rv" style="--d:.15s">
                 <div class="row">
@@ -197,7 +220,7 @@
                            target="_blank">
                             {% thumbnail partner.logo "x100" format='PNG' upscale=True as im %}
                                 <img src="{{ im.url }}" alt="{{ partner.localized_title }}">
-                                <em>Сайт партнера ↗</em>
+                                <em>{% trans "Сайт партнера ↗" %}</em>
                             {% endthumbnail %}
                         </a>
                     {% endfor %}
@@ -208,7 +231,7 @@
                            target="_blank">
                             {% thumbnail partner.logo "x100" format='PNG' as im %}
                                 <img src="{{ im.url }}" alt="{{ partner.localized_title }}">
-                                <em>Сайт партнера ↗</em>
+                                <em>{% trans "Сайт партнера ↗" %}</em>
                             {% endthumbnail %}
                         </a>
                     {% endfor %}
@@ -238,10 +261,18 @@
             <img src="{% static "reua/img/2026/hero/bubble-woman-cups.webp" %}" alt="">
         </span>
         <div class="wrap">
-            <h2 class="rv"><span class="plate">Кожні 3 долари</span><span class="sub">донорського внеску — це 15 років чистої питної води для однієї людини</span>
+            <h2 class="rv">
+                {% blocktrans %}
+                    <span class="plate">Кожні 3 долари</span>
+                    <span class="sub">донорського внеску — це 15 років чистої питної води для однієї людини</span>
+                {% endblocktrans %}
             </h2>
-            <p class="rv" style="--d:.15s">Інвестиція у водну стійкість — це не разова допомога. Це доступ до безпечної
-                питної води сьогодні та інфраструктура, що працюватиме роками.</p>
+            <p class="rv" style="--d:.15s">
+                {% blocktrans %}
+                    Інвестиція у водну стійкість — це не разова допомога. Це доступ до безпечної
+                    питної води сьогодні та інфраструктура, що працюватиме роками.
+                {% endblocktrans %}
+            </p>
         </div>
 
     </section>

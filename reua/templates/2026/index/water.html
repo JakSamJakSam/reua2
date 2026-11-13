@@ -13,15 +13,24 @@
     <section class="water-hero" id="hero">
         <div class="wrap">
             <div class="above">
-                <div class="price rv" style="--d:1s"><span>Вартість проєкту</span><b>96 000 $</b></div>
+                <div class="price rv" style="--d:1s">
+                    <span>
+                        {% trans "Вартість проєкту" %}
+                    </span>
+                    <b>96 000 $</b>
+                </div>
                 <video class="cont" src="{% static "reua/video/intro_v2.webm" %}" autoplay muted loop
                        playsinline aria-label="Анімація станції ReH₂O"></video>
                 <div class="r-text">
-                    <h1 class="rv" style="--d:.25s">Мобільні станції очищення води ReH₂O&nbsp;
+                    <h1 class="rv" style="--d:.25s">
+                        {% trans "Мобільні станції очищення води ReH₂O" %}
                     </h1>
-                    <p class="lead rv" style="--d:.4s">надійне рішення для громад, лікарень та критичної інфраструктури
-                        в
-                        умовах війни та надзвичайних ситуацій</p>
+                    <p class="lead rv" style="--d:.4s">
+                        {% blocktrans %}
+                        надійне рішення для громад, лікарень та критичної інфраструктури
+                        в умовах війни та надзвичайних ситуацій
+                        {% endblocktrans %}
+                    </p>
                 </div>
             </div>
         </div>
@@ -31,19 +40,19 @@
                 {% include '2026/std/animation/bubbles.html' %}
             </div>
             <div class="wrap stats">
-                <div class="one rv">1 станція</div>
+                <div class="one rv">{% trans "1 станція" %}</div>
                 <div class="stat rv" style="--d:.1s">
-                    <div class="v"><small>до</small><b data-to="100000">0</b></div>
-                    <span>літрів чистої води на добу</span></div>
+                    <div class="v"><small>{% trans "до" %}</small><b data-to="100000">0</b></div>
+                    <span>{% trans "літрів чистої води на добу" %}</span></div>
                 <div class="stat rv" style="--d:.2s">
                     <div class="v"><small>до</small><b data-to="30000">0</b></div>
-                    <span>людей на добу (3 л на людину)</span></div>
+                    <span>{% trans "людей на добу (3 л на людину)" %}</span></div>
                 <div class="stat rv" style="--d:.3s">
-                    <div class="v"><small>до</small>
-                        <b data-to="15" data-suf=" років">0</b>
-                        <b>років</b>
+                    <div class="v"><small>{% trans "до" %}</small>
+                        <b data-to="15" data-suf="{% trans "років" %}">0</b>
+                        <b>{% trans "років" %}</b>
                     </div>
-                    <span>ресурс роботи станції</span></div>
+                    <span>{% trans "ресурс роботи станції" %}</span></div>
             </div>
             {% include '2026/std/animation/waves.html' %}
 
@@ -53,89 +62,69 @@
         <div class="wrap">
             <div class="head-row">
                 <div class="rv">
-                    <div class="eyebrow">Схема очищення води</div>
-                    <h2 class="h2">Як очищується вода</h2>
+                    <div class="eyebrow">{% trans "Схема очищення води" %}</div>
+                    <h2 class="h2">{% trans "Як очищується вода" %}</h2>
                 </div>
                 <div class="pill rv" style="--d:.15s">
-                    <span>Стабільний потік <em>до 5 м³/год</em></span>
+                    <span>
+                        {% blocktrans %}
+                        Стабільний потік <em>до 5 м³/год</em>
+                        {% endblocktrans %}
+                    </span>
                     <i class="sep"></i>
-                    <span>до 100 000 л на добу</span>
+                    <span>{% trans "до 100 000 л на добу" %}</span>
                 </div>
             </div>
             <div class="stages flow-on" id="stages">
                 <div class="stg s1 rv" style="--d:.1s;--sd:0s">
                     <div class="hd">
-                        <div>Механічна очистка<big>6 м³/год</big></div>
+                        <div>
+                            {% blocktrans %}
+                            Механічна очистка<big>6 м³/год</big>
+                            {% endblocktrans %}
+                        </div>
                     </div>
                     <div class="bd">
                         <div class="eq">
-                            <svg class="ill" viewBox="0 0 130 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                 aria-hidden="true">
-                                <g id="adisc-&#209;&#150;&#208;&#187;&#209;&#142;&#209;&#129;&#209;&#130;&#209;&#128;&#208;&#176;&#209;&#134;&#209;&#150;&#209;&#143; &#194;&#183; &#208;&#180;&#208;&#184;&#209;&#129;&#208;&#186;&#208;&#190;&#208;&#178;&#208;&#184;&#208;&#185; &#209;&#132;&#209;&#150;&#208;&#187;&#209;&#140;&#209;&#130;&#209;&#128;">
-                                    <path id="adisc-Vector" opacity="0.15"
-                                          d="M67.5 115C97.8757 115 122.5 113.209 122.5 111C122.5 108.791 97.8757 107 67.5 107C37.1243 107 12.5 108.791 12.5 111C12.5 113.209 37.1243 115 67.5 115Z"
-                                          fill="#001739"/>
-                                    <path id="adisc-Vector_2"
-                                          d="M113.5 93H21.5C20.6716 93 20 93.6716 20 94.5V98.5C20 99.3284 20.6716 100 21.5 100H113.5C114.328 100 115 99.3284 115 98.5V94.5C115 93.6716 114.328 93 113.5 93Z"
-                                          fill="#1F2A3D"/>
-                                    <path id="adisc-Vector_3" d="M32 100H26V110H32V100Z" fill="#1F2A3D"/>
-                                    <path id="adisc-Vector_4" d="M109 100H103V110H109V100Z" fill="#1F2A3D"/>
-                                    <path id="adisc-Vector_5" d="M70 100H64V110H70V100Z" fill="#1F2A3D"/>
-                                    <path id="adisc-Vector_6" d="M85 9.00002H75V46H85V9.00002Z" fill="#0E52BD"/>
-                                    <path id="adisc-Vector_7" opacity="0.6" d="M78.5 9.00002H75V46H78.5V9.00002Z"
-                                          fill="#3E8BFF" class="pulse-o d3"/>
-                                    <path id="adisc-Vector_8"
-                                          d="M86.5 5.99998H73.5C72.6716 5.99998 72 6.67156 72 7.49998V9.49998C72 10.3284 72.6716 11 73.5 11H86.5C87.3284 11 88 10.3284 88 9.49998V7.49998C88 6.67156 87.3284 5.99998 86.5 5.99998Z"
-                                          fill="#2E3B52"/>
-                                    <path id="adisc-Vector_9"
-                                          d="M105 45H45C39.4772 45 35 49.4772 35 55V83C35 88.5228 39.4772 93 45 93H105C110.523 93 115 88.5228 115 83V55C115 49.4772 110.523 45 105 45Z"
-                                          fill="#0E52BD"/>
-                                    <path id="adisc-Vector_10" d="M115 75H35V93H115V75Z" fill="#0A3E94"/>
-                                    <path id="adisc-Vector_11"
-                                          d="M105 82H45C39.4772 82 35 84.4624 35 87.5C35 90.5376 39.4772 93 45 93H105C110.523 93 115 90.5376 115 87.5C115 84.4624 110.523 82 105 82Z"
-                                          fill="#0A3E94"/>
-                                    <path id="adisc-Vector_12" opacity="0.5" d="M115 50H35V57H115V50Z" fill="#3E8BFF"
-                                          class="pulse-o"/>
-                                    <path id="adisc-Vector_13"
-                                          d="M53.5 43H51.5C50.6716 43 50 43.6716 50 44.5V93.5C50 94.3284 50.6716 95 51.5 95H53.5C54.3284 95 55 94.3284 55 93.5V44.5C55 43.6716 54.3284 43 53.5 43Z"
-                                          fill="#1F2A3D"/>
-                                    <path id="adisc-Vector_14"
-                                          d="M71 43H69C68.1716 43 67.5 43.6716 67.5 44.5V93.5C67.5 94.3284 68.1716 95 69 95H71C71.8284 95 72.5 94.3284 72.5 93.5V44.5C72.5 43.6716 71.8284 43 71 43Z"
-                                          fill="#1F2A3D"/>
-                                    <path id="adisc-Vector_15"
-                                          d="M88.5 43H86.5C85.6716 43 85 43.6716 85 44.5V93.5C85 94.3284 85.6716 95 86.5 95H88.5C89.3284 95 90 94.3284 90 93.5V44.5C90 43.6716 89.3284 43 88.5 43Z"
-                                          fill="#1F2A3D"/>
-                                    <path id="adisc-Vector_16"
-                                          d="M106 43H104C103.172 43 102.5 43.6716 102.5 44.5V93.5C102.5 94.3284 103.172 95 104 95H106C106.828 95 107.5 94.3284 107.5 93.5V44.5C107.5 43.6716 106.828 43 106 43Z"
-                                          fill="#1F2A3D"/>
-                                    <path id="adisc-Vector_17"
-                                          d="M31 94C37.0751 94 42 82.8071 42 69C42 55.1929 37.0751 44 31 44C24.9249 44 20 55.1929 20 69C20 82.8071 24.9249 94 31 94Z"
-                                          fill="#1F2A3D"/>
-                                    <path id="adisc-Vector_18"
-                                          d="M28 91C32.9706 91 37 81.1503 37 69C37 56.8497 32.9706 47 28 47C23.0294 47 19 56.8497 19 69C19 81.1503 23.0294 91 28 91Z"
-                                          fill="#0E52BD"/>
-                                    <path id="adisc-Vector_19"
-                                          d="M26 79C28.4853 79 30.5 74.5229 30.5 69C30.5 63.4772 28.4853 59 26 59C23.5147 59 21.5 63.4772 21.5 69C21.5 74.5229 23.5147 79 26 79Z"
-                                          fill="#0A3E94"/>
-                                    <path id="adisc-Vector_20"
-                                          d="M25 71.5C26.3807 71.5 27.5 70.3807 27.5 69C27.5 67.6193 26.3807 66.5 25 66.5C23.6193 66.5 22.5 67.6193 22.5 69C22.5 70.3807 23.6193 71.5 25 71.5Z"
-                                          fill="#3E8BFF" class="pulse-o d2"/>
-                                    <path id="adisc-Vector_21"
-                                          d="M17.5 64H10.5C9.67157 64 9 64.6716 9 65.5V72.5C9 73.3284 9.67157 74 10.5 74H17.5C18.3284 74 19 73.3284 19 72.5V65.5C19 64.6716 18.3284 64 17.5 64Z"
-                                          fill="#2E3B52"/>
-                                    <path id="adisc-Vector_22"
-                                          d="M9 62H6C5.44772 62 5 62.4477 5 63V75C5 75.5523 5.44772 76 6 76H9C9.55228 76 10 75.5523 10 75V63C10 62.4477 9.55228 62 9 62Z"
-                                          fill="#FED700"/>
-                                </g>
-                                <clipPath id="adisc-body">
-                                    <path d="M105 45H45C39.4772 45 35 49.4772 35 55V83C35 88.5228 39.4772 93 45 93H105C110.523 93 115 88.5228 115 83V55C115 49.4772 110.523 45 105 45Z"/>
-                                </clipPath>
-                                <g clip-path="url(#adisc-body)">
-                                    <rect class="sweep" x="35" y="45" width="18" height="48" fill="#fff" opacity=".22"/>
-                                </g>
+                            <svg class="ill" viewBox="0 0 130 120" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="65" cy="106.562" rx="33.75" ry="3.4375" fill="#001739"
+                                         fill-opacity="0.15"/>
+                                <rect x="31.25" y="24.375" width="17.5" height="10.625" rx="1.25" fill="#1F2A3D"/>
+                                <rect x="81.25" y="24.375" width="17.5" height="10.625" rx="1.25" fill="#1F2A3D"/>
+                                <rect x="26.25" y="21.875" width="6.25" height="15.625" rx="1.25" fill="#2E3B52"/>
+                                <rect x="97.5" y="21.875" width="6.25" height="15.625" rx="1.25" fill="#2E3B52"/>
+                                <path d="M21.875 25C21.875 24.4822 22.2947 24.0625 22.8125 24.0625H26.25V35.3125H22.8125C22.2947 35.3125 21.875 34.8928 21.875 34.375V25Z"
+                                      fill="#FED700"/>
+                                <path d="M47.5 50C47.5 48.2741 48.8991 46.875 50.625 46.875H79.375C81.1009 46.875 82.5 48.2741 82.5 50V85.625C82.5 94.5996 75.2246 101.875 66.25 101.875H63.75C54.7754 101.875 47.5 94.5996 47.5 85.625V50Z"
+                                      fill="url(#paint0_linear_679_571)"/>
+                                <rect x="51.875" y="53.75" width="3.4375" height="36.875" rx="1.71875" fill="#3E8BFF"
+                                      fill-opacity="0.6"/>
+                                <path d="M61.25 100.625H68.75V103.75C68.75 104.44 68.1904 105 67.5 105H62.5C61.8096 105 61.25 104.44 61.25 103.75V100.625Z"
+                                      fill="#1F2A3D"/>
+                                <path d="M46.25 21.875C46.25 18.7684 48.7684 16.25 51.875 16.25H78.125C81.2316 16.25 83.75 18.7684 83.75 21.875V45C83.75 46.3807 82.6307 47.5 81.25 47.5H48.75C47.3693 47.5 46.25 46.3807 46.25 45V21.875Z"
+                                      fill="#1F2A3D"/>
+                                <rect x="50" y="20" width="2.8125" height="23.125" rx="1.40625" fill="#2E3B52"/>
+                                <circle cx="65" cy="29.375" r="2.5" fill="#97A3B8"/>
+                                <path d="M57.5 11.25C57.5 10.2145 58.3395 9.375 59.375 9.375H70.625C71.6605 9.375 72.5 10.2145 72.5 11.25V17.5H57.5V11.25Z"
+                                      fill="#2E3B52"/>
+                                <rect x="55.625" y="7.5" width="18.75" height="3.125" rx="1.25" fill="#1F2A3D"/>
+                                <rect x="43.75" y="44.375" width="42.5" height="6.25" rx="1.875" fill="#97A3B8"/>
+                                <rect x="43.75" y="45.625" width="42.5" height="1.5625" rx="0.78125" fill="#C3CCDA"/>
+                                <rect x="40" y="43.125" width="4.375" height="8.75" rx="1.25" fill="#2E3B52"/>
+                                <rect x="85.625" y="43.125" width="4.375" height="8.75" rx="1.25" fill="#2E3B52"/>
+                                <defs>
+                                    <linearGradient id="paint0_linear_679_571" x1="47.5" y1="74.375" x2="82.5"
+                                                    y2="74.375" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#0E52BD"/>
+                                        <stop offset="0.68" stop-color="#0E52BD"/>
+                                        <stop offset="0.681" stop-color="#0A3E94"/>
+                                        <stop offset="1" stop-color="#0A3E94"/>
+                                    </linearGradient>
+                                </defs>
                             </svg>
-                            <h5>Дисковий фільтр</h5>
-                            <p>грубої очистки</p></div>
+                            <h5>{% trans "Дисковий фільтр" %}</h5>
+                            <p>{% trans "грубої очистки" %}</p></div>
                         <svg class="arr" viewBox="0 0 40 28" fill="none" aria-hidden="true">
                             <defs>
                                 <linearGradient id="ga1" x1="0" y1="0" x2="1" y2="0">
@@ -246,8 +235,8 @@
                                     <path id="areactor-Vector_38" d="M122 104H119V112H122V104Z" fill="#2E3B52"/>
                                 </g>
                             </svg>
-                            <h5>Реактор</h5>
-                            <p>гіпохлорит натрію + аерація</p></div>
+                            <h5>{% trans "Реактор" %}</h5>
+                            <p>{% trans "гіпохлорит натрію + аерація" %}</p></div>
                         <svg class="arr" style="--ad:.5s" viewBox="0 0 40 28" fill="none" aria-hidden="true">
                             <defs>
                                 <linearGradient id="ga2" x1="0" y1="0" x2="1" y2="0">
@@ -393,13 +382,17 @@
                                             style="animation-duration:3.96s;animation-delay:0.96s"/>
                                 </g>
                             </svg>
-                            <h5>Механічні фільтри</h5>
-                            <p>6 м³/год</p></div>
+                            <h5>{% trans "Механічні фільтри" %}</h5>
+                            <p>{% trans "6 м³/год" %}</p></div>
                     </div>
                 </div>
                 <div class="stg s2 rv" style="--d:.25s;--sd:.6s">
                     <div class="hd">
-                        <div>Мембранна обробка<big>2 м³/год</big></div>
+                        <div>
+                            {% blocktrans %}
+                            Мембранна обробка<big>2 м³/год</big>
+                            {% endblocktrans %}
+                        </div>
                     </div>
                     <div class="bd">
                         <div class="eq">
@@ -498,18 +491,25 @@
                                 <path class="flowline" d="M139.333 82.3333V126.667M152 82.3333V126.667"/>
                                 <path class="flowline" d="M139.333 126.667H76V117.8"/>
                             </svg>
-                            <h5>Промисловий зворотний осмос</h5>
-                            <p>2 м³/год</p></div>
+                            <h5>{% trans "Промисловий зворотний осмос" %}</h5>
+                            <p>{% trans "2 м³/год" %}</p>
+                        </div>
                     </div>
                 </div>
                 <div class="stg s3 rv" style="--d:.4s;--sd:1.2s">
                     <div class="hd">
-                        <div>Підміс очищеної води</div>
+                        <div>{% trans "Підміс очищеної води" %}</div>
                     </div>
                     <div class="bd">
                         <div class="mixcol">
-                            <div class="mix"><b>2 м³/год</b><span>вода після мембрани (RO)</span></div>
-                            <div class="mix"><b>3 м³/год</b><span>після механічної очистки</span></div>
+                            <div class="mix">
+                                <b>{% trans "2 м³/год" %}</b>
+                                <span>{% trans "вода після мембрани (RO)" %}</span>
+                            </div>
+                            <div class="mix">
+                                <b>{% trans "3 м³/год" %}</b>
+                                <span>{% trans "після механічної очистки" %}</span>
+                            </div>
                         </div>
                         <svg class="pipes" viewBox="0 0 62 190" fill="none" aria-hidden="true">
                             <path d="M0 46H20Q29 46 29 55V88M0 145H20Q29 145 29 136V104M29 96H46" stroke="#0E52BD"
@@ -530,12 +530,12 @@
                 </div>
                 <div class="stg s4 rv" style="--d:.55s;--sd:1.8s">
                     <div class="hd">
-                        <div>Результат</div>
+                        <div>{% trans "Результат" %}</div>
                     </div>
                     <div class="bd">
                         <div>
-                            <small>Стабільний потік</small>
-                            <b>до 5 м³/год</b>
+                            <small>{% trans "Стабільний потік" %}</small>
+                            <b>{% trans "до 5 м³/год" %}</b>
                         </div>
                         <div>
                             <svg class="ill" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -598,8 +598,8 @@
     <section class="three" id="three">
         <div class="wrap">
             <div class="rv">
-                <div class="eyebrow">Будова станції</div>
-                <h2 class="h2">3D-візуалізація внутрішнього розташування обладнання</h2>
+                <div class="eyebrow">{% trans "Будова станції" %}</div>
+                <h2 class="h2">{% trans "3D-візуалізація внутрішнього розташування обладнання" %}</h2>
             </div>
             <div class="img rv" id="img3d" style="--d:.15s">
                 <video src="{% static "reua/video/technical_characteristics.webm" %}" autoplay muted loop
@@ -613,8 +613,8 @@
         <div class="wrap">
             <div class="head-row">
                 <div class="rv">
-                    <div class="eyebrow">Характеристики</div>
-                    <h2 class="h2">Технічні характеристики ReH₂O</h2>
+                    <div class="eyebrow">{% trans "Характеристики" %}</div>
+                    <h2 class="h2">{% trans "Технічні характеристики ReH₂O" %}</h2>
                 </div>
             </div>
             <div class="tbl">
@@ -622,51 +622,79 @@
                     <svg viewBox="0 0 20 20">
                         <circle cx="10" cy="10" r="8"/>
                     </svg>
-                    <div><small>Продуктивність (макс.)</small><b>до 100 000 л/добу</b><i>до 100 м³/добу</i></div>
+                    <div>
+                        <small>{% trans "Продуктивність (макс.)" %}</small>
+                            <b>{% trans "до 100 000 л/добу" %}</b>
+                                <i>{% trans "до 100 м³/добу" %}</i>
+                    </div>
                 </div>
                 <div class="row rv" style="--d:0.18s">
                     <svg viewBox="0 0 20 20">
                         <circle cx="10" cy="10" r="8"/>
                     </svg>
-                    <div><small>Пікова потужність</small><b>5 кВт — літо<br>7 кВт — зима</b></div>
+                    <div>
+                        <small>{% trans "Пікова потужність" %}</small>
+                            <b>
+                                {% trans "5 кВт — літо" %}<br>
+                                {% trans "7 кВт — зима" %}
+                            </b>
+                    </div>
                 </div>
                 <div class="row rv" style="--d:0.26s">
                     <svg viewBox="0 0 20 20">
                         <circle cx="10" cy="10" r="8"/>
                     </svg>
-                    <div><small>Кількість людей</small><b>до 30 000 осіб/добу</b><i>3 л на людину</i></div>
+                    <div>
+                        <small>{% trans "Кількість людей" %}</small>
+                            <b>{% trans "до 30 000 осіб/добу" %}</b>
+                                <i>{% trans "3 л на людину" %}</i>
+                    </div>
                 </div>
                 <div class="row rv" style="--d:0.34s">
                     <svg viewBox="0 0 20 20">
                         <circle cx="10" cy="10" r="8"/>
                     </svg>
-                    <div><small>Термін служби</small><b>до 15 років</b></div>
+                    <div>
+                        <small>{% trans "Термін служби" %}</small>
+                            <b>{% trans "до 15 років" %}</b>
+                    </div>
                 </div>
                 <div class="row rv" style="--d:0.42s">
                     <svg viewBox="0 0 20 20">
                         <circle cx="10" cy="10" r="8"/>
                     </svg>
-                    <div><small>Технологія очистки</small><b>стабільний потік<br>до 5 м³/год</b><i>механічна до 6
-                        м³/год,
-                        мембранна до 2 м³/год з підніманням</i></div>
+                    <div>
+                        <small>{% trans "Технологія очистки" %}</small>
+                            <b>
+                                {% trans "стабільний потік" %}<br>
+                                {% trans "до 5 м³/год" %}
+                            </b>
+                            <i> {% trans "механічна до 6м³/год, мембранна до 2 м³/год з підніманням" %}</i>
+                    </div>
                 </div>
                 <div class="row rv" style="--d:0.50s">
                     <svg viewBox="0 0 20 20">
                         <circle cx="10" cy="10" r="8"/>
                     </svg>
-                    <div><small>Маса при транспортуванні</small><b>3 т</b></div>
+                    <div>
+                        <small>{% trans "Маса при транспортуванні" %}</small>
+                            <b>3 {% trans "т" %}</b></div>
                 </div>
                 <div class="row rv" style="--d:0.58s">
                     <svg viewBox="0 0 20 20">
                         <circle cx="10" cy="10" r="8"/>
                     </svg>
-                    <div><small>Електроживлення</small><b>220 В, 50 Гц</b></div>
+                    <div>
+                        <small>{% trans "Електроживлення" %}</small>
+                            <b>{% trans "220 В, 50 Гц" %}</b></div>
                 </div>
                 <div class="row rv" style="--d:0.66s">
                     <svg viewBox="0 0 20 20">
                         <circle cx="10" cy="10" r="8"/>
                     </svg>
-                    <div><small>Маса в робочому стані (з водою)</small><b>10 т</b></div>
+                    <div>
+                        <small>{% trans "Маса в робочому стані (з водою)" %}</small>
+                            <b>10 {% trans "т" %}</b></div>
                 </div>
             </div>
         </div>
@@ -675,23 +703,35 @@
         <div class="wrap">
             <div class="head-row">
                 <div class="rv">
-                    <div class="eyebrow">Габарити та підключення</div>
-                    <h2 class="h2">Габаритні розміри</h2>
+                    <div class="eyebrow">{% trans "Габарити та підключення" %}</div>
+                    <h2 class="h2">{% trans "Габаритні розміри" %}</h2>
                 </div>
             </div>
             <div class="cards2">
                 <div class="dcard sb draw rv" style="--d:.1s">
-                    <div><h4>План контейнера</h4>
-                        <p>вигляд зверху, мм</p></div>
+                    <div>
+                        <h4>{% trans "План контейнера" %}</h4>
+                        <p>{% trans "вигляд зверху, мм" %}</p>
+                    </div>
                     {% include "2026/index/water/plan.svg" %}
                     <div class="facts">
-                        <div><small>Габарити контейнера</small><b>2540 × 6058 мм</b></div>
-                        <div><small>Фундамент (мінімально)</small><b>2840 × 6460 мм</b></div>
-                        <div><small>Вага в роботі</small><b>10 т</b></div>
+                        <div>
+                            <small>{% trans "Габарити контейнера" %}</small>
+                            <b>2540 × 6058 {% trans "мм" %}</b>
+                        </div>
+                        <div>
+                            <small>{% trans "Фундамент (мінімально)" %}</small>
+                            <b>2840 × 6460 {% trans "мм" %}</b>
+                        </div>
+                        <div>
+                            <small>{% trans "Вага в роботі" %}</small>
+                            <b>10 {% trans "т" %}</b>
+                        </div>
                     </div>
                 </div>
-                <div class="dcard draw rv" style="--d:.25s"><h4>Розріз А–А</h4>
-                    <p>підключення до зовнішніх мереж</p>
+                <div class="dcard draw rv" style="--d:.25s">
+                    <h4>{% trans "Розріз А–А" %}</h4>
+                    <p>{% trans "підключення до зовнішніх мереж" %}</p>
                     {% include "2026/index/water/connections.svg" %}
                     <div class="flg">
                         <div>
@@ -746,7 +786,10 @@
                                           fill="#3A4558"/>
                                 </g>
                             </svg>
-                            <div><small>Подача вихідної води</small><b>Ø&nbsp;40&nbsp;мм</b><span>поліетилен</span>
+                            <div>
+                                <small>{% trans "Подача вихідної води" %}</small>
+                                    <b>Ø&nbsp;40&nbsp;{% trans "мм" %}</b>
+                                        <span>{% trans "поліетилен" %}</span>
                             </div>
                         </div>
                         <div>
@@ -801,8 +844,10 @@
                                           fill="#3A4558"/>
                                 </g>
                             </svg>
-                            <div><small>Скид у
-                                каналізацію</small><b>Ø&nbsp;110&nbsp;мм</b><span>ПВХ, через гідрозатвор</span>
+                            <div>
+                                <small>{% trans "Скид у каналізацію" %}</small>
+                                    <b>Ø&nbsp;110&nbsp;{% trans "мм" %}</b>
+                                    <span>{% trans "ПВХ, через гідрозатвор" %}</span>
                             </div>
                         </div>
                     </div>
@@ -814,28 +859,28 @@
                         <path d="M2 7.5l3.2 3L12 3.5" stroke="#001739" stroke-width="2.2" stroke-linecap="round"
                               stroke-linejoin="round"/>
                     </svg>
-                </i>Майданчик або фундамент не менше 2840&nbsp;×&nbsp;6460&nbsp;мм
+                </i>{% trans "Майданчик або фундамент не менше " %}2840&nbsp;×&nbsp;6460&nbsp;{% trans "мм" %}
                 </div>
                 <div class="chk rv" style="--d:.2s"><i>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <path d="M2 7.5l3.2 3L12 3.5" stroke="#001739" stroke-width="2.2" stroke-linecap="round"
                               stroke-linejoin="round"/>
                     </svg>
-                </i>Електроживлення 220 В, 50 Гц
+                </i>{% trans "Електроживлення 220 В, 50 Гц" %}
                 </div>
                 <div class="chk rv" style="--d:.3s"><i>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <path d="M2 7.5l3.2 3L12 3.5" stroke="#001739" stroke-width="2.2" stroke-linecap="round"
                               stroke-linejoin="round"/>
                     </svg>
-                </i>Подача вихідної води Ø40&nbsp;мм
+                </i>{% trans "Подача вихідної води" %} Ø40&nbsp;{% trans "мм" %}
                 </div>
                 <div class="chk rv" style="--d:.4s"><i>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <path d="M2 7.5l3.2 3L12 3.5" stroke="#001739" stroke-width="2.2" stroke-linecap="round"
                               stroke-linejoin="round"/>
                     </svg>
-                </i>Скид у каналізацію Ø110&nbsp;мм через гідрозатвор
+                </i>{% trans "Скид у каналізацію Ø110&nbsp;мм через гідрозатвор" %}
                 </div>
             </div>
         </div>
@@ -844,11 +889,10 @@
         <div class="wrap">
             <div class="head-row" style="align-items:flex-start">
                 <div class="rv">
-                    <div class="eyebrow">Програма ReH₂O</div>
-                    <h2 class="h2">Дистанційний<br>моніторинг</h2></div>
+                    <div class="eyebrow">{% trans "Програма ReH₂O" %}</div>
+                    <h2 class="h2">{% trans "Дистанційний<br>моніторинг" %}</h2></div>
                 <p class="side-t rv" style="--d:.15s;">
-                    Система віддаленого моніторингу
-                    забезпечує онлайн-контроль роботи станції.
+                    {% trans "Система віддаленого моніторингу  забезпечує онлайн-контроль роботи станції." %}
                 </p>
             </div>
         </div>
@@ -867,7 +911,7 @@
                             <path d="M53 36v-5a7 7 0 0 1 14 0v5" stroke="#fff" stroke-width="3.5" fill="none"/>
                         </g>
                     </svg>
-                    <b>ЗАХИЩЕНА ПЕРЕДАЧА ДАНИХ (4G/LTE)</b>
+                    <b>{% trans "ЗАХИЩЕНА ПЕРЕДАЧА ДАНИХ (4G/LTE)" %}</b>
                 </div>
                 <div class="gad monitor">
                     <div class="mframe">
@@ -875,18 +919,27 @@
                             <div class="t1">
                                 <img src="{% static "reua/img/2026/logo/reua-logo-dark.svg" %}" alt="REUA">
                             </div>
-                            <div class="t2">Моніторинг станцій ReH₂O</div>
+                            <div class="t2">{% trans "Моніторинг станцій ReH₂O" %}</div>
                             <div class="kpis">
                                 <div class="kpi ok">
                                     <i></i>
-                                    <div><small>Якість води</small><b>В нормі</b></div>
+                                    <div>
+                                        <small>{% trans "Якість води" %}</small>
+                                        <b>{% trans "В нормі" %}</b>
+                                    </div>
                                 </div>
                                 <div class="kpi on"><i></i>
-                                    <div><small>Робота станції</small><b>Онлайн</b></div>
+                                    <div>
+                                        <small>{% trans "Робота станції" %}</small>
+                                            <b>{% trans "Онлайн" %}</b>
+                                    </div>
                                 </div>
                                 <div class="kpi pr">
                                     <i></i>
-                                    <div><small>Продуктивність</small><b>— м³/год</b></div>
+                                    <div>
+                                        <small>{% trans "Продуктивність" %}</small>
+                                        <b>— {% trans "м³/год" %}</b>
+                                    </div>
                                 </div>
                             </div>
                             <div class="mmap">
@@ -913,14 +966,17 @@
                                     <circle class="dot" cx="862.5" cy="315.3" r="16" style="animation-delay:5.1s"/>
                                 </svg>
                             </div>
-                            <div class="params"><span style="--pd:0.0s">Тиск</span><span
-                                    style="--pd:0.4s">pH</span><span
-                                    style="--pd:0.8s">Каламутність</span><span
-                                    style="--pd:1.2s">Електропровідність</span><span
-                                    style="--pd:1.6s">Витрата води</span><span
-                                    style="--pd:2.0s">Рівень у резервуарі</span><span
-                                    style="--pd:2.4s">Озон</span><span style="--pd:2.8s">Енергоспоживання</span><span
-                                    style="--pd:3.2s">Температура</span></div>
+                            <div class="params">
+                                <span style="--pd:0.0s">{% trans "Тиск" %}</span>
+                                <span style="--pd:0.4s">{% trans "pH" %}</span>
+                                <span style="--pd:0.8s">{% trans "Каламутність" %}</span>
+                                <span style="--pd:1.2s">{% trans "Електропровідність" %}</span>
+                                <span style="--pd:1.6s">{% trans "Витрата води" %}</span>
+                                <span style="--pd:2.0s">{% trans "Рівень у резервуарі" %}</span>
+                                <span style="--pd:2.4s">{% trans "Озон" %}</span>
+                                <span style="--pd:2.8s">{% trans "Енергоспоживання" %}</span>
+                                <span style="--pd:3.2s">{% trans "Температура" %}</span>
+                            </div>
                             <div class="mchart">
                                 <svg viewBox="0 0 632 66" preserveAspectRatio="none">
                                     <path class="cl" pathLength="1" stroke="#3E8BFF"
@@ -955,7 +1011,11 @@
                         <svg class="dr" viewBox="0 0 44 54">
                             <path d="M22 2C30 14 40 24 40 34a18 18 0 0 1-36 0C4 24 14 14 22 2z" fill="#3E8BFF"/>
                         </svg>
-                        <p>Станція<br>працює<br><em>Онлайн</em></p>
+                        <p>
+                            {% blocktrans %}
+                            Станція<br>працює<br><em>Онлайн</em>
+                            {% endblocktrans %}
+                        </p>
                         <div class="bars">
                             {% for i in '1234567'|make_list %}
                                 <i></i>
@@ -982,20 +1042,20 @@
                         <rect x="2" y="4" width="20" height="13" rx="2"/>
                         <path d="M8 21h8M12 17v4"/>
                     </svg>
-                    Онлайн-контроль роботи станції 24/7
+                    {% trans "Онлайн-контроль роботи станції 24/7" %}
                 </div>
                 <div class="feat rv" style="--d:.12s">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#0E52BD" stroke-width="2.4" stroke-linecap="round">
                         <path d="M6 20V12M12 20V5M18 20V10"/>
                     </svg>
-                    Поточні показники якості води та продуктивності
+                    {% trans "Поточні показники якості води та продуктивності" %}
                 </div>
                 <div class="feat rv" style="--d:.19s">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#0E52BD" stroke-width="2" stroke-linecap="round"
                          stroke-linejoin="round">
                         <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
                     </svg>
-                    Автоматичні сповіщення про відхилення
+                    {% trans "Автоматичні сповіщення про відхилення" %}
                 </div>
                 <div class="feat rv" style="--d:.26s">
                     <svg viewBox="0 0 22 22" fill="none" stroke="#0E52BD" stroke-width="1.7" stroke-linecap="round"
@@ -1005,7 +1065,7 @@
                         <path d="M4.6 11.6h2.3l1.3-2.6 2 4.6 1.3-2h2.3"/>
                         <path d="M17.6 4.2a3 3 0 0 1 1.9 1.9M17.4 1.6a5.6 5.6 0 0 1 4.3 4.3"/>
                     </svg>
-                    Віддалена діагностика та підтримка
+                    {% trans "Віддалена діагностика та підтримка" %}
                 </div>
                 <div class="feat rv" style="--d:.33s">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#0E52BD" stroke-width="2" stroke-linecap="round"
@@ -1013,7 +1073,7 @@
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                         <path d="M14 2v6h6M8 13h8M8 17h5"/>
                     </svg>
-                    Формування звітів
+                    {% trans "Формування звітів" %}
                 </div>
                 <div class="feat rv" style="--d:.4s">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#0E52BD" stroke-width="2" stroke-linecap="round"
@@ -1022,7 +1082,7 @@
                         <circle cx="17" cy="8" r="3"/>
                         <path d="M2 20a6 6 0 0 1 12 0M15 14.2A5 5 0 0 1 22 19"/>
                     </svg>
-                    Доступ для команди партнерів
+                    {% trans "Доступ для команди партнерів" %}
                 </div>
             </div>
         </div>
@@ -1030,11 +1090,14 @@
     <section class="sec sky-bg sys">
         <div class="wrap">
             <div class="rv">
-                <div class="eyebrow">Карта станцій</div>
-                <h2 class="h2">Єдина система в Україні</h2></div>
-            <p class="lead2 rv" style="--d:.12s">Національна цифрова карта всіх станцій ReH₂O забезпечує єдиний
-                контроль
-                якості води, продуктивності та статусу станцій у реальному часі по всій Україні.</p>
+                <div class="eyebrow">{% trans "Карта станцій" %}</div>
+                <h2 class="h2">{% trans "Єдина система в Україні" %}</h2></div>
+            <p class="lead2 rv" style="--d:.12s">
+                {% blocktrans %}
+                Національна цифрова карта всіх станцій ReH₂O забезпечує єдиний
+                контроль якості води, продуктивності та статусу станцій у реальному часі по всій Україні.
+                {% endblocktrans %}
+            </p>
             <div class="sysmap" id="sysmap">
                 <svg class="ua" viewBox="0 0 1020 689">
                     <path class="rg y"
@@ -1097,11 +1160,15 @@
                     <g id="hub"></g>
                     <g id="mks"></g>
                 </svg>
-                <div class="legend"><i></i>Області зі станціями ReH₂O</div>
+                <div class="legend"><i></i>{% trans "Області зі станціями ReH₂O" %}</div>
                 <div class="hubcard" id="hubcard">
                     <div>
-                        <h4>Центр моніторингу<span>Київ</span></h4>
-                        <p>Дані з усіх станцій сходяться в одну систему</p>
+                        <h4>
+                            {% blocktrans %}
+                            Центр моніторингу<span>Київ</span>
+                            {% endblocktrans %}
+                        </h4>
+                        <p>{% trans "Дані з усіх станцій сходяться в одну систему" %}</p>
                     </div>
                     <div class="minimon" id="minimon"></div>
                 </div>

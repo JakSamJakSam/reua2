@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-13 14:35+0200\n"
+"POT-Creation-Date: 2026-11-13 17:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,6 +91,14 @@ msgstr "year"
 #: .\reua\forms\feedback.py:15
 msgid "Введіть код з картинки"
 msgstr "Type text on the picture"
+
+#: .\reua\forms\feedback.py:23
+msgid "Ваше ім’я"
+msgstr "Your name"
+
+#: .\reua\forms\feedback.py:32
+msgid "Ваша ідея або пропозиція"
+msgstr "Your idea or suggestion"
 
 #: .\reua\models\compaies.py:11 .\reua\models\site_models.py:317
 msgid "Назва"
@@ -340,7 +348,7 @@ msgstr ""
 msgid "Новина"
 msgstr "News"
 
-#: .\reua\models\news.py:67
+#: .\reua\models\news.py:67 .\reua\templates\2026\index\index.html:185
 msgid "Новини"
 msgstr "News"
 
@@ -673,15 +681,700 @@ msgstr ""
 msgid "Головна сторінка"
 msgstr "Home page"
 
+#: .\reua\templates\2026\index\index.html:18
+msgid "Благодійний Фонд"
+msgstr "Charitable Foundation"
+
+#: .\reua\templates\2026\index\index.html:20
+msgid ""
+"\n"
+"                            Відбудуємо нашу <span class=\"mark\">Україну»</"
+"span>\n"
+"                        "
+msgstr ""
+"\n"
+"                            Rebuild Our <span class=\"mark\">Ukraine»</"
+"span>\n"
+"                        "
+
+#: .\reua\templates\2026\index\index.html:25
+msgid "Ми відновлюємо критично важливі для життя ресурси та інфраструктуру"
+msgstr "We restore vital resources and critical infrastructure"
+
+#: .\reua\templates\2026\index\index.html:36
+#: .\reua\templates\2026\index\water.html:45
+#: .\reua\templates\2026\index\water.html:51
+msgid "до"
+msgstr "up to"
+
+#: .\reua\templates\2026\index\index.html:38
+msgid "л/добу"
+msgstr "liters/day"
+
+#: .\reua\templates\2026\index\index.html:40
+#, python-format
+msgid "%(counter)s станція"
+msgid_plural "%(counter)s станції"
+msgstr[0] "%(counter)s water treatment plant"
+msgstr[1] "%(counter)s water treatment plants"
+
+#: .\reua\templates\2026\index\index.html:61
+msgid "Флагманська програма"
+msgstr "Flagship program"
+
+#: .\reua\templates\2026\index\index.html:62
+msgid "Національна програма водної стійкості України ReH₂O"
+msgstr "Ukraine’s National Water Resilience Program ReH₂O"
+
+#: .\reua\templates\2026\index\index.html:63
+msgid ""
+"Автономні джерела питної води для громад, лікарень та критичної "
+"інфраструктури"
+msgstr ""
+"Autonomous drinking water supply systems for communities, hospitals, and "
+"critical infrastructure"
+
+#: .\reua\templates\2026\index\index.html:64
+msgid "Про програму →"
+msgstr "Learn more →"
+
+#: .\reua\templates\2026\index\index.html:69
+msgid "Реалізовано"
+msgstr "Implemented"
+
+#: .\reua\templates\2026\index\index.html:81
+msgid "встановлені станції"
+msgstr "water treatment plants installed"
+
+#: .\reua\templates\2026\index\index.html:94
+msgid "регіонів України"
+msgstr "regions of Ukraine"
+
+#: .\reua\templates\2026\index\index.html:106
+msgid "людей з доступом до чистої питної води"
+msgstr "people with access to safe drinking water"
+
+#: .\reua\templates\2026\index\index.html:119
+msgid "років роботи станцій"
+msgstr "years of operation"
+
+#: .\reua\templates\2026\index\index.html:133
+msgid "Як це працює"
+msgstr "How it work"
+
+#: .\reua\templates\2026\index\index.html:138
+msgid ""
+"Автономна станція ReH₂O забезпечує повний цикл — від підземного джерела до "
+"безпечної питної води"
+msgstr ""
+"The autonomous ReH₂O plant provides a complete water treatment cycle — from "
+"an underground water source to safe drinking water"
+
+#: .\reua\templates\2026\index\index.html:140
+msgid "Детальніше →"
+msgstr "Learn more →"
+
+#: .\reua\templates\2026\index\index.html:161
+msgid "Підземне джерело води"
+msgstr "Groundwater source"
+
+#: .\reua\templates\2026\index\index.html:163
+msgid "Очищення ReH₂O"
+msgstr "ReH₂O water treatment"
+
+#: .\reua\templates\2026\index\index.html:165
+msgid "Автономна сонячна енергія"
+msgstr "Autonomous solar power system"
+
+#: .\reua\templates\2026\index\index.html:167
+msgid "Безпечна питна вода"
+msgstr "Safe drinking water"
+
+#: .\reua\templates\2026\index\index.html:169
+msgid "Дистанційний моніторинг"
+msgstr "Remote monitoring"
+
+#: .\reua\templates\2026\index\index.html:187
+msgid "Усі новини"
+msgstr "All news"
+
+#: .\reua\templates\2026\index\index.html:211
+msgid ""
+"\n"
+"                        Партнери<br>водної стійкості<br>України\n"
+"                    "
+msgstr ""
+"\n"
+"                        Partners <br>in Ukraine’s <br>Water Resilience\n"
+"                    "
+
+#: .\reua\templates\2026\index\index.html:223
+#: .\reua\templates\2026\index\index.html:234
+msgid "Сайт партнера ↗"
+msgstr "Partner website ↗"
+
+#: .\reua\templates\2026\index\index.html:265
+msgid ""
+"\n"
+"                    <span class=\"plate\">Кожні 3 долари</span>\n"
+"                    <span class=\"sub\">донорського внеску — це 15 років "
+"чистої питної води для однієї людини</span>\n"
+"                "
+msgstr ""
+"\n"
+"                    <span class=\"plate\">Every $3</span>\n"
+"                    <span class=\"sub\">donated provides one person with "
+"access to safe drinking water for 15 years</span>\n"
+"                "
+
+#: .\reua\templates\2026\index\index.html:271
+msgid ""
+"\n"
+"                    Інвестиція у водну стійкість — це не разова допомога. Це "
+"доступ до безпечної\n"
+"                    питної води сьогодні та інфраструктура, що працюватиме "
+"роками.\n"
+"                "
+msgstr ""
+"\n"
+"                    Investing in water resilience goes beyond one-time "
+"assistance. It means access to safe drinking water today\n"
+"                    and infrastructure that will continue to serve "
+"communities for years to come.                "
+
 #: .\reua\templates\2026\index\water.html:7
-#, fuzzy
-#| msgid "Станції очищення води \"ReH₂O\""
+#: .\reua\templates\2026\index\water.html:26
 msgid "Мобільні станції очищення води ReH₂O"
 msgstr "\"ReH₂O\" water treatment plants"
 
+#: .\reua\templates\2026\index\water.html:18
+msgid "Вартість проєкту"
+msgstr "Project cost"
+
+#: .\reua\templates\2026\index\water.html:29
+msgid ""
+"\n"
+"                        надійне рішення для громад, лікарень та критичної "
+"інфраструктури\n"
+"                        в умовах війни та надзвичайних ситуацій\n"
+"                        "
+msgstr ""
+"\n"
+"                        A reliable solution for communities, hospitals and "
+"critical infrastructure in wartime and emergencies\n"
+"                        "
+
+#: .\reua\templates\2026\index\water.html:43
+msgid "1 станція"
+msgstr "1 plant"
+
+#: .\reua\templates\2026\index\water.html:46
+msgid "літрів чистої води на добу"
+msgstr "liters of safe drinking water per day"
+
+#: .\reua\templates\2026\index\water.html:49
+msgid "людей на добу (3 л на людину)"
+msgstr "people served per day (3 liters per person)"
+
+#: .\reua\templates\2026\index\water.html:52
+#: .\reua\templates\2026\index\water.html:53
+msgid "років"
+msgstr "years"
+
+#: .\reua\templates\2026\index\water.html:55
+msgid "ресурс роботи станції"
+msgstr "plant service life"
+
+#: .\reua\templates\2026\index\water.html:65
+msgid "Схема очищення води"
+msgstr "Water Treatment System"
+
+#: .\reua\templates\2026\index\water.html:66
+msgid "Як очищується вода"
+msgstr "How the Water Treatment Process Works"
+
+#: .\reua\templates\2026\index\water.html:70
+msgid ""
+"\n"
+"                        Стабільний потік <em>до 5 м³/год</em>\n"
+"                        "
+msgstr ""
+"\n"
+"                            Consistent flow rate <em>up to 5 m³/h</em>\n"
+"                        "
+
+#: .\reua\templates\2026\index\water.html:75
+msgid "до 100 000 л на добу"
+msgstr "up to 100,000 liters per day"
+
+#: .\reua\templates\2026\index\water.html:82
+msgid ""
+"\n"
+"                            Механічна очистка<big>6 м³/год</big>\n"
+"                            "
+msgstr ""
+"\n"
+"                            Mechanical filtration<big>6 m³/h</big>\n"
+"                        "
+
+#: .\reua\templates\2026\index\water.html:126
+msgid "Дисковий фільтр"
+msgstr "Disc filter"
+
+#: .\reua\templates\2026\index\water.html:127
+msgid "грубої очистки"
+msgstr "coarse filtration"
+
+#: .\reua\templates\2026\index\water.html:238
+msgid "Реактор"
+msgstr "Reactor"
+
+#: .\reua\templates\2026\index\water.html:239
+msgid "гіпохлорит натрію + аерація"
+msgstr "sodium Hypochlorite + Aeration"
+
+#: .\reua\templates\2026\index\water.html:385
+msgid "Механічні фільтри"
+msgstr "Mechanical Filters"
+
+#: .\reua\templates\2026\index\water.html:386
+msgid "6 м³/год"
+msgstr "6 m³/h"
+
+#: .\reua\templates\2026\index\water.html:392
+msgid ""
+"\n"
+"                            Мембранна обробка<big>2 м³/год</big>\n"
+"                            "
+msgstr ""
+"\n"
+"                            Membrane treatment<big>2 m³/h</big>\n"
+"                        "
+
+#: .\reua\templates\2026\index\water.html:494
+msgid "Промисловий зворотний осмос"
+msgstr "Industrial reverse osmosis"
+
+#: .\reua\templates\2026\index\water.html:495
+#: .\reua\templates\2026\index\water.html:506
+msgid "2 м³/год"
+msgstr "2 m³/h"
+
+#: .\reua\templates\2026\index\water.html:501
+msgid "Підміс очищеної води"
+msgstr "Treated water blending"
+
+#: .\reua\templates\2026\index\water.html:507
+msgid "вода після мембрани (RO)"
+msgstr "RO-treated water"
+
+#: .\reua\templates\2026\index\water.html:510
+msgid "3 м³/год"
+msgstr "3 m³/h"
+
+#: .\reua\templates\2026\index\water.html:511
+msgid "після механічної очистки"
+msgstr "After mechanical filtration"
+
+#: .\reua\templates\2026\index\water.html:533
+msgid "Результат"
+msgstr "Treated water output"
+
+#: .\reua\templates\2026\index\water.html:537
+msgid "Стабільний потік"
+msgstr "Continuous flow rate"
+
+#: .\reua\templates\2026\index\water.html:538
+#: .\reua\templates\2026\index\water.html:670
+msgid "до 5 м³/год"
+msgstr "up to 5 m³/h"
+
+#: .\reua\templates\2026\index\water.html:601
+msgid "Будова станції"
+msgstr "Plant Layot"
+
+#: .\reua\templates\2026\index\water.html:602
+msgid "3D-візуалізація внутрішнього розташування обладнання"
+msgstr "3D Visualization of the Internal Equipment Layout"
+
+#: .\reua\templates\2026\index\water.html:616
+msgid "Характеристики"
+msgstr "Specifications"
+
+#: .\reua\templates\2026\index\water.html:617
+msgid "Технічні характеристики ReH₂O"
+msgstr "ReH₂O Technical Specifications"
+
+#: .\reua\templates\2026\index\water.html:626
+msgid "Продуктивність (макс.)"
+msgstr "Maximum Treatment Capacity"
+
+#: .\reua\templates\2026\index\water.html:627
+msgid "до 100 000 л/добу"
+msgstr "up to 100,000 liters/day"
+
+#: .\reua\templates\2026\index\water.html:628
+msgid "до 100 м³/добу"
+msgstr "up to 100 m³/day"
+
+#: .\reua\templates\2026\index\water.html:636
+msgid "Пікова потужність"
+msgstr "Peak Power Demand"
+
+#: .\reua\templates\2026\index\water.html:638
+msgid "5 кВт — літо"
+msgstr "5 kW — summer"
+
+#: .\reua\templates\2026\index\water.html:639
+msgid "7 кВт — зима"
+msgstr "7 kW — winter"
+
+#: .\reua\templates\2026\index\water.html:648
+msgid "Кількість людей"
+msgstr "People Served"
+
+#: .\reua\templates\2026\index\water.html:649
+msgid "до 30 000 осіб/добу"
+msgstr "up to 30,000 people/day"
+
+#: .\reua\templates\2026\index\water.html:650
+msgid "3 л на людину"
+msgstr "3 liters per person"
+
+#: .\reua\templates\2026\index\water.html:658
+msgid "Термін служби"
+msgstr "Service Life"
+
+#: .\reua\templates\2026\index\water.html:659
+msgid "до 15 років"
+msgstr "up to 15 years"
+
+#: .\reua\templates\2026\index\water.html:667
+msgid "Технологія очистки"
+msgstr "Water Treatment Technology"
+
+#: .\reua\templates\2026\index\water.html:669
+msgid "стабільний потік"
+msgstr "flow rate"
+
+#: .\reua\templates\2026\index\water.html:672
+msgid "механічна до 6м³/год, мембранна до 2 м³/год з підніманням"
+msgstr ""
+"mechanical filtration: up to 6 m³/h; membrane treatment: up to 2 m³/h (with "
+"pumping)"
+
+#: .\reua\templates\2026\index\water.html:680
+msgid "Маса при транспортуванні"
+msgstr "Transport Weight"
+
+#: .\reua\templates\2026\index\water.html:681
+#: .\reua\templates\2026\index\water.html:697
+#: .\reua\templates\2026\index\water.html:728
+msgid "т"
+msgstr "tons"
+
+#: .\reua\templates\2026\index\water.html:688
+msgid "Електроживлення"
+msgstr "Power Supply"
+
+#: .\reua\templates\2026\index\water.html:689
+msgid "220 В, 50 Гц"
+msgstr "220 V, 50 Hz"
+
+#: .\reua\templates\2026\index\water.html:696
+msgid "Маса в робочому стані (з водою)"
+msgstr "Operating Weight (including water)"
+
+#: .\reua\templates\2026\index\water.html:706
+msgid "Габарити та підключення"
+msgstr "Dimensions and Connections"
+
+#: .\reua\templates\2026\index\water.html:707
+msgid "Габаритні розміри"
+msgstr "Overall Dimensions"
+
+#: .\reua\templates\2026\index\water.html:713
+msgid "План контейнера"
+msgstr "Container Layout"
+
+#: .\reua\templates\2026\index\water.html:714
+msgid "вигляд зверху, мм"
+msgstr "top view, mm"
+
+#: .\reua\templates\2026\index\water.html:719
+msgid "Габарити контейнера"
+msgstr "Container Dimensions"
+
+#: .\reua\templates\2026\index\water.html:720
+#: .\reua\templates\2026\index\water.html:724
+#: .\reua\templates\2026\index\water.html:791
+#: .\reua\templates\2026\index\water.html:849
+#: .\reua\templates\2026\index\water.html:862
+#: .\reua\templates\2026\index\water.html:876
+msgid "мм"
+msgstr "mm"
+
+#: .\reua\templates\2026\index\water.html:723
+msgid "Фундамент (мінімально)"
+msgstr "Minimum Foundation Dimensions"
+
+#: .\reua\templates\2026\index\water.html:727
+msgid "Вага в роботі"
+msgstr "Operating Weight"
+
+#: .\reua\templates\2026\index\water.html:733
+msgid "Розріз А–А"
+msgstr "Section A–A"
+
+#: .\reua\templates\2026\index\water.html:734
+msgid "підключення до зовнішніх мереж"
+msgstr "сonnection to external utilities"
+
+#: .\reua\templates\2026\index\water.html:790
+#: .\reua\templates\2026\index\water.html:876
+msgid "Подача вихідної води"
+msgstr "Raw Water Inlet"
+
+#: .\reua\templates\2026\index\water.html:792
+msgid "поліетилен"
+msgstr "polyethylene"
+
+#: .\reua\templates\2026\index\water.html:848
+msgid "Скид у каналізацію"
+msgstr "Wastewater Discharge to Sewer"
+
+#: .\reua\templates\2026\index\water.html:850
+msgid "ПВХ, через гідрозатвор"
+msgstr "PVC, via a water trap"
+
+#: .\reua\templates\2026\index\water.html:862
+msgid "Майданчик або фундамент не менше "
+msgstr "Site or foundation measuring at least 2840 × 6460 mm"
+
+#: .\reua\templates\2026\index\water.html:869
+msgid "Електроживлення 220 В, 50 Гц"
+msgstr "Power supply: 220 V, 50 Hz"
+
+#: .\reua\templates\2026\index\water.html:883
+msgid "Скид у каналізацію Ø110&nbsp;мм через гідрозатвор"
+msgstr "Wastewater discharge to sewer: Ø110&nbsp;mm, via a water seal"
+
+#: .\reua\templates\2026\index\water.html:892
+msgid "Програма ReH₂O"
+msgstr "ReH₂O Program"
+
+#: .\reua\templates\2026\index\water.html:893
+msgid "Дистанційний<br>моніторинг"
+msgstr "Remote<br>monitoring"
+
+#: .\reua\templates\2026\index\water.html:895
+msgid ""
+"Система віддаленого моніторингу  забезпечує онлайн-контроль роботи станції."
+msgstr ""
+"The remote monitoring system enables real-time monitoring of plant "
+"operations."
+
+#: .\reua\templates\2026\index\water.html:914
+msgid "ЗАХИЩЕНА ПЕРЕДАЧА ДАНИХ (4G/LTE)"
+msgstr "SECURE DATA TRANSMISSION (4G/LTE)"
+
+#: .\reua\templates\2026\index\water.html:922
+msgid "Моніторинг станцій ReH₂O"
+msgstr "ReH₂O Plant Monitoring"
+
+#: .\reua\templates\2026\index\water.html:927
+msgid "Якість води"
+msgstr "Water Quality"
+
+#: .\reua\templates\2026\index\water.html:928
+msgid "В нормі"
+msgstr "Within Normal Range"
+
+#: .\reua\templates\2026\index\water.html:933
+msgid "Робота станції"
+msgstr "Plant Status"
+
+#: .\reua\templates\2026\index\water.html:934
+msgid "Онлайн"
+msgstr "Online"
+
+#: .\reua\templates\2026\index\water.html:940
+msgid "Продуктивність"
+msgstr "Flow Rate"
+
+#: .\reua\templates\2026\index\water.html:941
+msgid "м³/год"
+msgstr "m³/h"
+
+#: .\reua\templates\2026\index\water.html:970
+msgid "Тиск"
+msgstr "Pressure"
+
+#: .\reua\templates\2026\index\water.html:971
+msgid "pH"
+msgstr "pH"
+
+#: .\reua\templates\2026\index\water.html:972
+msgid "Каламутність"
+msgstr "Turbidity"
+
+#: .\reua\templates\2026\index\water.html:973
+msgid "Електропровідність"
+msgstr "Electrical Conductivity"
+
+#: .\reua\templates\2026\index\water.html:974
+msgid "Витрата води"
+msgstr "Water Consumption"
+
+#: .\reua\templates\2026\index\water.html:975
+msgid "Рівень у резервуарі"
+msgstr "Tank Water Level"
+
+#: .\reua\templates\2026\index\water.html:976
+msgid "Озон"
+msgstr "Ozone"
+
+#: .\reua\templates\2026\index\water.html:977
+msgid "Енергоспоживання"
+msgstr "Energy Consumption"
+
+#: .\reua\templates\2026\index\water.html:978
+msgid "Температура"
+msgstr "Temperature"
+
+#: .\reua\templates\2026\index\water.html:1015
+msgid ""
+"\n"
+"                            Станція<br>працює<br><em>Онлайн</em>\n"
+"                            "
+msgstr ""
+"\n"
+"                            Plant<br>Status<br><em>Online</em>\n"
+"                        "
+
+#: .\reua\templates\2026\index\water.html:1045
+msgid "Онлайн-контроль роботи станції 24/7"
+msgstr "24/7 monitoring of plant operations"
+
+#: .\reua\templates\2026\index\water.html:1051
+msgid "Поточні показники якості води та продуктивності"
+msgstr "Real-time water quality and performance data"
+
+#: .\reua\templates\2026\index\water.html:1058
+msgid "Автоматичні сповіщення про відхилення"
+msgstr "Automatic alerts for deviations from normal operating parameters"
+
+#: .\reua\templates\2026\index\water.html:1068
+msgid "Віддалена діагностика та підтримка"
+msgstr "Remote diagnostics and technical support"
+
+#: .\reua\templates\2026\index\water.html:1076
+msgid "Формування звітів"
+msgstr "Report generation"
+
+#: .\reua\templates\2026\index\water.html:1085
+msgid "Доступ для команди партнерів"
+msgstr "Access for Partner Teams"
+
+#: .\reua\templates\2026\index\water.html:1093
+msgid "Карта станцій"
+msgstr "Water Treatment Plant Map"
+
+#: .\reua\templates\2026\index\water.html:1094
+msgid "Єдина система в Україні"
+msgstr "A Unified Monitoring Network Across Ukraine"
+
+#: .\reua\templates\2026\index\water.html:1096
+msgid ""
+"\n"
+"                Національна цифрова карта всіх станцій ReH₂O забезпечує "
+"єдиний\n"
+"                контроль якості води, продуктивності та статусу станцій у "
+"реальному часі по всій Україні.\n"
+"                "
+msgstr ""
+"\n"
+"                The national digital map of all ReH₂O plants "
+"enables                  centralized, real-time monitoring of water quality, "
+"performance, and plant status across Ukraine.                "
+
+#: .\reua\templates\2026\index\water.html:1163
+msgid "Області зі станціями ReH₂O"
+msgstr "Regions with ReH₂O Plants"
+
+#: .\reua\templates\2026\index\water.html:1167
+msgid ""
+"\n"
+"                            Центр моніторингу<span>Київ</span>\n"
+"                            "
+msgstr ""
+"\n"
+"                            <span>Kyiv</span>Monitoring Center\n"
+"                        "
+
+#: .\reua\templates\2026\index\water.html:1171
+msgid "Дані з усіх станцій сходяться в одну систему"
+msgstr "Data from all plants are consolidated into a single monitoring system."
+
+#: .\reua\templates\2026\std\feedback_form.html:4
+#: .\reua\templates\2026\std\footer.html:29
+#: .\reua\templates\2026\std\menu.html:73
+msgid "Напишіть нам"
+msgstr "Contact us"
+
+#: .\reua\templates\2026\std\feedback_form.html:5
+msgid "якщо у вас є ідеї або пропозиції"
+msgstr " If you have any ideas or suggestions, please let us know"
+
+#: .\reua\templates\2026\std\feedback_form.html:17
+msgid "Натискаючи кнопку, ви погоджуєтесь з політикою конфіденційності."
+msgstr "By clicking the button, you agree to our Privacy Policy."
+
+#: .\reua\templates\2026\std\footer.html:7
+msgid "Благодійний фонд «Відбудуємо нашу Україну»"
+msgstr "Rebuild Our Ukraine Charitable Foundation"
+
+#: .\reua\templates\2026\std\footer.html:8
+msgid "Національна програма водної стійкості ReH₂O"
+msgstr "Ukraine’s National Water Resilience Program ReH₂O"
+
+#: .\reua\templates\2026\std\footer.html:9
+msgid "Меню"
+msgstr "Menu"
+
+#: .\reua\templates\2026\std\footer.html:16
+msgid "Документи"
+msgstr "Documents"
+
+#: .\reua\templates\2026\std\footer.html:23 .\reua\views\general.py:195
+#: .\reua\views\general.py:196
+msgid "Контакти"
+msgstr "Contact Us"
+
+#: .\reua\templates\2026\std\footer.html:36
+msgid "БФ «Відбудуємо нашу Україну»"
+msgstr "Rebuild Our Ukraine Charitable Foundation"
+
+#: .\reua\templates\2026\std\message_modal.html:4
+#: .\reua\templates\2026\std\message_modal.html:17
+msgid "Закрити"
+msgstr "Close"
+
+#: .\reua\templates\2026\std\message_modal.html:15
+msgid "Дякуємо!"
+msgstr "Thank you!"
+
+#: .\reua\templates\2026\std\message_modal.html:16
+msgid "Повідомлення надіслано. Ми зв’яжемося з вами найближчим часом."
+msgstr "Your message has been sent. We will get back to you shortly."
+
+#: .\reua\templates\2026\std\soicals.html:4
+msgid "Ми в соцмережах"
+msgstr "Follow Us"
+
 #: .\reua\templates\company\common\company_list.html:55
 msgid "Немає компаній"
-msgstr "Water purification installations"
+msgstr "No companies"
 
 #: .\reua\templates\company\common\company_list.html:57
 msgid ""
@@ -1215,10 +1908,6 @@ msgstr ""
 msgid "Мобільна система очистки води ReH2O"
 msgstr "ReH2O mobile water purification system"
 
-#: .\reua\templates\pages\water.html:43
-msgid "Як це працює?"
-msgstr "How does it work?"
-
 #: .\reua\templates\pages\water.html:46
 msgid ""
 "<b>Вхідна вода</b> береться з будь-якого джерела водопостачання різного "
@@ -1670,10 +2359,6 @@ msgstr "Water"
 msgid "Маріупольський Квартал"
 msgstr "Mariupol Quarter"
 
-#: .\reua\views\general.py:195 .\reua\views\general.py:196
-msgid "Контакти"
-msgstr "Contacts"
-
 #: .\reua\views\general.py:222
 msgid ""
 "Дякуємо, що ви готові підтримати наш проект з чистої води для мешканців "
@@ -1718,18 +2403,3 @@ msgid ""
 msgstr ""
 "The platform works to collect funds to solve the priority humanitarian tasks "
 "of internally displaced persons from Mariupol and Ukraine as a whole."
-
-#~ msgid "Адмінистрування"
-#~ msgstr "Administration"
-
-#~ msgid "Реквізити компанії"
-#~ msgstr "Company details"
-
-#~ msgid "Реквізити компанії англ."
-#~ msgstr "Company details"
-
-#~ msgid "Реквізити інвестиції"
-#~ msgstr "Details of the investment"
-
-#~ msgid "Файли"
-#~ msgstr "Files"

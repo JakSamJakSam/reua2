@@ -1,6 +1,7 @@
+{% load i18n %}
 <div class="reua-modal" id="feedback_modal" role="dialog" aria-modal="true" aria-labelledby="mt">
     <div class="mbox" tabindex="-1">
-        <button class="mclose" type="button" id="closeM" aria-label="Закрити">✕</button>
+        <button class="mclose" type="button" id="closeM" aria-label="{% trans "Закрити" %}">✕</button>
         <form id="mform" action="{% url 'feedback' %}" method="post">
         {% include '2026/std/feedback_form.html' %}
         </form>
@@ -11,9 +12,9 @@
                     <path d="M5 12l5 5 9-10"/>
                 </svg>
             </div>
-            <h3>Дякуємо!</h3>
-            <p>Повідомлення надіслано. Ми зв’яжемося з вами найближчим часом.</p>
-            <button class="btn btn-y" type="button" id="closeM2">Закрити</button>
+            <h3>{% trans "Дякуємо!" %}</h3>
+            <p>{% trans "Повідомлення надіслано. Ми зв’яжемося з вами найближчим часом." %}</p>
+            <button class="btn btn-y" type="button" id="closeM2">{% trans "Закрити" %}</button>
         </div>
     </div>
 </div>

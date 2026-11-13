@@ -13,7 +13,8 @@ def index2026(request):
         'parnters': {
             'r1': partners_row1,
             'r2': partners_row2
-        }
+        },
+        'stations_count': 23,
     }
     return render(request, '2026/index/index.html', ctx)
 
