@@ -11,22 +11,22 @@ from reua.models.projects import currencies, KindProject
 
 def top_menus(request):
     site = get_current_site(request)
-    bta = BankTransferAttributes.objects.annotate(
-        order=Case(
-            *[When(currency=v, then=Value(i)) for i, v in enumerate(currencies.keys())],
-            default=99,
-        ),
-    ).order_by('order')
+    # bta = BankTransferAttributes.objects.annotate(
+    #     order=Case(
+    #         *[When(currency=v, then=Value(i)) for i, v in enumerate(currencies.keys())],
+    #         default=99,
+    #     ),
+    # ).order_by('order')
     ss = SiteSettings.objects.get(site=site)
     return {
-        # 'top_menu_items': TopMenu.objects.filter(disabled=False, parent=None).order_by('order'),
-        'top_menu_items': [
-            {'url': reverse('water'), 'localized_title': 'Станції ReH₂O'},
-            {'url': reverse('about'), 'localized_title': 'Про фонд'},
-            {'url': reverse('rebuild'), 'localized_title': 'Інфраструктурні проєкти'},
-            {'url': reverse('news-list'), 'localized_title': 'Медіацентр'},
-            {'url': reverse('contacts'), 'localized_title': 'Контакти'},
-        ],
+        'top_menu_items': TopMenu.objects.filter(disabled=False, parent=None).order_by('order'),
+        # 'top_menu_items': [
+        #     {'url': reverse('water'), 'localized_title': 'Станції ReH₂O'},
+        #     {'url': reverse('about'), 'localized_title': 'Про фонд'},
+        #     {'url': reverse('rebuild'), 'localized_title': 'Інфраструктурні проєкти'},
+        #     {'url': reverse('news-list'), 'localized_title': 'Медіацентр'},
+        #     {'url': reverse('contacts'), 'localized_title': 'Контакти'},
+        # ],
         'founding_documents': FoundingDocument.objects.all(),
         'site_settings': ss,
         'google_data_stream_id': settings.GOOGLE_DATA_STREAM_ID,
