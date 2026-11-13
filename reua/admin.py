@@ -1,7 +1,9 @@
 from adminsortable.admin import SortableAdmin
 from django.contrib import admin
+from django.contrib.flatpages.admin import FlatPageAdmin
+from django.contrib.flatpages.models import FlatPage
 from django.utils.translation import gettext_lazy as _
-from django_summernote.admin import SummernoteModelAdminMixin
+from django_summernote.admin import SummernoteModelAdminMixin, SummernoteModelAdmin
 
 from reua.forms.admin_forms import TopMenuAdminForm
 from reua.models import *
@@ -151,39 +153,39 @@ class ProjectAdmin(SortableAdmin):
         }),
     ]
 
-#
-# admin.site.register(NewsCategory, admin.ModelAdmin)
-#
-#
-# class NewsImagesInline(admin.TabularInline):
-#     model = NewsImages
-#
-# @admin.register(News)
-# class NewsAdmin(SummernoteModelAdmin):
-#     list_display = ('title', 'date', 'category', 'enabled')
-#     summernote_fields = ('body', 'body_en')
-#     date_hierarchy = 'date'
-#     list_filter = ('category', )
-#     inlines = [NewsImagesInline,]
-#
-#     actions = ["make_enabled", "make_disabled"]
-#
-#     @admin.action(description=_("Опублікувати обрані новини"))
-#     def make_enabled(self, request, queryset):
-#         queryset.update(enabled=True)
-#
-#     @admin.action(description=_("Приховати обрані новини"))
-#     def make_disabled(self, request, queryset):
-#         queryset.update(enabled=False)
-#
-#
-# class NewFlatPageAdmin(SummernoteModelAdminMixin, FlatPageAdmin):
-#     summernote_fields = ('content', )
-#
-# # Re-register FlatPageAdmin
-# admin.site.unregister(FlatPage)
-# admin.site.register(FlatPage, NewFlatPageAdmin)
-#
+
+admin.site.register(NewsCategory, admin.ModelAdmin)
+
+
+class NewsImagesInline(admin.TabularInline):
+    model = NewsImages
+
+@admin.register(News)
+class NewsAdmin(SummernoteModelAdmin):
+    list_display = ('title', 'date', 'category', 'enabled')
+    summernote_fields = ('body', 'body_en')
+    date_hierarchy = 'date'
+    list_filter = ('category', )
+    inlines = [NewsImagesInline,]
+
+    actions = ["make_enabled", "make_disabled"]
+
+    @admin.action(description=_("Опублікувати обрані новини"))
+    def make_enabled(self, request, queryset):
+        queryset.update(enabled=True)
+
+    @admin.action(description=_("Приховати обрані новини"))
+    def make_disabled(self, request, queryset):
+        queryset.update(enabled=False)
+
+
+class NewFlatPageAdmin(SummernoteModelAdminMixin, FlatPageAdmin):
+    summernote_fields = ('content', )
+
+# Re-register FlatPageAdmin
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, NewFlatPageAdmin)
+
 # class BankTransferAttributesStringsInline(admin.StackedInline):
 #     model = BankTransferAttributesStrings
 #
@@ -199,14 +201,14 @@ class ProjectAdmin(SortableAdmin):
 # @admin.register(GeneralProjectImages)
 # class GeneralProjectImagesAdmin(SortableAdmin):
 #     pass
-#
-#
-# @admin.register(FeedbackMessage)
-# class FeedbackMessageAdmin(admin.ModelAdmin):
-#     search_fields = ('message', 'fio', 'phone', 'email')
-#     date_hierarchy = ('date')
-#     list_display = ('fio', 'phone', 'email', 'message')
-#
+
+
+@admin.register(FeedbackMessage)
+class FeedbackMessageAdmin(admin.ModelAdmin):
+    search_fields = ('message', 'fio', 'phone', 'email')
+    date_hierarchy = ('date')
+    list_display = ('fio', 'phone', 'email', 'message')
+
 # @admin.register(ReH2OSettings)
 # class ReH2OSettingsAdmin(admin.ModelAdmin):
 #     pass
