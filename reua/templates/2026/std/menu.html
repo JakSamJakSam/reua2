@@ -1,3 +1,4 @@
+{% load request_heplers %}
 {% load static %}
 {% load i18n %}
 
@@ -23,7 +24,7 @@
             {% for language in languages %}
                 {% get_language_info for language|first as lang_info %}
                 <a class="{% if LANGUAGE_CODE == lang_info.code %}on{% endif %}"
-                   href="{% language lang_info.code %}{% url "index" %}{% endlanguage %}">{{ language|last|upper }}</a>
+                   href="{% change_lang lang_info.code %}">{{ language|last|upper }}</a>
             {% endfor %}
         </div>
         <a href="#" class="burger d-block d-md-none" data-offcanvas-toggle="#menuOffcanvas"

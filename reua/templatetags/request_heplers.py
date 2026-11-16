@@ -1,5 +1,6 @@
 from django import template
 from django.conf import settings
+from django.urls import translate_url
 
 from reua.bleach_sanitarize import bleach_clean
 
@@ -22,3 +23,8 @@ def gmaps_api_key():
 @register.simple_tag(takes_context=True)
 def full_url(context, url):
     return context.request.build_absolute_uri(url)
+
+@register.simple_tag(takes_context=True)
+def change_lang(context, lang_code):
+    path = context['request'].get_full_path()
+    return translate_url(path, lang_code)
