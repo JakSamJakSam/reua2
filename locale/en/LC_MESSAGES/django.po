@@ -867,7 +867,7 @@ msgstr "Water Treatment System"
 
 #: .\reua\templates\2026\index\water.html:67
 msgid "Як очищується вода"
-msgstr "How the Water Treatment Process Works"
+msgstr "How the Process Works"
 
 #: .\reua\templates\2026\index\water.html:71
 msgid ""
@@ -1290,7 +1290,7 @@ msgstr ""
 
 #: .\reua\templates\2026\index\water.html:1172
 msgid "Дані з усіх станцій сходяться в одну систему"
-msgstr "Data from all plants are consolidated into a single monitoring system."
+msgstr "Data from all plants are consolidated into a single monitoring system"
 
 #: .\reua\templates\2026\std\feedback_form.html:4
 #: .\reua\templates\2026\std\footer.html:29
