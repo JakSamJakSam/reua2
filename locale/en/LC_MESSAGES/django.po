@@ -845,7 +845,7 @@ msgstr ""
 #: .\reua\templates\2026\index\water.html:8
 #: .\reua\templates\2026\index\water.html:27
 msgid "Мобільні станції очищення води ReH₂O"
-msgstr "\"ReH₂O\" Mobile Water Treatment Plants"
+msgstr "ReH₂O Mobile Water Treatment Plants"
 
 #: .\reua\templates\2026\index\water.html:19
 msgid "Вартість проєкту"
