@@ -1280,6 +1280,9 @@ Side menu
   z-index: 2;
   display: block;
 }
+.hero .top .ab {
+  margin-right: 0;
+}
 .hero .top .pre {
   font-size: 17px;
   font-weight: 600;
@@ -1465,7 +1468,6 @@ Side menu
 }
 .hero .top .scene .counter .num {
   font-variant-numeric: tabular-nums;
-  min-width: 78px;
   margin-left: -4px;
 }
 .hero .top .scene .counter .ctag {
@@ -2151,6 +2153,9 @@ Side menu
     display: grid;
     grid-template-columns: 640px 1fr;
     gap: 40px;
+  }
+  .hero .top .ab {
+    margin-right: 100px;
   }
   .hero .top .pre {
     font-size: 22px;

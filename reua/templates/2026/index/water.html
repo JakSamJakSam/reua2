@@ -1,4 +1,5 @@
 {% extends "reua_base_2026.html" %}
+{% load l10n %}
 {% load thumbnail %}
 {% load i18n %}
 {% load static %}
@@ -859,7 +860,7 @@
                         <path d="M2 7.5l3.2 3L12 3.5" stroke="#001739" stroke-width="2.2" stroke-linecap="round"
                               stroke-linejoin="round"/>
                     </svg>
-                </i>{% trans "Майданчик або фундамент не менше " %}2840&nbsp;×&nbsp;6460&nbsp;{% trans "мм" %}
+                </i>{% trans "Майданчик або фундамент не менше " %}{{ 2840|localize }}&nbsp;×&nbsp;{{ 6460|localize }}&nbsp;{% trans "мм" %}
                 </div>
                 <div class="chk rv" style="--d:.2s"><i>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

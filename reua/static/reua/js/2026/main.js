@@ -112,9 +112,9 @@ function init_animation_screen() {
 
 // лічильники
 function init_counters() {
-  const fmt = n => Math.round(n).toLocaleString('uk-UA');
+  const fmt = n => Math.round(n).toLocaleString(document.documentElement.lang);
 
-  function count(el, from, to, dur = 1400) {
+  function count(el, from, to, dur = 1400, formatter=fmt) {
     if (reduce) {
       el.textContent = fmt(to);
       return;
@@ -122,7 +122,7 @@ function init_counters() {
     const t0 = performance.now();
     const tick = t => {
       const k = Math.min(1, (t - t0) / dur);
-      if (el) el.textContent = fmt(from + (to - from) * (1 - Math.pow(1 - k, 3)));
+      if (el) el.textContent = formatter(from + (to - from) * (1 - Math.pow(1 - k, 3)));
       if (k < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -131,7 +131,8 @@ function init_counters() {
   setTimeout(() => document.querySelectorAll('.stats b[data-to]').forEach((b, i) => setTimeout(() => count(b, 0, +b.dataset.to), i * 120)), reduce ? 0 : 900);
   const cnum = $('#cnum');
   // лічильник на карті одразу рахує загальну кількість води всіх станцій
-  setTimeout(() => count(cnum, 0, 2300000, 1800), reduce ? 0 : 1700);
+  const mlnsFmt = n => (Math.round(n/100000)/10).toLocaleString(document.documentElement.lang);
+  setTimeout(() => count(cnum, 0, cnum.dataset.to, 1800, mlnsFmt), reduce ? 0 : 1700);
 }
 
 // бульбашки у воді

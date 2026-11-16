@@ -32,6 +32,10 @@
     z-index: 2;
     display: block;
 
+    .ab {
+      margin-right: 0;
+    }
+
     .pre {
       font-size: 17px;
       font-weight: 600;
@@ -245,7 +249,7 @@
 
         .num {
           font-variant-numeric: tabular-nums;
-          min-width: 78px;
+          //min-width: 78px;
           margin-left: -4px;
         }
 
@@ -1058,6 +1062,9 @@
       grid-template-columns: 640px 1fr;
       gap: 40px;
 
+      .ab {
+        margin-right: 100px;
+      }
       .pre {
         font-size: 22px;
       }

@@ -15,6 +15,7 @@ def index2026(request):
             'r2': partners_row2
         },
         'stations_count': 23,
+        'liters': 2300000,
     }
     return render(request, '2026/index/index.html', ctx)
 

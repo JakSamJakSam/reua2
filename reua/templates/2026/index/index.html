@@ -1,4 +1,5 @@
 {% extends "reua_base_2026.html" %}
+{% load l10n %}
 {% load thumbnail %}
 {% load i18n %}
 {% load static %}
@@ -13,12 +14,12 @@
         <div class="sky d-none d-md-block"></div>
         <div class="wrap">
             <div class="top">
-                <div>
+                <div class="ab">
                     <div class="eyebrow rv" style="--d:.1s">Rebuild Our Ukraine</div>
                     <div class="pre rv" style="--d:.2s">{% trans "Благодійний Фонд" %}</div>
                     <h1 class="rv" style="--d:.3s">
                         {% blocktrans %}
-                            Відбудуємо нашу <span class="mark">Україну»</span>
+                            «Відбудуємо нашу <span class="mark">Україну»</span>
                         {% endblocktrans %}
                     </h1>
                     <p class="lead rv" style="--d:.45s">
@@ -34,8 +35,8 @@
                             </svg>
                         </span>
                         <span>{% trans "до" %}</span>
-                        <span class="num" id="cnum">0</span>
-                        <span>{% trans "л/добу" %}</span>
+                        <span class="num" id="cnum" data-to="{{ liters|unlocalize }}">0</span>
+                        <span>{% trans "млн. л/добу" %}</span>
                         <span class="ctag">
                             {% blocktranslate count counter=stations_count trimmed %}
                                 {{ counter }} станція
