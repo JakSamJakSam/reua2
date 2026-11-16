@@ -284,6 +284,7 @@ a.disabled {
   font-size: 14px;
   font-weight: 500;
   color: #fff;
+  padding-left: 0;
 }
 .footer ul a:hover {
   color: var(--yellow);
@@ -3074,6 +3075,7 @@ Side menu
 .specs .tbl .row {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   gap: 6px;
   align-items: flex-start;
   padding: 12px 0;

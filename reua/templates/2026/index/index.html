@@ -4,6 +4,8 @@
 {% load i18n %}
 {% load static %}
 
+{% get_current_language as LANGUAGE_CODE %}
+
 {% block title %}
     {% trans "Головна сторінка" %}
 {% endblock %}
@@ -62,7 +64,9 @@
                     <div class="badge"><b>ReH₂O</b><span>{% trans "Флагманська програма" %}</span></div>
                     <h2>{% trans "Національна програма водної стійкості України ReH₂O" %}</h2>
                     <p>{% trans "Автономні джерела питної води для громад, лікарень та критичної інфраструктури" %}</p>
-                    <a class="btn btn-y more" href="#how">{% trans "Про програму →" %}</a>
+                    <a class="btn btn-y more" href="{% if LANGUAGE_CODE == 'uk' %}{% static "reua/pdf/Національна програма ReH₂O_UA.pdf" %}{% elif LANGUAGE_CODE == 'en' %}{% static "reua/pdf/National Project ReH₂O_EN.pdf" %}{% else %}#{% endif %}">
+                        {% trans "Про програму →" %}
+                    </a>
                 </div>
                 <div class="vline d-none d-md-block"></div>
                 <div class="hline d-block d-md-none"></div>
@@ -138,7 +142,8 @@
                     <p>
                         {% trans "Автономна станція ReH₂O забезпечує повний цикл — від підземного джерела до безпечної питної води" %}
                     </p>
-                    <a class="btn btn-y" href="#" style="color:var(--navy)">{% trans "Детальніше →" %}</a>
+                    <a class="btn btn-y" href="{% url "water" %}"
+                       style="color:var(--navy)">{% trans "Детальніше →" %}</a>
                 </div>
                 <div class="steps">
                     <div class="pipe"></div>
@@ -190,7 +195,8 @@
             </div>
             <div class="cards">
                 {% for news_item in news %}
-                    <a class="card rv" href="#" style="--d:0.{{ forloop.counter }}s">
+                    <a class="card rv {% if forloop.counter > 2 %} d-none d-md-block {% endif %}" href="#"
+                       style="--d:0.{{ forloop.counter }}s">
                         {% thumbnail news_item.image "280x440" crop='center' as im %}
                             <img src="{{ im.url }}" alt="" loading="lazy">
                             <span class="reg">{{ news_item.localized_for_region|default:news_item.localized_for_city }}</span>
