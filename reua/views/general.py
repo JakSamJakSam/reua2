@@ -20,7 +20,6 @@ __all__ = ('IndexView', 'FeedbackFormView', "AboutView", "WaterView", "RebuildVi
 from reua.models.projects import KindProject, currencies, kind_project_values
 from reua.models.site_models import GeneralProjectImages, ReH2OSettings, ReH2OVideos, BankTransferAttributes, \
     SiteSettings
-from reua.models.waters import ActivePoints
 
 from reua.views.mixins import BreadCrumbsMixin
 from reua2.send_message import send_email_to_staffs, send_to_telegram
@@ -181,7 +180,7 @@ class WaterNewView(BreadCrumbsMixin, TemplateView):
         ctx['page_settings'] = settings
         ctx['videos'] = videos
         ctx['projects'] = projects
-        ctx['map_points'] = [mp.point for mp in ActivePoints.objects.filter(active=True)]
+        # ctx['map_points'] = [mp.point for mp in ActivePoints.objects.filter(active=True)]
         return ctx
 
 

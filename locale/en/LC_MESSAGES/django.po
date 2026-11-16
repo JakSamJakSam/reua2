@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 14:58+0200\n"
+"POT-Creation-Date: 2026-11-16 15:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,7 +169,7 @@ msgstr "The company name (en)"
 msgid "Логотип"
 msgstr "Logotype"
 
-#: .\reua\models\compaies.py:71 .\reua\models\waters.py:59
+#: .\reua\models\compaies.py:71
 msgid "Опис"
 msgstr "Description"
 
@@ -510,11 +510,11 @@ msgstr "The code for adding the company to the investment"
 msgid "Адреса англійською"
 msgstr "Address (en)"
 
-#: .\reua\models\site_models.py:127 .\reua\models\waters.py:12
+#: .\reua\models\site_models.py:127
 msgid "Широта"
 msgstr "Latitude"
 
-#: .\reua\models\site_models.py:128 .\reua\models\waters.py:13
+#: .\reua\models\site_models.py:128
 msgid "Долгота"
 msgstr "Longitude"
 
@@ -644,14 +644,6 @@ msgstr "Video (en)"
 msgid "Постер"
 msgstr ""
 
-#: .\reua\models\waters.py:15
-msgid "Опис (українською)"
-msgstr "Description (ukr)"
-
-#: .\reua\models\waters.py:16
-msgid "Опис (англійською)"
-msgstr "Description (en)"
-
 #: .\reua\models\waters.py:36
 msgid "Установка очищення води"
 msgstr ""
@@ -659,22 +651,6 @@ msgstr ""
 #: .\reua\models\waters.py:37
 msgid "Установки очищення води"
 msgstr "Water purification installation"
-
-#: .\reua\models\waters.py:57
-msgid "Точка"
-msgstr ""
-
-#: .\reua\models\waters.py:58
-msgid "Активно"
-msgstr ""
-
-#: .\reua\models\waters.py:65
-msgid "Точка на мапі"
-msgstr ""
-
-#: .\reua\models\waters.py:66
-msgid "Точки на мапі"
-msgstr ""
 
 #: .\reua\templates\2026\index\index.html:8 .\reua\templates\index\index.html:7
 #: .\reua\templates\index\new_index.html:7
@@ -693,7 +669,7 @@ msgid ""
 "                        "
 msgstr ""
 "\n"
-"                            «Rebuild Our <span class=\"mark\">Ukraine»</"
+"                            Rebuild Our <span class=\"mark\">Ukraine</"
 "span>\n"
 "                        "
 
@@ -2403,3 +2379,9 @@ msgid ""
 msgstr ""
 "The platform works to collect funds to solve the priority humanitarian tasks "
 "of internally displaced persons from Mariupol and Ukraine as a whole."
+
+#~ msgid "Опис (українською)"
+#~ msgstr "Description (ukr)"
+
+#~ msgid "Опис (англійською)"
+#~ msgstr "Description (en)"

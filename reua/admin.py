@@ -111,10 +111,10 @@ class StaffAdmin(SummernoteModelAdminMixin, SortableAdmin):
 # class LabelAdmin(SortableAdmin):
 #     pass
 #
-# # @admin.register(WaterStation)
-# # class WaterStationAdmin(SortableAdmin):
-# #     pass
-#
+@admin.register(WaterStation)
+class WaterStationAdmin(SortableAdmin):
+    pass
+
 class ProjectPhotoInline(admin.StackedInline):
     model = ProjectPhoto
 
