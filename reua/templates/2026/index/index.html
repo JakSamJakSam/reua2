@@ -47,6 +47,7 @@
                             {% endblocktranslate %}
                         </span>
                     </div>
+                    {{ points|json_script:"map_points" }}
                     <div class="map" id="map"
                          data-image-station-icon="{% static 'reua/img/2026/hero/map/map-station-icon.png' %}">
                         {% include "2026/std/map/ukraine.svg" %}
@@ -80,7 +81,7 @@
                                         <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
                                     </svg>
                                 </i>
-                                <b data-to="23">0</b>
+                                <b data-to="{{ stations_count }}">0</b>
                             </div>
                             <div>
                                 <span>{% trans "встановлені станції" %}</span>
@@ -93,7 +94,7 @@
                                         <circle cx="18" cy="18" r="10.9" stroke="#0E52BD" stroke-width="2.2"/>
                                     </svg>
                                 </i>
-                                <b data-to="10">0</b>
+                                <b data-to="{{ regions_count }}">0</b>
                             </div>
                             <div>
                                 <span>{% trans "регіонів України" %}</span>

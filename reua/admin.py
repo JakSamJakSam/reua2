@@ -111,6 +111,12 @@ class StaffAdmin(SummernoteModelAdminMixin, SortableAdmin):
 # class LabelAdmin(SortableAdmin):
 #     pass
 #
+
+@admin.register(MapPoint)
+class MapPointAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(WaterStation)
 class WaterStationAdmin(SortableAdmin):
     pass

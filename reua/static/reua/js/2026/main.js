@@ -36,13 +36,63 @@ function init_scrolls() {
   document.querySelectorAll('.rv, .how, .stats, #stages, #stage, #sysmap, .chk').forEach(el => io.observe(el));
 }
 
+function convertLonLatToMap(svgElement, lat, lon) {
+  // 1. Откалиброванные географические границы с учетом внутренних полей холста
+  const BOUNDS = {
+    minLon: 22.02,  // Левый край холста (чуть западнее Закарпатья)
+    maxLon: 40.35,  // Правый край холста (чуть восточнее Луганской обл.)
+    maxLat: 52.44,  // Верхний край холста (чуть севернее Черниговской обл.)
+    minLat: 44.30   // Нижний край холста (чуть южнее мыса Сарыч в Крыму)
+  };
+
+  // 2. Получаем размеры координатной сетки SVG
+  const viewBox = svgElement.viewBox.baseVal;
+  const width = (viewBox && viewBox.width) || parseFloat(svgElement.getAttribute('width')) || 1000;
+  const height = (viewBox && viewBox.height) || parseFloat(svgElement.getAttribute('height')) || 674;
+
+  // 3. Расчет X (линейно по долготе)
+  const x = ((lon - BOUNDS.minLon) / (BOUNDS.maxLon - BOUNDS.minLon)) * width;
+
+  // 4. Расчет Y (по проекции Меркатора, чтобы точки в центре не съезжали по вертикали)
+  const toMercatorY = (latitude) => {
+    const rad = (latitude * Math.PI) / 180;
+    return Math.log(Math.tan(Math.PI / 4 + rad / 2));
+  };
+
+  const mercMinY = toMercatorY(BOUNDS.minLat);
+  const mercMaxY = toMercatorY(BOUNDS.maxLat);
+  const mercY = toMercatorY(lat);
+
+  const y = ((mercMaxY - mercY) / (mercMaxY - mercMinY)) * height;
+  return [x, y];
+}
+
 // ---- карта
 function init_maps() {
+
+  const fake = false;
   const map = document.querySelector('#map');
 
   const NS = 'http://www.w3.org/2000/svg';
-  const M = [[456.6, 162.5, 2, 'Буча, Ворзель'], [634.6, 383.2, 1, 'Кривий Ріг'], [490.3, 499.9, 2, 'Одеса, Одеська обл.'], [435.9, 169.3, 1, 'Макарів'], [703.3, 406.2, 1, 'Марганець'], [792.1, 208.7, 2, 'Харків'], [546.3, 399.1, 1, 'Ольгопіль (Миколаївська обл.)'], [512.7, 490.6, 1, 'Коблеве'], [555.9, 463.9, 3, 'Миколаїв (2), Галицинове'], [532.3, 491.7, 1, 'Очаків'], [475.4, 170.5, 1, 'Київ'], [458.7, 312.9, 1, 'Умань'], [368.7, 217.1, 1, 'Бердичів'], [523.1, 146.0, 1, 'Чернігівська обл.'], [634.1, 78.6, 1, 'Кролевець'], [796.8, 301.2, 1, 'Лозова'], [726.3, 336.8, 1, 'Дніпро'], [862.5, 315.3, 1, 'Олександрівка']];
-  const E = [[0, 10], [0, 3], [10, 13], [3, 12], [13, 14], [12, 11], [11, 6], [6, 8], [8, 9], [9, 7], [7, 2], [6, 1], [1, 4], [4, 16], [16, 15], [15, 17], [15, 5]];
+  let M, E;
+  if (fake) {
+    M = [[456.6, 162.5, 2, 'Буча, Ворзель'], [634.6, 383.2, 1, 'Кривий Ріг'], [490.3, 499.9, 2, 'Одеса, Одеська обл.'], [435.9, 169.3, 1, 'Макарів'], [703.3, 406.2, 1, 'Марганець'], [792.1, 208.7, 2, 'Харків'], [546.3, 399.1, 1, 'Ольгопіль (Миколаївська обл.)'], [512.7, 490.6, 1, 'Коблеве'], [555.9, 463.9, 3, 'Миколаїв (2), Галицинове'], [532.3, 491.7, 1, 'Очаків'], [475.4, 170.5, 1, 'Київ'], [458.7, 312.9, 1, 'Умань'], [368.7, 217.1, 1, 'Бердичів'], [523.1, 146.0, 1, 'Чернігівська обл.'], [634.1, 78.6, 1, 'Кролевець'], [796.8, 301.2, 1, 'Лозова'], [726.3, 336.8, 1, 'Дніпро'], [862.5, 315.3, 1, 'Олександрівка']];
+    E = [[0, 10], [0, 3], [10, 13], [3, 12], [13, 14], [12, 11], [11, 6], [6, 8], [8, 9], [9, 7], [7, 2], [6, 1], [1, 4], [4, 16], [16, 15], [15, 17], [15, 5]];
+  } else {
+    const mp = document.querySelector('#map_points');
+    if (!mp) return ;
+    const points = JSON.parse(mp.textContent);
+    const SVGMap = map.querySelector("svg");
+    M = points.map(point => {
+      const [x, y] = convertLonLatToMap(SVGMap, point.lat, point.lon)
+      // 862.5, 315.3
+      return [x, y, point.stations_count, point.title]
+    });
+    E = points.reduce((R, p1, i) => [
+      ...R,
+      ...points.map((p2, i2) => [i, i2]),
+    ], []).filter(([e1, e2]) => e1 < e2);
+  }
   const arcs = $('#arcs'), pts = $('#pts');
   const word = n => n === 1 ? 'станція' : (n < 5 ? 'станції' : 'станцій');
   if (arcs) E.forEach(([a, b], i) => {
@@ -130,9 +180,11 @@ function init_counters() {
 
   setTimeout(() => document.querySelectorAll('.stats b[data-to]').forEach((b, i) => setTimeout(() => count(b, 0, +b.dataset.to), i * 120)), reduce ? 0 : 900);
   const cnum = $('#cnum');
-  // лічильник на карті одразу рахує загальну кількість води всіх станцій
-  const mlnsFmt = n => (Math.round(n/100000)/10).toLocaleString(document.documentElement.lang);
-  setTimeout(() => count(cnum, 0, cnum.dataset.to, 1800, mlnsFmt), reduce ? 0 : 1700);
+  if (cnum) {
+    // лічильник на карті одразу рахує загальну кількість води всіх станцій
+    const mlnsFmt = n => (Math.round(n / 100000) / 10).toLocaleString(document.documentElement.lang);
+    setTimeout(() => count(cnum, 0, cnum.dataset.to, 1800, mlnsFmt), reduce ? 0 : 1700);
+  }
 }
 
 // бульбашки у воді

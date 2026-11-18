@@ -1,0 +1,32 @@
+from django.db.models import TextChoices
+from django.utils.translation import gettext_lazy as _
+
+
+class UaRegions(TextChoices):
+    Vinnytsya = "Vinnytsya", _("Вінницька")
+    Volyn = "Volyn", _("Волинська")
+    Dnipropetrovsk = "Dnipropetrovs'k", _("Дніпропетровська")
+    Donetsk = "Donets'k", _("Донецька")
+    Zhytomyr = "Zhytomyr", _("Житомирська")
+    Transcarpathia = "Transcarpathia", _("Закарпатська")
+    Zaporizhzhya = "Zaporizhzhya", _("Запорізька")
+    IvanoFrankivsk = "Ivano-Frankivs'k", _("Івано-франківська")
+    Kiev = "Kiev", _("Київська")
+    Kirovohrad = "Kirovohrad", _("Кіровоградська")
+    Lviv = "L'viv", _("Львівська")
+    Luhansk = "Luhans'k", _("Луганська")
+    Mykolayiv = "Mykolayiv", _("Миколаївська")
+    Odessa = "Odessa", _("Одеська")
+    Poltava = "Poltava", _("Полтавська")
+    Rivne = "Rivne", _("Рівненська")
+    Sumy = "Sumy", _("Сумська")
+    Ternopil = "Ternopil", _("Тернопільська")
+    Kharkiv = "Kharkiv", _("Харківська")
+    Kherson = "Kherson", _("Херсонська")
+    Khmelnytskyy = "Khmel'nyts'kyy", _("Хмельницька")
+    Cherkasy = "Cherkasy", _("Черкаська")
+    Chernihiv = "Chernihiv", _("Чернигівська")
+    Chernivtsi = "Chernivtsi", _("Чернівецька")
+    Crimea = "Crimea", _("Ар Крим")
+    KievCity = "Kiev City", _("м. Київ")
+    Sevastopol = "Sevastopol", _("м. Севастополь")
