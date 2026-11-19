@@ -196,7 +196,8 @@
             </div>
             <div class="cards">
                 {% for news_item in news %}
-                    <a class="card rv {% if forloop.counter > 2 %} d-none d-md-block {% endif %}" href="#"
+                    <a class="card rv {% if forloop.counter > 2 %} d-none d-md-block {% endif %}"
+                       href="{% url "water-project-item" pk=news_item.pk %}"
                        style="--d:0.{{ forloop.counter }}s">
                         {% thumbnail news_item.image "280x440" crop='center' as im %}
                             <img src="{{ im.url }}" alt="" loading="lazy">
