@@ -117,8 +117,6 @@ class FoundingDocument(models.Model):
 
 class SiteSettings(models.Model):
     site = models.OneToOneField('sites.Site', on_delete=models.RESTRICT, verbose_name=_('Сайт'))
-    company_add_code = models.CharField(max_length=20, verbose_name=_('Код додавання компанії в групу компаній'))
-    invest_add_code = models.CharField(max_length=20, verbose_name=_('Код додавання компанії в інвестиції'))
     addr = models.TextField(verbose_name=_('Адреса'), blank=True)
     addr_en = models.TextField(verbose_name=_('Адреса англійською'), blank=True)
     phone = PhoneNumberField(verbose_name=_('Телефон'), region='UA', null=True, blank=True, default=None)
@@ -127,12 +125,10 @@ class SiteSettings(models.Model):
     lat = models.FloatField(verbose_name=_('Широта'), null=True, blank=True, default=None)
     lng = models.FloatField(verbose_name=_('Долгота'), null=True, blank=True, default=None)
 
-    reh2o_text = models.TextField(verbose_name=_('Текст призначення для ReH2O'), blank=True)
-    reh2o_text_en = models.TextField(verbose_name=_('Текст призначення для ReH2O (англ.)'), blank=True)
-
-    reCity_text = models.TextField(verbose_name=_('Текст призначення для ReCity'), blank=True)
-    reCity_text_en = models.TextField(verbose_name=_('Текст призначення для ReCity (англ.)'), blank=True)
-
+    facebook = models.URLField(verbose_name=_('Адреса facebook'), null=True, blank=True, default=None)
+    youtube = models.URLField(verbose_name=_('Адреса youtube'), null=True, blank=True, default=None)
+    instagram = models.URLField(verbose_name=_('Адреса instagram'), null=True, blank=True, default=None)
+    linkedin = models.URLField(verbose_name=_('Адреса linkedin'), null=True, blank=True, default=None)
 
     def __str__(self):
         return str(self.site)

@@ -4,32 +4,36 @@
 <h5>{% trans "Ми в соцмережах" %}</h5>
 <ul>
     <li>
-        <a class="si" href="#">
+        <a class="si {% if not site_settings.facebook %} disabled {% endif %}" href="{{ site_settings.facebook }}"
+           target="_blank">
             <b>
-                <img src="{% static 'reua/img/2026/socials/colored/facebook.svg' %}" alt="Facebook" />
+                <img src="{% static 'reua/img/2026/socials/colored/facebook.svg' %}" alt="Facebook"/>
             </b>
             <span>Facebook</span>
         </a>
     </li>
-    <li><a class="si" href="#">
+    <li><a class="si {% if not site_settings.youtube %} disabled {% endif %}" href="{{ site_settings.youtube }}"
+           target="_blank">
         <b>
-                <img src="{% static 'reua/img/2026/socials/colored/youtube.svg' %}" alt="YouTube" />
+            <img src="{% static 'reua/img/2026/socials/colored/youtube.svg' %}" alt="YouTube"/>
         </b>
         <span>YouTube</span>
     </a>
     </li>
     <li>
-        <a class="si" href="#">
+        <a class="si {% if not site_settings.instagram %} disabled {% endif %}" href="{{ site_settings.instagram }}"
+           target="_blank">
             <b>
-                <img src="{% static 'reua/img/2026/socials/colored/instagram.svg' %}" alt="Instagram" />
+                <img src="{% static 'reua/img/2026/socials/colored/instagram.svg' %}" alt="Instagram"/>
             </b>
             <span>Instagram</span>
         </a>
     </li>
     <li>
-        <a class="si" href="#">
+        <a class="si {% if not site_settings.linkedin %} disabled {% endif %}" href="{{ site_settings.linkedin }}"
+           target="_blank">
             <b>
-                <img src="{% static 'reua/img/2026/socials/colored/linkedin.svg' %}" alt="LinkedIn" />
+                <img src="{% static 'reua/img/2026/socials/colored/linkedin.svg' %}" alt="LinkedIn"/>
             </b>
             <span>LinkedIn</span>
         </a>
