@@ -1,0 +1,65 @@
+{% extends "news/news-base.html" %}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load request_heplers %}
+
+{% block css %}
+    <link href="{% static "reua/assets/lightGallery-2.7.1/css/lightgallery-bundle.min.css" %}" rel="stylesheet">
+    {{ block.super }}
+{% endblock %}
+
+{% block left_side %}
+    {% with project.photos.all as photos %}
+        <div>
+            <h1>{{ project.localized_title }}</h1>
+            <div class="d-flex align-items-baseline gap-2">
+                <h2 class="fw-bold">{{ project.localized_for1 }} {{ project.localized_for_city }}</h2>
+                {% if project.localized_for_region %}
+                    <div class="ms-auto d-flex align-items-baseline">
+                        <object data="{% static "reua/img/_b/geo.svg" %}" type=""></object>
+                        <h2>{{ project.localized_for_region }}</h2>
+                    </div>
+                {% endif %}
+            </div>
+
+            {{ project.localized_desc|safe }}
+            <div class="result">
+                <p><span>{% trans "Статус:" %}</span>
+                    {{ project.localized_status }}
+                </p>
+            </div>
+            {% if photos|length %}
+                <ul id="lightgallery" class="d-flex gap-2 list-unstyled flex-wrap">
+                    {% thumbnail project.image "800" format="PNG" crop='center' as im %}
+                        <li class="gallery-item w-100 " data-src="{{ project.image.url }}">
+                            <img alt="{{ project.localized_title }}" src="{{ im.url }}"/>
+                        </li>
+                    {% endthumbnail %}
+                    {% for image in photos %}
+                        {% thumbnail image.image "x100" format="PNG" upscale=True crop='center' as im %}
+                            <li class="gallery-item" data-src="{{ image.image.url }}">
+                                <img alt="{{ image.localized_title }}" src="{{ im.url }}"/>
+                            </li>
+                        {% endthumbnail %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+        </div>
+    {% endwith %}
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static "reua/assets/lightGallery-2.7.1/lightgallery.min.js" %}"></script>
+    <script src="{% static "reua/assets/lightGallery-2.7.1/plugins/share/lg-share.min.js" %}"></script>
+    <script type="text/javascript">
+      lightGallery(document.getElementById('lightgallery'), {
+        plugins: [lgShare,],
+        speed: 500,
+        {#licenseKey:''#}
+      });
+    </script>
+{% endblock %}

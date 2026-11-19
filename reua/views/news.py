@@ -80,7 +80,7 @@ class ListWaterProjectView(BreadCrumbsMixin, NewsMixin, ListView):
 class DetailWaterProjectView(BreadCrumbsMixin, DetailView):
     model = Project
     context_object_name = 'project'
-    template_name = 'projects/water-project.html'
+    template_name = 'news/project-item.html'
 
     bc = [
         {'title': _("Актуальні проєкти"), 'url': reverse_lazy('project-list')},
