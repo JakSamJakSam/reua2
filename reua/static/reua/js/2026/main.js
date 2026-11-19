@@ -70,7 +70,7 @@ function convertLonLatToMap(svgElement, lat, lon) {
 // ---- карта
 function init_maps() {
 
-  const fake = false;
+  const fake = true;
   const map = document.querySelector('#map');
 
   const NS = 'http://www.w3.org/2000/svg';
