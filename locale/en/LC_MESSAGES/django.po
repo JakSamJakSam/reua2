@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 15:35+0200\n"
+"POT-Creation-Date: 2026-11-19 15:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,13 +35,127 @@ msgstr "\"ReH₂O\" assignment"
 msgid "Призначення ReCity"
 msgstr "ReCity assignment"
 
-#: .\reua\admin.py:173
+#: .\reua\admin.py:179
 msgid "Опублікувати обрані новини"
 msgstr "Publish selected news"
 
-#: .\reua\admin.py:177
+#: .\reua\admin.py:183
 msgid "Приховати обрані новини"
 msgstr "Hide selected news"
+
+#: .\reua\enums.py:6
+#, fuzzy
+#| msgid "одиниць"
+msgid "Вінницька"
+msgstr "units"
+
+#: .\reua\enums.py:7
+msgid "Волинська"
+msgstr ""
+
+#: .\reua\enums.py:8
+msgid "Дніпропетровська"
+msgstr ""
+
+#: .\reua\enums.py:9
+msgid "Донецька"
+msgstr ""
+
+#: .\reua\enums.py:10
+msgid "Житомирська"
+msgstr ""
+
+#: .\reua\enums.py:11
+msgid "Закарпатська"
+msgstr ""
+
+#: .\reua\enums.py:12
+msgid "Запорізька"
+msgstr ""
+
+#: .\reua\enums.py:13
+msgid "Івано-франківська"
+msgstr ""
+
+#: .\reua\enums.py:14
+msgid "Київська"
+msgstr ""
+
+#: .\reua\enums.py:15
+msgid "Кіровоградська"
+msgstr ""
+
+#: .\reua\enums.py:16
+msgid "Львівська"
+msgstr ""
+
+#: .\reua\enums.py:17
+msgid "Луганська"
+msgstr ""
+
+#: .\reua\enums.py:18
+msgid "Миколаївська"
+msgstr ""
+
+#: .\reua\enums.py:19
+msgid "Одеська"
+msgstr ""
+
+#: .\reua\enums.py:20
+msgid "Полтавська"
+msgstr ""
+
+#: .\reua\enums.py:21
+msgid "Рівненська"
+msgstr ""
+
+#: .\reua\enums.py:22
+msgid "Сумська"
+msgstr ""
+
+#: .\reua\enums.py:23
+#, fuzzy
+#| msgid "Маріупольський"
+msgid "Тернопільська"
+msgstr "Mariupol"
+
+#: .\reua\enums.py:24
+msgid "Харківська"
+msgstr ""
+
+#: .\reua\enums.py:25
+msgid "Херсонська"
+msgstr ""
+
+#: .\reua\enums.py:26
+#, fuzzy
+#| msgid "одиниць"
+msgid "Хмельницька"
+msgstr "units"
+
+#: .\reua\enums.py:27
+msgid "Черкаська"
+msgstr ""
+
+#: .\reua\enums.py:28
+msgid "Чернигівська"
+msgstr ""
+
+#: .\reua\enums.py:29
+msgid "Чернівецька"
+msgstr ""
+
+#: .\reua\enums.py:30
+msgid "Ар Крим"
+msgstr ""
+
+#: .\reua\enums.py:31
+msgid "м. Київ"
+msgstr ""
+
+#: .\reua\enums.py:32
+msgid "м. Севастополь"
+msgstr ""
 
 #: .\reua\forms\company.py:19
 msgid "Код запрошення до групи компаній"
@@ -115,7 +229,7 @@ msgstr "Html (en)"
 #: .\reua\models\compaies.py:16 .\reua\models\compaies.py:90
 #: .\reua\models\site_models.py:25 .\reua\models\site_models.py:181
 #: .\reua\models\site_models.py:216 .\reua\models\site_models.py:277
-#: .\reua\models\site_models.py:320 .\reua\models\waters.py:18
+#: .\reua\models\site_models.py:320
 msgid "Номер за порядком"
 msgstr "Order"
 
@@ -130,7 +244,7 @@ msgstr "Labels of company"
 #: .\reua\models\compaies.py:33 .\reua\models\news.py:10
 #: .\reua\models\projects.py:33 .\reua\models\site_models.py:20
 #: .\reua\models\site_models.py:67 .\reua\models\site_models.py:213
-#: .\reua\models\waters.py:9
+#: .\reua\models\waters.py:9 .\reua\models\waters.py:31
 msgid "Назва (українською)"
 msgstr "Title (ukr)"
 
@@ -348,7 +462,7 @@ msgstr ""
 msgid "Новина"
 msgstr "News"
 
-#: .\reua\models\news.py:67 .\reua\templates\2026\index\index.html:186
+#: .\reua\models\news.py:67 .\reua\templates\2026\index\index.html:192
 msgid "Новини"
 msgstr "News"
 
@@ -510,7 +624,7 @@ msgstr "The code for adding the company to the investment"
 msgid "Адреса англійською"
 msgstr "Address (en)"
 
-#: .\reua\models\site_models.py:127
+#: .\reua\models\site_models.py:127 .\reua\models\waters.py:14
 msgid "Широта"
 msgstr "Latitude"
 
@@ -644,24 +758,273 @@ msgstr "Video (en)"
 msgid "Постер"
 msgstr ""
 
-#: .\reua\models\waters.py:36
+#: .\reua\models\waters.py:12
+msgid "Регіон"
+msgstr ""
+
+#: .\reua\models\waters.py:13
+#, fuzzy
+#| msgid "Долгота"
+msgid "Довгота"
+msgstr "Longitude"
+
+#: .\reua\models\waters.py:26 .\reua\models\waters.py:32
+msgid "Крапка на мапі"
+msgstr ""
+
+#: .\reua\models\waters.py:27
+msgid "Крапки на мапі"
+msgstr ""
+
+#: .\reua\models\waters.py:38
 msgid "Установка очищення води"
 msgstr ""
 
-#: .\reua\models\waters.py:37
+#: .\reua\models\waters.py:39
 msgid "Установки очищення води"
 msgstr "Water purification installation"
 
-#: .\reua\templates\2026\index\index.html:8 .\reua\templates\index\index.html:7
-#: .\reua\templates\index\new_index.html:7
+#: .\reua\templates\2026\index\about.html:9
+msgid "Про нас"
+msgstr "About us"
+
+#: .\reua\templates\2026\index\about.html:11
+msgid ""
+"\n"
+"            Благодійний Фонд «Відбудуємо нашу Україну» (Rebuild Our Ukraine, "
+"REUA) — український фонд, заснований у\n"
+"            травні 2022 року для підтримки відновлення та розвитку громад "
+"України.\n"
+"        "
+msgstr ""
+"\n"
+"            Rebuild Our Ukraine (REUA) is a Ukrainian charitable foundation "
+"established in May 2022 to support the recovery and development of "
+"communities across Ukraine.\n"
+"        "
+
+#: .\reua\templates\2026\index\about.html:17
+msgid ""
+"\n"
+"            Фонд працює над розвитком децентралізованого водопостачання, "
+"підтримує критично важливі об’єкти та допомагає\n"
+"            громадам залучати фінансування для вирішення нагальних "
+"інфраструктурних потреб.\n"
+"        "
+msgstr ""
+"\n"
+"The Foundation works to expand decentralised water supply, supports critical "
+"infrastructure facilities, and helps communities secure funding to address "
+"pressing infrastructure needs.        "
+
+#: .\reua\templates\2026\index\about.html:23
+msgid ""
+"\n"
+"            У своїй роботі REUA об’єднує зусилля міжнародних донорів, "
+"державних інституцій, бізнесу та місцевих громад,\n"
+"            щоб перетворювати наявні ресурси й експертизу на практичні "
+"рішення.\n"
+"        "
+msgstr ""
+"\n"
+"REUA brings together international donors, public institutions, businesses, "
+"and local communities, combining their resources and expertise to turn needs "
+"into practical solutions.        "
+
+#: .\reua\templates\2026\index\about.html:31
+msgid "Наша місія"
+msgstr "Our mission"
+
+#: .\reua\templates\2026\index\about.html:33
+msgid ""
+"\n"
+"                    Сприяти відновленню та розвитку України, поєднуючи "
+"потреби громад із можливостями партнерів,\n"
+"                    експертизою\n"
+"                    та фінансовими ресурсами.\n"
+"                "
+msgstr ""
+"\n"
+"To contribute to Ukraine’s recovery and development by connecting community "
+"needs with the expertise, resources, and opportunities of partners.        "
+
+#: .\reua\templates\2026\index\about.html:40
+msgid ""
+"\n"
+"                    Ми переконані, що ефективне відновлення починається з "
+"розуміння реальних потреб людей і потребує\n"
+"                    фахового підходу, відповідального планування та "
+"співпраці між різними секторами.\n"
+"                "
+msgstr ""
+"\n"
+"We believe effective recovery begins with an understanding of people’s "
+"actual needs and requires professional expertise, responsible planning, and "
+"cooperation across sectors.        "
+
+#: .\reua\templates\2026\index\about.html:48
+msgid "Напрями діяльності"
+msgstr "Areas of activity"
+
+#: .\reua\templates\2026\index\about.html:51
+msgid "Децентралізоване водопостачання"
+msgstr "Decentralised Water Supply"
+
+#: .\reua\templates\2026\index\about.html:53
+msgid ""
+"\n"
+"                    ReH₂O — національна програма розвитку децентралізованої "
+"мережі постачання питної води в Україні.\n"
+"                "
+msgstr ""
+"\n"
+"ReH₂O is a national program aimed at developing a decentralised drinking "
+"water supply network across Ukraine.        "
+
+#: .\reua\templates\2026\index\about.html:58
+msgid ""
+"\n"
+"                    Фонд розвиває мережу модульних станцій очищення води в "
+"медичних закладах і територіальних громадах.\n"
+"                    Вони\n"
+"                    забезпечують локальний доступ до безпечної питної води "
+"та доповнюють централізовані системи\n"
+"                    водопостачання, зокрема там, де їхня робота може бути "
+"порушена.\n"
+"                "
+msgstr ""
+"\n"
+"The Foundation is expanding a network of modular water treatment plants at "
+"healthcare facilities and in local communities. These plants provide local "
+"access to safe drinking water and complement centralised water supply "
+"systems, particularly in areas where their operation may be "
+"disrupted.        "
+
+#: .\reua\templates\2026\index\about.html:67
+msgid "Підтримка критично важливої інфраструктури"
+msgstr "Support for Critical Infrastructure"
+
+#: .\reua\templates\2026\index\about.html:69
+msgid ""
+"\n"
+"                    REUA реалізує проєкти, що допомагають забезпечувати "
+"безперебійну роботу важливих для громад\n"
+"                    об’єктів.\n"
+"                "
+msgstr ""
+"\n"
+"REUA implements projects that help ensure the continuous operation of "
+"facilities essential to local communities.        "
+
+#: .\reua\templates\2026\index\about.html:75
+msgid ""
+"\n"
+"                    Один із напрямів — теплопостачання. Зокрема, фонд "
+"реалізував проєкт із передачі блочно-модульної\n"
+"                    котельні потужністю 2,8 МВт для потреб «Центру "
+"інноваційних технологій охорони здоров’я».\n"
+"                "
+msgstr ""
+"\n"
+"One of the areas of focus is heat supply. In particular, the Foundation "
+"implemented a project to provide a 2.8 MW modular boiler house for the "
+"Centre for Innovative Healthcare Technologies.        "
+
+#: .\reua\templates\2026\index\about.html:82
+msgid "Залучення фінансування та інвестицій"
+msgstr "Funding and Investment Mobilisation"
+
+#: .\reua\templates\2026\index\about.html:84
+msgid ""
+"\n"
+"                    Фонд допомагає громадам знаходити фінансові можливості "
+"для реалізації інфраструктурних проєктів, які\n"
+"                    складно профінансувати власними силами.\n"
+"                "
+msgstr ""
+"\n"
+"The Foundation helps communities identify funding opportunities for "
+"infrastructure projects that they may not be able to finance "
+"independently.        "
+
+#: .\reua\templates\2026\index\about.html:90
+msgid ""
+"\n"
+"                    REUA сприяє визначенню потенційних джерел фінансування, "
+"пошуку міжнародних донорів та інвесторів і\n"
+"                    налагодженню партнерств для залучення міжнародних "
+"ресурсів і приватного капіталу.\n"
+"                "
+msgstr ""
+"\n"
+"REUA helps identify potential funding sources, connect with international "
+"donors and investors, and establish partnerships to mobilise international "
+"funding and private investment.        "
+
+#: .\reua\templates\2026\index\about.html:98
+msgid "Засновник і президент фонду"
+msgstr "Founder and president"
+
+#: .\reua\templates\2026\index\about.html:100
+msgid ""
+"\n"
+"            Олег Кленін — засновник і президент благодійного фонду "
+"«Відбудуємо нашу Україну», доктор економічних наук,\n"
+"            професор.\n"
+"        "
+msgstr ""
+"\n"
+"Oleg Klenin is the founder and president of Rebuild Our Ukraine, holding a "
+"Doctor of Economics degree and the title of Professor.        "
+
+#: .\reua\templates\2026\index\about.html:106
+msgid ""
+"\n"
+"            Має понад 30 років професійного досвіду в управлінні "
+"підприємствами та реалізації проєктів у промисловості,\n"
+"            машинобудуванні, будівництві й енергетиці. Його досвід охоплює "
+"модернізацію виробничих потужностей,\n"
+"            управління інвестиційними проєктами, розвиток систем "
+"водопостачання та водопідготовки, а також упровадження\n"
+"            рішень з енергоефективності.\n"
+"        "
+msgstr ""
+"\n"
+"He has over 30 years of professional experience in business management and "
+"project delivery across the industrial, mechanical engineering, "
+"construction, and energy sectors. His expertise includes the modernisation "
+"of production facilities, investment project management, the development of "
+"water supply and treatment systems, and the implementation of energy "
+"efficiency solutions.        "
+
+#: .\reua\templates\2026\index\about.html:114
+msgid ""
+"\n"
+"            Після початку повномасштабного вторгнення заснував REUA, щоб "
+"спрямувати свій професійний досвід на підтримку\n"
+"            українських громад.\n"
+"        "
+msgstr ""
+"\n"
+"Following Russia’s full-scale invasion of Ukraine, he founded REUA to put "
+"his professional experience to work in support of Ukrainian "
+"communities.        "
+
+#: .\reua\templates\2026\index\about.html:120
+#: .\reua\templates\pages\about.html:93
+msgid "Команда"
+msgstr "Team"
+
+#: .\reua\templates\2026\index\index.html:10
+#: .\reua\templates\index\index.html:7 .\reua\templates\index\new_index.html:7
 msgid "Головна сторінка"
 msgstr "Home page"
 
-#: .\reua\templates\2026\index\index.html:19
+#: .\reua\templates\2026\index\index.html:21
 msgid "Благодійний Фонд"
 msgstr "Charitable Foundation"
 
-#: .\reua\templates\2026\index\index.html:21
+#: .\reua\templates\2026\index\index.html:23
 msgid ""
 "\n"
 "                            «Відбудуємо нашу <span class=\"mark\">Україну»</"
@@ -669,40 +1032,40 @@ msgid ""
 "                        "
 msgstr ""
 "\n"
-"                            Rebuild Our <span class=\"mark\">Ukraine</"
-"span>\n"
+"                            Rebuild Our <span class=\"mark\">Ukraine</span>\n"
 "                        "
 
-#: .\reua\templates\2026\index\index.html:26
+#: .\reua\templates\2026\index\index.html:28
 msgid "Ми відновлюємо критично важливі для життя ресурси та інфраструктуру"
 msgstr "We restore vital resources and critical infrastructure"
 
-#: .\reua\templates\2026\index\index.html:37
+#: .\reua\templates\2026\index\index.html:39
 #: .\reua\templates\2026\index\water.html:46
+#: .\reua\templates\2026\index\water.html:49
 #: .\reua\templates\2026\index\water.html:52
 msgid "до"
 msgstr "up to"
 
-#: .\reua\templates\2026\index\index.html:39
+#: .\reua\templates\2026\index\index.html:41
 msgid "млн. л/добу"
 msgstr "million liters/day"
 
-#: .\reua\templates\2026\index\index.html:41
+#: .\reua\templates\2026\index\index.html:43
 #, python-format
 msgid "%(counter)s станція"
 msgid_plural "%(counter)s станції"
-msgstr[0] "%(counter)s water treatment plant"
-msgstr[1] "%(counter)s water treatment plants"
+msgstr[0] "%(counter)s plant"
+msgstr[1] "%(counter)s plants"
 
-#: .\reua\templates\2026\index\index.html:62
+#: .\reua\templates\2026\index\index.html:65
 msgid "Флагманська програма"
 msgstr "Flagship program"
 
-#: .\reua\templates\2026\index\index.html:63
+#: .\reua\templates\2026\index\index.html:66
 msgid "Національна програма водної стійкості України ReH₂O"
 msgstr "Ukraine’s National Water Resilience Program ReH₂O"
 
-#: .\reua\templates\2026\index\index.html:64
+#: .\reua\templates\2026\index\index.html:67
 msgid ""
 "Автономні джерела питної води для громад, лікарень та критичної "
 "інфраструктури"
@@ -710,35 +1073,35 @@ msgstr ""
 "Autonomous drinking water supply systems for communities, hospitals, and "
 "critical infrastructure"
 
-#: .\reua\templates\2026\index\index.html:65
+#: .\reua\templates\2026\index\index.html:69
 msgid "Про програму →"
 msgstr "Learn more →"
 
-#: .\reua\templates\2026\index\index.html:70
+#: .\reua\templates\2026\index\index.html:75
 msgid "Реалізовано"
 msgstr "Implemented"
 
-#: .\reua\templates\2026\index\index.html:82
+#: .\reua\templates\2026\index\index.html:87
 msgid "встановлені станції"
 msgstr "water treatment plants installed"
 
-#: .\reua\templates\2026\index\index.html:95
+#: .\reua\templates\2026\index\index.html:100
 msgid "регіонів України"
 msgstr "regions of Ukraine"
 
-#: .\reua\templates\2026\index\index.html:107
+#: .\reua\templates\2026\index\index.html:112
 msgid "людей з доступом до чистої питної води"
 msgstr "people with access to safe drinking water"
 
-#: .\reua\templates\2026\index\index.html:120
+#: .\reua\templates\2026\index\index.html:125
 msgid "років роботи станцій"
 msgstr "years of operation"
 
-#: .\reua\templates\2026\index\index.html:134
+#: .\reua\templates\2026\index\index.html:139
 msgid "Як це працює"
 msgstr "How it works"
 
-#: .\reua\templates\2026\index\index.html:139
+#: .\reua\templates\2026\index\index.html:144
 msgid ""
 "Автономна станція ReH₂O забезпечує повний цикл — від підземного джерела до "
 "безпечної питної води"
@@ -746,35 +1109,35 @@ msgstr ""
 "The autonomous ReH₂O plant provides a complete water treatment cycle — from "
 "an underground water source to safe drinking water"
 
-#: .\reua\templates\2026\index\index.html:141
+#: .\reua\templates\2026\index\index.html:147
 msgid "Детальніше →"
 msgstr "Learn more →"
 
-#: .\reua\templates\2026\index\index.html:162
+#: .\reua\templates\2026\index\index.html:168
 msgid "Підземне джерело води"
 msgstr "Groundwater source"
 
-#: .\reua\templates\2026\index\index.html:164
+#: .\reua\templates\2026\index\index.html:170
 msgid "Очищення ReH₂O"
 msgstr "ReH₂O water treatment"
 
-#: .\reua\templates\2026\index\index.html:166
+#: .\reua\templates\2026\index\index.html:172
 msgid "Автономна сонячна енергія"
 msgstr "Autonomous solar power system"
 
-#: .\reua\templates\2026\index\index.html:168
+#: .\reua\templates\2026\index\index.html:174
 msgid "Безпечна питна вода"
 msgstr "Safe drinking water"
 
-#: .\reua\templates\2026\index\index.html:170
+#: .\reua\templates\2026\index\index.html:176
 msgid "Дистанційний моніторинг"
 msgstr "Remote monitoring"
 
-#: .\reua\templates\2026\index\index.html:188
+#: .\reua\templates\2026\index\index.html:194
 msgid "Усі новини"
 msgstr "All news"
 
-#: .\reua\templates\2026\index\index.html:212
+#: .\reua\templates\2026\index\index.html:219
 msgid ""
 "\n"
 "                        Партнери<br>водної стійкості<br>України\n"
@@ -784,12 +1147,12 @@ msgstr ""
 "                        Partners <br>in Ukraine’s <br>Water Resilience\n"
 "                    "
 
-#: .\reua\templates\2026\index\index.html:224
-#: .\reua\templates\2026\index\index.html:235
+#: .\reua\templates\2026\index\index.html:231
+#: .\reua\templates\2026\index\index.html:242
 msgid "Сайт партнера ↗"
 msgstr "Partner website ↗"
 
-#: .\reua\templates\2026\index\index.html:266
+#: .\reua\templates\2026\index\index.html:273
 msgid ""
 "\n"
 "                    <span class=\"plate\">Кожні 3 долари</span>\n"
@@ -803,7 +1166,7 @@ msgstr ""
 "access to safe drinking water for 15 years</span>\n"
 "                "
 
-#: .\reua\templates\2026\index\index.html:272
+#: .\reua\templates\2026\index\index.html:279
 msgid ""
 "\n"
 "                    Інвестиція у водну стійкість — це не разова допомога. Це "
@@ -1294,7 +1657,7 @@ msgstr "Data from all plants are consolidated into a single monitoring system"
 
 #: .\reua\templates\2026\std\feedback_form.html:4
 #: .\reua\templates\2026\std\footer.html:29
-#: .\reua\templates\2026\std\menu.html:73
+#: .\reua\templates\2026\std\menu.html:74
 msgid "Напишіть нам"
 msgstr "Contact us"
 
@@ -1322,8 +1685,8 @@ msgstr "Menu"
 msgid "Документи"
 msgstr "Documents"
 
-#: .\reua\templates\2026\std\footer.html:23 .\reua\views\general.py:195
-#: .\reua\views\general.py:196
+#: .\reua\templates\2026\std\footer.html:23 .\reua\views\general.py:194
+#: .\reua\views\general.py:195
 msgid "Контакти"
 msgstr "Contact Us"
 
@@ -1550,14 +1913,6 @@ msgstr "All news"
 msgid "Останні новини"
 msgstr "Latest news"
 
-#: .\reua\templates\news\news-base.html:59
-msgid "Ми у соцмережах"
-msgstr "We are on social networks"
-
-#: .\reua\templates\news\news-base.html:61
-msgid "Слідкуйте за нашими новинами у соціальних мережах"
-msgstr "Follow our news on social networks"
-
 #: .\reua\templates\pages\about.html:14
 #, fuzzy
 #| msgid ""
@@ -1611,7 +1966,7 @@ msgstr ""
 "unite leading national and international partners around the foundation and "
 "begin systematic work aimed at rebuilding Ukraine."
 
-#: .\reua\templates\pages\about.html:41 .\reua\views\general.py:135
+#: .\reua\templates\pages\about.html:41 .\reua\views\general.py:134
 msgid "Про фонд"
 msgstr "About fund"
 
@@ -1717,10 +2072,6 @@ msgstr ""
 "state gains an instrument for demographic renewal. Investors receive a long-"
 "term infrastructure asset. Ukraine gains a scalable mechanism for national "
 "reconstruction."
-
-#: .\reua\templates\pages\about.html:93
-msgid "Команда"
-msgstr "Team"
 
 #: .\reua\templates\pages\parts\water_stations_slider.html:27
 #: .\reua\templates\projects\common-list.html:15
@@ -2248,8 +2599,8 @@ msgid "Зібрано: "
 msgstr "Collected"
 
 #: .\reua\templates\projects\common-list.html:50
-#: .\reua\templates\std\menu.html:35 .\reua\views\general.py:216
-#: .\reua\views\general.py:258
+#: .\reua\templates\std\menu.html:35 .\reua\views\general.py:215
+#: .\reua\views\general.py:257
 msgid "Зробити внесок"
 msgstr "Donate"
 
@@ -2317,25 +2668,25 @@ msgstr "Apply"
 msgid "Додано компанію до групи компаній"
 msgstr "Added the company to the company group"
 
-#: .\reua\views\general.py:113
+#: .\reua\views\general.py:112
 msgid "Отримано повідомлення"
 msgstr "Message received"
 
-#: .\reua\views\general.py:136
+#: .\reua\views\general.py:135
 msgid "Хто ми?"
 msgstr "Who are we?"
 
-#: .\reua\views\general.py:146 .\reua\views\general.py:147
-#: .\reua\views\general.py:171 .\reua\views\general.py:172
-#: .\reua\views\general.py:239
+#: .\reua\views\general.py:145 .\reua\views\general.py:146
+#: .\reua\views\general.py:170 .\reua\views\general.py:171
+#: .\reua\views\general.py:238
 msgid "Питна вода"
 msgstr "Water"
 
-#: .\reua\views\general.py:189 .\reua\views\general.py:190
+#: .\reua\views\general.py:188 .\reua\views\general.py:189
 msgid "Маріупольський Квартал"
 msgstr "Mariupol Quarter"
 
-#: .\reua\views\general.py:222
+#: .\reua\views\general.py:221
 msgid ""
 "Дякуємо, що ви готові підтримати наш проект з чистої води для мешканців "
 "України!"
@@ -2343,7 +2694,7 @@ msgstr ""
 "Thank you for being ready to support our clean water project for the "
 "residents of Ukraine!"
 
-#: .\reua\views\general.py:264
+#: .\reua\views\general.py:263
 msgid ""
 "Дякуємо, що ви готові підтримати наш проект з відбудови житла для мешканців "
 "України!"
@@ -2351,7 +2702,7 @@ msgstr ""
 "Thank you for being ready to support our project to rebuild housing for "
 "residents of Ukraine!"
 
-#: .\reua\views\general.py:280
+#: .\reua\views\general.py:279
 msgid "Відбудова"
 msgstr "Rebuilding"
 
@@ -2379,6 +2730,12 @@ msgid ""
 msgstr ""
 "The platform works to collect funds to solve the priority humanitarian tasks "
 "of internally displaced persons from Mariupol and Ukraine as a whole."
+
+#~ msgid "Ми у соцмережах"
+#~ msgstr "We are on social networks"
+
+#~ msgid "Слідкуйте за нашими новинами у соціальних мережах"
+#~ msgstr "Follow our news on social networks"
 
 #~ msgid "Опис (українською)"
 #~ msgstr "Description (ukr)"

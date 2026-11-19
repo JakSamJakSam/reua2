@@ -14,6 +14,7 @@ def index2026(request):
     )
     regions = {point.region for point in points}
     stations_count = sum(point.stations_count for point in points)
+    stations_count = 23
     points = [
         {
             'lon': point.lon,
@@ -31,7 +32,7 @@ def index2026(request):
         },
         'stations_count': stations_count,
         'liters': stations_count * 100000,
-        'regions_count': len(regions),
+        'regions_count': 10,#len(regions),
         'points': points,
     }
     return render(request, '2026/index/index.html', ctx)

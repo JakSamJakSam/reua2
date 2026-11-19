@@ -133,7 +133,7 @@ class FeedbackFormView(FormView):
 class AboutView(BreadCrumbsMixin, TemplateView):
     bc = [{'title': _("Про фонд")}]
     page_title = _("Хто ми?")
-    template_name = "pages/about.html"
+    template_name = "2026/index/about.html"
 
     def get_context_data(self, *args, **kwargs):
         ctx = super().get_context_data(*args, **kwargs)

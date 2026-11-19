@@ -1,0 +1,167 @@
+{% extends "reua_base_2026_bs.html" %}
+{% load thumbnail %}
+{% load static %}
+{% load i18n %}
+{% load request_heplers %}
+
+{% block content %}
+    {{ block.super }}
+    <h1 class="text-uppercase">{% trans "Про нас" %}</h1>
+    <p class="fw-bold">
+        {% blocktrans %}
+            Благодійний Фонд «Відбудуємо нашу Україну» (Rebuild Our Ukraine, REUA) — український фонд, заснований у
+            травні 2022 року для підтримки відновлення та розвитку громад України.
+        {% endblocktrans %}
+    </p>
+    <p>
+        {% blocktrans %}
+            Фонд працює над розвитком децентралізованого водопостачання, підтримує критично важливі об’єкти та допомагає
+            громадам залучати фінансування для вирішення нагальних інфраструктурних потреб.
+        {% endblocktrans %}
+    </p>
+    <p>
+        {% blocktrans %}
+            У своїй роботі REUA об’єднує зусилля міжнародних донорів, державних інституцій, бізнесу та місцевих громад,
+            щоб перетворювати наявні ресурси й експертизу на практичні рішення.
+        {% endblocktrans %}
+    </p>
+
+    <div class="row">
+        <div class="col bg-gray200 rounded-3 p-5">
+            <h2 class="text-uppercase">{% trans "Наша місія" %}</h2>
+            <p class="fw-bold">
+                {% blocktrans %}
+                    Сприяти відновленню та розвитку України, поєднуючи потреби громад із можливостями партнерів,
+                    експертизою
+                    та фінансовими ресурсами.
+                {% endblocktrans %}
+            </p>
+            <p>
+                {% blocktrans %}
+                    Ми переконані, що ефективне відновлення починається з розуміння реальних потреб людей і потребує
+                    фахового підходу, відповідального планування та співпраці між різними секторами.
+                {% endblocktrans %}
+            </p>
+        </div>
+    </div>
+
+    <h2 class="text-uppercase mt-4">{% trans "Напрями діяльності" %}</h2>
+    <ol style=" list-style-type: decimal-leading-zero" class="ps-5">
+        <li class="fw-bold h5">
+            <p>{% trans "Децентралізоване водопостачання" %}</p>
+            <p class="text fw-bold">
+                {% blocktrans %}
+                    ReH₂O — національна програма розвитку децентралізованої мережі постачання питної води в Україні.
+                {% endblocktrans %}
+            </p>
+            <p class="text">
+                {% blocktrans %}
+                    Фонд розвиває мережу модульних станцій очищення води в медичних закладах і територіальних громадах.
+                    Вони
+                    забезпечують локальний доступ до безпечної питної води та доповнюють централізовані системи
+                    водопостачання, зокрема там, де їхня робота може бути порушена.
+                {% endblocktrans %}
+            </p>
+        </li>
+        <li class="fw-bold h5">
+            <p>{% trans "Підтримка критично важливої інфраструктури" %}</p>
+            <p class="text fw-bold">
+                {% blocktrans %}
+                    REUA реалізує проєкти, що допомагають забезпечувати безперебійну роботу важливих для громад
+                    об’єктів.
+                {% endblocktrans %}
+            </p>
+            <p class="text">
+                {% blocktrans %}
+                    Один із напрямів — теплопостачання. Зокрема, фонд реалізував проєкт із передачі блочно-модульної
+                    котельні потужністю 2,8 МВт для потреб «Центру інноваційних технологій охорони здоров’я».
+                {% endblocktrans %}
+            </p>
+        </li>
+        <li class="fw-bold h5">
+            <p>{% trans "Залучення фінансування та інвестицій" %}</p>
+            <p class="text fw-bold">
+                {% blocktrans %}
+                    Фонд допомагає громадам знаходити фінансові можливості для реалізації інфраструктурних проєктів, які
+                    складно профінансувати власними силами.
+                {% endblocktrans %}
+            </p>
+            <p class="text">
+                {% blocktrans %}
+                    REUA сприяє визначенню потенційних джерел фінансування, пошуку міжнародних донорів та інвесторів і
+                    налагодженню партнерств для залучення міжнародних ресурсів і приватного капіталу.
+                {% endblocktrans %}
+            </p>
+        </li>
+    </ol>
+
+    <h2 class="text-uppercase">{% trans "Засновник і президент фонду"%}</h2>
+    <p class="fw-bold">
+        {% blocktrans %}
+            Олег Кленін — засновник і президент благодійного фонду «Відбудуємо нашу Україну», доктор економічних наук,
+            професор.
+        {% endblocktrans %}
+    </p>
+    <p class="">
+        {% blocktrans %}
+            Має понад 30 років професійного досвіду в управлінні підприємствами та реалізації проєктів у промисловості,
+            машинобудуванні, будівництві й енергетиці. Його досвід охоплює модернізацію виробничих потужностей,
+            управління інвестиційними проєктами, розвиток систем водопостачання та водопідготовки, а також упровадження
+            рішень з енергоефективності.
+        {% endblocktrans %}
+    </p>
+    <p class="">
+        {% blocktrans %}
+            Після початку повномасштабного вторгнення заснував REUA, щоб спрямувати свій професійний досвід на підтримку
+            українських громад.
+        {% endblocktrans %}
+    </p>
+
+    <h3 class="mt-2 landing_title">{% trans "Команда" %}</h3>
+    <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-4">
+        {% for staff in staffs %}
+            <li style="width: 14rem">
+                <a href="#" class="d-block text-center text-dark text-decoration-none" data-bs-toggle="modal"
+                   data-bs-target="#staff_{{ staff.pk }}">
+                    {% if staff.photo %}
+                        {% thumbnail staff.photo "150x150" format="PNG" upscale=True crop='center' as im %}
+                            <img src="{{ im.url }}" class="rounded-circle"
+                                 alt="{{ staff.localized_name }}"
+                            />
+                        {% endthumbnail %}
+                    {% endif %}
+                    <div class="fs-5 fw-bold">{{ staff.localized_name }}</div>
+                    <div class="fst-italic">{{ staff.localized_position }}</div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% for staff in staffs %}
+        <div class="modal fade" id="staff_{{ staff.pk }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-light">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                {% thumbnail staff.photo "100x100" format="PNG" upscale=True crop='center' as im %}
+                                    <img src="{{ im.url }}" class="rounded-circle"
+                                         alt="{{ staff.localized_name }}">
+                                {% endthumbnail %}
+                            </div>
+                            <div class="ms-3">
+                                <div class="fs-4">{{ staff.localized_name }}</div>
+                                <div>{{ staff.localized_position }}</div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-close align-self-baseline" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body mb-5">
+                        {{ staff.localized_descriprion|bleach_sanitarize|safe }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
