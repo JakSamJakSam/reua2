@@ -37,6 +37,18 @@
                         </a>
                     </li>
                 {% endfor %}
+                <li class="list-group-item bg-transparent">
+                    <a href="{% url "water-projects" %}"
+                       class="text-dark text-decoration-none w-100 d-flex align-items-center">
+                        <span class="flex-fill fs-5">
+                            {% trans "Проєкти" %}
+                        </span>
+                        <span class="small text-muted">
+                            {{ projects_count|default:"-" }}
+                        </span>
+
+                    </a>
+                </li>
             </ul>
             {% if latest_news %}
                 <h3 class="fw-bold">{% trans "Останні новини" %}</h3>

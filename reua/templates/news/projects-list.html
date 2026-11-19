@@ -1,0 +1,27 @@
+{% extends "news/news-base.html" %}
+{% load thumbnail %}
+
+{% block left_side %}
+    {{ block.super }}
+    <ul class="list-unstyled row row-cols-md-2 row-cols-1">
+        {% for p in projects %}
+            <li class="col mb-4">
+                <div class="card h-100 bg-transparent border-0 ">
+                    {% thumbnail p.image "300x300" format="PNG" upscale=True crop='center' as im %}
+                        <a href="{% url "water-project-item" pk=p.pk %}">
+                            <img src="{{ im.url }}" class="card-_img-top rounded"
+                                 alt="{{ p.localized_title }}" width="60%">
+                        </a>
+                    {% endthumbnail %}
+                    <div class="card-body ps-0">
+                        <a href="{% url "water-project-item" pk=p.pk %}" class="text-dark text-decoration-none">
+                            <h4 class="card-title fw-bolder">{{ p.localized_title }}</h4>
+                        </a>
+                        <p class="card-text lead fw-normal">{{ p.localized_for_region|default:p.localized_for_city }}</p>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    {% include "std/pagination.html" %}
+{% endblock %}

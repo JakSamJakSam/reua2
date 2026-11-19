@@ -1,9 +1,8 @@
 from .views import *
 from django.urls import path, include
 
-from .views.general import WaterNewView, NewIndexView
 from .views.general2026 import index2026, water2026
-from .views.projects import DetailWaterProjectView
+from .views.news import DetailWaterProjectView, ListWaterProjectView
 
 # app_name = 'reua'
 
@@ -20,13 +19,14 @@ urlpatterns = [
     # path('investition/new/', Addinvestition.as_view(), name='investition-create'),
     # path('projects/', ListProjectView.as_view(), name='project-list'),
     # path('projects/<int:pk>/', DetailProjectView.as_view(), name='project-item'),
-    # # path('water/', WaterView.as_view(), name='water'),
-    # path('water-projects/<int:pk>/', DetailWaterProjectView.as_view(), name='water-project-item'),
+    # path('water/', WaterView.as_view(), name='water'),
     path('about/', AboutView.as_view(), name='about'),
     path('rebuild/', RebuildView.as_view(), name='rebuild'),
     path('contacts/', ContactsView.as_view(), name='contacts'),
     path('news/', ListNewsView.as_view(), name='news-list'),
     path('news/<str:slug>/', DetailNewsView.as_view(), name='news-item'),
+    path('projects/', ListWaterProjectView.as_view(), name='water-projects'),
+    path('projects/<int:pk>/', DetailWaterProjectView.as_view(), name='water-project-item'),
     path('pdf/<int:pk>/', FileView.as_view(), name='pdf-item'),
     # path('pay/ReH2O/', ReH2OPaymentNewView.as_view(), name='Pay_ReH2O'),
     # path('pay/ReCity/', ReCityPaymentNewView.as_view(), name='Pay_ReCity'),
