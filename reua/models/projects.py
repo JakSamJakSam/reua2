@@ -29,7 +29,7 @@ for_values = {
 
 
 class Project(SortableMixin, models.Model):
-    kind = models.PositiveSmallIntegerField(verbose_name=_('Тип'), choices=[(k,v) for k, v in kind_project_values.items()])
+    # kind = models.PositiveSmallIntegerField(verbose_name=_('Тип'), choices=[(k,v) for k, v in kind_project_values.items()])
     title = models.CharField(max_length=100, verbose_name=_('Назва (українською)'))
     title_en = models.CharField(max_length=100, verbose_name=_('Назва (англійською)'), blank=True)
 
