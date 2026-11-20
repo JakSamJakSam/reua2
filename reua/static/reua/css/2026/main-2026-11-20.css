@@ -3581,7 +3581,7 @@ Side menu
   aspect-ratio: 1200/1400;
   margin-top: 0;
   overflow: hidden;
-  --map-width: calc(var(--wrapper-max-width) - var(--wrapper-padding-x) * 2);
+  --map-width: calc(var(--wrapper-max-width) - var(--wrapper-padding-x) * 2 - 36px);
 }
 .sys .sysmap .ua {
   position: absolute;
@@ -4098,4 +4098,4 @@ Side menu
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main-2026-11-20.css.map */

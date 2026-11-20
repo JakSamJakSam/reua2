@@ -1584,7 +1584,7 @@
     aspect-ratio: 1200 / 1400;
     margin-top: 0;
     overflow: hidden;
-    --map-width: calc(var(--wrapper-max-width) - var(--wrapper-padding-x) * 2);
+    --map-width: calc(var(--wrapper-max-width) - var(--wrapper-padding-x) * 2 - 36px);
 
     .ua {
       position: absolute;
