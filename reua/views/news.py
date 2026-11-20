@@ -77,7 +77,7 @@ class ListWaterProjectView(BreadCrumbsMixin, NewsMixin, ListView):
     context_object_name = 'projects'
 
 
-class DetailWaterProjectView(BreadCrumbsMixin, DetailView):
+class DetailWaterProjectView(BreadCrumbsMixin, NewsMixin, DetailView):
     model = Project
     context_object_name = 'project'
     template_name = 'news/project-item.html'
