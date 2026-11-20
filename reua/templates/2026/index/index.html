@@ -199,7 +199,7 @@
                     <a class="card rv {% if forloop.counter > 2 %} d-none d-md-block {% endif %}"
                        href="{% url "water-project-item" pk=news_item.pk %}"
                        style="--d:0.{{ forloop.counter }}s">
-                        {% thumbnail news_item.image "280x440" crop='center' as im %}
+                        {% thumbnail news_item.image "560x880" crop='center' as im %}
                             <img src="{{ im.url }}" alt="" loading="lazy">
                             <span class="reg">{{ news_item.localized_for_region|default:news_item.localized_for_city }}</span>
                         {% endthumbnail %}
@@ -227,7 +227,7 @@
                     {% for partner in parnters.r1 %}
                         <a class="logo-i" href="{{ partner.url }}" aria-label="{{ partner.localized_title }}"
                            target="_blank">
-                            {% thumbnail partner.logo "x100" format='PNG' upscale=True as im %}
+                            {% thumbnail partner.logo "x200" format='PNG' upscale=True as im %}
                                 <img src="{{ im.url }}" alt="{{ partner.localized_title }}">
                                 <em>{% trans "Сайт партнера ↗" %}</em>
                             {% endthumbnail %}

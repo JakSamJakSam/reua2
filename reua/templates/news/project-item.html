@@ -22,6 +22,9 @@
                     </div>
                 {% endif %}
             </div>
+            {% thumbnail project.image "800" format="PNG" crop='center' as im %}
+                <img alt="{{ project.localized_title }}" src="{{ im.url }}"/>
+            {% endthumbnail %}
 
             {{ project.localized_desc|safe }}
             <div class="result">
@@ -31,13 +34,8 @@
             </div>
             {% if photos|length %}
                 <ul id="lightgallery" class="d-flex gap-2 list-unstyled flex-wrap">
-                    {% thumbnail project.image "800" format="PNG" crop='center' as im %}
-                        <li class="gallery-item w-100 " data-src="{{ project.image.url }}">
-                            <img alt="{{ project.localized_title }}" src="{{ im.url }}"/>
-                        </li>
-                    {% endthumbnail %}
                     {% for image in photos %}
-                        {% thumbnail image.image "x100" format="PNG" upscale=True crop='center' as im %}
+                        {% thumbnail image.image "x100" format="PNG" upscale=True crop='smart' as im %}
                             <li class="gallery-item" data-src="{{ image.image.url }}">
                                 <img alt="{{ image.localized_title }}" src="{{ im.url }}"/>
                             </li>
