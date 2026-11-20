@@ -13,10 +13,10 @@
     {% with project.photos.all as photos %}
         <div>
             <h1>{{ project.localized_title }}</h1>
-            <div class="d-flex align-items-baseline gap-2">
+            <div class="d-flex align-items-baseline gap-2 flex-column flex-md-row">
                 <h2 class="fw-bold">{{ project.localized_for1 }} {{ project.localized_for_city }}</h2>
                 {% if project.localized_for_region %}
-                    <div class="ms-auto d-flex align-items-baseline">
+                    <div class="ms-0 ms-md-auto d-flex align-items-baseline">
                         <object data="{% static "reua/img/_b/geo.svg" %}" type=""></object>
                         <h2>{{ project.localized_for_region }}</h2>
                     </div>
