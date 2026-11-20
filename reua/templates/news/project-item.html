@@ -23,7 +23,7 @@
                 {% endif %}
             </div>
             {% thumbnail project.image "800" format="PNG" crop='center' as im %}
-                <img alt="{{ project.localized_title }}" src="{{ im.url }}"/>
+                <img alt="{{ project.localized_title }}" src="{{ im.url }}" class="w-100 rounded"/>
             {% endthumbnail %}
 
             {{ project.localized_desc|safe }}
