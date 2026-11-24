@@ -42,6 +42,7 @@ class Project(SortableMixin, models.Model):
     # target = models.DecimalField(verbose_name=_('Потрібно'), max_digits=13, decimal_places=0)
     # current = models.DecimalField(verbose_name=_('Зібрано'), max_digits=13, decimal_places=0, blank=True, default=0)
     closed = models.BooleanField(verbose_name=_('Завершено'), blank=True, default=False)
+    date = models.DateField(verbose_name=_('Дата'), auto_now_add=True)
 
     # currency = models.CharField(max_length=3, verbose_name=_('Валюта'), choices=[(e, v) for e,v in currencies.items()], default='USD')
 

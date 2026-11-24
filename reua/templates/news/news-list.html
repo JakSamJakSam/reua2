@@ -7,7 +7,7 @@
         {% for n in news %}
             <li class="col mb-4">
                 <div class="card h-100 bg-transparent border-0 ">
-                    {% thumbnail n.image "480x270" format="PNG" upscale=True crop='smart' as im %}
+                    {% thumbnail n.image "480x360" format="PNG" upscale=True crop='smart' as im %}
                         <a href="{% url "news-item" slug=n.slug %}">
                             <img src="{{ im.url }}" class="card-img-top rounded"
                                  alt="{{ n.localized_title }}" width="60%">

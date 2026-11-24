@@ -204,7 +204,7 @@
                             <span class="reg">{{ news_item.localized_for_region|default:news_item.localized_for_city }}</span>
                         {% endthumbnail %}
                         <div class="body">
-                            <time>12.09.2026</time>
+                            <time>{{ news_item.date }}</time>
                             <h3>{{ news_item.localized_title }}</h3><span class="arr">→</span>
                         </div>
                     </a>
