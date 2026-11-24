@@ -121,12 +121,12 @@ class ProjectAdmin(SortableAdmin):
     inlines = [
         ProjectPhotoInline,
     ]
-    list_display = ('title', 'for_city', 'for_region', 'closed')
+    list_display = ('title', 'date', 'for_city', 'for_region', 'closed')
     # summernote_fields = ('desc', 'desc_en')
     fieldsets = [
         ('Назва та опис', {
             'fields': [
-                'title', 'desc', 'image'
+                'title', 'date', 'desc', 'image'
             ],
         }),
         ('Назва та опис (англ)', {
