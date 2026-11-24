@@ -126,7 +126,7 @@ class ProjectAdmin(SortableAdmin):
     fieldsets = [
         ('Назва та опис', {
             'fields': [
-                'title', 'desc', 'image', 'date'
+                'title', 'desc', 'image'
             ],
         }),
         ('Назва та опис (англ)', {
