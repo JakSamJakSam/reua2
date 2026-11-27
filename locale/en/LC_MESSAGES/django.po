@@ -2721,7 +2721,7 @@ msgstr "Press"
 
 #: .\templates\base.html:6 .\templates\base2026.html:6
 msgid "Благодійний Фонд «Відбудуємо нашу Україну»"
-msgstr "«Rebuilding our Ukraine» Foundation"
+msgstr "Rebuilding our Ukraine Foundation"
 
 #: .\templates\base.html:7 .\templates\base2026.html:7
 msgid ""

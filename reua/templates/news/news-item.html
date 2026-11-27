@@ -12,7 +12,9 @@
 {% block left_side %}
     {{ block.super }}
     <h3>{{ news.localized_title }}</h3>
-    {{ news.localized_body|safe }}
+    <div class="news-text">
+        {{ news.localized_body|safe }}
+    </div>
     {% with news.newsimages_set.all as images %}
         <ul id="lightgallery" class="d-flex gap-2 list-unstyled flex-wrap">
             {% thumbnail news.image "800" format="PNG" crop='center' as im %}

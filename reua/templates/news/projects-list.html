@@ -7,7 +7,7 @@
         {% for p in projects %}
             <li class="col mb-4">
                 <div class="card h-100 bg-transparent border-0 ">
-                    {% thumbnail p.image "480x360" format="PNG" upscale=True crop='smart' as im %}
+                    {% thumbnail p.image "480x360" format="PNG" upscale=True crop='center center' as im %}
                         <a href="{% url "water-project-item" pk=p.pk %}">
                             <img src="{{ im.url }}" class="card-img-top rounded"
                                  alt="{{ p.localized_title }}" width="60%">
