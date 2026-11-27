@@ -4097,6 +4097,9 @@ Side menu
     width: unset;
   }
 }
+.news-text {
+  font-size: Montserrat, sans-serif !important;
+}
 .news-text * {
   font-size: Montserrat, sans-serif !important;
 }
